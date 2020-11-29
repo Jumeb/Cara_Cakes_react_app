@@ -1,11 +1,98 @@
-body {
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: inherit;
 }
+
+html {
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 43.75%;
+  }
+}
+
+@media only screen and (max-width: 25.75em) {
+  html {
+    font-size: 37.5%;
+  }
+}
+
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #c71585;
+  color: #fff;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  position: relative;
+  overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+  width: .8rem;
+  background-color: #c0bbbb;
+  border-radius: 2rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  width: .8rem;
+  background-color: rgba(255, 20, 147, 0.8);
+  border-radius: 2rem;
+}
+
+.para {
+  font-size: 1.6rem;
+  margin-top: 1.2rem;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.para:not(:last-child) {
+  margin-bottom: 6rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .para {
+    padding: 0 3rem;
+  }
+}
+
+@media only screen and (max-width: 25.75em) {
+  .para {
+    padding: 0 1.8rem;
+  }
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

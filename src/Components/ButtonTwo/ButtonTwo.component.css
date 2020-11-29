@@ -1,0 +1,49 @@
+.btn-2 {
+    transition: all .4s ease-in-out;
+    color: #fff;
+    padding: 1.2rem 3.5rem;
+    margin: 2rem .5rem;
+    border: none;
+    display: inline-block;
+    font-size: 1.4rem;
+    border-radius: 10rem;
+    width: 17rem;
+    background-color: transparent;
+}
+
+.btn-2:link,
+.btn-2:visited {
+    text-decoration: none;
+    padding: 1rem 3.5rem;
+}
+
+.btn-2:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+}
+
+.btn-2:active {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.btn-2__icon {
+    margin: auto -.8rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease-in;
+}
+
+@media only screen and (max-width: 56.25rem),
+only screen and (hover: none) {
+    .btn-2__icon {
+        padding-left: 2.5rem;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.btn-2__hover-icon:hover .btn-2__icon {
+    padding-left: 2.5rem;
+    opacity: 1;
+    margin-left: -1.8rem;
+    visibility: visible;
+}

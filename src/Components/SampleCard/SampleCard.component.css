@@ -1,0 +1,326 @@
+.card {
+    perspective: 250rem;
+    -moz-perspective: 250rem;
+    width: 90%;
+    height: 54rem;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.card__view {
+    height: 50rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-top: 2rem;
+    transition: all .9s ease;
+}
+
+.card__view--front {
+    background-color: #fff;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.card__view--back {
+    transform: rotateY(180deg);
+}
+
+.card__view--back-1 {
+    background-image: linear-gradient(to right bottom, #ff1493, #c71585);
+}
+
+.card__view--back-2 {
+    background-image: linear-gradient(to right bottom, red, darkred);
+}
+
+.card__view--back-3 {
+    background-image: linear-gradient(to right bottom, #a0522d, #8b4513);
+}
+
+.card__pic {
+    height: 25rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+}
+
+.card__pic-1 {
+    background-image: linear-gradient(to right, rgba(255, 20, 147, 0.7), rgba(199, 21, 133, 0.8)), url(../../res/img/cups-2.jpg);
+    background-position: top;
+    background-size: cover;
+}
+
+.card__pic-2 {
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.8), rgba(139, 0, 0, 0.9)), url(../../res/img/chris-1.jpg);
+    background-position: top;
+    background-size: cover;
+}
+
+.card__pic-3 {
+    background-image: linear-gradient(to right, rgba(160, 82, 45, 0.7), rgba(139, 69, 19, 0.8)), url(../../res/img/bds-3.jpg);
+    background-position: top;
+    background-size: cover;
+}
+
+.card__list {
+    width: 75%;
+    list-style: none;
+    font-size: 1.4rem;
+    margin: 0 auto;
+    color: #000;
+}
+
+.card__list-1 li {
+    padding: .5rem;
+}
+
+.card__list-1 li:not(:last-child) {
+    border-bottom: 2px solid rgba(199, 21, 133, 0.7);
+}
+
+.card__list-2 li {
+    padding: .5rem;
+}
+
+.card__list-2 li:not(:last-child) {
+    border-bottom: 2px solid rgba(139, 0, 0, 0.7);
+}
+
+.card__list-3 li {
+    padding: .5rem;
+}
+
+.card__list-3 li:not(:last-child) {
+    border-bottom: 2px solid rgba(139, 69, 19, 0.7);
+}
+
+.card__just {
+    color: #fff;
+    font-size: 2rem;
+}
+
+@media (max-width: 56.25em) {
+    .card__just {
+        font-size: .2rem;
+    }
+}
+
+.card__price {
+    color: #fff;
+    font-size: 4rem;
+}
+
+@media (max-width: 56.25em) {
+    .card__price {
+        font-size: 1rem;
+    }
+}
+
+.card__heading {
+    padding: 2rem 0;
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.card__heading-1 {
+    background-image: linear-gradient(to right, #c71585, #ff69b4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.card__heading-2 {
+    background-image: linear-gradient(to right, darkred, red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.card__heading-3 {
+    background-image: linear-gradient(to right, #8b4513, #a0522d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@media only screen and (max-width: 56.25rem),
+only screen and (hover: none) {
+    .card {
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 56.25rem) and (max-width: 56.25em),
+only screen and (hover: none) and (max-width: 56.25em) {
+    .card {
+        width: 105%;
+    }
+}
+
+@media only screen and (max-width: 56.25rem) and (max-width: 37.5em),
+only screen and (hover: none) and (max-width: 37.5em) {
+    .card {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 56.25rem) and (max-width: 25.75em),
+only screen and (hover: none) and (max-width: 25.75em) {
+    .card {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 56.25rem),
+only screen and (hover: none) {
+    .card__view {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        overflow: hidden;
+        border-radius: 4px;
+        transition: all .9s ease;
+    }
+
+    .card__view--front {
+        background-color: #fff;
+        overflow: hidden;
+        z-index: 1;
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%);
+    }
+
+    .card__view--back {
+        margin-top: -26%;
+        height: auto;
+        transform: none;
+    }
+}
+
+@media only screen and (max-width: 56.25rem) and (max-width: 37.5em),
+only screen and (hover: none) and (max-width: 37.5em) {
+    .card__view--back {
+        margin-top: -10%;
+    }
+}
+
+@media only screen and (max-width: 56.25rem) and (max-width: 25.75em),
+only screen and (hover: none) and (max-width: 25.75em) {
+    .card__view--back {
+        margin-top: -13%;
+    }
+}
+
+@media only screen and (max-width: 56.25rem),
+only screen and (hover: none) {
+    .card__just {
+        color: #fff;
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 56.25rem) and (max-width: 56.25em),
+only screen and (hover: none) and (max-width: 56.25em) {
+    .card__just {
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-width: 56.25rem) and (max-width: 37.5em),
+only screen and (hover: none) and (max-width: 37.5em) {
+    .card__just {
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (max-width: 56.25rem),
+only screen and (hover: none) {
+    .card__price {
+        color: #fff;
+        font-size: 4rem;
+        margin-bottom: -5rem;
+    }
+}
+
+@media only screen and (max-width: 56.25rem) and (max-width: 56.25em),
+only screen and (hover: none) and (max-width: 56.25em) {
+    .card__price {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 56.25rem) and (max-width: 37.5em),
+only screen and (hover: none) and (max-width: 37.5em) {
+    .card__price {
+        font-size: 2.9rem;
+    }
+}
+
+@media only screen and (max-width: 56.25rem),
+only screen and (hover: none) {
+    .card__heading {
+        padding: 2rem 0;
+        font-size: 1.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .card__heading-1 {
+        background-image: linear-gradient(to right, #c71585, #ff69b4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .card__heading-2 {
+        background-image: linear-gradient(to right, darkred, red);
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .card__heading-3 {
+        background-image: linear-gradient(to right, #8b4513, #a0522d);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+.card:hover .card__view--front {
+    transform: rotateY(-180deg);
+    z-index: -1;
+    left: -.007rem;
+}
+
+@media only screen and (max-width: 56.25rem),
+only screen and (hover: none) {
+    .card:hover .card__view--front {
+        transform: none;
+        z-index: 3;
+        left: 0;
+    }
+}
+
+.card:hover .card__view--back {
+    transform: rotateY(0);
+}
+
+.margin-top-huge {
+    margin-top: 13rem;
+}
+
+.margin-bottom-medium {
+    margin-bottom: 8rem;
+}
