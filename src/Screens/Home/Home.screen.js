@@ -1,16 +1,23 @@
 import React, { useEffect } from 'react';
 
-import {Header} from '../../Components';
-import {HeaderSection, About, Sample} from '../../sections';
+import './Home.screen.css';
+import {Header, NavBar} from '../../Components';
+import {HeaderSection, About, Sample, Baker, Contact, Footer} from '../../sections';
 
 const Home = () => {
     return (
-        <>
-            <Header />
-            <HeaderSection />
-            <About />
-            <Sample />
-        </>
+        <body className="back-home">
+            <main>
+                <Header />
+                <HeaderSection />
+                <About />
+                <Sample />
+                <Baker />
+                <Contact />
+                <Footer />
+            </main>
+            <NavBar />
+        </body>
     )
 }
 

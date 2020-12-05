@@ -9,11 +9,11 @@ const Header = (props) => {
     return (
         <div className="container">
             <img src={logo} alt="CaraCakes" className="container__logo" />
-             <nav className="container__nav">
+             {/* <nav className="container__nav">
                  <ul className="container__nav--list">
                     {links.map((link, index) => <Links data={link} />)}
                  </ul>
-             </nav>
+             </nav> */}
         </div>
     )
 };

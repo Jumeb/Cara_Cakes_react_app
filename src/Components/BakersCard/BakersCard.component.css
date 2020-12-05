@@ -1,0 +1,127 @@
+.col-1-4 {
+    flex: 0 0 calc((100% - (3 * 4rem)) / 4);
+    text-align: left;
+}
+
+.info {
+    width: 100%;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+    padding: 1rem .9rem;
+    -moz-hyphens: auto;
+    border-radius: 4px;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.info::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media only screen and (max-width: 75em) {
+    .info {
+        height: 40rem;
+    }
+}
+
+@media only screen and (max-width: 67.5em) {
+    .info {
+        padding: .8rem .7rem;
+        height: 47rem;
+    }
+}
+
+@media (max-width: 56.25em) {
+    .info {
+        height: 35rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .info {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .info {
+        height: 40rem;
+    }
+}
+
+.info .para abbr {
+    text-decoration: none;
+}
+
+.txt-cnt {
+    text-align: center;
+}
+
+.info__pic {
+    margin: -5rem 0;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.info__pic--round {
+    width: 8rem;
+    height: 8rem;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+}
+
+.info__img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(130%);
+}
+
+.info__name {
+    width: 50%;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #000;
+    opacity: 0;
+    position: absolute;
+    transform: translate(-50%, -250%);
+    transition: all .4s;
+}
+
+@media only screen and (max-width: 67.5em) {
+    .info__name {
+        font-size: 1.4rem;
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 56.25em),
+only screen and (hover: none) {
+    .info__name {
+        transform: translate(80%, -190%);
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .info__name {
+        font-size: 1.8rem;
+    }
+}
+
+.info:hover .info__name {
+    transform: translateY(-250%) translateX(-30%);
+    opacity: 1;
+}
+
+@media only screen and (max-width: 75em) {
+    .info:hover .info__name {
+        transform: translate(80%, -190%);
+    }
+}
+
+.txt-lt {
+    text-align: left;
+}
