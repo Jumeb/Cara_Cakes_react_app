@@ -46,6 +46,7 @@ import logo5 from './caracakes5.png';
 import logo6 from './caracakes6.png';
 import logo7 from './caracakes7.png';
 import logo8 from './caracakes8.png';
+import jbInc from './jbInc.png';
 
 export {
     cups1,
@@ -96,4 +97,5 @@ export {
     logo6,
     logo7,
     logo8,
+    jbInc,
 }

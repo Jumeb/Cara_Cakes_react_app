@@ -4,5 +4,6 @@ import Links from './Links/Links.component';
 import SampleCard from './SampleCard/SampleCard.component';
 import ButtonTwo from './ButtonTwo/ButtonTwo.component';
 import BakersCard from './BakersCard/BakersCard.component';
+import NavBar from './NavBar/NavBar.component';
 
-export {Header, ButtonOne, Links, SampleCard, ButtonTwo, BakersCard};
+export {Header, ButtonOne, Links, SampleCard, ButtonTwo, BakersCard, NavBar};

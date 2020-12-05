@@ -1,20 +1,23 @@
 import React from 'react';
 
+import './BakersCard.component.css'
+import {pans1} from '../../res/img';
+
 const BakersCard = (props) => {
     const {baker} = props;
     return (
-        <div class="col-1-4">
-            <div class="info txt-cnt">
-                <h3 class="title-lil-3">The Founder</h3>
-                <p class="para txt-cnt">
-                    {baker.about} 
+        <div className="col-1-4">
+            <div className="info txt-cnt">
+                <h3 className="title-lil-3">The Founder</h3>
+                <p className="para txt-cnt">
+                    I really loved baking from when I was really young, because my mum did a lot of baking. Growing up I used to supply power to my mum in the mixing and checking. Now I am used to it and I did a lot of experimenting.
                 </p>
-                <div class="info__pic">
-                    <div class="info__pic--round">
-                        <img src="{baker.image}" alt="Founder" class="info__img" />
+                <div className="info__pic">
+                    <div className="info__pic--round">
+                        <img src={pans1} alt="Founder" className="info__img" />
                     </div>
                     <a href="/pastries/<%= baker.name %>?genre=Birthday-cake"
-                        class="info__name txt-lt">{baker.user_name}</a>
+                        className="info__name txt-lt">{baker.name}</a>
                 </div>
             </div>
         </div>

@@ -60,7 +60,9 @@
 .sec-abt {
     background-color: #fff;
     padding: 18rem 0 7rem 0;
+    z-index: 30;
     margin-top: -21.5vh;
+    padding-bottom: 25rem;
 }
 
 @media only screen and (max-width: 75em) {
