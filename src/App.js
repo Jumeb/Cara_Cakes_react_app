@@ -1,11 +1,11 @@
 import './App.css';
 import './styles/all.css';
-import {Home, Login, Register, Admin} from './Screens';
+import {Home, Login, Register, Admin, User} from './Screens';
 
 function App() {
   return (
     <div className="App">
-      <Admin />
+      <User />
     </div>
   );
 }

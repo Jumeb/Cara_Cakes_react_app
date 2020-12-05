@@ -1,0 +1,17 @@
+.panel {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@media (max-width: 56.25em) {
+    .panel {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 50em) {
+    .panel {
+        flex-direction: column;
+    }
+}

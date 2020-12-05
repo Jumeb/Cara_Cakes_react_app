@@ -6,6 +6,8 @@ import Contact from './Contact/Contact.section';
 import Footer from './Footer/Footer.section';
 import LoginSection from './Login/Login.section';
 import RegisterSection from './Register/Register.section';
+import SideNav from './SideNav/SideNav.section';
+import UserSection from './User/User.section';
 
 export {
     HeaderSection,
@@ -16,4 +18,6 @@ export {
     Footer, 
     LoginSection,
     RegisterSection,
+    SideNav,
+    UserSection,
 };
