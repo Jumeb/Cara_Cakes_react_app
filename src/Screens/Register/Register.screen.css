@@ -1,0 +1,7 @@
+.back-signup {
+    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.2), rgba(255, 20, 147, 0.3), rgba(199, 21, 133, 0.5)), url(../../res/img/vals-3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}

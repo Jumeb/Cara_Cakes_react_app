@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import './Home.screen.css';
 import {Header, NavBar} from '../../Components';
