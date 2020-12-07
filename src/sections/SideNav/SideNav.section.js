@@ -1,21 +1,21 @@
 import React from 'react';
 
 import './SideNav.section.css'
-import {logo4} from '../../res/img';
+import {favicon} from '../../res/img';
 
 const SideNav = () => {
     return (
         <div className="panel__user">
             <ul className="panel-side-nav">
-            <img src={logo4} alt="Logo" className="panel__logo" />
-                <li className="panel-side-nav__item  <%= path === '/user/bakers' ? 'panel-side-nav__item--active' : '' %>">
-                    <a href="/user/bakers" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-cart-plus"></span> <span>Shop</span>
-                    </a>
-                </li>
+            <img src={favicon} alt="Logo" className="panel__logo" />
                 <li className="panel-side-nav__item  <%= path === '/user/cart' ? 'panel-side-nav__item--active' : '' %>">
                     <a href="/user/cart" className="panel-side-nav__link">
                         <span className="panel-side-nav__icon fas fa-shopping-basket"></span> <span>My Cart</span>
+                    </a>
+                </li>
+                <li className="panel-side-nav__item  <%= path === '/user/bakers' ? 'panel-side-nav__item--active' : '' %>">
+                    <a href="/user/bakers" className="panel-side-nav__link">
+                        <span className="panel-side-nav__icon fas fa-cart-plus"></span> <span>Shop</span>
                     </a>
                 </li>
                 <li className="panel-side-nav__item  <%= path === '/user' ? 'panel-side-nav__item--active' : '' %>">
