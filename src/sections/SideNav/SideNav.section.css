@@ -18,11 +18,10 @@
 }
 
 .panel__logo {
-    height: 8.9rem;
-    width: 8.9rem;
-    align-self: center;
-    margin: 1.5rem 0;
-    filter: brightness(0) invert(1);
+    height: 9rem;
+    width: 9rem;
+    margin: 1.7rem 0;
+    filter: invert(49%) sepia(93%) saturate(7416%) hue-rotate(315deg) brightness(101%) contrast(106%);
 }
 
 .panel-side-nav {

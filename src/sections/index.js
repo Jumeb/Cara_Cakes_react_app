@@ -7,7 +7,8 @@ import Footer from './Footer/Footer.section';
 import LoginSection from './Login/Login.section';
 import RegisterSection from './Register/Register.section';
 import SideNav from './SideNav/SideNav.section';
-import UserSection from './User/User.section';
+import Cart from './Cart/Cart.section';
+import {Bakers, Pastries} from './Shop';
 
 export {
     HeaderSection,
@@ -19,5 +20,7 @@ export {
     LoginSection,
     RegisterSection,
     SideNav,
-    UserSection,
+    Cart,
+    Bakers,
+    Pastries,
 };
