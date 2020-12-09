@@ -7,7 +7,9 @@ import {
     Bakers, 
     Pastries, 
     Orders,
-    Events, 
+    Events,
+    AddEvent,
+    EditEvent,
     
 } from '../../sections';
 import { WorkArea } from '../../Components';

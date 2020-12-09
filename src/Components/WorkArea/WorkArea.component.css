@@ -1,8 +1,9 @@
 .panel__event {
     flex: 0 0 80%;
-    padding: 1rem 0;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .panel__event::-webkit-scrollbar {
@@ -33,4 +34,17 @@
     .panel__event {
         padding: 3rem 4rem;
     }
+}
+
+.panel__event-header {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.2rem 0;
+    width: 100%;
+    background-color: #ffffffe5;
+    justify-content: center;
 }

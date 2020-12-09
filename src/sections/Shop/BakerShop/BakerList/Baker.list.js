@@ -1,4 +1,5 @@
 import React from 'react';
+import { Spacer } from '../../../../Components';
 
 import { cookies4, cups2, dons3, logo5, pans4, vals2, vals3 } from '../../../../res/img';
 import './Baker.list.css'
@@ -6,6 +7,7 @@ import './Baker.list.css'
 const BakerList = () => {
     return (
         <div className="bakers__list">
+            <Spacer />
             <div className="baker__list-imgContainer">
                 <div className="baker__list-title">
                     <h2>Company Name</h2>

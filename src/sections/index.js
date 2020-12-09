@@ -11,6 +11,8 @@ import Cart from './Cart/Cart.section';
 import {Bakers, Pastries} from './Shop';
 import Orders from './Order/Order.section';
 import Events from './Events/Event.section';
+import AddEvent from './AddEvent/AddEvent.section';
+import EditEvent from './EditEvent/EditEvent.section';
 
 export {
     HeaderSection,
@@ -27,4 +29,6 @@ export {
     Bakers,
     Orders,
     Events,
+    AddEvent,
+    EditEvent,
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Spacer } from '../../../../Components';
 
 import { cookies4, cups2, dons3, logo5, pans4, vals2, vals3 } from '../../../../res/img';
 import './Pastry.list.css'
@@ -6,6 +7,7 @@ import './Pastry.list.css'
 const PastryList = () => {
     return (
         <div className="pastries__list">
+            <Spacer />
             <div className="pastry__list-imgContainer">
                 <div className="pastry__list-title">
                     <h2>Pastry Name</h2>

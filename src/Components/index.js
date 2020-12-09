@@ -6,6 +6,10 @@ import ButtonTwo from './ButtonTwo/ButtonTwo.component';
 import BakersCard from './BakersCard/BakersCard.component';
 import NavBar from './NavBar/NavBar.component';
 import WorkArea from './WorkArea/WorkArea.component';
+import DatePick from './DatePicker/DatePicker.component';
+import Spacer from './Spacer/Spacer.component';
+import SearchBar from './SearchBar/SearchBar.component';
+import Profile from './Profile/Profile.component'
 
 export {
     Header, 
@@ -16,4 +20,8 @@ export {
     BakersCard, 
     NavBar,
     WorkArea,
+    DatePick,
+    Spacer,
+    SearchBar,
+    Profile,
 };
