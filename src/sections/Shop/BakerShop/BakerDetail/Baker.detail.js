@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {logo3, logo5, vals3 } from '../../../../res/img';
+import {logo5, vals3 } from '../../../../res/img';
 import './Baker.detail.css'
 
 const BakerDetail = () => {
