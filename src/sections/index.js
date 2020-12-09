@@ -9,6 +9,7 @@ import RegisterSection from './Register/Register.section';
 import SideNav from './SideNav/SideNav.section';
 import Cart from './Cart/Cart.section';
 import {Bakers, Pastries} from './Shop';
+import Orders from './Order/Order.section';
 
 export {
     HeaderSection,
@@ -21,6 +22,7 @@ export {
     RegisterSection,
     SideNav,
     Cart,
-    Bakers,
     Pastries,
+    Bakers,
+    Orders,
 };
