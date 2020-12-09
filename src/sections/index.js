@@ -10,6 +10,7 @@ import SideNav from './SideNav/SideNav.section';
 import Cart from './Cart/Cart.section';
 import {Bakers, Pastries} from './Shop';
 import Orders from './Order/Order.section';
+import Events from './Events/Event.section';
 
 export {
     HeaderSection,
@@ -25,4 +26,5 @@ export {
     Pastries,
     Bakers,
     Orders,
+    Events,
 };
