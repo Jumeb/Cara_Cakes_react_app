@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './User.screen.css';
-import {SideNav, Cart, Bakers} from '../../sections';
+import {SideNav, Cart, Bakers, Pastries, Orders} from '../../sections';
 import { WorkArea } from '../../Components';
 
 const User = () => {
@@ -10,7 +10,7 @@ const User = () => {
             <section className="panel">
                 <SideNav />
                 <WorkArea>
-                    <Bakers />
+                    <Orders />
                 </WorkArea>
             </section>
         </body>

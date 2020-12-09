@@ -57,7 +57,7 @@
 }
 
 .baker__list-img-logo {
-    height: 6rem;
+    height: 3rem;
     /* width: 6rem; */
 }
 
@@ -80,4 +80,10 @@
     padding: 1rem 3rem;
     color: #fff;
     border-radius: 0.4rem;
+    cursor: pointer;
+    transition: box-shadow ease-in 0.3s;
+}
+
+.bakers__button:hover {
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.6);
 }

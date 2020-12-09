@@ -1,10 +1,15 @@
 import React from 'react';
 
 import './Pastry.section.css'
+import PastryList from './PastryList/Pastry.list';
+import PastryDetail from './PastryDetail/Pastry.detail';
 
 const PastrySection = () => {
     return (
-        <p>Pastry Detail</p>
+        <div className="pastries">
+            <PastryList />
+            <PastryDetail addToCart={false} />
+        </div>
     )
 }
 
