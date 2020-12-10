@@ -2,10 +2,12 @@ import React from 'react';
 
 import './Event.detail.css';
 import { logo6, vals2 } from '../../../res/img';
+import { Spacer } from '../../../Components';
 
 const EventDetail = () => {
     return (
          <div className="event__detail">
+             <Spacer />
             <div className="event__detail-imgContainer">
                 <div className="event__detail-title">
                     <h2>Purpose</h2>

@@ -2,10 +2,12 @@ import React from 'react';
 
 import './Event.list.css';
 import { cookies2, cups5, dons2, pans2, vals2, vals1 } from '../../../res/img';
+import { Spacer } from '../../../Components';
 
 const EventList = () => {
     return (
         <div className="event__list">
+        <Spacer />
             <div className="event__list-imgContainer">
                 <div className="event__list-title">
                     <h2>Purpose</h2>
