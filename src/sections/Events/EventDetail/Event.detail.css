@@ -8,7 +8,7 @@
     height: 100vh;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .event__noDetail {
@@ -145,4 +145,29 @@
 .event__more-details:hover {
     background-color: #ff1491c0;
     color: #fff;
+}
+
+.event__Buttons {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.event__Button {
+    outline: none;
+    background-color: #ff1493;
+    border: none;
+    padding: 1rem 3rem;
+    color: #fff;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: box-shadow ease-in 0.3s;
+}
+
+.event__Button:hover {
+        box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.event__Button-delete {
+    background-color: red;
 }

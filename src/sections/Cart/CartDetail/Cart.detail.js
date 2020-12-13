@@ -1,4 +1,5 @@
 import React from 'react';
+import { Spacer } from '../../../Components';
 
 import {vals3 } from '../../../res/img';
 import './Cart.detail.css';
@@ -8,6 +9,7 @@ const CartDetail = (props) => {
 
     return (
         <div className={isDetail ? "cart__detail" : "cart__noDetail"}>
+            <Spacer />
             <div className="cart__detail-imgContainer">
                 <div className="cart__detail-title">
                     <h2>Pastry name</h2>

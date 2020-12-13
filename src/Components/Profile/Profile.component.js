@@ -7,7 +7,7 @@ const Profile = () => {
     return (
         <div className="profile">
             <img src={vals3} className="profile__img" alt="Profile_Image"/>
-            <p className="profile_userName">Jume Brice</p>
+            {/* <p className="profile_userName">Jume Brice</p> */}
         </div>
     )
 }

@@ -20,17 +20,17 @@ const User = () => {
     }
 
     return (
-        <body>
+        <div>
             <section className="panel">
                 <SideNav isDetail={isDetail} />
                 <WorkArea isDetail={isDetail}>
-                    {/* <Events isDetail={isDetail} setIsDetail={toggleDetail} /> */}
+                    <Events isDetail={isDetail} setIsDetail={toggleDetail} />
                     {/* <Bakers isDetail={isDetail} setIsDetail={toggleDetail} /> */}
                     {/* <Pastries isDetail={isDetail} setIsDetail={toggleDetail} /> */}
-                    <Cart isDetail={isDetail} setIsDetail={toggleDetail} />
+                    {/* <Cart isDetail={isDetail} setIsDetail={toggleDetail} /> */}
                 </WorkArea>
             </section>
-        </body>
+        </div>
     )
 }
 
