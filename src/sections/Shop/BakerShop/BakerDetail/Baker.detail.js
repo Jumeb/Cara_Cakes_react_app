@@ -3,9 +3,10 @@ import React from 'react';
 import {logo5, vals3 } from '../../../../res/img';
 import './Baker.detail.css'
 
-const BakerDetail = () => {
+const BakerDetail = (props) => {
+    const {isDetail, setDetail} = props;
     return (
-       <div className="baker__detail">
+       <div className={isDetail ? "baker__detail" : "baker__noDetail"}>
             <div className="baker__detail-imgContainer">
                 <div className="baker__detail-title">
                     <h2>Company Name</h2>

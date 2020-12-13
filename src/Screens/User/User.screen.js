@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import './User.screen.css';
 import {
@@ -8,19 +8,26 @@ import {
     Pastries, 
     Orders,
     Events,
-    AddEvent,
-    EditEvent,
     
 } from '../../sections';
 import { WorkArea } from '../../Components';
 
 const User = () => {
+    const [isDetail, setIsDetail] = useState(false);
+
+    const toggleDetail = () => {
+        setIsDetail(!isDetail);
+    }
+
     return (
         <body>
             <section className="panel">
-                <SideNav />
-                <WorkArea>
-                    <Events />
+                <SideNav isDetail={isDetail} />
+                <WorkArea isDetail={isDetail}>
+                    {/* <Events isDetail={isDetail} setIsDetail={toggleDetail} /> */}
+                    {/* <Bakers isDetail={isDetail} setIsDetail={toggleDetail} /> */}
+                    {/* <Pastries isDetail={isDetail} setIsDetail={toggleDetail} /> */}
+                    <Cart isDetail={isDetail} setIsDetail={toggleDetail} />
                 </WorkArea>
             </section>
         </body>

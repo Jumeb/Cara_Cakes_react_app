@@ -4,9 +4,10 @@ import './Event.list.css';
 import { cookies2, cups5, dons2, pans2, vals2, vals1 } from '../../../res/img';
 import { Spacer } from '../../../Components';
 
-const EventList = () => {
+const EventList = (props) => {
+    const {setIsOpen, setIsOpenEdit, isDetail, setIsDetail} = props;
     return (
-        <div className="event__list">
+        <div className={isDetail ? "event__listDetail" : "event__list"}>
         <Spacer />
             <div className="event__list-imgContainer">
                 <div className="event__list-title">
@@ -18,8 +19,8 @@ const EventList = () => {
                     <h3 className="event__list-time-container"><p className="event__list-time-number">12 14 16</p><p className="event__list-time-text">Hours mins secs</p></h3>
                 </div>
                 <div className="event__buttonContainer">
-                    <button className="event__button">Details</button>
-                    <button className="event__button">Shop</button>
+                    <button className="event__button" onClick={() => setIsDetail()}>Details</button>
+                    <button className="event__button" onClick={() => setIsOpen()}>Shop</button>
                 </div>
             </div>
             <div className="event__list-imgContainer">
@@ -33,7 +34,7 @@ const EventList = () => {
                 </div>
                 <div className="event__buttonContainer">
                     <button className="event__button">Details</button>
-                    <button className="event__button">Shop</button>
+                    <button className="event__button" onClick={() => setIsOpenEdit()}>Shop</button>
                 </div>
             </div>
             <div className="event__list-imgContainer">

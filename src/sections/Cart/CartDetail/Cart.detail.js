@@ -3,9 +3,11 @@ import React from 'react';
 import {vals3 } from '../../../res/img';
 import './Cart.detail.css';
 
-const CartDetail = () => {
+const CartDetail = (props) => {
+    const {isDetail, setIsDetail} = props;
+
     return (
-        <div className="cart__detail">
+        <div className={isDetail ? "cart__detail" : "cart__noDetail"}>
             <div className="cart__detail-imgContainer">
                 <div className="cart__detail-title">
                     <h2>Pastry name</h2>

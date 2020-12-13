@@ -6,13 +6,23 @@
     position: relative;
 }
 
-.panel__event::-webkit-scrollbar {
+.panel__eventDetail {
+    flex: 0 0 90%;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.panel__event::-webkit-scrollbar,
+.panel__eventDetail::-webkit-scrollbar {
     width: .6rem;
     background-color: #f1eeee;
     border-radius: 2rem;
 }
 
-.panel__event::-webkit-scrollbar-thumb {
+.panel__event::-webkit-scrollbar-thumb,
+.panel__eventDetail::-webkit-scrollbar-thumb {
     width: .6rem;
     background-color: rgba(255, 20, 147, 0.8);
     border-radius: 2rem;

@@ -11,6 +11,11 @@
     justify-content: space-evenly;
 }
 
+.event__noDetail {
+   display: none;
+   transition: all ease-in 0.3s;
+}
+
 .event__detail::-webkit-scrollbar {
     width: .2rem;
     background-color: transparent;
@@ -51,12 +56,13 @@
     position: absolute;
     background-color: #fff;
     bottom: 0.3rem;
-    transform: translateX(40%);
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem 0.7rem;
+    padding: 0.5rem;
     border-radius: 0.4rem;
     box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
 }

@@ -30,8 +30,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 4px;
-    margin: 0 8rem;
+    border-radius: 0.4rem;
+    margin: 10rem 27rem;
     flex: 0 0 80%;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
 }
@@ -140,12 +140,15 @@
 }
 
 .sec-editEvent {
-    padding-top: 5rem;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-.row-editEvent {
-    padding: 0 8rem;
-}
 
 .margin-bottom-small-ve {
     margin-bottom: -2rem;
