@@ -3,9 +3,10 @@ import { dons2, pans2 } from '../../../res/img';
 
 import './Cart.list.css';
 
-const CartList = () => {
+const CartList = (props) => {
+    const {isDetail, setIsDetail} = props;
     return (
-        <div className="cart__list">
+        <div className={isDetail ? "cart__listDetail" : "cart__list"}>
             <div className="cart__separator">
                 <h1 className="cart__list-baker">Baker: Cara Cakes</h1>
                 <table className="cart-table">
@@ -15,7 +16,7 @@ const CartList = () => {
                         <td className="cart-table_header-data">Quantity</td>
                         <td className="cart-table_header-data">Total</td>
                     </thead>
-                    <tr className="cart-table-row">
+                    <tr className="cart-table-row" onClick={() => setIsDetail()}>
                         <td className="cart-table-data cart_table-imageContainer">
                             <img src={pans2} alt="Pastry Name" className="cart__table--data-image" />
                             <p>Ice Cake</p>

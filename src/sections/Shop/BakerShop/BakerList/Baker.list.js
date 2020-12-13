@@ -4,9 +4,10 @@ import { Spacer } from '../../../../Components';
 import { cookies4, cups2, dons3, logo5, pans4, vals2, vals3 } from '../../../../res/img';
 import './Baker.list.css'
 
-const BakerList = () => {
+const BakerList = (props) => {
+    const {isDetail, setIsDetail} = props;
     return (
-        <div className="bakers__list">
+        <div className={isDetail ? "bakers__listDetail" : "bakers__list"}>
             <Spacer />
             <div className="baker__list-imgContainer">
                 <div className="baker__list-title">
@@ -17,7 +18,7 @@ const BakerList = () => {
                     <img src={logo5} alt="Product" className="baker__list-img-logo" />
                 </div>
                 <div className="bakers__buttonContainer">
-                    <button className="bakers__button">Details</button>
+                    <button className="bakers__button" onClick={() => setIsDetail()}>Details</button>
                     <button className="bakers__button">Shop</button>
                 </div>
             </div>

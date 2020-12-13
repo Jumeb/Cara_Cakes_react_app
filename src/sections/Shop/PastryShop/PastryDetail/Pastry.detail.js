@@ -4,9 +4,9 @@ import {logo3, logo5, vals3 } from '../../../../res/img';
 import './Pastry.detail.css'
 
 const PastryDetail = (props) => {
-    const {addToCart} = props;
+    const {addToCart, isDetail, setIsDetail} = props;
     return (
-       <div className="pastry__detail">
+       <div className={isDetail ? "pastry__detail" : "pastry__noDetail"}>
             <div className="pastry__detail-imgContainer">
                 <div className="pastry__detail-title">
                     <h2>Pastry Name</h2>

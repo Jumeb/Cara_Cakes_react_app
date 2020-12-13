@@ -5,9 +5,9 @@ import SearchBar from '../SearchBar/SearchBar.component';
 import './WorkArea.component.css';
 
 const WorkArea = (props) => {
-    const {children} = props;
+    const {children, isDetail} = props;
     return (
-        <div className="panel__event">
+        <div className={isDetail ? "panel__eventDetail" : "panel__event"}>
             {children}
             <div className="panel__event-header">
                 <SearchBar />

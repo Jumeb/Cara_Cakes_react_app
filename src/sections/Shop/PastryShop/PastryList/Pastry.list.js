@@ -4,9 +4,10 @@ import { Spacer } from '../../../../Components';
 import { cookies4, cups2, dons3, logo5, pans4, vals2, vals3 } from '../../../../res/img';
 import './Pastry.list.css'
 
-const PastryList = () => {
+const PastryList = (props) => {
+    const {isDetail, setIsDetail} = props;
     return (
-        <div className="pastries__list">
+        <div className={isDetail ? "pastries__listDetail" : "pastries__list"}>
             <Spacer />
             <div className="pastry__list-imgContainer">
                 <div className="pastry__list-title">
@@ -17,7 +18,7 @@ const PastryList = () => {
                     <img src={logo5} alt="Product" className="pastry__list-img-logo" />
                 </div>
                 <div className="pastries__buttonContainer">
-                    <button className="pastries__button">Details</button>
+                    <button className="pastries__button" onClick={() => setIsDetail()}>Details</button>
                     <button className="pastries__button">Add to cart</button>
                 </div>
             </div>

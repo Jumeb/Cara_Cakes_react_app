@@ -1,4 +1,4 @@
-.event__list {
+.event__listDetail {
     flex: 0 0 65%;
     display: flex;
     flex-direction: row;
@@ -10,19 +10,35 @@
     position: relative;
 }
 
-.event__list::-webkit-scrollbar {
+.event__list {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-evenly;
+    transition: all ease-in 0.3s;
+    position: relative;
+}
+
+.event__list::-webkit-scrollbar,
+.event__listDetail::-webkit-scrollbar {
     width: .2rem;
     background-color: transparent;
     border-radius: 2rem;
 }
 
-.event__list::-webkit-scrollbar-thumb {
+.event__list::-webkit-scrollbar-thumb,
+.event__listDetail::-webkit-scrollbar-thumb {
     width: .2rem;
     background-color: #ff1493cc;
     border-radius: 2rem;
 }
 
-.event__list::-webkit-scrollbar-track {
+.event__list::-webkit-scrollbar-track,
+.event__listDetail::-webkit-scrollbar-track {
     background-color: #ddd;
     margin: 18rem 0;
     width: 0.2rem;

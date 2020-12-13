@@ -3,34 +3,36 @@ import React from 'react';
 import './SideNav.section.css'
 import {favicon} from '../../res/img';
 
-const SideNav = () => {
+const SideNav = (props) => {
+    const {isDetail} = props;
+
     return (
-        <div className="panel__user">
+        <div className={isDetail ? "panel__userDetail" : "panel__user"}>
             <ul className="panel-side-nav">
             <img src={favicon} alt="Logo" className="panel__logo" />
                 <li className="panel-side-nav__item  <%= path === '/user/cart' ? 'panel-side-nav__item--active' : '' %>">
                     <a href="/user/cart" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-shopping-basket"></span> <span>My Cart</span>
+                        <span className="panel-side-nav__icon fas fa-shopping-basket"></span> <span className={isDetail && "isDetail__text"}>My Cart</span>
                     </a>
                 </li>
                 <li className="panel-side-nav__item  <%= path === '/user/bakers' ? 'panel-side-nav__item--active' : '' %>">
                     <a href="/user/bakers" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-cart-plus"></span> <span>Shop</span>
+                        <span className="panel-side-nav__icon fas fa-cart-plus"></span> <span className={isDetail && "isDetail__text"}>Shop</span>
                     </a>
                 </li>
                 <li className="panel-side-nav__item  <%= path === '/user' ? 'panel-side-nav__item--active' : '' %>">
                     <a href="/user" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-calendar-day"></span> <span>Events</span>
+                        <span className="panel-side-nav__icon fas fa-calendar-day"></span> <span className={isDetail && "isDetail__text"}>Events</span>
                     </a>
                 </li>
                 <li className="panel-side-nav__item <%= path === '/user/add-event' ? 'panel-side-nav__item--active' : '' %>">
                     <a href="/user/add-event" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-plus"></span><span>Add Event</span>
+                        <span className="panel-side-nav__icon fas fa-plus"></span><span className={isDetail && "isDetail__text"}>Add Event</span>
                     </a>
                 </li>
                 <li className="panel-side-nav__item <%= path === '/user/orders' ? 'panel-side-nav__item--active' : '' %>">
                     <a href="/user/orders" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-shopping-basket"></span><span> Orders</span>
+                        <span className="panel-side-nav__icon fas fa-shopping-basket"></span><span className={isDetail && "isDetail__text"}> Orders</span>
                     </a>
                 </li>
                 <li className="panel-side-nav__item">

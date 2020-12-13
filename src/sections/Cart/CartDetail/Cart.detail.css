@@ -9,6 +9,10 @@
     height: 100vh;
 }
 
+.cart__noDetail {
+    display: none;
+}
+
 .cart__detail::-webkit-scrollbar {
     width: .4rem;
     background-color: transparent;

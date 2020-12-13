@@ -9,6 +9,10 @@
     height: 100vh;
 }
 
+.pastry__noDetail {
+    display: none;
+}
+
 .pastry__detail::-webkit-scrollbar {
     width: .4rem;
     background-color: transparent;

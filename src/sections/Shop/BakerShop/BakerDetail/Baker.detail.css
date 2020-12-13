@@ -9,6 +9,10 @@
     height: 100vh;
 }
 
+.baker__noDetail {
+    display:none;
+}
+
 .baker__detail::-webkit-scrollbar {
     width: .4rem;
     background-color: transparent;
