@@ -1,11 +1,13 @@
 .cart__detail {
     flex: 0 0 35%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding: 1rem;
     overflow-y: auto;
     align-items: center;
     position: relative;
+    justify-content: center;
     height: 100vh;
 }
 
@@ -34,7 +36,9 @@
     width: 90%;
     display: flex;
     border-radius: 0.6rem;
+    overflow: hidden;
     justify-content: center;
+    margin-top: 1.5rem;
     flex-direction: column;
     box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
 }

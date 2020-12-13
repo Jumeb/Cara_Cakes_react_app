@@ -6,8 +6,6 @@ import './Event.section.css'
 import AddEvent from '../AddEvent/AddEvent.section';
 import EditEvent from '../EditEvent/EditEvent.section';
 
-
-
 const EventSection = (props) => {
     const {isDetail, setIsDetail} = props;
     const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -23,8 +21,8 @@ const EventSection = (props) => {
 
     return (
         <div className="event">
-            <EventList setIsOpen={toggleAdd} setIsOpenEdit={toggleEdit} isDetail={isDetail} setIsDetail={setIsDetail} />
-            <EventDetail isDetail={isDetail} setIsDetail={setIsDetail}/>
+            <EventList setIsOpen={toggleAdd} isDetail={isDetail} setIsDetail={setIsDetail} />
+            <EventDetail isDetail={isDetail} setIsDetail={setIsDetail} setIsOpenEdit={toggleEdit}/>
             <AddEvent isOpen={isOpenAdd} setIsOpen={toggleAdd} />
             <EditEvent isOpen={isOpenEdit} setIsOpen={toggleEdit} />
         </div>

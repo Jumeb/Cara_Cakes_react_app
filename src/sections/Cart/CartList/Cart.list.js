@@ -1,12 +1,14 @@
 import React from 'react';
-import { dons2, pans2 } from '../../../res/img';
 
+import {Spacer} from '../../../Components';
+import { dons2, pans2 } from '../../../res/img';
 import './Cart.list.css';
 
 const CartList = (props) => {
     const {isDetail, setIsDetail} = props;
     return (
         <div className={isDetail ? "cart__listDetail" : "cart__list"}>
+            <Spacer />
             <div className="cart__separator">
                 <h1 className="cart__list-baker">Baker: Cara Cakes</h1>
                 <table className="cart-table">

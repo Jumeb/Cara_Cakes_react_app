@@ -6,7 +6,7 @@ import {HeaderSection, About, Sample, Baker, Contact, Footer} from '../../sectio
 
 const Home = () => {
     return (
-        <body className="back-home">
+        <div className="back-home">
             <main>
                 <Header />
                 <HeaderSection />
@@ -17,7 +17,7 @@ const Home = () => {
                 <Footer />
             </main>
             <NavBar />
-        </body>
+        </div>
     )
 }
 

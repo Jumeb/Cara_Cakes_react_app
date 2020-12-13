@@ -5,7 +5,7 @@ import { logo6, vals2 } from '../../../res/img';
 import { Spacer } from '../../../Components';
 
 const EventDetail = (props) => {
-    const {isDetail, setIsDetail} = props;
+    const {isDetail, setIsDetail, setIsOpenEdit} = props;
     return (
          <div className={isDetail ? "event__detail" : "event__noDetail"}>
              <Spacer />
@@ -31,6 +31,10 @@ const EventDetail = (props) => {
                 <button className="event__more-details" onClick={() => setIsDetail()}>More Details</button>
                 <h1 className="event__description">Reason</h1>
                 <p className="event__description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <div className="event__Buttons">
+                    <button className="event__Button event__Button-delete">Delete</button>
+                    <button className="event__Button" onClick={() => setIsOpenEdit()}>Edit</button>
+                </div>
             </div>
         </div>
     )

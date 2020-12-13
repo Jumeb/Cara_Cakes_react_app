@@ -9,7 +9,8 @@ import WorkArea from './WorkArea/WorkArea.component';
 import DatePick from './DatePicker/DatePicker.component';
 import Spacer from './Spacer/Spacer.component';
 import SearchBar from './SearchBar/SearchBar.component';
-import Profile from './Profile/Profile.component'
+import Profile from './Profile/Profile.component';
+import CreateEvent from './CreateEvent/CreateEvent.component';
 
 export {
     Header, 
@@ -24,4 +25,5 @@ export {
     Spacer,
     SearchBar,
     Profile,
+    CreateEvent,
 };

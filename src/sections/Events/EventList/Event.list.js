@@ -2,10 +2,10 @@ import React from 'react';
 
 import './Event.list.css';
 import { cookies2, cups5, dons2, pans2, vals2, vals1 } from '../../../res/img';
-import { Spacer } from '../../../Components';
+import { Spacer, CreateEvent } from '../../../Components';
 
 const EventList = (props) => {
-    const {setIsOpen, setIsOpenEdit, isDetail, setIsDetail} = props;
+    const {setIsOpen, isDetail, setIsDetail} = props;
     return (
         <div className={isDetail ? "event__listDetail" : "event__list"}>
         <Spacer />
@@ -20,7 +20,7 @@ const EventList = (props) => {
                 </div>
                 <div className="event__buttonContainer">
                     <button className="event__button" onClick={() => setIsDetail()}>Details</button>
-                    <button className="event__button" onClick={() => setIsOpen()}>Shop</button>
+                    <button className="event__button">Shop</button>
                 </div>
             </div>
             <div className="event__list-imgContainer">
@@ -34,7 +34,7 @@ const EventList = (props) => {
                 </div>
                 <div className="event__buttonContainer">
                     <button className="event__button">Details</button>
-                    <button className="event__button" onClick={() => setIsOpenEdit()}>Shop</button>
+                    <button className="event__button">Shop</button>
                 </div>
             </div>
             <div className="event__list-imgContainer">
@@ -93,6 +93,7 @@ const EventList = (props) => {
                     <button className="event__button">Shop</button>
                 </div>
             </div>
+            <CreateEvent setIsOpen={setIsOpen}/>
         </div>
     )
 }
