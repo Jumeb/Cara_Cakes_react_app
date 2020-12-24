@@ -11,6 +11,12 @@ import Spacer from './Spacer/Spacer.component';
 import SearchBar from './SearchBar/SearchBar.component';
 import Profile from './Profile/Profile.component';
 import CreateEvent from './CreateEvent/CreateEvent.component';
+import RadioButton from './RadioButtons/RadioButtons.component';
+import CartTable from './CartTable/CartTable.component';
+import OrderTable from './OrderTable/OrderTable.component';
+import EventCard from './EventCard/EventCard.component';
+import BakerCard from './BakerCard/BakerCard.component';
+import PastryCard from './PastryCard/PastryCard.component';
 
 export {
     Header, 
@@ -26,4 +32,10 @@ export {
     SearchBar,
     Profile,
     CreateEvent,
+    RadioButton,
+    CartTable,
+    OrderTable,
+    EventCard,
+    BakerCard,
+    PastryCard,
 };
