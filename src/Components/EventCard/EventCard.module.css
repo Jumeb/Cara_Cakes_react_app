@@ -1,0 +1,87 @@
+.eventListImgContainer {
+    width: 31.5rem;
+    display: flex;
+    height: 35rem;
+    border-radius: 0.6rem;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1.4rem 0;
+    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.eventListImg {
+    height: 25rem;
+    width: 100%;
+    margin: 0;
+}
+
+.eventListCountdown {
+    position: absolute;
+    background-color: #fff;
+    bottom: 5.4rem;
+    display: flex;
+    flex-direction: row;
+    transform: translateX(45%);
+    padding: 0.1rem 0.7rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.eventListImgLogo {
+    height: 3rem;
+    /* width: 6rem; */
+}
+
+.eventListTitle {
+    margin: 1.2rem 0;
+    background-color: #fff;
+}
+
+.eventButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0.8rem 0;
+}
+
+.eventButton {
+    outline: none;
+    background-color: #ff1493;
+    border: none;
+    padding: 1rem 3rem;
+    color: #fff;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: box-shadow ease-in 0.3s;
+}
+
+.eventButton:hover {
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.eventListDaysContainer {
+    line-height: 1.5rem;
+    margin-right: 1.5rem;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.eventListDaysNumber {
+    word-spacing: 1.3rem;
+}
+
+.eventListDaysText {}
+
+.eventListTime-container {
+    line-height: 1.5rem;
+    margin-right: 1.5rem;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+}
+
+.eventListTimeNumber {
+    word-spacing: 1rem;
+}
+
+.eventListTimeText {}

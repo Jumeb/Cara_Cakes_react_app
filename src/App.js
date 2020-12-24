@@ -1,12 +1,18 @@
+import React from 'react';
+import { BrowserRouter} from 'react-router-dom';
+
 import './App.css';
 import './styles/all.css';
-import {Home, Login, Register, Admin, User} from './Screens';
+import Navigation from './Router/Routes.navigation';
+
 
 function App() {
   return (
-    <div className="App">
-      <User />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navigation />
+      </div>
+    </BrowserRouter>
   );
 }
 
