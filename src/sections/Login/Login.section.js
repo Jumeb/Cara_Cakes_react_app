@@ -7,12 +7,6 @@ const LoginSection = (props) => {
 
     return (
         <section className="sec-auth" id="login">
-            {error && (
-
-            <div className="flash">
-    <div className="flash__message flash__message-danger">Erro</div>
-</div>
-            )}
     <div className="row-2">
         <div className="login">
             <div className="login__form-1">

@@ -17,7 +17,7 @@
     width: 7rem;
     border-radius: 50%;
     background-color: #fff;
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.7);
     z-index: 100;
     position: fixed;
     cursor: pointer;

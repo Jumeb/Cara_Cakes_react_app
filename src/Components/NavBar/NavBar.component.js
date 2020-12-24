@@ -1,5 +1,5 @@
 import React from 'react';
-import Icons, {FontAwesome} from 'react-web-vector-icons'
+import { NavLink } from 'react-router-dom';
 
 import './NavBar.component.css';
 
@@ -11,14 +11,18 @@ const NavBar = () => {
                 <span className="navi__icon"></span>
             </label>
             <div className="navi__list">
-                <span className="navi__item navi__item--1"><a href="/" title="Home"
-                        className="navi__link navi__active fas fa-home"></a></span>
-                <span className="navi__item navi__item--2"><a href="/about" title="About"
-                        className="navi__link <%= path === '/about' ? 'navi__active' : '' %> fas fa-sign-in-alt"></a></span>
-                <span className="navi__item navi__item--3"><a href="/gallery" title="Gallery"
-                        className="navi__link <%= path === '/gallery' ? 'navi__active' : '' %> fas fa-sign-in-alt"></a></span>
-                <span className="navi__item navi__item--4"><a href="/stories" title="Story"
-                        className="navi__link <%= path === '/stories' ? 'navi__active' : '' %> fas fa-history"></a></span>
+                <span className="navi__item navi__item--1">
+                    <NavLink to="/" exact title="Home"  activeClassName="navi__active" className="navi__link fas fa-home"></NavLink>
+                </span>
+                <span className="navi__item navi__item--2">
+                    <NavLink to="/login" title="About" activeClassName="navi__active" className="navi__link fas fa-sign-in-alt"></NavLink>
+                </span>
+                <span className="navi__item navi__item--3">
+                    <NavLink to="/register" title="Gallery" activeClassName="navi__active" className="navi__link fas fa-sign-in-alt"></NavLink>
+                </span>
+                <span className="navi__item navi__item--4">
+                    <NavLink to="/user/cart" title="Story" activeClassName="navi__active" className="navi__link fas fa-history"></NavLink>
+                </span>
             </div>
         </div>
     )

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Route} from 'react-router-dom';
 
 import './User.screen.css';
 import {
@@ -24,7 +25,12 @@ const User = () => {
             <section className="panel">
                 <SideNav isDetail={isDetail} />
                 <WorkArea isDetail={isDetail}>
-                    <Events isDetail={isDetail} setIsDetail={toggleDetail} />
+                    <Route path="/user/event" component={Events} />
+                    <Route path="/user/bakers" component={Bakers} />
+                    <Route path="/user/pastries" component={Pastries} />
+                    <Route path="/user/cart" component={Cart} />
+                    <Route path="/user/orders" component={Orders} />
+                    {/* <Events isDetail={isDetail} setIsDetail={toggleDetail} /> */}
                     {/* <Bakers isDetail={isDetail} setIsDetail={toggleDetail} /> */}
                     {/* <Pastries isDetail={isDetail} setIsDetail={toggleDetail} /> */}
                     {/* <Cart isDetail={isDetail} setIsDetail={toggleDetail} /> */}

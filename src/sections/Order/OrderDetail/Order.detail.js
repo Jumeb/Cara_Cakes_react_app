@@ -2,10 +2,12 @@ import React from 'react';
 
 import './Order.detail.css'
 import { vals3, vals4, vals5 } from '../../../res/img';
+import { Spacer } from '../../../Components';
 
 const OrderDetail = () => {
     return (
         <div className="order__detail">
+            <Spacer />
             <div className="order__detail-imgContainer">
                 <div className="order__detail-title">
                     <h2>Order Summary</h2>
