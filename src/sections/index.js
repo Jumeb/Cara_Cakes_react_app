@@ -13,6 +13,7 @@ import Orders from './Order/Order.section';
 import Events from './Events/Event.section';
 import AddEvent from './AddEvent/AddEvent.section';
 import EditEvent from './EditEvent/EditEvent.section';
+import AdminNav from './AdminNav/AdminNav.section';
 
 export {
     HeaderSection,
@@ -31,4 +32,5 @@ export {
     Events,
     AddEvent,
     EditEvent,
+    AdminNav,
 };

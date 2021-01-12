@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 
-import {Home, Login, Register, Admin, User} from '../Screens';
+import {Home, Login, Register, Admin, User, AdminS} from '../Screens';
 
 const Navigation = () => {
     return (
@@ -9,8 +9,9 @@ const Navigation = () => {
             <Route path='/' exact component={Home} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-            <Route path='/admin' component={Admin} />
+            <Route path='/adminLogin' component={Admin} />
             <Route path='/user' component={User} />
+            <Route path='/admin' exact component={AdminS} />
         </Switch>
     )
 };
