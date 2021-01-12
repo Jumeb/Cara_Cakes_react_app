@@ -110,6 +110,7 @@
     border-bottom-color: #ff1493;
     display: flex;
     align-items: center;
+    flex: 0 0 90%;
     flex-direction: column;
 }
 
@@ -119,4 +120,5 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 3rem;
+    flex: 0 0 90%;
 }

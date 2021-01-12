@@ -15,7 +15,7 @@ const OrderTable = () => {
                         <td className={styles.orderTableHeaderData}>Total</td>
                     </thead>
                     <tr className={styles.orderTableRow}>
-                        <td className={[styles.orderTableData , styles.orderTableImageContainer]}>
+                        <td className={[styles.orderTableData , styles.orderTableImageContainer].join(' ')}>
                             <img src={pans2} alt="Pastry Name" className={styles.orderTableDataImage} />
                             <p>Ice Cake</p>
                         </td>
@@ -24,7 +24,7 @@ const OrderTable = () => {
                         <td className={styles.orderTableData}>9000</td>
                     </tr>
                     <tr className={styles.orderTableRow}>
-                        <td className={[styles.orderTableData, styles.orderTableImageContainer]}>
+                        <td className={[styles.orderTableData, styles.orderTableImageContainer].join(' ')}>
                             <img src={pans2} alt="Pastry Name" className={styles.orderTableDataImage} />
                             <p>Ice Cake</p>
                         </td>
@@ -33,10 +33,10 @@ const OrderTable = () => {
                         <td className={styles.orderTableData}>160,000</td>
                     </tr>
                     <tr className={styles.orderTableRow}>
-                        <td colSpan="2" className={[styles.orderTableData, styles.orderCoupon]}>
+                        <td colSpan="2" className={[styles.orderTableData, styles.orderCoupon].join(' ')}>
                             <h3>Order Status: Processing</h3>
                         </td>
-                        <td colSpan="1" className={[styles.orderTableData, styles.orderCoupon]}><button className={styles.orderButton}>Details</button></td>
+                        <td colSpan="1" className={[styles.orderTableData, styles.orderCoupon].join(' ')}><button className={styles.orderButton}>Details</button></td>
                         <td colSpan="1" className={styles.orderTableData}>Total: 169,000</td>
                     </tr>
                 </table>

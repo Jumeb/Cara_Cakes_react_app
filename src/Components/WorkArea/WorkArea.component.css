@@ -1,5 +1,5 @@
 .panel__event {
-    flex: 0 0 80%;
+    flex: 1;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;

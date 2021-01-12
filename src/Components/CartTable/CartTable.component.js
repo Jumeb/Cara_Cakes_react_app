@@ -15,7 +15,7 @@ const CartTable = () => {
                         <td className={styles.cartTableHeaderData}>Total</td>
                     </thead>
                     <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer]}>
+                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                             <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
                             <p>Ice Cake</p>
                         </td>
@@ -24,7 +24,7 @@ const CartTable = () => {
                         <td className={styles.cartTableData}>9000</td>
                     </tr>
                     <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer]}>
+                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                             <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
                             <p>Ice Cake</p>
                         </td>
@@ -33,11 +33,11 @@ const CartTable = () => {
                         <td className={styles.cartTableData}>160,000</td>
                     </tr>
                     <tr className={styles.cartTableRow}>
-                        <td colSpan="2" className={[styles.cartTableData, styles.cartCoupon]}>
+                        <td colSpan="2" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
                             <input type="text" placeholder="Coupon Code" className={styles.cartCouponInput} /> 
                             <button className={styles.cartButton}>Apply</button>
                         </td>
-                        <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon]}><button className={styles.cartButton}>Order</button></td>
+                        <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon].join(' ')}><button className={styles.cartButton}>Order</button></td>
                         <td colSpan="1" className={styles.cartTableData}>Total: 169,000</td>
                     </tr>
                 </table>

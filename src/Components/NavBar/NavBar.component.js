@@ -12,7 +12,7 @@ const NavBar = () => {
             </label>
             <div className="navi__list">
                 <span className="navi__item navi__item--1">
-                    <NavLink to="/" exact title="Home"  activeClassName="navi__active" className="navi__link fas fa-home"></NavLink>
+                    <NavLink to="/admin/dashboard" exact title="Home"  activeClassName="navi__active" className="navi__link fas fa-home"></NavLink>
                 </span>
                 <span className="navi__item navi__item--2">
                     <NavLink to="/login" title="About" activeClassName="navi__active" className="navi__link fas fa-sign-in-alt"></NavLink>

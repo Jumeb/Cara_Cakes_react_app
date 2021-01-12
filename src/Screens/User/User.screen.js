@@ -25,11 +25,11 @@ const User = () => {
             <section className="panel">
                 <SideNav isDetail={isDetail} />
                 <WorkArea isDetail={isDetail}>
-                    <Route path="/user/event" component={Events} />
-                    <Route path="/user/bakers" component={Bakers} />
-                    <Route path="/user/pastries" component={Pastries} />
-                    <Route path="/user/cart" component={Cart} />
-                    <Route path="/user/orders" component={Orders} />
+                    <Route path="/user/event"  render={(props) => (<Events  {...props} isDetail={isDetail} setIsDetail={toggleDetail} /> )} />
+                    <Route path="/user/bakers" render={(props) => (<Bakers {...props} isDetail={isDetail} setIsDetail={toggleDetail} />)} />
+                    <Route path="/user/pastries" render={(props) => (<Pastries {...props} isDetail={isDetail} setIsDetail={toggleDetail} />)} />
+                    <Route path="/user/cart" render={(props) => (<Cart {...props} isDetail={isDetail} setIsDetail={toggleDetail} />)} />
+                    <Route path="/user/orders" render={(props) => (<Orders {...props} isDetail={isDetail} setIsDetail={toggleDetail} />)} />
                     {/* <Events isDetail={isDetail} setIsDetail={toggleDetail} /> */}
                     {/* <Bakers isDetail={isDetail} setIsDetail={toggleDetail} /> */}
                     {/* <Pastries isDetail={isDetail} setIsDetail={toggleDetail} /> */}
