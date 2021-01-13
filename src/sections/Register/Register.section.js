@@ -1,73 +1,188 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import { Input } from '../../Components';
 import RadioButton from '../../Components/RadioButtons/RadioButtons.component';
-
+import { AuthMail, AuthTel } from '../../utils/auth';
 import './Register.section.css'
+import {BASE_URL} from '../../utils/globalVariable'
 
-const RegisterSection = () => {
+const RegisterSection = (props) => {
+    const {
+        name,
+        email,
+        tel,
+        password,
+        conPw,
+        setName,
+        setEmail,
+        setTel,
+        setPassword,
+        setConPw,
+        errorName,
+        errorEmail,
+        errorTel,
+        errorPassword,
+        errorConPw,
+        setErrorName,
+        setErrorEmail,
+        setErrorTel,
+        setErrorPassword,
+        setErrorConPw,
+        loading,
+        setLoading,
+    } = props;
+
     const [type, setType] = useState('');
+    
+    const next = () => {
+        props.history.push({pathname: '/register/baker'});
+    }
+    
+    let url = `${BASE_URL}/user/register`;
+
+    const authenticate = () => {
+        let hasError = false;
+        setLoading(true);
+
+        if (name.length < 5) {
+            hasError = true;
+            setErrorName(true);
+        }
+
+        if (!AuthMail(email)) {
+            hasError = true;
+            setErrorEmail(true);
+        }
+
+        if (!AuthTel(tel)) {
+            hasError = true;
+            setErrorTel(true);
+        }
+
+        if(password.length < 5) {
+            hasError = true;
+            setErrorPassword(true);
+        }
+
+        if (password !== conPw) {
+            hasError = true;
+            setErrorPassword(true);
+            setErrorConPw(true);
+        }
+
+        if(!hasError) {
+            setLoading(false)
+            return false;
+        }
+
+        const body = {
+            name,
+            tel,
+            email,
+            password,
+        }
+
+        console.log(body);
+
+
+        let statusCode, responseJson;
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        })
+        .then((response) => {
+            statusCode = response.status;
+            responseJson = response.json();
+            return Promise.all([statusCode, responseJson]);
+        })
+        .then((res) => {
+            statusCode = res[0];
+            responseJson = res[1];
+            setLoading(false);
+            console.log(responseJson);
+        })
+        .catch(err => {
+            console.log(err, 'The ultimate error');
+            setLoading(false);
+        })
+    }
 
     return (
         <section className="sec-signup" id="signup">
             <div className="row-3">
                 <div className="signup">
                     <div className="signup__form-1">
-                        <form action="/signup" className="form" method="POST" novalidate>
-                            <div className="form__group-2">
-                                <input 
-                                type="text" 
-                                className="form__input form__length-1" 
-                                name="name" id="Name" 
-                                placeholder="Name" required />
-                                <label for="Name" className="form__label">Name</label>
-                            </div>
-                            <div className="form__group-2">
-                                <input 
-                                    className="form__input form__length-2"
-                                    type="email"
-                                    name="email" 
-                                    id="Email"
-                                    placeholder="Email" required />
-                                <label for="Email" className="form__label">Email</label>
-                            </div>
-                            <div className="form__group-2">
-                                <input
-                                    className="form__input form__length-3" 
-                                    type="number"
-                                    name="telNo" id="Tel"
-                                    placeholder="Telephone No" required />
-                                <label for="Tel" className="form__label">Telephone No</label>
-                            </div>
+                        <form>
+                            <Input 
+                                len={1}
+                                type='text'
+                                placeholder="Jane Price"
+                                label="Name"
+                                value={name}
+                                setValue={(event) => setName(event.target.value)}
+                                error={errorName}
+                                serError={() => setErrorName()}
+                            />
+                            <Input
+                                len={2}
+                                type="email"
+                                placeholder="janeprice@gmail.com"
+                                label="Email"
+                                value={email}
+                                setValue={(event) => setEmail(event.target.value)}
+                                error={errorEmail}
+                                serError={() => setErrorEmail()}
+                             />
+                             <Input
+                                len={3}
+                                type='number'
+                                placeholder={681726633}
+                                label="Telephone number"
+                                value={tel}
+                                setValue={(event) => setTel(event.target.value)}
+                                error={errorTel}
+                                serError={() => setErrorTel()}
+                             />
                             <div className="form__group-2">
                                 <RadioButton type="Client" setType={setType} />
                                 <RadioButton type="Baker" setType={setType} />
                             </div>
                             {type === "Client" && (
                                 <>
-                                <div className="form__group-2">
-                                    <input 
-                                        className="form__input form__length-4"
+                                    <Input
+                                        len={4}
                                         type="password"
-                                        name="password" id="password"
-                                        placeholder="Password" required />
-                                    <label for="password" className="form__label">Password</label>
-                                    <p className="txt-red pAuth">Password length most be greater than 5</p>
-                                </div>
+                                        placeholder="********"
+                                        label="Password"
+                                        value={password}
+                                        setValue={(event) => setPassword(event.target.value)}
+                                        error={errorPassword}
+                                        serError={() => setErrorPassword()}
+                                    />
+                                    <Input
+                                        len={5}
+                                        type="password"
+                                        placeholder="********"
+                                        label="Confirm password"
+                                        value={conPw}
+                                        setValue={(event) => setConPw(event.target.value)}
+                                        error={errorConPw}
+                                        serError={() => setErrorConPw()}
+                                    />
+                                </>
+                            )}
                             <div className="form__group-2">
-                                <input 
-                                    className="form__input form__length-5"
-                                    type="password" 
-                                    name="confirmPassword"
-                                    id="conPassword"
-                                    placeholder="Confirm password" required />
-                                <label for="con" className="form__label">Confirm password</label>
-                                <p className="txt-red pAuth">Password Mismatch</p>
-                            </div> 
-                            </>)}
-                            <div className="form__group-2">
-                                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
-                                <button type="submit" className="btn btn-deep--pink">{type === "Client" ? "Sign Up" : "Next"}</button>
-                                {type === "Client" && (<Link href="/signup" className="btn btn-deep--pink">Login</Link>)}
+                                {type === "Client" && (
+                                    <>
+                                        <button href="/signup" className="btn btn-deep--pink">Login</button>
+                                        <button className="btn btn-deep--pink" onClick={() => authenticate()}>Sign Up</button>
+                                    </>
+                                )}
+                                {type === 'Baker' && (<button className="btn btn-deep--pink" onClick={() => next()}>Next</button>)}
                                 
                             </div>
                         </form>

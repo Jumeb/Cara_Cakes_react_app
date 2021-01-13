@@ -17,6 +17,7 @@ import OrderTable from './OrderTable/OrderTable.component';
 import EventCard from './EventCard/EventCard.component';
 import BakerCard from './BakerCard/BakerCard.component';
 import PastryCard from './PastryCard/PastryCard.component';
+import Input from './Input/Input.component';
 
 export {
     Header, 
@@ -38,4 +39,5 @@ export {
     EventCard,
     BakerCard,
     PastryCard,
+    Input,
 };
