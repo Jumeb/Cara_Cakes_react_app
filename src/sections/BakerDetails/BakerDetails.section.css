@@ -38,7 +38,7 @@
 
 @media only screen and (max-width: 37.5em) {
     .signup {
-        background-image: linear-gradient(60deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), url(../../../res/img/bds-4.jpg);
+        background-image: linear-gradient(60deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), url(../../res/img/bds-4.jpg);
     }
 }
 
