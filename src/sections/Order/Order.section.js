@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Order.section.css';
+import styles from './Order.module.css';
 import OrderList from './OrderList/Order.list';
 import OrderDetail from './OrderDetail/Order.detail';
 

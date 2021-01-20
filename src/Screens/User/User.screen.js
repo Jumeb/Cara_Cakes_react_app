@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Route} from 'react-router-dom';
 
-import './User.screen.css';
+import styles from './User.module.css';
 import {
     SideNav, 
     Cart, 
@@ -22,7 +22,7 @@ const User = () => {
 
     return (
         <div>
-            <section className="panel">
+            <section className={styles.Panel}>
                 <SideNav isDetail={isDetail} />
                 <WorkArea isDetail={isDetail}>
                     <Route path="/user/event"  render={(props) => (<Events  {...props} isDetail={isDetail} setIsDetail={toggleDetail} /> )} />

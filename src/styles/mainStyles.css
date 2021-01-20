@@ -1,0 +1,22 @@
+p {
+    font-size: 1.6rem;
+    margin-top: 1.2rem;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+p:not(:last-child) {
+    margin-bottom: 6rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+    p {
+        padding: 0 3rem;
+    }
+}
+
+@media only screen and (max-width: 25.75em) {
+    p {
+        padding: 0 1.8rem;
+    }
+}

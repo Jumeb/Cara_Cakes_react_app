@@ -2,7 +2,7 @@ import React from 'react';
 import { Spacer } from '../../../Components';
 
 import {vals3 } from '../../../res/img';
-import './Cart.detail.css';
+import styles from './CartDetail.module.css';
 
 const CartDetail = (props) => {
     const {isDetail, setIsDetail} = props;

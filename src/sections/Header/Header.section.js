@@ -1,18 +1,18 @@
 import React from 'react';
 import { ButtonOne } from '../../Components';
 
-import './Header.section.css';
+import styles from './Header.module.css';
 
 const Header = () => {
     return (
-        <header className="header head-home" id="home">
-            <div className="header__text-box">
-                <h1 className="title">
-                    <span className="title--main">Cara Cakes</span>
-                    <span className="title--sub">Resting place for flavours</span>
+        <header className={styles.header} id="home">
+            <div className={styles.headerContainer}>
+                <h1 className={styles.title}>
+                    <span className={styles.mainTitle}>Cara Cakes</span>
+                    <span className={styles.subTitle}>Resting place for flavours</span>
                 </h1>
-                <ButtonOne link="/signup" styles="btn btn-deep--pink btn-animated--left" title="Sign-up" />
-                <ButtonOne link="#login" styles="btn btn-deep--pink btn-animated--right" title="Login" />
+                <ButtonOne link="/signup" title="Register" animate="left" />
+                <ButtonOne link="#login" title="Login"  animate="right" />
             </div>
         </header>
     );

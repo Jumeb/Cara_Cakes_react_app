@@ -1,0 +1,173 @@
+.eventDetail {
+    flex: 0 0 35%;
+    display: flex;
+    padding: 0 1rem;
+    overflow-y: auto;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.eventNoDetail {
+   display: none;
+   transition: all ease-in 0.3s;
+}
+
+.eventDetail::-webkit-scrollbar {
+    width: .2rem;
+    background-color: transparent;
+    border-radius: 2rem;
+}
+
+.eventDetail::-webkit-scrollbar-thumb {
+    width: .2rem;
+    background-color: #ff1493cc;
+    border-radius: 2rem;
+}
+
+.eventDetail::-webkit-scrollbar-track {
+    background-color: #ddd;
+    margin: 18rem 0;
+}
+
+.eventDetailImgContainer {
+    width: 90%;
+    display: flex;
+    border-radius: 0.6rem;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin-top: 1.5rem;
+}
+
+.eventDetailImg {
+    height: 25rem;
+    width: 100%;
+    border-bottom-right-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+    margin: 0;
+}
+
+.eventDetailCountdown {
+    position: absolute;
+    background-color: #fff;
+    bottom: 0.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.eventDetailImg-logo {
+    height: 6rem;
+    /* width: 6rem; */
+}
+
+.eventDetailTitle {
+    margin: 1.2rem 0;
+    background-color: #fff;
+}
+
+.eventDetails {
+    margin: 2rem 0;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.eventDescription {
+    margin-top: 0.6rem;
+    text-align: left;
+}
+
+.eventDescriptionList {
+    margin-left: 2.3rem;
+}
+
+.eventDescriptionText {
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.eventDetailDaysContainer {
+    line-height: 1.5rem;
+    margin-right: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.eventDetailDaysNumber {
+    word-spacing: 1.3rem;
+}
+
+.eventDetailDaysText {
+
+}
+
+.eventDetailTimeContainer {
+    line-height: 1.5rem;
+    margin-right: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.eventDetailTimeNumber {
+    word-spacing: 1rem;
+}
+
+.eventDetailTimeText {
+
+}
+
+.eventMoreDetails {
+    outline: none;
+    border: none;
+    border-bottom: 0.2rem solid #ff1493cc;
+    padding: 0.2rem 0;
+    background-color: #fff;
+    color: #ff1493cc;
+    font-weight: 700;
+    border-radius: 0.4rem;
+    width: 9rem;
+    margin-left: 1.3rem;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+
+.eventMoreDetails:hover {
+    background-color: #ff1491c0;
+    color: #fff;
+}
+
+.eventButtons {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.eventButton {
+    outline: none;
+    background-color: #ff1493;
+    border: none;
+    padding: 1rem 3rem;
+    color: #fff;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: box-shadow ease-in 0.3s;
+}
+
+.eventButton:hover {
+        box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.eventButtonDelete {
+    background-color: red;
+}

@@ -1,0 +1,164 @@
+.pastryDetail {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+}
+
+.pastryNoDetail {
+    display: none;
+}
+
+.pastryDetail::-webkit-scrollbar {
+    width: .4rem;
+    background-color: transparent;
+    border-radius: 2rem;
+}
+
+.pastryDetail::-webkit-scrollbar-thumb {
+    width: .4rem;
+    background-color: rgba(255, 20, 147, 0.8);
+    border-radius: 2rem;
+}
+
+.pastryDetail::-webkit-scrollbar-track {
+    background-color: #ddd;
+    margin: 18rem 0;
+}
+
+.pastryDetailImgContainer {
+    width: 90%;
+    display: flex;
+    border-radius: 0.6rem;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.pastryDetailImg {
+    height: 25rem;
+    width: 100%;
+    margin: 0;
+}
+
+.pastryDetailImgLogoContainer {
+    position: absolute;
+    background-color: #fff;
+    bottom: 5.3rem;
+    right: 0.3rem;
+    padding: 0.1rem 0.7rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.pastryDetailImgLogo {
+    height: 4.5rem;
+    /* width: 6rem; */
+}
+
+.pastryDetailTitle {
+    margin: 1.2rem 0;
+    background-color: #fff;
+}
+
+.pastryDetails {
+    margin: 2rem 0;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.pastryDescription {
+    margin-top: 0.6rem;
+    text-align: left;
+}
+
+.pastryDescriptionList {
+    margin-left: 2.3rem;
+}
+
+.pastryDescriptionText {
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.pastryDetailActions {
+    align-self: center;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem 2rem;
+}
+
+.pastryDetailActionButton {
+    outline: none;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: none;
+    color: #ff1493;
+    font-size: 1.1rem;
+    border: 0.2rem solid #ff1493;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: center;
+    box-shadow: 0 0 0rem 'transplant';
+    transition: box-shadow ease-in 0.2s, transform ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.pastryDetailButton {
+    outline: none;
+    background-color: #fff;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    height: 3rem;
+    color:#ff1493;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: center;
+    transition: all ease-in 0.3s;
+}
+
+.pastryDetailButton:hover {
+    background-color: #ff1493;
+    color: #fff;
+    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
+}
+
+.pastryDetailActionButton:hover {
+    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
+}
+
+.pastryDetailActionButton:active {
+    transform: translateY(0.2rem);
+    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.6);
+
+}
+
+.pastryDetailQtyText {
+    font-size: 1.4rem;
+}
+
+.pastryMessage {
+    outline: none;
+    padding: 0.8rem;
+    border: 0.1rem solid #ddd;
+    font-size: 1.4rem;
+    border-radius: 0.4rem;
+    transition: border ease-in 0.4s;
+}
+
+.pastryMessage:focus {
+    border: 0.1rem solid #929292;
+}

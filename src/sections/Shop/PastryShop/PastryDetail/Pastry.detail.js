@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {logo3, logo5, vals3 } from '../../../../res/img';
-import './Pastry.detail.css'
+import styles from './PastryDetail.module.css'
 
 const PastryDetail = (props) => {
     const {addToCart, isDetail, setIsDetail} = props;

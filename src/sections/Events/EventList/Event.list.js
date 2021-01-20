@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Event.list.css';
+import styles from './EventList.module.css';
 import { cookies2, cups5, dons2, pans2, vals2, vals1 } from '../../../res/img';
 import { Spacer, CreateEvent, EventCard } from '../../../Components';
 

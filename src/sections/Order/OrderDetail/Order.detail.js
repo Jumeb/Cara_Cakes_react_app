@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Order.detail.css'
+import styles from './OrderDetail.module.css'
 import { vals3, vals4, vals5 } from '../../../res/img';
 import { Spacer } from '../../../Components';
 

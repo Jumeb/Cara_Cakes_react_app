@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import makeAnimated from 'react-select/animated';
 import Select from 'react-select';
 
-import './BakerDetails.section.css';
+import styles from './BakerDetails.module.css';
 import {Input, Selector} from '../../Components';
 import { AuthMail, AuthTel } from '../../utils/auth';
 import {BASE_URL} from '../../utils/globalVariable';
@@ -36,6 +36,8 @@ const BakerDetails = (props) => {
         loading,
         setLoading,
     } = props;
+
+    let Categories = [];
 
     const authenticate = () => {
         let hasError = false;
@@ -77,14 +79,21 @@ const BakerDetails = (props) => {
             setErrorCategories(true);
         }
 
-        if(!hasError) {
+        if(hasError) {
             setLoading(false)
             return false;
         }
 
+        if(!hasError) {
+            categories.map((value, index) => {
+                console.log(value.label);
+                Categories.push(value.label);
+            })
+        }
+
         const body = {
             name,
-            categories,
+            categories: Categories,
             idCard,
             password,
             tel,
@@ -135,8 +144,8 @@ const BakerDetails = (props) => {
          <section className="sec-bakersignup" id="signup">
             <div className="row-3">
                 <div className="signup">
-                    <div className="signup__form-1">
-                        <form>
+                    <div className="signupForm-1">
+                        <div>
                             <Input 
                                 len={2}
                                 type='number'
@@ -165,7 +174,7 @@ const BakerDetails = (props) => {
                                         onChange={(value) => setCategories(value)}
                                         components={animatedComponents} 
                                         isMulti 
-                                        className="form__length-4 form__select-input" />
+                                        className="formLength-4 form__select-input" />
                                 </div>
                             <Input 
                                 len={5}
@@ -177,13 +186,13 @@ const BakerDetails = (props) => {
                                 error={errorPassword}
                                 serError={() => setErrorPassword()}
                             />
-                            <div className="form__group-2">
+                            <div className="formGroup-2">
                                 <button type="submit" className="btn btn-deep--pink" onClick={() => previous()}>Back</button>
                                 <button className="btn btn-deep--pink" onClick={() => authenticate()}>Sign Up</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                    <div className="signup__form-2 txt-cnt">
+                    <div className="signupForm-2 txt-cnt">
                         <h2 className="title-lil-1 txt-white-2">
                             Sign up
                         </h2>

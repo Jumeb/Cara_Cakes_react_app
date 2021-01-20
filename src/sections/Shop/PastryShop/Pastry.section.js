@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Pastry.section.css'
+import styles from './Pastry.module.css'
 import PastryList from './PastryList/Pastry.list';
 import PastryDetail from './PastryDetail/Pastry.detail';
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import BakerList from './BakerList/Baker.list';
 import BakerDetail from './BakerDetail/Baker.detail';
-import './Baker.section.css'
+import styles from './Baker.module.css'
 
 const BakerSection = (props) => {
     const {isDetail, setIsDetail} = props;

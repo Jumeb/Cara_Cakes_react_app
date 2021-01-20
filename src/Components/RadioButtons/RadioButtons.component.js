@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './RadioButton.component.css';
+import styles from './RadioButton.module.css';
 
 const RadioButton = (props) => {
     const {type, setType} = props;

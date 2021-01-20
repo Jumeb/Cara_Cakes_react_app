@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Links.component.css';
+import styles from './Links.module.css';
 
 const Links = (props) => {
     const {data} = props

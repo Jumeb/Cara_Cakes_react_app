@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router';
 import { Header, NavBar } from '../../Components';
 import { BakerDetails, RegisterSection } from '../../sections';
 
-import './Register.screen.css';
+import styles from './Register.module.css';
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -27,7 +27,7 @@ const Register = () => {
 
 
     return (
-        <body className="back-signup">
+        <body className={styles.Signup}>
             <Header />
             <main>
                 <Route path="/register" exact render={(props) => (<RegisterSection 

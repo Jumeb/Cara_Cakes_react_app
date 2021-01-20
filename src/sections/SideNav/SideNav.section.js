@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-import './SideNav.section.css'
+import styles from './SideNav.module.css'
 import {favicon} from '../../res/img';
 
 const SideNav = (props) => {

@@ -1,0 +1,60 @@
+.panelEvent {
+    flex: 1;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.panelEventDetail {
+    flex: 0 0 90%;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.panelEvent::-webkit-scrollbar,
+.panelEventDetail::-webkit-scrollbar {
+    width: .6rem;
+    background-color: #f1eeee;
+    border-radius: 2rem;
+}
+
+.panelEvent::-webkit-scrollbar-thumb,
+.panelEventDetail::-webkit-scrollbar-thumb {
+    width: .6rem;
+    background-color: rgba(255, 20, 147, 0.8);
+    border-radius: 2rem;
+}
+
+@media (max-width: 50em) {
+    .panelEvent {
+        padding: 3rem 8rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .panelEvent {
+        padding: 3rem 6rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .panelEvent {
+        padding: 3rem 4rem;
+    }
+}
+
+.panelEventHeader {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.2rem 0;
+    width: 100%;
+    background-color: #ffffffe5;
+    justify-content: center;
+}

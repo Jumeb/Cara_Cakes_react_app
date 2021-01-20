@@ -1,0 +1,142 @@
+.secContact {
+    background-color: transparent;
+    padding: 18rem 0 12rem 0;
+    margin-top: -21.5vh;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .secContact {
+        padding: 20rem 6rem 12rem 6rem;
+    }
+}
+
+@media only screen and (max-width: 25.75em) {
+    .secContact {
+        margin-top: -13rem;
+    }
+}
+
+.secContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 0 5rem;
+    flex-wrap: wrap-reverse;
+}
+
+.secSide {
+    flex: 0 0 calc((100% - 4rem) / 2);
+    text-align: left;
+}
+
+.subTitle {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: left;
+    color:white;
+}
+
+.contact {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1.7rem;
+    margin: 2rem auto;
+    width: 80%;
+}
+
+.contact::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.contact1 {
+    transform: skewX(15deg);
+}
+
+.contact2 {
+    transform: skewX(-15deg);
+}
+
+.contactIcon {
+    font-size: 6rem;
+    margin: 0 5rem;
+    float: left;
+}
+
+@media (max-width: 56.25em) {
+    .contactIcon {
+        font-size: 5rem;
+    }
+}
+
+@media only screen and (max-width: 25.75em) {
+    .contactIcon {
+        font-size: 4rem;
+        margin: 0 2rem;
+    }
+}
+
+.contactList1 {
+    transform: skewX(-15deg);
+}
+
+.contactList2 {
+    transform: skewX(15deg);
+}
+
+.contactNumber {
+    font-size: 1.9rem;
+    letter-spacing: .7rem;
+    display: block;
+    width: 50%;
+    margin-left: 15rem;
+}
+
+@media only screen and (max-width: 75em) {
+    .contactNumber {
+        font-size: 1.8rem;
+        letter-spacing: .4rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .contactNumber {
+        letter-spacing: .7rem;
+    }
+}
+
+@media only screen and (max-width: 25.75em) {
+    .contactNumber {
+        font-size: 1.5rem;
+        letter-spacing: .2rem;
+        margin-left: 8rem;
+    }
+}
+
+.contactNumber1 {
+    border-bottom: 2px solid rgba(255, 105, 180, 0.7);
+}
+
+.contactNumber2 {
+    border-bottom: 2px solid rgba(160, 82, 45, 0.7);
+}
+
+.margin-top-small {
+    margin-top: 4rem;
+}
+
+.margin-top-medium {
+    margin-top: 8rem;
+}
+
+.margin-bottom-medium {
+    margin-bottom: 8rem;
+}
+
+.title {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    margin: 4rem 0;
+    text-align: center;
+}

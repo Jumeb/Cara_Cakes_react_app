@@ -2,7 +2,7 @@ import React from 'react';
 
 import Profile from '../Profile/Profile.component';
 import SearchBar from '../SearchBar/SearchBar.component';
-import './WorkArea.component.css';
+import styles from './WorkArea.module.css';
 
 const WorkArea = (props) => {
     const {children, isDetail} = props;

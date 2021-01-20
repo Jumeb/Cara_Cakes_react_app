@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Header, NavBar } from '../../Components';
 import { LoginSection } from '../../sections';
-import './Login.screen.css';
+import styles from './Login.module.css';
 
 const Login = () => {
     return (
-        <body className="back-login">
+        <body className={styles.Login}>
             <Header />
             <main>
                 <LoginSection error={false}/>

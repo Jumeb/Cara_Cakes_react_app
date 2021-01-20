@@ -1,7 +1,7 @@
 import React from 'react';
 import { PastryCard, Spacer } from '../../../../Components';
 
-import './Pastry.list.css'
+import styles from './PastryList.module.css'
 
 const PastryList = (props) => {
     const {isDetail, setIsDetail} = props;
