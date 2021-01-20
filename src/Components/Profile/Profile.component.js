@@ -1,7 +1,7 @@
 import React from 'react';
 import { vals3 } from '../../res/img';
 
-import './Profile.component.css';
+import styles from './Profile.module.css';
 
 const Profile = () => {
     return (

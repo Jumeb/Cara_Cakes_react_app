@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import EventList from './EventList/Event.list';
 import EventDetail from './EventDetail/Event.detail';
-import './Event.section.css'
+import styles from './Event.module.css'
 import AddEvent from '../AddEvent/AddEvent.section';
 import EditEvent from '../EditEvent/EditEvent.section';
 

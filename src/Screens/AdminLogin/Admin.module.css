@@ -1,0 +1,211 @@
+.admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+        url(../../res/img/weds-2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.adminTitle {
+    margin-right: auto;
+    font-size: 4rem;
+    color: #fff;
+    text-transform: uppercase;
+    color: transparent;
+    font-weight: 700;
+}
+
+.adminContainer {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.adminLogo {
+    width: 30rem;
+    height: 17rem;
+}
+
+.adminSignIn {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 0.2rem solid rgba(255, 255, 255, 0.8);
+    padding: 4rem 3rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 1rem;
+}
+
+.adminSignInSheet {
+    position: relative;
+    width: 100%;
+}
+
+.adminSignInSheet:not(:last-child) {
+    margin-bottom: 3.3rem;
+}
+
+
+.adminInput {
+    background-color: rgba(255, 255, 255, 0.8);
+    outline: none;
+    border: none;
+    border-bottom: .4rem solid transparent;
+    font-size: 1.9rem;
+    padding: 1.8rem 1rem;
+    border-radius: 1rem;
+    color: #777;
+    width: 100%;
+}
+
+.adminInput:focus {
+    border-bottom: 0.4rem solid #ff1493;
+}
+
+.adminInput:focus:invalid {
+    border-bottom: 0.4rem solid #8b4513;
+}
+
+.adminLabel {
+    position: absolute;
+    font-size: 1.6rem;
+    left: 1.2rem;
+    top: -2.8rem;
+    opacity: 1;
+    visibility: visible;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all .4s ease-in-out;
+}
+
+.adminInput:placeholder-shown+.adminLabel {
+    left: 1.2rem;
+    top: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease-in-out;
+}
+
+.adminBtn {
+    position: relative;
+    font-weight: bold;
+    z-index: 30;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    color: rgba(255, 255, 255, 0.8);
+    border: 0.2rem solid rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    overflow: hidden;
+    outline: none;
+    background-color: transparent;
+    transition: all .4s ease-in-out;
+}
+
+.adminBtn:not(:last-child) {
+    margin-right: 2rem;
+}
+
+.adminBtn:link,
+.adminBtn:visited {
+    text-decoration: none;
+}
+
+.adminBtn::before,
+.adminBtn::after {
+    position: absolute;
+    z-index: -3;
+    content: "";
+    width: 100%;
+    height: .4rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scaleX(0);
+    left: 0;
+    transition: transform .25s ease-in-out,
+        height .4s ease-in-out .25s;
+}
+
+.adminBtn::before {
+    top: 0;
+}
+
+.adminBtn::after {
+    bottom: 0;
+}
+
+.adminBtn:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.adminBtn:hover::after,
+.adminBtn:hover::before {
+    transform: scaleX(1);
+    height: 50%;
+}
+
+.adminVerify {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: rgba(221, 17, 17, 0.8);
+    font-weight: bold;
+}
+
+.adminBox {
+    flex: 0 0 80%;
+    height: 92vh;
+    margin-top: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.adminCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.txtWhite {
+    color: #fff !important;
+}
+
+.titleLil1 {
+    font-size: 4rem;
+    background-image: linear-gradient(to right, rgba(199, 21, 133, 0.8), rgba(139, 69, 19, 0.8));
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+    color: transparent;
+    font-weight: 700;
+}
+
+@media (max-width: 56.25em) {
+    .titleLil1 {
+        font-size: 3.6rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .titleLil1 {
+        font-size: 3.3rem;
+    }
+}
+
+@media only screen and (max-width: 25.75em) {
+    .titleLil1 {
+        font-size: 3rem;
+    }
+}

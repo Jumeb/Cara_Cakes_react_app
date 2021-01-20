@@ -1,18 +1,18 @@
 import React from 'react';
 
-import './SampleCard.component.css';
+import styles from './SampleCard.module.css';
 import {ButtonTwo} from '../../Components';
 
 const SampleCard = () => {
     return (
-        <div className="card">
-                        <div className="card__view card__view--front">
-                            <div className="card__pic card__pic-1">
+        <div className={styles.card}>
+                        <div className={[styles.cardView, styles.cardViewFront].join(' ')}>
+                            <div className={[styles.cardPic, styles.cardPic1].join(' ')}>
                                 &nbsp;
                             </div>
-                            <div className="txt-cnt">
-                                <h5 className="card__heading card__heading-1">Cup cakes</h5>
-                                <ul className="card__list card__list-1">
+                            <div style={{textAlign: 'center'}}>
+                                <h5 className={[styles.cardHeading, styles.cardHeading1].join(' ')}>Cup cakes</h5>
+                                <ul className={[styles.cardList, styles.cardList1].join(' ')}>
                                     <li>Chocolate flavour</li>
                                     <li>Vanilla flavour</li>
                                     <li>Strawberry flavour</li>
@@ -20,15 +20,15 @@ const SampleCard = () => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="card__view card__view--back card__view--back-1">
-                            <div className="txt-cnt margin-bottom-medium margin-top-huge">
-                                <p className="card__just">Just</p>
-                                <p className="card__price">
+                        <div className={[styles.cardView, styles.cardViewBack, styles.cardViewBack1].join(' ')}>
+                            <div className={styles.cardInfo}>
+                                <p className={styles.cardJust}>Just</p>
+                                <p className={styles.cardPrice}>
                                     1000FCFA
                                 </p>
                             </div>
-                            <div className="txt-cnt margin-top-small">
-                                <ButtonTwo />
+                            <div className="txt-cnt margin-top-small" style={{textAlign: 'center', marginTop: '40px'}}>
+                                <ButtonTwo link="/signup" title="SignUp" />
                             </div>
                         </div>
                     </div>

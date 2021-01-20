@@ -1,10 +1,11 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
-import './ButtonOne.component.css'
+import styles from  './ButtonOne.module.css'
 
 const ButtonOne = (props) => {
-    const {styles, link, title} = props;
-    return <a href={link} className={styles}>{title}</a>
+    const {animate, link, title} = props;
+    return <NavLink to={link} className={[styles.btn, animate === 'left' && styles.btnAnimatedLeft, animate === 'right' && styles.btnAnimatedRight].join(' ')}>{title}</NavLink>
 }
 
 export default ButtonOne;

@@ -1,0 +1,104 @@
+.pastriesListDetail {
+    flex: 0 0 65%;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.pastriesList {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-evenly;
+    transition: flex-basis ease-in 0.3s;
+    position: relative;
+}
+
+.pastriesList::-webkit-scrollbar,
+.pastriesListDetail::-webkit-scrollbar {
+    width: .2rem;
+    background-color: transparent;
+    border-radius: 2rem;
+}
+
+.pastriesList::-webkit-scrollbar-thumb,
+.pastriesListDetail::-webkit-scrollbar-thumb {
+    width: .2rem;
+    background-color: #ff1493cc;
+    border-radius: 2rem;
+}
+
+.pastriesList::-webkit-scrollbar-track,
+.pastriesListDetail::-webkit-scrollbar-track {
+    background-color: #ddd;
+    margin: 18rem 0;
+    width: 0.2rem;
+}
+
+.pastryListImgContainer {
+    width: 31.5rem;
+    display: flex;
+    height: 35rem;
+    border-radius: 0.6rem;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1.4rem 0;
+    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.pastryListImg {
+    height: 25rem;
+    width: 100%;
+    margin: 0;
+}
+
+.pastryListImgLogoContainer {
+    position: absolute;
+    background-color: #fff;
+    bottom: 5.4rem;
+    right: 0.3rem;
+    padding: 0.1rem 0.7rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.pastryListImgLogo {
+    height: 3rem;
+}
+
+.pastryListTitle {
+    margin: 1.2rem 0;
+    background-color: #fff;
+}
+
+.pastriesButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0.8rem 0;
+}
+
+.pastriesButton {
+    outline: none;
+    background-color: #ff1493;
+    border: none;
+    padding: 1rem 3rem;
+    color: #fff;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: box-shadow ease-in 0.3s;
+}
+
+.pastriesButton:hover {
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.6);
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 
-import './DatePicker.component.css';
+import styles from './DatePicker.module.css';
 
 const DatePick = (props) => {'transparent'
     const {startDate, setStartDate} = props;
     return (
-        <DatePicker selected={startDate} onChange={date => setStartDate(date)} showTimeSelect dateFormat="Pp"  className="datePicker__input datePicker__length-3" withPortal fixedHeight placeholderText="Add a date" />
+        <DatePicker selected={startDate} onChange={date => setStartDate(date)} showTimeSelect dateFormat="Pp"  className="datePickerInput datePickerLength-3" withPortal fixedHeight placeholderText="Add a date" />
     )
 }
 

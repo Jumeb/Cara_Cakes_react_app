@@ -1,0 +1,166 @@
+.orderDetail {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+}
+
+.orderDetail::-webkit-scrollbar {
+    width: .4rem;
+    background-color: transparent;
+    border-radius: 2rem;
+}
+
+.orderDetail::-webkit-scrollbar-thumb {
+    width: .4rem;
+    background-color: #ff1493cc;
+    border-radius: 2rem;
+}
+
+.orderDetail::-webkit-scrollbar-track {
+    background-color: #ddd;
+    margin: 18rem 0;
+}
+
+.orderDetailImgContainer {
+    width: 90%;
+    display: flex;
+    border-radius: 0.6rem;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+}
+
+.orderDetailImgs {
+    position: relative;
+    height: 25rem;
+    width: 100%;
+}
+
+.orderDetailImg1 {
+    height: 16rem;
+    width: 78%;
+    border-radius: 0.6rem;
+    position: absolute;
+    top: 0;
+    left: 2.5rem;
+    outline-offset: 1rem;
+    transition: all ease-in-out 0.2s;
+}
+
+.orderDetailImg2 {
+    height: 16rem;
+    width: 78%;
+    border-radius: 0.6rem;
+    position: absolute;
+    top: 12%;
+    right: 1.5rem;
+    outline-offset: 1rem;
+    transition: all ease-in-out 0.2s;
+}
+
+.orderDetailImg3 {
+    height: 16rem;
+    width: 78%;
+    border-radius: 0.6rem;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    outline-offset: 1rem;
+    transition: all ease-in-out 0.2s;
+}
+
+.orderDetailHover:hover{
+    z-index: 3;
+    outline: 0.7rem solid #ff1493cc;
+}
+
+.orderDetailImgs:hover .orderDetailHover:not(:hover) {
+    height: 12rem;
+    width: 60%;
+}
+
+
+.orderDetailTitle {
+    padding: 1.2rem 0;
+    background-color: #fff;
+}
+
+.orderDetailActions {
+    align-self: center;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem 2rem;
+}
+
+.orderDetailActionButton {
+    outline: none;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: none;
+    color: #ff1493;
+    font-size: 1.1rem;
+    border: 0.2rem solid #ff1493;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: center;
+    box-shadow: 0 0 0rem 'transplant';
+    transition: box-shadow ease-in 0.2s, transform ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.orderDetailActionButton:hover {
+    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
+}
+
+.orderDetailActionButton:active {
+    transform: translateY(0.2rem);
+    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.6);
+
+}
+
+.orderDetailQtyText {
+    font-size: 1.4rem;
+}
+
+.orderDetails {
+    margin: 2rem 0;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.orderDescription {
+    margin-top: 0.6rem;
+    text-align: left;
+}
+
+.orderDescriptionText {
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.orderDescription {
+    margin-top: 0.6rem;
+    text-align: left;
+}
+
+.orderDescriptionList {
+    margin-left: 2.3rem;
+}
+
+.orderDescriptionText {
+    text-align: left;
+    font-size: 1.2rem;
+}

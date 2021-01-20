@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Input } from '../../Components';
 import RadioButton from '../../Components/RadioButtons/RadioButtons.component';
 import { AuthMail, AuthTel } from '../../utils/auth';
-import './Register.section.css'
+import styles from './Register.module.css'
 import {BASE_URL} from '../../utils/globalVariable'
 
 const RegisterSection = (props) => {
@@ -37,8 +37,6 @@ const RegisterSection = (props) => {
     const next = () => {
         props.history.push({pathname: '/register/baker'});
     }
-    
-    let url = `${BASE_URL}/user/register`;
 
     const authenticate = () => {
         let hasError = false;
@@ -70,7 +68,9 @@ const RegisterSection = (props) => {
             setErrorConPw(true);
         }
 
-        if(!hasError) {
+        if(hasError) {
+            console.log('I have errors');
+            console.log(name, email, tel, password, conPw);
             setLoading(false)
             return false;
         }
@@ -79,13 +79,14 @@ const RegisterSection = (props) => {
             name,
             tel,
             email,
-            password,
+            password
         }
 
         console.log(body);
 
 
         let statusCode, responseJson;
+        let url = `${BASE_URL}/user/register`;
 
         fetch(url, {
             method: 'POST',
@@ -115,8 +116,8 @@ const RegisterSection = (props) => {
         <section className="sec-signup" id="signup">
             <div className="row-3">
                 <div className="signup">
-                    <div className="signup__form-1">
-                        <form>
+                    <div className="signupForm-1">
+                        <div>
                             <Input 
                                 len={1}
                                 type='text'
@@ -147,7 +148,7 @@ const RegisterSection = (props) => {
                                 error={errorTel}
                                 serError={() => setErrorTel()}
                              />
-                            <div className="form__group-2">
+                            <div className="formGroup-2">
                                 <RadioButton type="Client" setType={setType} />
                                 <RadioButton type="Baker" setType={setType} />
                             </div>
@@ -175,19 +176,19 @@ const RegisterSection = (props) => {
                                     />
                                 </>
                             )}
-                            <div className="form__group-2">
+                            <div className="formGroup-2">
                                 {type === "Client" && (
                                     <>
-                                        <button href="/signup" className="btn btn-deep--pink">Login</button>
+                                        <button className="btn btn-deep--pink">Login</button>
                                         <button className="btn btn-deep--pink" onClick={() => authenticate()}>Sign Up</button>
                                     </>
                                 )}
                                 {type === 'Baker' && (<button className="btn btn-deep--pink" onClick={() => next()}>Next</button>)}
                                 
                             </div>
-                        </form>
+                        </div>
                     </div>
-                    <div className="signup__form-2 txt-cnt">
+                    <div className="signupForm-2 txt-cnt">
                         <h2 className="title-lil-1 txt-white-2">
                             Sign up
                         </h2>

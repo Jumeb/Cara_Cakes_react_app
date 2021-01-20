@@ -1,0 +1,91 @@
+.bakerDetail {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+}
+
+.bakerNoDetail {
+    display:none;
+}
+
+.bakerDetail::-webkit-scrollbar {
+    width: .4rem;
+    background-color: transparent;
+    border-radius: 2rem;
+}
+
+.bakerDetail::-webkit-scrollbar-thumb {
+    width: .4rem;
+    background-color: rgba(255, 20, 147, 0.8);
+    border-radius: 2rem;
+}
+
+.bakerDetail::-webkit-scrollbar-track {
+    background-color: #ddd;
+    margin: 18rem 0;
+}
+
+.bakerDetailImgContainer {
+    width: 90%;
+    display: flex;
+    border-radius: 0.6rem;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.bakerDetailImg {
+    height: 25rem;
+    width: 100%;
+    border-bottom-right-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+    margin: 0;
+}
+
+.bakerDetailImgLogoContainer {
+    position: absolute;
+    background-color: #fff;
+    bottom: 0.3rem;
+    right: 0.3rem;
+    padding: 0.1rem 0.7rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.bakerDetailImgLogo {
+    height: 6rem;
+    /* width: 6rem; */
+}
+
+.bakerDetail-title {
+    margin: 1.2rem 0;
+    background-color: #fff;
+}
+
+.bakerDetails {
+    margin: 2rem 0;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.bakerDescription {
+    margin-top: 0.6rem;
+    text-align: left;
+}
+
+.bakerDescriptionList {
+    margin-left: 2.3rem;
+}
+
+.bakerDescriptionText {
+    text-align: left;
+    font-size: 1.2rem;
+}

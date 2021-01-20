@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Event.detail.css';
+import styles from './EventDetail.module.css';
 import { logo6, vals2 } from '../../../res/img';
 import { Spacer } from '../../../Components';
 

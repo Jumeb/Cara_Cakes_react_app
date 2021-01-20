@@ -1,0 +1,36 @@
+
+
+.searchContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30rem;
+    justify-content: flex-start;
+    margin: auto;
+    margin-right: -5rem;
+}
+
+
+.searchContainerInput {
+    outline: none;
+    border: none;
+    width: 22rem;
+    padding: 0.85rem 0;
+    padding-left: 0.65rem;
+    font-size: 1.4rem;
+    color: #5c5c5c;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.4rem;
+    background-color: #fff;
+    box-shadow: 0 0.2rem 0.5rem rgba(161, 161, 161, 0.938);
+    transform: all ease-in 0.2s;
+}
+
+.searchContainerInput:focus {
+    width: 30rem;
+}
+
+.searchIcon {
+    margin-left: -2rem;
+    font-size: 1.2rem;
+}

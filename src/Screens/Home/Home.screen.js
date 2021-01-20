@@ -1,12 +1,12 @@
 import React from 'react';
 
-import './Home.screen.css';
+import styles from './Home.module.css';
 import {Header, NavBar} from '../../Components';
 import {HeaderSection, About, Sample, Baker, Contact, Footer} from '../../sections';
 
 const Home = () => {
     return (
-        <div className="back-home">
+        <div className={styles.Home}>
             <main>
                 <Header />
                 <HeaderSection />

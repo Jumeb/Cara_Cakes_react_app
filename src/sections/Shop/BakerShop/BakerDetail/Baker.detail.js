@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {logo5, vals3 } from '../../../../res/img';
-import './Baker.detail.css'
+import styles from './BakerDetail.module.css'
 
 const BakerDetail = (props) => {
     const {isDetail, setDetail} = props;

@@ -2,7 +2,7 @@ import React from 'react'
 
 import CartDetail from './CartDetail/Cart.detail';
 import CartList from './CartList/Cart.list';
-import './Cart.section.css';
+import styles from './Cart.module.css';
 
 const UserSection = (props) => {
     const {isDetail, setIsDetail} = props;

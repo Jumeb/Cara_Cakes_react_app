@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Order.list.css'
+import styles from './OrderList.module.css'
 import { OrderTable, Spacer } from '../../../Components';
 
 const OrderList = () => {

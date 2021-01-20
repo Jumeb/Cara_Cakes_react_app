@@ -1,6 +1,6 @@
 import  React from 'react';
 
-import './CreateEvent.component.css';
+import styles from './CreateEvent.module.css';
 
 const CreateEvent = (props) => {
     const {setIsOpen} = props

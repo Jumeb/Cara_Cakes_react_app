@@ -1,0 +1,205 @@
+.navi {
+    position: fixed;
+    top: 2.3rem;
+    right: 7rem;
+    transition: all .5s ease;
+    z-index: 5000;
+}
+
+@media only screen and (max-width: 25.75em) {
+    .navi {
+        right: 4rem;
+    }
+}
+
+.naviButton {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    position: fixed;
+    cursor: pointer;
+}
+
+.naviList {
+    position: relative;
+    z-index: 90;
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 50%;
+    text-align: center;
+    left: 3.3rem;
+}
+
+.naviItem {
+    position: absolute;
+    text-align: center;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.naviItem1 {
+    transition: all .35s ease-in-out;
+}
+
+.naviItem2 {
+    transition: all .45s ease-in-out;
+}
+
+.naviItem3 {
+    transition: all .55s ease-in-out;
+}
+
+.naviItem4 {
+    transition: all .65s ease-in-out;
+}
+
+.naviLink {
+    text-decoration: none;
+    font-size: 2.2rem;
+    padding: 2rem;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #c71585;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.8);
+    transform: scale(0.8);
+    transition: all .3s;
+}
+
+.naviLink:link,
+.naviLink:visited {
+    color: #c71585;
+}
+
+.naviLink:hover,
+.naviLink:active {
+    transform: scale(1);
+}
+
+.naviButton:hover .naviIcon::after {
+    top: -.8rem;
+}
+
+@media only screen and (max-width: 25.75em) {
+    .naviButton:hover .naviIcon::after {
+        top: -.7rem;
+    }
+}
+
+.naviButton:hover .naviIcon::before {
+    top: 1.1rem;
+}
+
+@media only screen and (max-width: 75em) {
+    .naviButton:hover .naviIcon::before {
+        top: 1.1rem;
+    }
+}
+
+.naviCheckbox {
+    display: none;
+}
+
+.naviIcon,
+.naviIcon::after,
+.naviIcon::before {
+    background-color: #c71585;
+    width: 3rem;
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.naviIcon::after,
+.naviIcon::before {
+    content: "";
+    transition: all .3s ease-in-out;
+}
+
+.naviIcon::after {
+    top: -.6rem;
+}
+
+@media only screen and (max-width: 25.75em) {
+    .naviIcon::after {
+        top: -.5rem;
+    }
+}
+
+.naviIcon::before {
+    top: .9rem;
+}
+
+@media only screen and (max-width: 75em) {
+    .naviIcon::before {
+        top: .9rem;
+    }
+}
+
+@media (max-width: 56.25em) {
+    .naviIcon::before {
+        top: 1rem;
+    }
+}
+
+.naviCheckbox:checked+.naviButton .naviIcon::after {
+    top: 0;
+    transform: translate(-50%, -50%) rotate(-225deg);
+}
+
+.naviCheckbox:checked+.naviButton .naviIcon::before {
+    top: 0;
+    transform: translate(-50%, -50%) rotate(225deg);
+}
+
+.naviCheckbox:checked+.naviButton .naviIcon {
+    background-color: transparent;
+}
+
+.naviCheckbox:checked~.naviList .naviItem1 {
+    margin-top: 9rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.naviCheckbox:checked~.naviList .naviItem2 {
+    margin-top: 18rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.naviCheckbox:checked~.naviList .naviItem3 {
+    margin-top: 27rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.naviCheckbox:checked~.naviList .naviItem4 {
+    margin-top: 36rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.naviHidden {
+    position: fixed;
+    top: 4.5rem;
+    right: -10rem;
+    transition: all .5s ease;
+    z-index: 30;
+}
+
+@media only screen and (max-width: 75em) {
+    .naviHidden {
+        right: 3rem;
+    }
+}
+
+.naviActive {
+    background-color: #c71585;
+    color: #fff !important;
+}

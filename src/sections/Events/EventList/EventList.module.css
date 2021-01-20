@@ -1,0 +1,45 @@
+.eventListDetail {
+    flex: 0 0 65%;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.eventList {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-evenly;
+    transition: all ease-in 0.3s;
+    position: relative;
+}
+
+.eventList::-webkit-scrollbar,
+.eventListDetail::-webkit-scrollbar {
+    width: .2rem;
+    background-color: transparent;
+    border-radius: 2rem;
+}
+
+.eventList::-webkit-scrollbar-thumb,
+.eventListDetail::-webkit-scrollbar-thumb {
+    width: .2rem;
+    background-color: #ff1493cc;
+    border-radius: 2rem;
+}
+
+.eventList::-webkit-scrollbar-track,
+.eventListDetail::-webkit-scrollbar-track {
+    background-color: #ddd;
+    margin: 18rem 0;
+    width: 0.2rem;
+}

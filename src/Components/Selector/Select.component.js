@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
-// import './Select.compent.css';
+// import styles from './Select.compent.css';
 
 const Selector = (options, multi) => {
     return (

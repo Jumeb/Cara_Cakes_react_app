@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Login.section.css'
+import styles from './Login.module.css'
 
 const LoginSection = (props) => {
     const {error} = props;
@@ -9,28 +9,28 @@ const LoginSection = (props) => {
         <section className="sec-auth" id="login">
     <div className="row-2">
         <div className="login">
-            <div className="login__form-1">
+            <div className="loginForm-1">
                 <form action="/login" className="form" method="POST">
-                    <div className="form__group">
-                        <input type="email" className="form__input form__length-3" name="email" id="Email" placeholder="Email or Tel" required />
-                        <label for="Email" className="form__label">Email or Tel</label>
+                    <div className="formGroup">
+                        <input type="email" className="formInput formLength-3" name="email" id="Email" placeholder="Email or Tel" required />
+                        <label for="Email" className="formLabel">Email or Tel</label>
                     </div>
-                    <div className="form__group">
-                        <input type="password" className="form__input form__length-4" name="password" id="passWord" placeholder="Password"
+                    <div className="formGroup">
+                        <input type="password" className="formInput formLength-4" name="password" id="passWord" placeholder="Password"
                              required />
-                        <label for="passWord" className="form__label">Password</label>
+                        <label for="passWord" className="formLabel">Password</label>
                     </div>
-                    <div className="form__group">
+                    <div className="formGroup">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                         <button type="submit" className="btn btn-deep--pink">Login</button>
                         <a href="/signup" className="btn btn-deep--pink">Sign-up</a>
                     </div>
-                    <div className="form__group margin-bottom-small-ve">
+                    <div className="formGroup margin-bottom-small-ve">
                         <a href="#" className="btn-3">Forgot password</a>
                     </div>
                 </form>
             </div>
-            <div className="login__form-2 txt-cnt">
+            <div className="loginForm-2 txt-cnt">
                 <h2 className="title-lil-1 txt-white">
                     LOGIN
                 </h2>

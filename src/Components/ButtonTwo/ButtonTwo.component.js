@@ -1,10 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import './ButtonTwo.component.css';
+import styles from './ButtonTwo.module.css';
 
 const ButtonTwo = (props) => {
     const {link, title} = props;
-    return <a href="/signup" className="btn-2 btn-2__hover-icon">Sign Up <span className="btn-2__icon">&#10095</span></a>
+return <NavLink to={link} className={[styles.btn, styles.btnHoverIcon].join(' ')}>{title} <span className={styles.btnIcon}>&#10095;</span></NavLink>
 }
 
 export default ButtonTwo;
