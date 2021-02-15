@@ -1,0 +1,25 @@
+.btn {
+    transition: all .4s ease-in-out;
+    color: #181717;
+    padding: 1.2rem 3.5rem;
+    border: none;
+    margin: 0 .5rem;
+    font-size: 1.4rem;
+    border-radius: 10rem;
+    margin-right: auto;
+    align-self: flex-start;
+}
+
+.btn:link,
+.btn:visited {
+    text-decoration: none;
+    padding: 1rem 3.5rem;
+}
+
+.btn:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+}
+
+.btn:active {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}

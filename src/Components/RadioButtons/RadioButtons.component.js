@@ -5,10 +5,10 @@ import styles from './RadioButton.module.css';
 const RadioButton = (props) => {
     const {type, setType} = props;
     return (
-        <div className="form__radio-group" onClick={() => setType(type)} >
-            <input type="radio" className="form__radio-input" id={type} name="size" />
-            <label for={type} className="form__radio-label">
-                <span  className="form__radio-button" />
+        <div className={styles.formRadioGroup} onClick={() => setType(type)} >
+            <input type="radio" className={styles.formRadioInput} id={type} name="size" />
+            <label for={type} className={styles.formRadioLabel}>
+                <span  className={styles.formRadioButton} />
                 {type}
             </label>
         </div>

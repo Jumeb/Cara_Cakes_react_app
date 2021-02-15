@@ -3,7 +3,7 @@ import makeAnimated from 'react-select/animated';
 import Select from 'react-select';
 
 import styles from './BakerDetails.module.css';
-import {Input, Selector} from '../../Components';
+import {ButtonOne, Input, Selector} from '../../Components';
 import { AuthMail, AuthTel } from '../../utils/auth';
 import {BASE_URL} from '../../utils/globalVariable';
 
@@ -141,10 +141,9 @@ const BakerDetails = (props) => {
     }
 
     return (
-         <section className="sec-bakersignup" id="signup">
-            <div className="row-3">
-                <div className="signup">
-                    <div className="signupForm-1">
+         <section className={styles.bakerSignup} id="signup">
+                <div className={styles.signup}>
+                    <div className={styles.signupForm}>
                         <div>
                             <Input 
                                 len={2}
@@ -157,7 +156,7 @@ const BakerDetails = (props) => {
                                 serError={() => setErrorIdCard()}
                             />
                             <Input 
-                                len={2}
+                                len={3}
                                 type='text'
                                 placeholder='Henry pastries'
                                 label='Company name'
@@ -166,7 +165,7 @@ const BakerDetails = (props) => {
                                 error={errorCompanyName}
                                 serError={() => setErrorCompanyName()}
                             />
-                            <div className="form__select">
+                            <div className={styles.formSelect}>
                                     <Select 
                                         value={categories}
                                         options={_categories}
@@ -186,18 +185,17 @@ const BakerDetails = (props) => {
                                 error={errorPassword}
                                 serError={() => setErrorPassword()}
                             />
-                            <div className="formGroup-2">
-                                <button type="submit" className="btn btn-deep--pink" onClick={() => previous()}>Back</button>
-                                <button className="btn btn-deep--pink" onClick={() => authenticate()}>Sign Up</button>
+                            <div className={styles.formGroup}>
+                                <ButtonOne title="Back" onClick={() => previous()} />
+                                <ButtonOne title="Register" onClick={() => authenticate()} />
                             </div>
                         </div>
                     </div>
-                    <div className="signupForm-2 txt-cnt">
-                        <h2 className="title-lil-1 txt-white-2">
+                    <div className={styles.signupContainer}>
+                        <h2 className={styles.title}>
                             Sign up
                         </h2>
                     </div>
-                </div>
             </div>
         </section>
     )

@@ -34,6 +34,7 @@
 .bakerListTitle {
     margin: 1.2rem 0;
     background-color: #fff;
+    text-align: center;
 }
 
 .bakersButtonContainer {
@@ -41,19 +42,4 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin: 0.8rem 0;
-}
-
-.bakersButton {
-    outline: none;
-    background-color: #ff1493;
-    border: none;
-    padding: 1rem 3rem;
-    color: #fff;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    transition: box-shadow ease-in 0.3s;
-}
-
-.bakersButton:hover {
-    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.6);
 }

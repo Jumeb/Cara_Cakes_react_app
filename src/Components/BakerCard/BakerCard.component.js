@@ -1,9 +1,11 @@
 import React from 'react';
+import { Button, Link } from '..';
 import { logo5, vals3 } from '../../res/img';
 
 import styles from './BakerCard.module.css';
 
-const BakerCard = () => {
+const BakerCard = (props) => {
+    const {isDetail, setIsDetail} = props;
     return (
             <div className={styles.bakerListImgContainer}>
                 <div className={styles.bakerListTitle}>
@@ -14,8 +16,8 @@ const BakerCard = () => {
                     <img src={logo5} alt="Product" className={styles.bakerListImgLogo}/>
                 </div>
                 <div className={styles.bakersButtonContainer}>
-                    <button className={styles.bakersButton}>Details</button>
-                    <button className={styles.bakersButton}>Shop</button>
+                    <Button onClick={() => setIsDetail()} title="Details" />
+                    <Link link="#" title="Shop" />
                 </div>
             </div>
     )

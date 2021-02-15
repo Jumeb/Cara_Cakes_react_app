@@ -20,7 +20,7 @@ const EventSection = (props) => {
     }
 
     return (
-        <div className="event">
+        <div className={styles.event}>
             <EventList setIsOpen={toggleAdd} isDetail={isDetail} setIsDetail={setIsDetail} />
             <EventDetail isDetail={isDetail} setIsDetail={setIsDetail} setIsOpenEdit={toggleEdit}/>
             <AddEvent isOpen={isOpenAdd} setIsOpen={toggleAdd} />

@@ -11,6 +11,10 @@
     height: 100vh;
 }
 
+.orderNoDetail {
+    display: none;
+}
+
 .orderDetail::-webkit-scrollbar {
     width: .4rem;
     background-color: transparent;
@@ -90,6 +94,7 @@
 .orderDetailTitle {
     padding: 1.2rem 0;
     background-color: #fff;
+    text-align: center;
 }
 
 .orderDetailActions {

@@ -2,8 +2,10 @@ import React from 'react';
 
 import styles from './PastryCard.module.css';
 import { logo5, vals3 } from '../../res/img';
+import { Button } from '..';
 
-const PastryCard = () => {
+const PastryCard = (props) => {
+    const {isDetail, setIsDetail} = props;
     return (
             <div className={styles.pastryListImgContainer}>
                 <div className={styles.pastryListTitle}>
@@ -14,8 +16,8 @@ const PastryCard = () => {
                     <img src={logo5} alt="Product" className={styles.pastryListImgLogo} />
                 </div>
                 <div className={styles.pastriesButtonContainer}>
-                    <button className={styles.pastriesButton}>Details</button>
-                    <button className={styles.pastriesButton}>Add to cart</button>
+                    <Button title="Details" onClick={() => setIsDetail()} />
+                    <Button title="Add to Cart" onClick={() => console.log('added')} />
                 </div>
             </div>
     )

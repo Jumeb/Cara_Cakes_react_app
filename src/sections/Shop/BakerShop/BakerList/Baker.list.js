@@ -1,15 +1,14 @@
 import React from 'react';
 import { BakerCard, Spacer } from '../../../../Components';
 
-import { cookies4, cups2, dons3, logo5, pans4, vals2, vals3 } from '../../../../res/img';
 import styles from './BakerList.module.css'
 
 const BakerList = (props) => {
     const {isDetail, setIsDetail} = props;
     return (
-        <div className={isDetail ? "bakers__listDetail" : "bakers__list"}>
+        <div className={isDetail ? styles.bakersListDetail : styles.bakersList}>
             <Spacer />
-            <BakerCard />
+            <BakerCard isDetail={isDetail} setIsDetail={setIsDetail}/>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonOne } from '../../Components';
+import { LinkOne } from '../../Components';
 
 import styles from './Header.module.css';
 
@@ -11,8 +11,8 @@ const Header = () => {
                     <span className={styles.mainTitle}>Cara Cakes</span>
                     <span className={styles.subTitle}>Resting place for flavours</span>
                 </h1>
-                <ButtonOne link="/signup" title="Register" animate="left" />
-                <ButtonOne link="#login" title="Login"  animate="right" />
+                <LinkOne link="/signup" title="Register" animate="left" />
+                <LinkOne link="#login" title="Login"  animate="right" />
             </div>
         </header>
     );

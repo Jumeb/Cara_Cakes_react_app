@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Input } from '../../Components';
+import { ButtonOne, Input, LinkOne } from '../../Components';
 import RadioButton from '../../Components/RadioButtons/RadioButtons.component';
 import { AuthMail, AuthTel } from '../../utils/auth';
 import styles from './Register.module.css'
@@ -34,7 +34,7 @@ const RegisterSection = (props) => {
 
     const [type, setType] = useState('');
     
-    const next = () => {
+    const nextPage = () => {
         props.history.push({pathname: '/register/baker'});
     }
 
@@ -113,10 +113,9 @@ const RegisterSection = (props) => {
     }
 
     return (
-        <section className="sec-signup" id="signup">
-            <div className="row-3">
-                <div className="signup">
-                    <div className="signupForm-1">
+        <section className={styles.secSignup} id="signup">
+                <div className={styles.signup}>
+                    <div className={styles.signupForm}>
                         <div>
                             <Input 
                                 len={1}
@@ -141,14 +140,14 @@ const RegisterSection = (props) => {
                              <Input
                                 len={3}
                                 type='number'
-                                placeholder={681726633}
+                                placeholder={type}
                                 label="Telephone number"
                                 value={tel}
                                 setValue={(event) => setTel(event.target.value)}
                                 error={errorTel}
                                 serError={() => setErrorTel()}
                              />
-                            <div className="formGroup-2">
+                            <div className={styles.formGroup}>
                                 <RadioButton type="Client" setType={setType} />
                                 <RadioButton type="Baker" setType={setType} />
                             </div>
@@ -176,24 +175,22 @@ const RegisterSection = (props) => {
                                     />
                                 </>
                             )}
-                            <div className="formGroup-2">
+                            <div className={styles.formGroup}>
                                 {type === "Client" && (
                                     <>
-                                        <button className="btn btn-deep--pink">Login</button>
-                                        <button className="btn btn-deep--pink" onClick={() => authenticate()}>Sign Up</button>
+                                        <LinkOne link="/login" title="Login" />
+                                        <ButtonOne title="Register" onClick={() => authenticate()} />
                                     </>
                                 )}
-                                {type === 'Baker' && (<button className="btn btn-deep--pink" onClick={() => next()}>Next</button>)}
-                                
+                                {type === "Baker" && <ButtonOne title="Next" onClick={() => nextPage()} />} 
                             </div>
                         </div>
                     </div>
-                    <div className="signupForm-2 txt-cnt">
-                        <h2 className="title-lil-1 txt-white-2">
+                    <div className={styles.signupContainer}>
+                        <h2 className={styles.title}>
                             Sign up
                         </h2>
                     </div>
-                </div>
             </div>
         </section>
     )

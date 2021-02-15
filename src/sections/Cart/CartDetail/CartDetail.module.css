@@ -1,5 +1,5 @@
 .cartDetail {
-    flex: 0 0 35%;
+    flex: 1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -46,14 +46,13 @@
 .cartDetailImg {
     height: 25rem;
     width: 100%;
-    border-bottom-right-radius: 0.6rem;
-    border-bottom-left-radius: 0.6rem;
     margin: 0;
 }
 
 .cartDetailTitle {
     padding: 1.2rem 0;
     background-color: #fff;
+    text-align: center;
 }
 
 .cartDetailActions {
