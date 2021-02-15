@@ -7,22 +7,22 @@ const Admin = (props) => {
     const {error} = props;
     return (
         <body className={styles.admin}>
-            <div className="admin__box">
+            <div className={styles.adminBox}>
                 <h2 className={styles.adminTitle}>Welcome Admin</h2>
                 <div className={styles.adminContainer}>
                     <img src={jbInc} alt="Powered by Jb Inc" className={styles.adminLogo} />
                     <div className={styles.adminSignIn}>
-                        <div className="admin__signin-sheet">
-                            <input type="text" className="adminInput" id="user" name="user" placeholder="User Name" required />
-                            <label for="user" className="adminLabel">Username</label>
+                        <div className={styles.adminSignInSheet}>
+                            <input type="text" className={styles.adminInput} id="user" name="user" placeholder="User Name" required />
+                            <label for="user" className={styles.adminLabel}>Username</label>
                         </div>
-                        <div className="admin__signin-sheet">
-                            <input type="password" className="adminInput" id="password" name="password" placeholder="Password"
+                        <div className={styles.adminSignInSheet}>
+                            <input type="password" className={styles.adminInput} id="password" name="password" placeholder="Password"
                                 required />
-                            <label for="password" className="adminLabel">Password</label>
+                            <label for="password" className={styles.adminLabel}>Password</label>
                         </div>
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
-                        <button className="admin__btn" type="submit">Login</button>
+                        <button className={styles.adminBtn} type="submit">Login</button>
                     </div>
                 </div>
             </div>

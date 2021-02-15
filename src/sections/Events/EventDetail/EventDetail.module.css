@@ -1,5 +1,5 @@
 .eventDetail {
-    flex: 0 0 35%;
+    flex: 1;
     display: flex;
     padding: 0 1rem;
     overflow-y: auto;
@@ -9,6 +9,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    /* border: 1px solid red; */
 }
 
 .eventNoDetail {
@@ -55,25 +56,22 @@
 .eventDetailCountdown {
     position: absolute;
     background-color: #fff;
-    bottom: 0.3rem;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: .3rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 18rem;
+    padding: 0.3rem 0.2rem;
     border-radius: 0.4rem;
     box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
 }
 
-.eventDetailImg-logo {
-    height: 6rem;
-    /* width: 6rem; */
-}
 
 .eventDetailTitle {
     margin: 1.2rem 0;
+    text-align: center;
     background-color: #fff;
 }
 
@@ -103,6 +101,7 @@
     line-height: 1.5rem;
     margin-right: 1.5rem;
     margin-left: 0.5rem;
+    text-align: center;
 }
 
 .eventDetailDaysNumber {
@@ -117,6 +116,7 @@
     line-height: 1.5rem;
     margin-right: 1.5rem;
     margin-left: 0.5rem;
+    text-align: center;
 }
 
 .eventDetailTimeNumber {
@@ -151,23 +151,4 @@
     margin: 2rem 0;
     display: flex;
     justify-content: space-around;
-}
-
-.eventButton {
-    outline: none;
-    background-color: #ff1493;
-    border: none;
-    padding: 1rem 3rem;
-    color: #fff;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    transition: box-shadow ease-in 0.3s;
-}
-
-.eventButton:hover {
-        box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.6);
-}
-
-.eventButtonDelete {
-    background-color: red;
 }

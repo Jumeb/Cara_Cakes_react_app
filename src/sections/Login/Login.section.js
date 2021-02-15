@@ -1,37 +1,40 @@
 import React from 'react';
 
 import styles from './Login.module.css'
+import {LinkOne, ButtonThree, Input, ButtonOne} from '../../Components';
 
 const LoginSection = (props) => {
     const {error} = props;
 
     return (
-        <section className="sec-auth" id="login">
+        <section className={styles.secAuth} id="login">
     <div className="row-2">
-        <div className="login">
-            <div className="loginForm-1">
-                <form action="/login" className="form" method="POST">
-                    <div className="formGroup">
-                        <input type="email" className="formInput formLength-3" name="email" id="Email" placeholder="Email or Tel" required />
-                        <label for="Email" className="formLabel">Email or Tel</label>
+        <div className={styles.login}>
+            <div className={styles.loginForm}>
+                <div className={styles.form}>
+                    <Input 
+                        placeholder="test@gmail.com"
+                        label="Email"
+                        len={3}
+                        type="email"
+                    />
+                    <Input
+                        placeholder="********"
+                        label="Password"
+                        len={4}
+                        type="password"
+                    />
+                    <div className={styles.formGroup}>
+                        <ButtonOne onClick={() => console.log('login')} title="Login" />
+                        <LinkOne link="/register" title="Register" />
                     </div>
-                    <div className="formGroup">
-                        <input type="password" className="formInput formLength-4" name="password" id="passWord" placeholder="Password"
-                             required />
-                        <label for="passWord" className="formLabel">Password</label>
+                    <div className={styles.forgotContainer}>
+                        <ButtonThree link="#" title="Forgot Password" />
                     </div>
-                    <div className="formGroup">
-                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
-                        <button type="submit" className="btn btn-deep--pink">Login</button>
-                        <a href="/signup" className="btn btn-deep--pink">Sign-up</a>
-                    </div>
-                    <div className="formGroup margin-bottom-small-ve">
-                        <a href="#" className="btn-3">Forgot password</a>
-                    </div>
-                </form>
+                </div>
             </div>
-            <div className="loginForm-2 txt-cnt">
-                <h2 className="title-lil-1 txt-white">
+            <div className={styles.loginContainer}>
+                <h2 className={styles.title}>
                     LOGIN
                 </h2>
             </div>

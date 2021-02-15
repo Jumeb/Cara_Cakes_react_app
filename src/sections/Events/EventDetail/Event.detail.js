@@ -2,38 +2,46 @@ import React from 'react';
 
 import styles from './EventDetail.module.css';
 import { logo6, vals2 } from '../../../res/img';
-import { Spacer } from '../../../Components';
+import { Button, Link, Spacer } from '../../../Components';
 
 const EventDetail = (props) => {
     const {isDetail, setIsDetail, setIsOpenEdit} = props;
     return (
-         <div className={isDetail ? "event__detail" : "event__noDetail"}>
-             <Spacer />
-            <div className="event__detail-imgContainer">
-                <div className="event__detail-title">
+         <div className={isDetail ? styles.eventDetail : styles.eventNoDetail}>
+            <Spacer />
+            <div className={styles.eventDetailImgContainer}>
+                <div className={styles.eventDetailTitle}>
                     <h2>Purpose</h2>
                 </div>
-                <img src={vals2} alt="Product" className="event__detail-img" />
-                <div className="event__detail-countdown">
-                    <h1 className="event__detail-days-container"><p className="event__detail-days-number">12</p><p className="event__detail-days-text">Days</p></h1>
-                    <h3 className="event__detail-time-container"><p className="event__detail-time-number">12 14 16</p><p className="event__detail-time-text">Hours mins secs</p></h3>
+                <img src={vals2} alt="Product" className={styles.eventDetailImg} />
+                <div className={styles.eventDetailCountdown}>
+                    <h1 className={styles.eventDetailDaysContainer}>
+                        <b className={styles.eventDetailDaysNumber}>12</b>
+                        <br />
+                        <b className={styles.eventDetailDaysText}>Days</b>
+                    </h1>
+                    <h3 className={styles.eventDetailTimeContainer}>
+                        <b className={styles.eventDetailTimeNumber}>12 14 16</b>
+                        <br />
+                        <b className={styles.eventDetailTimeText}>Hours mins secs</b>
+                    </h3>
                 </div>
             </div>
-            <div className="event__details">
+            <div className={styles.eventDetails}>
                 <h1>For: Tuijah Christian</h1>
-                <h1 className="event__description">Cart</h1>
-                <ul className="event__description-list">
-                    <li  className="event__description-text">Birthday Cakes</li>
-                    <li  className="event__description-text">Wedding Cakes</li>
-                    <li  className="event__description-text">Cookies</li>
-                    <li  className="event__description-text">Valentines</li>
+                <h1 className={styles.eventDescription}>Cart</h1>
+                <ul className={styles.eventDescriptionList}>
+                    <li  className={styles.eventDescriptionText}>Birthday Cakes</li>
+                    <li  className={styles.eventDescriptionText}>Wedding Cakes</li>
+                    <li  className={styles.eventDescriptionText}>Cookies</li>
+                    <li  className={styles.eventDescriptionText}>Valentines</li>
                 </ul>
-                <button className="event__more-details" onClick={() => setIsDetail()}>More Details</button>
-                <h1 className="event__description">Reason</h1>
-                <p className="event__description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                <div className="event__Buttons">
-                    <button className="event__Button event__Button-delete">Delete</button>
-                    <button className="event__Button" onClick={() => setIsOpenEdit()}>Edit</button>
+                <button className={styles.eventMoreDetails} onClick={() => setIsDetail()}>More Details</button>
+                <h1 className={styles.eventDescription}>Reason</h1>
+                <p className={styles.eventDescriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <div className={styles.eventButtons}>
+                    <Link danger={true} title="Delete" link="#" />
+                    <Button title="Edit" onClick={() => setIsOpenEdit()} />
                 </div>
             </div>
         </div>

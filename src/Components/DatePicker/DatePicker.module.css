@@ -6,6 +6,7 @@
     padding: 1.1rem 1.9rem;
     background-color: rgba(255, 255, 255, 0.9);
     outline: none;
+    margin-bottom: 2.5rem;
     transition: all .3s;
     border-radius: 0.4rem;
     cursor: pointer;

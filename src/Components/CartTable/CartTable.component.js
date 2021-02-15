@@ -3,7 +3,8 @@ import React from 'react';
 import { pans2 } from '../../res/img';
 import styles from './CartTable.module.css';
 
-const CartTable = () => {
+const CartTable = (props) => { 
+    const {isDetail, setIsDetail} = props;
     return (
             <div className={styles.cartSeparator}>
                 <h1 className={styles.cartListBaker}>Baker: James Hardy</h1>
@@ -37,7 +38,9 @@ const CartTable = () => {
                             <input type="text" placeholder="Coupon Code" className={styles.cartCouponInput} /> 
                             <button className={styles.cartButton}>Apply</button>
                         </td>
-                        <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon].join(' ')}><button className={styles.cartButton}>Order</button></td>
+                        <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
+                            <button className={styles.cartButton} onClick={() => setIsDetail()}>Order</button>
+                        </td>
                         <td colSpan="1" className={styles.cartTableData}>Total: 169,000</td>
                     </tr>
                 </table>

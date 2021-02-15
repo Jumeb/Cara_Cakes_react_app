@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from 'react-modal';
 
-import { DatePick } from '../../Components';
+import { Button, ButtonOne, DatePick, Input, Link, LinkOne, TextArea } from '../../Components';
 import styles from './EditEvent.module.css';
 
 const EditEvent = (props) => {
@@ -10,32 +10,35 @@ const EditEvent = (props) => {
     const [startDate, setStartDate] = useState(null);
 
     return (
-        <Modal isOpen={isOpen} className="sec-editEvent" overlayClassName="sec-editEvent">
-                <div className="editEvent">
-                    <div className="editEventForm-1">
-                            <div className="editEventGroup">
-                                <input type="text" className="editEventInput editEventLength-1" name="email" id="Email" placeholder="Party" required />
-                                <label for="email" className="editEventLabel">Purpose</label>
-                            </div>
-                            <div className="editEventGroup">
-                                <input type="text" className="editEventInput editEventLength-2" name="password" id="passWord" placeholder="Me and Friends" required />
-                                <label for="passWord" className="editEventLabel">For</label>
-                            </div>
-                            <div className="editEventGroup">
-                                <DatePick startDate={startDate} setStartDate={(date) => setStartDate(date)} />
-                            </div>
-                            <div className="editEventGroup">
-                                <textarea type="text" className="editEventInput editEventLength-4" name="password" id="passWord" placeholder="I just needed to show some appreciation to all my friends"></textarea>
-                                <label for="passWord" className="editEventLabel">Reason</label>
-                            </div>
-                            <div className="editEventGroup">
-                                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
-                                <button className="addBtn">Edit Event</button>
-                                <button className="addBtn" onClick={() => setIsOpen()}>Cancel</button>
+        <Modal isOpen={isOpen} className={styles.secEditEvent} overlayClassName={styles.secEditEvent}>
+                <div className={styles.editEvent}>
+                    <div className={styles.editEventForm}>
+                            <Input
+                                placeholder="Party"
+                                type="text"
+                                label="Purpose"
+                                len={2}
+                            />
+                            <Input
+                                placeholder="Me and Friends"
+                                type="text"
+                                label="For"
+                                len={3}
+                            />
+                            <DatePick startDate={startDate} setStartDate={(date) => setStartDate(date)} />
+                            <TextArea
+                                placeholder="Showing appreciation to friends"
+                                type="text"
+                                label="Reason"
+                                len={5}
+                            />
+                            <div className={styles.editButtons}>
+                                <Link link="#" title="Edit" />
+                                <Button onClick={() => setIsOpen(false)} title="Cancel" />
                             </div>
                     </div>
-                    <div className="editEventForm-2 txt-cnt">
-                        <h2 className="editEvent-title txt-white">
+                    <div className={styles.editEventContainer}>
+                        <h2 className={styles.title}>
                             Edit Event
                         </h2>
                     </div>

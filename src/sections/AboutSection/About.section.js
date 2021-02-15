@@ -6,7 +6,7 @@ import {bds1, chris3, cookies4, cups2, dons2, pans2, vals1, weds1} from '../../r
 const About = () => {
     const [index, setIndex] = useState(1);
     useEffect(() => {
-        if (index === 5) {
+        if (index === 9) {
             setIndex(1);
         }
         setTimeout(() => {

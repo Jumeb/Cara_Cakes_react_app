@@ -7,7 +7,7 @@ import styles from './Cart.module.css';
 const UserSection = (props) => {
     const {isDetail, setIsDetail} = props;
     return (
-        <div className="cart">
+        <div className={styles.cart}>
             <CartList isDetail={isDetail} setIsDetail={setIsDetail} />
             <CartDetail isDetail={isDetail} setIsDetail={setIsDetail}/>
         </div>

@@ -3,11 +3,12 @@ import React from 'react';
 import styles from './OrderList.module.css'
 import { OrderTable, Spacer } from '../../../Components';
 
-const OrderList = () => {
+const OrderList = (props) => {
+     const {isDetail, setIsDetail} = props;
     return (
-        <div className="order__list">
+        <div className={isDetail ? styles.orderListDetail : styles.orderList}>
             <Spacer />
-            <OrderTable />
+            <OrderTable isDetail={isDetail} setIsDetail={setIsDetail} />
         </div>
     )
 }

@@ -4,7 +4,7 @@ import styles from './Spacer.module.css'
 
 const Spacer = () => {
     return (
-        <div className="space"></div>
+        <div className={styles.space}></div>
     )
 }
 

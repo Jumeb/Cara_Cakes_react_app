@@ -1,5 +1,8 @@
 import Header from './Header/Header.component';
-import ButtonOne from './ButtonOne/ButtonOne.component';
+import LinkOne from './One/LinkOne.component';
+import Button from './Button/Button.component';
+import Link from './Button/Link.component';
+import ButtonOne from './One/ButtonOne.component';
 import Links from './Links/Links.component';
 import SampleCard from './SampleCard/SampleCard.component';
 import ButtonTwo from './ButtonTwo/ButtonTwo.component';
@@ -18,9 +21,12 @@ import EventCard from './EventCard/EventCard.component';
 import BakerCard from './BakerCard/BakerCard.component';
 import PastryCard from './PastryCard/PastryCard.component';
 import Input from './Input/Input.component';
+import ButtonThree from './ButtonThree/ButtonThree.component';
+import TextArea from './Input/TextArea.component';
 
 export {
     Header, 
+    LinkOne,
     ButtonOne, 
     Links, 
     SampleCard, 
@@ -40,4 +46,8 @@ export {
     BakerCard,
     PastryCard,
     Input,
+    ButtonThree,
+    Button,
+    Link,
+    TextArea,
 };

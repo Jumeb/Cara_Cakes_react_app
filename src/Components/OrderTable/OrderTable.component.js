@@ -3,7 +3,8 @@ import React from 'react';
 import { pans2 } from '../../res/img';
 import styles from './OrderTable.module.css';
 
-const OrderTable = () => {
+const OrderTable = (props) => {
+    const {isDetail, setIsDetail} = props;
     return (
             <div className={styles.orderSeparator}>
                 <h1 className={styles.orderListBaker}>Baker: Cara Brown</h1>
@@ -36,7 +37,9 @@ const OrderTable = () => {
                         <td colSpan="2" className={[styles.orderTableData, styles.orderCoupon].join(' ')}>
                             <h3>Order Status: Processing</h3>
                         </td>
-                        <td colSpan="1" className={[styles.orderTableData, styles.orderCoupon].join(' ')}><button className={styles.orderButton}>Details</button></td>
+                        <td colSpan="1" className={[styles.orderTableData, styles.orderCoupon].join(' ')}>
+                            <button className={styles.orderButton} onClick={() => setIsDetail()}>Details</button>
+                        </td>
                         <td colSpan="1" className={styles.orderTableData}>Total: 169,000</td>
                     </tr>
                 </table>

@@ -5,7 +5,7 @@ import styles from './CreateEvent.module.css';
 const CreateEvent = (props) => {
     const {setIsOpen} = props
     return (
-        <button className="createButton" onClick={() => setIsOpen()}><span className="fas fa-calendar-plus createButtonIcon" /></button>
+        <button className={styles.createButton} onClick={() => setIsOpen()}><span className="fas fa-calendar-plus createButtonIcon" /></button>
     )
 }
 

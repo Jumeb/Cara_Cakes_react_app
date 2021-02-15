@@ -1,5 +1,6 @@
 .eventListImgContainer {
     width: 31.5rem;
+    /* align-self: flex-start; */
     display: flex;
     height: 35rem;
     border-radius: 0.6rem;
@@ -22,8 +23,11 @@
     bottom: 5.4rem;
     display: flex;
     flex-direction: row;
-    transform: translateX(45%);
-    padding: 0.1rem 0.7rem;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 18rem;
+    padding: 0.3rem 0.2rem;
     border-radius: 0.4rem;
     box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
 }
@@ -36,6 +40,7 @@
 .eventListTitle {
     margin: 1.2rem 0;
     background-color: #fff;
+    text-align: center;
 }
 
 .eventButtonContainer {
@@ -64,7 +69,8 @@
     line-height: 1.5rem;
     margin-right: 1.5rem;
     margin-left: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    text-align: center;
 }
 
 .eventListDaysNumber {
@@ -73,11 +79,12 @@
 
 .eventListDaysText {}
 
-.eventListTime-container {
+.eventListTimeContainer {
     line-height: 1.5rem;
     margin-right: 1.5rem;
     margin-left: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 .eventListTimeNumber {

@@ -37,8 +37,7 @@
 .panelLogo {
     height: 9rem;
     width: 9rem;
-    margin: 0.2rem 0;
-    margin-bottom: 1.2rem;
+    margin: 1.2rem 7rem;
     filter: invert(49%) sepia(93%) saturate(7416%) hue-rotate(315deg) brightness(101%) contrast(106%);
 }
 

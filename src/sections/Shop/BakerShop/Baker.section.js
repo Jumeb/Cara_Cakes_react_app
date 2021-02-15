@@ -7,7 +7,7 @@ import styles from './Baker.module.css'
 const BakerSection = (props) => {
     const {isDetail, setIsDetail} = props;
     return (
-        <div className="bakers">
+        <div className={styles.bakers}>
             <BakerList isDetail={isDetail} setIsDetail={setIsDetail} />
             <BakerDetail isDetail={isDetail} setIsDetail={setIsDetail} />
         </div>

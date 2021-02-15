@@ -1,12 +1,14 @@
 .pastryDetail {
-    flex: 0 0 35%;
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    padding: 1rem;
+    padding: 0 1rem;
     overflow-y: auto;
     align-items: center;
     position: relative;
     height: 100vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .pastryNoDetail {
@@ -64,6 +66,7 @@
 .pastryDetailTitle {
     margin: 1.2rem 0;
     background-color: #fff;
+    text-align: center;
 }
 
 .pastryDetails {
@@ -103,13 +106,11 @@
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    border: none;
     color: #ff1493;
     font-size: 1.1rem;
     border: 0.2rem solid #ff1493;
     background-color: #fff;
     text-align: center;
-    vertical-align: center;
     box-shadow: 0 0 0rem 'transplant';
     transition: box-shadow ease-in 0.2s, transform ease-in-out 0.3s;
     cursor: pointer;

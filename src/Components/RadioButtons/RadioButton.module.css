@@ -1,6 +1,6 @@
 .formRadioGroup {
     width: 49%;
-    display: inline-block
+    display: inline-block;
 }
 
 @media only screen and (max-width: 56.25em) {
@@ -49,6 +49,6 @@
     transition: opacity .2s
 }
 
-.formRadioInput:checked~.formRadioLabel .formRadioButton::after {
+.formRadioInput:checked ~ .formRadioLabel .formRadioButton::after {
     opacity: 1
 }

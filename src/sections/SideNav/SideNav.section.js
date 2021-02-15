@@ -8,39 +8,38 @@ const SideNav = (props) => {
     const {isDetail} = props;
 
     return (
-        <div className={isDetail ? "panel__userDetail" : "panel__user"}>
-            <ul className="panel-side-nav">
-            <img src={favicon} alt="Logo" className="panel__logo" />
-                <li className="panel-side-nav__item  <%= path === '/user/cart' ? 'panel-side-nav__item--active' : '' %>">
-                    <NavLink to="/user/cart" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-shopping-basket"></span> <span className={isDetail && "isDetail__text"}>My Cart</span>
+        <div className={isDetail ? styles.panelUserDetail : styles.panelUser}>
+            <ul className={styles.panelSideNav}>
+            <img src={favicon} alt="Logo" className={styles.panelLogo} />
+                <li className={styles.panelSideNavItem}>
+                    <NavLink to="/user/cart" className={styles.panelSideNavLink}>
+                        <span className="panel-side-nav__icon fas fa-shopping-basket"></span> <span className={isDetail && styles.isDetailText}>My Cart</span>
                     </NavLink>
                 </li>
-                <li className="panel-side-nav__item  <%= path === '/user/bakers' ? 'panel-side-nav__item--active' : '' %>">
-                    <NavLink to="/user/bakers" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-cart-plus"></span> <span className={isDetail && "isDetail__text"}>Shop</span>
+                <li className={styles.panelSideNavItem}>
+                    <NavLink to="/user/bakers" className={styles.panelSideNavLink}>
+                        <span className="panel-side-nav__icon fas fa-cart-plus"></span> <span className={isDetail && styles.isDetailText}>Shop</span>
                     </NavLink>
                 </li>
-                <li className="panel-side-nav__item  <%= path === '/user' ? 'panel-side-nav__item--active' : '' %>">
-                    <NavLink to="/user/event" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-calendar-day"></span> <span className={isDetail && "isDetail__text"}>Events</span>
+                <li className={styles.panelSideNavItem}>
+                    <NavLink to="/user/event" className={styles.panelSideNavLink}>
+                        <span className="panel-side-nav__icon fas fa-calendar-day"></span> <span className={isDetail && styles.isDetailText}>Events</span>
                     </NavLink>
                 </li>
-                <li className="panel-side-nav__item <%= path === '/user/orders' ? 'panel-side-nav__item--active' : '' %>">
-                    <NavLink to="/user/orders" className="panel-side-nav__link">
-                        <span className="panel-side-nav__icon fas fa-shopping-basket"></span><span className={isDetail && "isDetail__text"}> Orders</span>
+                <li className={styles.panelSideNavItem}>
+                    <NavLink to="/user/orders" className={styles.panelSideNavLink}>
+                        <span className="panel-side-nav__icon fas fa-shopping-basket"></span><span className={isDetail && styles.isDetailText}> Orders</span>
                     </NavLink>
                 </li>
-                <li className="panel-side-nav__item">
+                <li className={styles.panelSideNavItem}>
                     <form action="/logout" method="post">
-                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
-                        <button type="submit" className="panel-side-nav__link"><span
+                        <button type="submit" className={styles.panelSideNavLink}><span
                                 className="panel-side-nav__icon logout_icon fas fa-power-off"></span>Logout</button>
                     </form>
                 </li>
             </ul>
-            <div className="power">
-                <span>Copyrighted &copy;<NavLink to="#" className="dev">JB Inc.</NavLink>All Rights reserved</span>
+            <div className={styles.power}>
+                <span>Copyrighted &copy;<NavLink to="#" className={styles.dev}>JB Inc.</NavLink>All Rights reserved</span>
             </div>
         </div>
     )

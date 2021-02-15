@@ -1,3 +1,8 @@
+.bakerSignup {
+    margin: 0 7rem;
+    margin-top: 10rem;
+    margin-bottom: 6rem;
+}
 .signup {
     background-image: linear-gradient(62deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 57%, rgba(199, 21, 133, 0.5) 57%);
     background-color: 'transparent';
@@ -22,7 +27,7 @@
     }
 }
 
-.signupForm1 {
+.signupForm {
     width: 56%;
     padding: 5rem 5rem;
     float: left;
@@ -30,12 +35,12 @@
 }
 
 @media only screen and (max-width: 37.5em) {
-    .signupForm1 {
+    .signupForm {
         width: 100%;
     }
 }
 
-.signupForm2 {
+.signupContainer {
     width: 44%;
     padding: 10rem 5rem;
     padding-top: 18rem;
@@ -44,14 +49,21 @@
 }
 
 @media only screen and (max-width: 37.5em) {
-    .signupForm2 {
+    .signupContainer {
         width: 0%;
         display: none;
     }
 }
 
+.title {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+}
 
-.formGroup2 {
+.formGroup {
     margin-bottom: 3.5rem;
     display: flex;
     justify-content: flex-start;
@@ -136,11 +148,6 @@
     background-clip: text;
 }
 
-.secBakersignup {
-    margin: 0 7rem;
-    margin-top: 10rem;
-    margin-bottom: 6rem;
-}
 
 .btn {
     transition: all .4s ease-in-out;

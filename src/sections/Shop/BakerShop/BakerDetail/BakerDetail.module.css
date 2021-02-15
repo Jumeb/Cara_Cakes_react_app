@@ -1,12 +1,14 @@
 .bakerDetail {
-    flex: 0 0 35%;
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    padding: 1rem;
+    padding: 0 1rem;
     overflow-y: auto;
     align-items: center;
     position: relative;
     height: 100vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .bakerNoDetail {
@@ -63,9 +65,10 @@
     /* width: 6rem; */
 }
 
-.bakerDetail-title {
+.bakerDetailTitle {
     margin: 1.2rem 0;
     background-color: #fff;
+    text-align: center;
 }
 
 .bakerDetails {
@@ -88,4 +91,10 @@
 .bakerDescriptionText {
     text-align: left;
     font-size: 1.2rem;
+}
+
+.bakerButtons {
+    margin-top: -4rem;
+    display: flex;
+    justify-content: space-around;
 }

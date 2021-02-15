@@ -6,9 +6,9 @@ import styles from './PastryList.module.css'
 const PastryList = (props) => {
     const {isDetail, setIsDetail} = props;
     return (
-        <div className={isDetail ? "pastries__listDetail" : "pastries__list"}>
+        <div className={isDetail ? styles.pastriesListDetail : styles.pastriesList}>
             <Spacer />
-            <PastryCard />
+            <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} />
         </div>
     )
 }
