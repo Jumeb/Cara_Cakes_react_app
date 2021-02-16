@@ -12,7 +12,7 @@ const Header = () => {
                     <span className={styles.subTitle}>Resting place for flavours</span>
                 </h1>
                 <LinkOne link="/signup" title="Register" animate="left" />
-                <LinkOne link="#login" title="Login"  animate="right" />
+                <LinkOne link="/login" title="Login"  animate="right" />
             </div>
         </header>
     );

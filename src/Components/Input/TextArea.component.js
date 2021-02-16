@@ -23,7 +23,7 @@ const TextArea = (props) => {
                 name="name" id={label} 
                 placeholder={placeholder} 
                 onChange={setValue}></textarea>
-            <label for="Name" className={styles.formLabel}>{label}</label>
+            {/* <label for="Name" className={styles.formLabel}>{label}</label> */}
         </div>
     )
 }

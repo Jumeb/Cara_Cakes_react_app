@@ -179,7 +179,7 @@ const BakerDetails = (props) => {
                                 len={5}
                                 type='password'
                                 placeholder="******"
-                                label="password"
+                                label="Password"
                                 value={password}
                                 setValue={(event) => setPassword(event.target.value)}
                                 error={errorPassword}
