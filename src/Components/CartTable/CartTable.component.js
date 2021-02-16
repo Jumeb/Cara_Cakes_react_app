@@ -15,7 +15,7 @@ const CartTable = (props) => {
                         <td className={styles.cartTableHeaderData}>Quantity</td>
                         <td className={styles.cartTableHeaderData}>Total</td>
                     </thead>
-                    <tr className={styles.cartTableRow}>
+                    <tr className={styles.cartTableRow} onClick={() => setIsDetail()}>
                         <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                             <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
                             <p>Ice Cake</p>
@@ -39,7 +39,7 @@ const CartTable = (props) => {
                             <button className={styles.cartButton}>Apply</button>
                         </td>
                         <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
-                            <button className={styles.cartButton} onClick={() => setIsDetail()}>Order</button>
+                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Order</button>
                         </td>
                         <td colSpan="1" className={styles.cartTableData}>Total: 169,000</td>
                     </tr>

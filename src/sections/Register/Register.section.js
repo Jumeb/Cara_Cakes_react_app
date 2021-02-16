@@ -140,7 +140,7 @@ const RegisterSection = (props) => {
                              <Input
                                 len={3}
                                 type='number'
-                                placeholder={type}
+                                placeholder={681726633}
                                 label="Telephone number"
                                 value={tel}
                                 setValue={(event) => setTel(event.target.value)}
@@ -178,8 +178,8 @@ const RegisterSection = (props) => {
                             <div className={styles.formGroup}>
                                 {type === "Client" && (
                                     <>
-                                        <LinkOne link="/login" title="Login" />
                                         <ButtonOne title="Register" onClick={() => authenticate()} />
+                                        <LinkOne link="/login" title="Login" />
                                     </>
                                 )}
                                 {type === "Baker" && <ButtonOne title="Next" onClick={() => nextPage()} />} 

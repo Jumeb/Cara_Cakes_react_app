@@ -21,7 +21,6 @@ const Admin = (props) => {
                                 required />
                             <label for="password" className={styles.adminLabel}>Password</label>
                         </div>
-                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                         <button className={styles.adminBtn} type="submit">Login</button>
                     </div>
                 </div>

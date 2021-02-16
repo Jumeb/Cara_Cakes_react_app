@@ -20,10 +20,10 @@ const Input = (props) => {
                     styles.formLength4 :
                     styles.formLength5
                 ].join(' ')} 
-                name="name" id={label} 
+                name={label} id={label} 
                 placeholder={placeholder} 
                 onChange={setValue} />
-            <label for="Name" className={styles.formLabel}>{label}</label>
+                <label for={label} className={styles.formLabel}>{label}</label>
         </div>
     )
 }

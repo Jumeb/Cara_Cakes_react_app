@@ -1,7 +1,7 @@
 .navi {
     position: fixed;
     top: 2.3rem;
-    right: 7rem;
+    right: 5.5rem;
     transition: all .5s ease;
     z-index: 5000;
 }
@@ -30,13 +30,16 @@
     width: 6.5rem;
     border-radius: 50%;
     text-align: center;
-    left: 3.3rem;
+    left: 0;
+    margin-top: 0.2rem;
+    /* border: 1px solid red; */
 }
 
 .naviItem {
     position: absolute;
     text-align: center;
-    right: 0;
+    right: -0.91rem;
+    /* left: 1rem; */
     opacity: 0;
     visibility: hidden;
 }
@@ -59,11 +62,14 @@
 
 .naviLink {
     text-decoration: none;
-    font-size: 2.2rem;
-    padding: 2rem;
+    font-size: 2.5rem;
+    padding: 2.5rem;
     border-radius: 50%;
     background-color: #fff;
     color: #c71585;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.8);
     transform: scale(0.8);
     transition: all .3s;
