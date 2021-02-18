@@ -8,7 +8,6 @@ const LoginSection = (props) => {
 
     return (
         <section className={styles.secAuth} id="login">
-    <div className="row-2">
         <div className={styles.login}>
             <div className={styles.loginForm}>
                 <div className={styles.form}>
@@ -39,7 +38,6 @@ const LoginSection = (props) => {
                 </h2>
             </div>
         </div>
-    </div>
 </section>
     )
 }

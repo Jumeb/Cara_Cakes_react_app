@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoLogoFacebook, IoLogoInstagram, IoLogoWhatsapp, IoMail } from 'react-icons/io5';
+import { IoLogoFacebook, IoLogoInstagram, IoLogoWhatsapp, IoMail, IoPhonePortrait } from 'react-icons/io5';
 import { NavLink } from 'react-router-dom';
 
 import styles from './Footer.module.css';
@@ -47,10 +47,16 @@ const Footer = () => {
         </div>
     </div>
     <div className={styles.footerContacts}>
-        <span className={styles.footerContactsRound}><NavLink to='/hello'><IoLogoFacebook /></NavLink></span>
-        <span className={styles.footerContactsRound}><NavLink to='/hello'><IoLogoInstagram /></NavLink></span>
-        <span className={styles.footerContactsRound}><NavLink to='/hello'><IoMail /></NavLink></span>
-        <span className={styles.footerContactsRound}><NavLink to='/hello'><IoLogoWhatsapp /></NavLink></span>
+        <span className={styles.footerContactsRound}><a href='https://www.facebook.com/jume.njah' target="_blank"><IoLogoFacebook /></a></span>
+        <span className={styles.footerContactsRound}><a href='tel:237679574561'><IoPhonePortrait /></a></span>
+        <span className={styles.footerContactsRound}><a href='mailto:bricejume@gmail.com'><IoMail /></a></span>
+        <span className={styles.footerContactsRound}>
+            <a 
+                href="https://wa.me/237681726633?text=Good%20day,%20Mr%20Jume%20Brice,%20I'm%20interested%20in%20creating%20a%20baker%20account%20for%20my%20pastry%20business"
+                target="_blank"
+            >
+                <IoLogoWhatsapp />
+            </a></span>
     </div>
     <div className={styles.copyRight}>
         <p>Copyright &copy; of JBInc</p>

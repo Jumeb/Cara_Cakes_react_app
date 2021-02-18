@@ -6,7 +6,6 @@ import {BakersCard} from '../../Components';
 const Baker = () => {
     return (
         <section className={styles.secDescription} id="stry">
-            {/* <div className="txt-cnt margin-top-medium-ve margin-bottom-medium"> */}
             <h2 className={styles.title}>
                 Our team of expert bakers
             </h2>
