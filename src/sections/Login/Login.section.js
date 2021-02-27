@@ -4,8 +4,6 @@ import styles from './Login.module.css'
 import {LinkOne, ButtonThree, Input, ButtonOne} from '../../Components';
 
 const LoginSection = (props) => {
-    const {error} = props;
-
     return (
         <section className={styles.secAuth} id="login">
         <div className={styles.login}>

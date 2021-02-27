@@ -4,6 +4,7 @@
     flex-direction: row;
     height: 100vh;
     padding: 0 1rem;
+    margin-top: 8rem;
     flex-wrap: wrap;
     overflow: auto;
     justify-content: space-evenly;
@@ -16,6 +17,7 @@
     flex-direction: row;
     height: 100vh;
     padding: 0 1rem;
+    margin-top: 8rem;
     flex-wrap: wrap;
     overflow: auto;
     justify-content: center;

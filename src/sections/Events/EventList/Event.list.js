@@ -7,7 +7,6 @@ const EventList = (props) => {
     const {setIsOpen, isDetail, setIsDetail} = props;
     return (
         <div className={isDetail ? styles.eventListDetail : styles.eventList}>
-            <Spacer />
             <EventCard isDetail={isDetail} setIsDetail={setIsDetail} />
             <CreateEvent setIsOpen={setIsOpen}/>
         </div>

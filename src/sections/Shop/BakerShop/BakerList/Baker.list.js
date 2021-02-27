@@ -7,7 +7,6 @@ const BakerList = (props) => {
     const {isDetail, setIsDetail} = props;
     return (
         <div className={isDetail ? styles.bakersListDetail : styles.bakersList}>
-            <Spacer />
             <BakerCard isDetail={isDetail} setIsDetail={setIsDetail}/>
         </div>
     )

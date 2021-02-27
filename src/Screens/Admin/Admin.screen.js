@@ -1,7 +1,8 @@
 import React from 'react';
-import { WorkArea } from '../../Components';
-import { AdminNav } from '../../sections';
+import { Route } from 'react-router';
 
+import { WorkArea } from '../../Components';
+import { AdminNav, Dashboard } from '../../sections';
 import styles from './Admin.module.css';
 
 const Admin = () => {
@@ -9,9 +10,7 @@ const Admin = () => {
         <div className={styles.admin}>
             <AdminNav />
             <WorkArea>
-                <div>
-                    <p>Hello WorkArea</p>
-                </div>
+                <Route path="/admin/dashboard" component={Dashboard} />
             </WorkArea>
         </div>
     )

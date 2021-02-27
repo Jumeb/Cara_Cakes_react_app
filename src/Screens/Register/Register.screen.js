@@ -54,6 +54,18 @@ const Register = () => {
                     setErrorConPw={setErrorConPw}
                     loading={loading}
                     setLoading={setLoading}
+                    idCard={idCard}
+                    categories={categories}
+                    companyName={companyName}
+                    setIdCard={setIdCard}
+                    setCategories={setCategories}
+                    setCompanyName={setCompanyName}
+                    errorIdCard={errorIdCard}
+                    errorCategories={errorCategories}
+                    errorCompanyName={errorCompanyName}
+                    setErrorIdCard={setErrorIdCard}
+                    setErrorCategories={setErrorCategories}
+                    setErrorCompanyName={setErrorCompanyName}
                  /> )} />
                 <Route path="/register/baker" render={(props) => (<BakerDetails
                     {...props}

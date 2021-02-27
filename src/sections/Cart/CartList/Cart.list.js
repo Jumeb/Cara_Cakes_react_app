@@ -7,7 +7,6 @@ const CartList = (props) => {
     const {isDetail, setIsDetail} = props;
     return (
         <div className={isDetail ? styles.cartListDetail : styles.cartList}>
-            <Spacer />
             <CartTable isDetail={isDetail} setIsDetail={setIsDetail} />
         </div>
     )

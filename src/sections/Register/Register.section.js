@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import makeAnimated from 'react-select/animated';
+import Select from 'react-select';
 
 import { ButtonOne, Input, LinkOne } from '../../Components';
 import RadioButton from '../../Components/RadioButtons/RadioButtons.component';
 import { AuthMail, AuthTel } from '../../utils/auth';
-import styles from './Register.module.css'
-import {BASE_URL} from '../../utils/globalVariable'
+import styles from './Register.module.css';
+import {BASE_URL} from '../../utils/globalVariable';
+
+const animatedComponents = makeAnimated();
 
 const RegisterSection = (props) => {
     const {
@@ -13,26 +17,44 @@ const RegisterSection = (props) => {
         tel,
         password,
         conPw,
+        categories,
+        idCard,
+        errorIdCard,
         setName,
         setEmail,
+        companyName,
         setTel,
+        setIdCard,
         setPassword,
+        setCompanyName,
+        setCategories,
         setConPw,
         errorName,
         errorEmail,
+        errorCompanyName,
         errorTel,
         errorPassword,
         errorConPw,
         setErrorName,
         setErrorEmail,
         setErrorTel,
+        setErrorIdCard,
         setErrorPassword,
+        setErrorCompanyName,
         setErrorConPw,
         loading,
         setLoading,
     } = props;
 
     const [type, setType] = useState('');
+    const [_categories] = useState([
+        { value: 'birthday-cake', label: 'Birthday Cakes' },
+        { value: 'wedding-cake', label: 'Wedding Cakes' },
+        { value: 'cookies', label: 'Cookies' },
+        { value: 'doughnuts', label: 'Doughnuts' },
+        { value: 'pancakes', label: 'Pancakes' },
+        { value: 'cup-cakes', label: 'Cup Cake' },
+    ]);
     
     const nextPage = () => {
         props.history.push({pathname: '/register/baker'});
@@ -175,14 +197,63 @@ const RegisterSection = (props) => {
                                     />
                                 </>
                             )}
+                            {type === "Baker" && (
+                                <>
+                                    <Input 
+                                        len={4}
+                                        type='number'
+                                        placeholder='000400370'
+                                        label='ID card number'
+                                        value={idCard}
+                                        setValue={(event) => setIdCard(event.target.value)}
+                                        error={errorIdCard}
+                                        serError={() => setErrorIdCard()}
+                                    />
+                                    <Input 
+                                        len={5}
+                                        type='text'
+                                        placeholder='Henry pastries'
+                                        label='Company name'
+                                        value={companyName}
+                                        setValue={(event) => setCompanyName(event.target.value)}
+                                        error={errorCompanyName}
+                                        serError={() => setErrorCompanyName()}
+                                    />
+                                    <div className={styles.formSelect}>
+                                        <Select 
+                                            value={categories}
+                                            options={_categories}
+                                            styles={colourStyles}
+                                            onChange={(value) => setCategories(value)}
+                                            components={animatedComponents} 
+                                            isMulti 
+                                            className="formLength-4 form__select-input" />
+                                    </div>
+                                    <Input 
+                                        len={5}
+                                        type='password'
+                                        placeholder="******"
+                                        label="Password"
+                                        value={password}
+                                        setValue={(event) => setPassword(event.target.value)}
+                                        error={errorPassword}
+                                        serError={() => setErrorPassword()}
+                                    />
+                                </>
+                            )}
                             <div className={styles.formGroup}>
                                 {type === "Client" && (
                                     <>
-                                        <ButtonOne title="Register" onClick={() => authenticate()} />
                                         <LinkOne link="/login" title="Login" />
+                                        <ButtonOne title="Register" onClick={() => authenticate()} />
                                     </>
                                 )}
-                                {type === "Baker" && <ButtonOne title="Next" onClick={() => nextPage()} />} 
+                                {type === "Baker" && (
+                                    <>
+                                        <LinkOne link="/login" title="Login" />
+                                        <ButtonOne title="Register" onClick={() => authenticate()} />
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -197,3 +268,33 @@ const RegisterSection = (props) => {
 }
 
 export default RegisterSection;
+
+const colourStyles = {
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    return {
+      ...styles,
+      backgroundColor: isFocused ? "#ff1493" : null,
+      color: isFocused ? "white" : '#999',
+    };
+  },
+  control: (base, {isFocused}) => ({
+    ...base,
+    border: 'none',
+    // This line disable the blue border
+    boxShadow: 'none',
+    borderBottom: '2px',
+    borderBottomStyle: 'solid',
+    borderBottomColor: isFocused ? "#ff1493" : 'transparent',
+    borderRadius: '2px',
+    // overflow: 'hidden',
+    // clipPath: ,
+    
+    '&:hover': {
+        border: 'none',
+        boxShadow: 'none',
+        borderBottom: '2px',
+        borderBottomStyle: 'solid',
+        borderBottomColor: isFocused ? "#ff1493" : 'transparent',
+    }
+  })
+};
