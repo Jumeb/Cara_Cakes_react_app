@@ -6,7 +6,7 @@
     --color-secondary-light: #01142F;
     --color-secondary-medium: #01142F;
 
-    --color-white: #f7f7f7;
+    --color-white: #fff;
 
     --color-grey-light-1: #F1F2F2;
     --color-grey-light-2: #E6E7E8;
@@ -16,6 +16,8 @@
     --color-grey-dark-1: #333;
     --color-grey-dark-2: #777;
     --color-grey-dark-3: #999;
+
+    --transparent-1: rgba(3, 21, 24, 0.089);
 
     --color-danger-1: #FF0000;
     --color-danger-2: #EE3D48;
@@ -46,8 +48,8 @@
     --font-weight-medium: 700;
     --font-weight-bold: 900;
 
-    --box-shadow-light: 0 0.2rem 0.3rem 0.2rem rgba(110, 110, 110, 0.2);
-    --box-shadow-medium: 0 0.2rem 0.5rem 0.3rem rgba(87, 87, 87, 0.5);
+    --box-shadow-light: 0 0.1rem 0.2rem 0.1rem rgba(110, 110, 110, 0.1);
+    --box-shadow-medium: 0 0.2rem 0.3rem 0.2rem rgba(87, 87, 87, 0.2);
     --box-shadow-heavy: 0 0.2rem 0.4rem rgba(56, 56, 56, 0.7);
 
     --linear-gradient-1: linear-gradient(to right, rgba(var(--color-gradient-2), 0.03), rgba(var(--color-gradient-1), 0.1));
@@ -118,6 +120,8 @@ body {
     background-image: linear-gradient(to right bottom, rgba(var(--color-gradient-2), 0.7), rgba(var(--color-gradien-1), 0.9), rgba(var(--color-gradien-2), 0.7));
     background-repeat: no-repeat;
     min-height: 100vh; */
+    /* width: 100%;
+    overflow-x: hidden; */
 }
 
 body::-webkit-scrollbar {

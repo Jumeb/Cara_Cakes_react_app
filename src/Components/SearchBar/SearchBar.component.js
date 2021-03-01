@@ -6,8 +6,8 @@ import styles from './SearchBar.module.css';
 const SearchBar = () => {
     return (
         <div className={styles.searchContainer}>
-            <input type="text" className={styles.searchContainerInput} />
             <span className={styles.searchIcon}><IoSearch /></span>
+            <input type="text" className={styles.searchContainerInput} placeholder="Search" />
         </div>
     )
 }

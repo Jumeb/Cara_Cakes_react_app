@@ -1,4 +1,5 @@
 import React from 'react';
+import { Language } from '..';
 
 import Profile from '../Profile/Profile.component';
 import SearchBar from '../SearchBar/SearchBar.component';
@@ -11,6 +12,7 @@ const WorkArea = (props) => {
             {children}
             <div className={styles.panelEventHeader}>
                 <SearchBar />
+                <Language />
                 <Profile />
             </div>
         </div>
