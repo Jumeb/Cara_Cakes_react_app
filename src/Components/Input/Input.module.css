@@ -48,7 +48,7 @@
     padding-left: 1.9rem;
     z-index: 10000;
     transition: all .4s ease;
-    color: #333;
+    color: #323;
 }
 
 .formInput:placeholder-shown+.formLabel {

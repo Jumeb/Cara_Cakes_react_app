@@ -3,12 +3,15 @@
 .searchContainer {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    width: 30rem;
     justify-content: flex-start;
     align-items: center;
-    margin: auto;
-    margin-right: -5rem;
+    width: 27rem;
+    height: 3.4rem;
+    padding-left: 1rem;
+    /* margin-right: ; */
+    border-radius: var(--border-radius-small);
+    background-color: var(--transparent-1);
+    box-shadow: var(--box-shadow-light);
 }
 
 
@@ -16,14 +19,13 @@
     outline: none;
     border: none;
     width: 22rem;
-    padding: 0.85rem 0;
     padding-left: 0.65rem;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #5c5c5c;
-    border: 0.1rem solid #ddd;
     border-radius: 0.4rem;
-    background-color: #fff;
-    box-shadow: 0 0.2rem 0.5rem rgba(161, 161, 161, 0.938);
+    margin-left: 0.8rem;
+    background: none;
+    /* border: 1px solid red; */
     transform: all ease-in 0.2s;
 }
 
@@ -32,6 +34,8 @@
 }
 
 .searchIcon {
-    margin-left: -2rem;
-    font-size: 1.4rem;
+    font-size: 1.7rem;
+    line-height: 0.5rem;
+    color: var(--color-primary);
+    /* border: 1px solid red; */
 }

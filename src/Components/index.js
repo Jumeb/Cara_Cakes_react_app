@@ -23,6 +23,9 @@ import PastryCard from './PastryCard/PastryCard.component';
 import Input from './Input/Input.component';
 import ButtonThree from './ButtonThree/ButtonThree.component';
 import TextArea from './Input/TextArea.component';
+import CircleProgess from './CircleProgress/CircleProgess.section';
+import InfoCard from './InfoCard/InfoCard.component';
+import Language from './Language/Language.component';
 
 export {
     Header, 
@@ -50,4 +53,7 @@ export {
     Button,
     Link,
     TextArea,
+    CircleProgess,
+    InfoCard,
+    Language,
 };

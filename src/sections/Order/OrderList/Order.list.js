@@ -7,7 +7,6 @@ const OrderList = (props) => {
      const {isDetail, setIsDetail} = props;
     return (
         <div className={isDetail ? styles.orderListDetail : styles.orderList}>
-            <Spacer />
             <OrderTable isDetail={isDetail} setIsDetail={setIsDetail} />
         </div>
     )

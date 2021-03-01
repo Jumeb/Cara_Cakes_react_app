@@ -15,6 +15,7 @@ import AddEvent from './AddEvent/AddEvent.section';
 import EditEvent from './EditEvent/EditEvent.section';
 import AdminNav from './AdminNav/AdminNav.section';
 import BakerDetails from './BakerDetails/BakerDetails.section';
+import Dashboard from './Dashboard/Dashboard.section';
 
 export {
     HeaderSection,
@@ -35,4 +36,5 @@ export {
     EditEvent,
     AdminNav,
     BakerDetails,
+    Dashboard,
 };

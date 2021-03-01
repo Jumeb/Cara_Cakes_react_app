@@ -1,0 +1,38 @@
+.lanContainer {
+    margin-left: auto;
+    font-size: var(--font-size-normal);
+}
+
+.lanButton {
+    min-width: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-small);
+    color: var(--color-primary);
+    cursor: pointer;
+    position: relative;
+}
+
+.lanIcon {
+    font-size: var(--font-size-extra-small);
+}
+
+.lanList {
+    position: absolute;
+    min-width: 5rem;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--box-shadow-medium);
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.lanNoList {
+    display: none;
+}
+
+.languages {
+    cursor: pointer;
+}
