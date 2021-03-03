@@ -197,50 +197,6 @@ const RegisterSection = (props) => {
                                     />
                                 </>
                             )}
-                            {type === "Baker" && (
-                                <>
-                                    <Input 
-                                        len={4}
-                                        type='number'
-                                        placeholder='000400370'
-                                        label='ID card number'
-                                        value={idCard}
-                                        setValue={(event) => setIdCard(event.target.value)}
-                                        error={errorIdCard}
-                                        serError={() => setErrorIdCard()}
-                                    />
-                                    <Input 
-                                        len={5}
-                                        type='text'
-                                        placeholder='Henry pastries'
-                                        label='Company name'
-                                        value={companyName}
-                                        setValue={(event) => setCompanyName(event.target.value)}
-                                        error={errorCompanyName}
-                                        serError={() => setErrorCompanyName()}
-                                    />
-                                    <div className={styles.formSelect}>
-                                        <Select 
-                                            value={categories}
-                                            options={_categories}
-                                            styles={colourStyles}
-                                            onChange={(value) => setCategories(value)}
-                                            components={animatedComponents} 
-                                            isMulti 
-                                            className="formLength-4 form__select-input" />
-                                    </div>
-                                    <Input 
-                                        len={5}
-                                        type='password'
-                                        placeholder="******"
-                                        label="Password"
-                                        value={password}
-                                        setValue={(event) => setPassword(event.target.value)}
-                                        error={errorPassword}
-                                        serError={() => setErrorPassword()}
-                                    />
-                                </>
-                            )}
                             <div className={styles.formGroup}>
                                 {type === "Client" && (
                                     <>
@@ -248,12 +204,7 @@ const RegisterSection = (props) => {
                                         <ButtonOne title="Register" onClick={() => authenticate()} />
                                     </>
                                 )}
-                                {type === "Baker" && (
-                                    <>
-                                        <LinkOne link="/login" title="Login" />
-                                        <ButtonOne title="Register" onClick={() => authenticate()} />
-                                    </>
-                                )}
+                                {type === "Baker" && <ButtonOne title="Next" onClick={() => nextPage()} />}
                             </div>
                         </div>
                     </div>

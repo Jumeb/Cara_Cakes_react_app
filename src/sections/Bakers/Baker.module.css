@@ -1,0 +1,28 @@
+.bakerSection {
+    margin-top: 9rem;
+}
+.bakerCat {
+    padding: 0 6rem;
+    display: inline-block;
+    /* border: 0.2rem solid teal; */
+
+}
+
+.bakerChoice {
+    outline: none;
+    border: none;
+    margin: 0 1.5rem;
+    font-size: var(--font-size-normal);
+    color: var(--color-white);
+    padding: 1.2rem 3rem;
+    background-color: var(--color-primary);
+    border-top-left-radius: var(--border-radius-medium);
+    border-top-right-radius: var(--border-radius-medium);
+    font-weight: var(--font-weight-bold);
+
+    cursor: pointer;
+}
+
+.bakerChoice:first-child {
+    background-color: var(--color-success-medium);
+}

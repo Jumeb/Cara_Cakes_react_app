@@ -5,6 +5,7 @@
     flex-direction: column;
     position: relative;
     overflow-x: hidden;
+    height: 100vh;
 }
 
 .panelEventDetail {
@@ -18,16 +19,22 @@
 
 .panelEvent::-webkit-scrollbar,
 .panelEventDetail::-webkit-scrollbar {
-    width: .6rem;
-    background-color: #f1eeee;
+    width: .4rem;
+    background-color: transparent;
     border-radius: 2rem;
 }
 
 .panelEvent::-webkit-scrollbar-thumb,
 .panelEventDetail::-webkit-scrollbar-thumb {
-    width: .6rem;
-    background-color: rgba(255, 20, 147, 0.8);
+    width: .4rem;
+    background-color: var(--color-primary-medium);
     border-radius: 2rem;
+}
+
+.panelEvent::-webkit-scrollbar-track,
+.panelEventDetail::-webkit-scrollbar-track {
+    margin: 15rem 0;
+    background-color: var(--color-grey-light-3);
 }
 
 @media (max-width: 50em) {

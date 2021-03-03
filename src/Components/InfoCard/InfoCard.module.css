@@ -29,6 +29,6 @@
 .infoRise {
     font-size: var(--font-size-extra-small);
     font-weight: var(--font-weight-normal);
-    color: var(--color-success-1);
+    color: var(--color-success);
     letter-spacing: 0.1rem;
 }

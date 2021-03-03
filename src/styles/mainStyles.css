@@ -1,7 +1,7 @@
 :root {
-    --color-primary: #010f24;
-    --color-primary-light: #010f24;
-    --color-primary-medium: #010f24;
+    --color-primary: #14334a;
+    --color-primary-light: #215379;
+    --color-primary-medium: #4693cd;
     --color-secondary: #01142F;
     --color-secondary-light: #01142F;
     --color-secondary-medium: #01142F;
@@ -19,11 +19,13 @@
 
     --transparent-1: rgba(3, 21, 24, 0.089);
 
-    --color-danger-1: #FF0000;
-    --color-danger-2: #EE3D48;
+    --color-danger: #e81732;
+    --color-danger-light: #EB354C;
+    --color-danger-medium: #EE5B6E;
 
-    --color-success-1: #41B619;
-    --color-success-2: #5BFF62;
+    --color-success: #20df69;
+    --color-success-light: #48E484;
+    --color-success-medium: #76EBA3;
 
     --border-radius-small: 0.4rem;
     --border-radius-medium: 0.8rem;
@@ -38,11 +40,11 @@
     --font-size-extra-large: 2.5rem;
     --font-size-huge: 8rem;
 
-    --color-gradien-1: 1, 20, 47;
-    --color-gradien-2: 1, 15, 36;
+    --color-gradien-1: 20, 51, 74;
+    --color-gradien-2: 70, 147, 205;
 
     --color-gradient-1: 0, 201, 255;
-    --color-gradient-2: 146, 254, 157;
+    --color-gradient-2: 72, 228, 132;
 
     --font-weight-normal: 400;
     --font-weight-medium: 700;

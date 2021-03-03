@@ -19,6 +19,10 @@
     padding-bottom: 0.5rem;
 }
 
+.dashScroll:not(:last-child) {
+    margin-bottom: 2.5rem;
+}
+
 .dashScroll::-webkit-scrollbar {
     height: 0.4rem;
     background-color: transparent;
@@ -27,19 +31,18 @@
 
 .dashScroll::-webkit-scrollbar-thumb {
     height: 0.4rem;
-    background-color: var(--color-grey-light-4);
+    background-color: var(--color-primary-medium);
     border-radius: var(--border-radius-small);
 }
 
 .dashScroll::-webkit-scrollbar-track {
     margin: 0 30rem;
-    background-color: var(--color-grey-light-1);
+    background-color: var(--color-grey-light-2);
 }
 
-.dashOrder {
+.dashContainer {
     display: flex;
     flex-wrap: nowrap;
-    /* overflow-x: auto !important; */
 }
 
 
