@@ -26,6 +26,9 @@ import TextArea from './Input/TextArea.component';
 import CircleProgess from './CircleProgress/CircleProgess.section';
 import InfoCard from './InfoCard/InfoCard.component';
 import Language from './Language/Language.component';
+import BakerInfo from './BakerInfo/BakerInfo.component';
+import UserInfo from './UserInfo/UserInfo.component';
+import BakerTable from './BakersTable/BakerTable.component';
 
 export {
     Header, 
@@ -56,4 +59,7 @@ export {
     CircleProgess,
     InfoCard,
     Language,
+    BakerInfo,
+    UserInfo,
+    BakerTable,
 };

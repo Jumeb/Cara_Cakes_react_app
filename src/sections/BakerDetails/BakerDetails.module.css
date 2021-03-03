@@ -124,22 +124,6 @@
     width: 90%;
 }
 
-.formLength5 {
-    width: 100%;
-}
-
-.formLength1 {
-    width: 60%;
-}
-
-.formLength2 {
-    width: 70%;
-}
-
-.formLength3 {
-    width: 80%;
-}
-
 
 .txt {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)) !important;

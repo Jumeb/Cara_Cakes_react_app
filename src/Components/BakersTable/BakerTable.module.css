@@ -1,0 +1,126 @@
+.cartSeparator:not(:last-child) {
+    margin-bottom: 1rem;
+    margin: 0 2rem;
+    padding-bottom: 3rem;
+    border-bottom-style: dotted;
+    border-bottom-width: 0.2rem;
+    border-bottom-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    flex: 0 0 95%;
+    flex-direction: column;
+}
+
+.cartSeparator:last-child {
+    margin: 0 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    flex: 0 0 95%;
+}
+
+.cartTable {
+    width: 95%;
+    text-align: center;
+    border-collapse: collapse;
+    border-style: hidden;
+    border: 0.15rem solid #ddd;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    flex-wrap: wrap;
+    font-size: var(--font-size-normal);
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.cartTableHeader,
+.cartTableHeaderData {
+    background-color: var(--color-primary-light);
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.cartTableRow,
+.cartTableData {
+    font-size: var(--font-size-normal);
+    padding: 0.3rem;
+    border-bottom: 0.1rem solid #ddd;
+    color: #313030;
+    cursor: pointer;
+}
+
+.cartTableRow:nth-child(odd) {
+    background-color: #eee;
+}
+
+.cartTableRow:hover {
+    background-color: var(--color-grey-light-1);
+}
+
+.cartTableHeader,
+.cartTableHeaderData {
+    padding: 0.9rem;
+    border: 0.1rem solid #ddd;
+}
+
+.cartListBaker {
+    margin: 1.2rem 1.4rem;
+    align-self: flex-start;
+    color: #313030;
+}
+
+
+
+.cartButton {
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius-small);
+    background-color: var(--transparent-1);
+    padding: 0.5rem 1.2rem;
+    color: var(--color-grey-dark-1);
+    font-size: 1.15rem;
+    transition: all 0.4s ease-in-out;
+
+    cursor: pointer;
+}
+
+.cartButton:nth-child(odd) {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.cartButton:first-child {
+    background-color: var(--color-danger-light);
+    color: var(--color-white);
+    margin: 0 1.5rem;
+
+}
+
+.cartButton:nth-child(even) {
+    background-color: var(--color-primary-medium);
+    color: var(--color-white);
+    margin: 0 1.5rem;
+
+}
+
+
+.cartButton:hover {
+    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
+}
+
+.cartTableDataImage {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 1rem;
+}
+
+.cartTableImageContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+}

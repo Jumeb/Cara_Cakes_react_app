@@ -173,7 +173,7 @@ const BakerDetails = (props) => {
                                         onChange={(value) => setCategories(value)}
                                         components={animatedComponents} 
                                         isMulti 
-                                        className="formLength-4 form__select-input" />
+                                        className={[styles.formLength4, styles.formSelectInput].join(' ')} />
                                 </div>
                             <Input 
                                 len={5}

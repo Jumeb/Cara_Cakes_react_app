@@ -23,10 +23,30 @@ const AdminNav = () => {
                         </NavLink>
                     </li>
                     <li className={styles.panelSideNavItem}>
+                        <NavLink to="/admin/dashboard/bakers" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                            <span className={styles.panelSideNavIcon}><IoCafe /></span><span>Bakers</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.panelSideNavItem}>
+                        <NavLink to="/admin/dashboard/users" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                            <span className={styles.panelSideNavIcon}><IoPeople /></span><span>Users</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.panelSideNavItem}>
                         <NavLink to="/admin/dashboard/orders" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
                            <span className={styles.panelSideNavIcon}><IoArchive /></span><span>Orders</span>
                         </NavLink>
                     </li>
+                    <li className={styles.panelSideNavItem}>
+                        <NavLink to="/admin/dashboard/all-orders" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                            <span className={styles.panelSideNavIcon}><IoDocument /></span><span>All Orders</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.panelSideNavItem}>
+                            <NavLink to="/" className={styles.panelSideNavLink}>
+                                <span className={styles.panelSideNavIcon}><IoLogOut /></span><span>Logout</span>
+                            </NavLink>
+                    </li>     
                     {/* <li className={styles.panelSideNavItem}>
                         <NavLink to="/admin/addpastry" className={styles.panelSideNavLink}>
                             <span>Add Pastry</span>
@@ -45,31 +65,11 @@ const AdminNav = () => {
                             <li className={styles.panelSideNavItem}><NavLink to="/admin/cups" className={styles.panelSideNavLink}>Cup Cakes</NavLink></li>
                             <li className={styles.panelSideNavItem}><NavLink to="/admin/vals" className={styles.panelSideNavLink}>Valentine choice</NavLink></li>
                         </div> */}
-                    <li className={styles.panelSideNavItem}>
-                            <NavLink to="/admin/dashboard/bakers" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoCafe /></span><span>Bakers</span>
-                            </NavLink>
-                        </li>
-                        <li className={styles.panelSideNavItem}>
-                            <NavLink to="/admin/dashboard/users" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoPeople /></span><span>Users</span>
-                            </NavLink>
-                        </li>
-                        <li className={styles.panelSideNavItem}>
-                            <NavLink to="/admin/dashboard/all-orders" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoDocument /></span><span>All Orders</span>
-                            </NavLink>
-                        </li>
                         {/* <li className={styles.panelSideNavItem}>
                             <NavLink to="/admin/create" className={styles.panelSideNavLink}>
                                 <span>Create Admin</span>
                             </NavLink>
                         </li> */}
-                        <li className={styles.panelSideNavItem}>
-                                <NavLink to="/" className={styles.panelSideNavLink}>
-                                    <span className={styles.panelSideNavIcon}><IoLogOut /></span><span>Logout</span>
-                                </NavLink>
-                        </li>     
                 </ul>
                 <div className={styles.power}>
                 <span>Copyrighted &copy;<NavLink to="#" className={styles.dev}>JB Inc.</NavLink>All Rights reserved</span> 
