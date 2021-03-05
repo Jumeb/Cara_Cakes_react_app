@@ -18,7 +18,7 @@
 }
 
 .btn:hover {
-    box-shadow: var(--box-shadow-medium);
+    box-shadow: var(--box-shadow-heavier);
 }
 
 .btn:active {

@@ -22,7 +22,7 @@
 }
 
 .cardViewFront {
-    background-color: #fff;
+    background-color: var(--color-white);
     overflow: hidden;
     z-index: 1;
 }
@@ -32,7 +32,7 @@
 }
 
 .cardViewBack1 {
-    background-image: linear-gradient(to right bottom, #ff1493, #c71585);
+    background-image: linear-gradient(to right bottom, var(--color-primary), var(--color-primary-light));
 }
 
 .cardViewBack2 {
@@ -51,7 +51,8 @@
 }
 
 .cardPic1 {
-    background-image: linear-gradient(to right, rgba(255, 20, 147, 0.7), rgba(199, 21, 133, 0.8)), url(../../res/img/cups-2.jpg);
+    background-image: linear-gradient(to right, rgba(var(--color-secondary-light), 0.7), rgba(var(--color-secondary-medium), 0.8)),
+    url(../../res/img/cups-2.jpg);
     background-position: top;
     background-size: cover;
 }
@@ -71,9 +72,9 @@
 .cardList {
     width: 75%;
     list-style: none;
-    font-size: 1.4rem;
+    font-size: var(--font-size-normal);
     margin: 0 auto;
-    color: #000;
+    color: var(--color-primary);
 }
 
 .cardList1 li {
@@ -81,7 +82,7 @@
 }
 
 .cardList1 li:not(:last-child) {
-    border-bottom: 2px solid rgba(199, 21, 133, 0.7);
+    border-bottom: 0.2rem solid rgba(var(--color-secondary-medium), 0.7);
 }
 
 .cardList2 li {
@@ -89,7 +90,7 @@
 }
 
 .cardList2 li:not(:last-child) {
-    border-bottom: 2px solid rgba(139, 0, 0, 0.7);
+    border-bottom: 0.2rem solid rgba(139, 0, 0, 0.7);
 }
 
 .cardList3 li {
@@ -97,12 +98,12 @@
 }
 
 .cardList3 li:not(:last-child) {
-    border-bottom: 2px solid rgba(139, 69, 19, 0.7);
+    border-bottom: 0.2rem solid rgba(139, 69, 19, 0.7);
 }
 
 .cardJust {
-    color: #fff;
-    font-size: 2rem;
+    color: var(--color-white);
+    font-size: var(--font-size-large);
 }
 
 @media (max-width: 56.25em) {
@@ -112,8 +113,8 @@
 }
 
 .cardPrice {
-    color: #fff;
-    font-size: 4rem;
+    color: var(--color-white);
+    font-size: var(--font-size-big);
 }
 
 @media (max-width: 56.25em) {
@@ -124,13 +125,13 @@
 
 .cardHeading {
     padding: 2rem 0;
-    font-size: 1.7rem;
-    font-weight: 700;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
     text-transform: uppercase;
 }
 
 .cardHeading1 {
-    background-image: linear-gradient(to right, #c71585, #ff69b4);
+    background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-medium));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
