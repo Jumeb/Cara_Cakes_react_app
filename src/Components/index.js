@@ -29,6 +29,12 @@ import Language from './Language/Language.component';
 import BakerInfo from './BakerInfo/BakerInfo.component';
 import UserInfo from './UserInfo/UserInfo.component';
 import BakerTable from './BakersTable/BakerTable.component';
+import UserTable from './UsersTable/UserTable.component';
+import AOrderTable from './OrdersTable/OrderTable.component';
+import PastryTable from './PastriesTable/PastryTable.component';
+import PastryTableSuper from './PastriesTableSuper/PastryTable.component';
+import SquareInput from './SquareInput/SquareInput.component';
+import SquareArea from './SquareInput/SquareTextArea.component';
 
 export {
     Header, 
@@ -62,4 +68,10 @@ export {
     BakerInfo,
     UserInfo,
     BakerTable,
+    UserTable,
+    AOrderTable,
+    PastryTable,
+    PastryTableSuper,
+    SquareInput,
+    SquareArea,
 };

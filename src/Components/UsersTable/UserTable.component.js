@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { pans2 } from '../../res/img';
-import styles from './BakerTable.module.css';
+import styles from './UserTable.module.css';
 
-const BakerTable = (props) => { 
+const UserTable = (props) => { 
     const {isDetail, setIsDetail} = props;
     return (
             <div className={styles.cartSeparator}>
@@ -11,9 +11,8 @@ const BakerTable = (props) => {
                     <thead className={styles.cartTableHeader}>
                         <td className={styles.cartTableHeadeData}>Name</td>
                         <td className={styles.cartTableHeaderData}>Company</td>
-                        <td className={styles.cartTableHeaderData}>Categories</td>
+                        <td className={styles.cartTableHeaderData}>Ordered</td>
                         <td className={styles.cartTableHeaderData}>Suspended</td>
-                        <td className={styles.cartTableHeaderData}>Verified</td>
                         <td className={styles.cartTableHeaderData}>Actions</td>
                     </thead>
                     <tr className={styles.cartTableRow}>
@@ -22,12 +21,10 @@ const BakerTable = (props) => {
                             <b>Ice Cake</b>
                         </td>
                         <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
+                        <td className={styles.cartTableData}>34</td>
                         <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
                         <td className={styles.cartTableData}>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
                         </td>
                     </tr>
@@ -37,12 +34,10 @@ const BakerTable = (props) => {
                             <b>Ice Cake</b>
                         </td>
                         <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
+                        <td className={styles.cartTableData}>34</td>
                         <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
                         <td className={styles.cartTableData}>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
                         </td>
                     </tr>
@@ -52,12 +47,10 @@ const BakerTable = (props) => {
                             <b>Ice Cake</b>
                         </td>
                         <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
+                        <td className={styles.cartTableData}>34</td>
                         <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
                         <td className={styles.cartTableData}>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
                         </td>
                     </tr>
@@ -67,12 +60,10 @@ const BakerTable = (props) => {
                             <b>Ice Cake</b>
                         </td>
                         <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
+                        <td className={styles.cartTableData}>34</td>
                         <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
                         <td className={styles.cartTableData}>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
                         </td>
                     </tr>
@@ -82,12 +73,10 @@ const BakerTable = (props) => {
                             <b>Ice Cake</b>
                         </td>
                         <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
+                        <td className={styles.cartTableData}>34</td>
                         <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
                         <td className={styles.cartTableData}>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
                         </td>
                     </tr>
@@ -96,4 +85,4 @@ const BakerTable = (props) => {
     )
 }
 
-export default BakerTable;
+export default UserTable;

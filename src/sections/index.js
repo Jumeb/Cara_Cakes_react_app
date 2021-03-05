@@ -17,6 +17,11 @@ import AdminNav from './AdminNav/AdminNav.section';
 import BakerDetails from './BakerDetails/BakerDetails.section';
 import Dashboard from './Dashboard/Dashboard.section';
 import ABakers from './Bakers/Baker.section';
+import AUsers from './Users/User.section';
+import AOrders from './Orders/Order.section';
+import APastry from './Pastry/Pastry.section';
+import APastryS from './PastrySuper/Pastry.section';
+import AProfile from './AdminProfile/AdminProfile.section';
 
 export {
     HeaderSection,
@@ -39,4 +44,9 @@ export {
     BakerDetails,
     Dashboard,
     ABakers,
+    AUsers,
+    AOrders,
+    APastry,
+    APastryS,
+    AProfile,
 };
