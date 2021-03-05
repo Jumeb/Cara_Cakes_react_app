@@ -1,12 +1,12 @@
 .btn {
     transition: all .4s ease-in-out;
-    color: #fff;
+    color: var(--color-white);
     padding: 1.2rem 3.5rem;
     margin: 2rem .5rem;
     border: none;
     display: inline-block;
-    font-size: 1.4rem;
-    border-radius: 10rem;
+    font-size: var(--font-size-normal);
+    border-radius: var(--border-radius-larger);
     width: 17rem;
     background-color: transparent;
 }
@@ -18,11 +18,11 @@
 }
 
 .btn:hover {
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow-medium);
 }
 
 .btn:active {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow-medium);
 }
 
 .btnIcon {
