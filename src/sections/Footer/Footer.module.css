@@ -1,7 +1,7 @@
 .secFooter {
-    background-color: #181717;
+    background-color: var(--color-primary);
     padding: 18rem 0 4rem 0;
-    font-size: 1.4rem;
+    font-size: var(--font-size-normal);
 }
 
 @media only screen and (max-width: 25.75em) {
@@ -35,10 +35,10 @@
 }
 
 .subTitle {
-    font-size: 1.5rem;
+    font-size: var(--font-size-normal);
     text-transform: uppercase;
     text-align: left;
-    color: white;
+    color: var(--color-white);
 }
 
 
@@ -62,8 +62,8 @@
     padding: .3rem;
     text-decoration: none;
     display: inline-block;
-    color: #777;
-    font-size: 1.5rem;
+    color: var(--color-grey-light-2);
+    font-size: var(--font-size-normal);
     transition: all .4s ease;
 }
 
@@ -75,8 +75,8 @@
 }
 
 .footerLink:hover {
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.7);
-    color: #c71585;
+    box-shadow: var(--box-shadow-light);
+    color: var(--color-white);
     transform: scale(1.2) rotateZ(12deg);
 }
 
@@ -112,22 +112,24 @@
     padding: .3rem;
     padding-right: -3rem;
     text-decoration: none;
-    color: #777;
-    font-size: 1.5rem;
+    color: var(--color-grey-light-3);
+    font-size: var(--font-size-normal);
     transition: all .4s ease;
 }
 
 .footerDev:hover {
     background-color: #181717;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.7);
-    color: #c0bbbb;
+    box-shadow: var(--box-shadow-light);
+    color: var(--color-grey-light-3);
     transform: scale(1.5) rotateZ(-12deg);
 }
 
 .footerContacts {
     width: 40%;
-    margin: auto;
-    font-size: 2.5rem;
+    margin: 0 50rem;
+    font-size: var(--font-size-extra-large);
+    display: flex;
+    flex-direction: row;
 }
 
 @media (max-width: 56.25em) {
@@ -153,21 +155,30 @@
 .footerContactsRound {
     margin: auto 1.5rem;
 }
-
+.footerContactsRound,
 .footerContactsRound a:link,
 .footerContactsRound a:visited {
     text-decoration: none;
-    color: #777;
-    padding: 1.4rem;
-    border: 2px solid #fff;
+    color: var(--color-grey-light-3);
+    padding: .4rem 0;
+    height: 6rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.2rem solid var(--color-white);
     border-radius: 50%;
     transition: all .4s ease-in-out;
 }
 
 .footerContactsRound a:hover,
 .footerContactsRound a:active {
-    color: #181717;
-    background-color: #c0bbbb;
+    color: var(--color-primary-light);
+    background-color: var(--color-grey-light-3);
+}
+
+.footerIcons {
+    font-size: var(--font-size-extra-large);
 }
 
 .footerLeft {

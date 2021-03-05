@@ -29,7 +29,7 @@
 }
 
 .subTitle {
-    font-size: 1.5rem;
+    font-size: var(--font-size-normal);
     text-transform: uppercase;
     text-align: left;
     color:var(--color-white);
@@ -57,7 +57,7 @@
 }
 
 .contactIcon {
-    font-size: 6rem;
+    font-size: var(--font-size-bigger);
     margin: 0 5rem;
     float: left;
 }
