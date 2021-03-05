@@ -80,7 +80,7 @@
 .bakerIcon {
     font-size: 1.3rem;
     margin-right: 0.5rem;
-    color: rgb(20, 121, 184);
+    color: var(--color-primary-medium);
     /* color: var(--color-grey-dark-2); */
 }
 
@@ -110,5 +110,5 @@
 
 .bakerRatingIcon {
     margin-right: 0.4rem;
-    font-size: 1.3rem;
+    font-size: var(--font-size-normal);
 }
