@@ -2,6 +2,9 @@
     margin-bottom: 1rem;
     margin: 0 2rem;
     padding-bottom: 3rem;
+    border-bottom-style: dotted;
+    border-bottom-width: 0.2rem;
+    border-bottom-color: var(--color-primary);
     display: flex;
     align-items: center;
     flex: 0 0 95%;
@@ -29,7 +32,7 @@
     flex-wrap: wrap;
     font-size: var(--font-size-normal);
     background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: var(--box-shadow-medium);
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
 }
 
 .cartTableHeader,
@@ -47,6 +50,10 @@
     border-bottom: 0.1rem solid #ddd;
     color: #313030;
     cursor: pointer;
+}
+
+.cartTableData {
+    padding: 1rem 0;
 }
 
 .cartTableRow:nth-child(odd) {

@@ -1,0 +1,29 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.inputField {
+    outline: none;
+    width: 32rem;
+    border: 0.2rem solid var(--color-primary);
+    border-radius: var(--border-radius-small);
+    padding: 0.9rem 1.5rem;
+    font-size: var(--font-size-normal);
+    margin: 0.5rem 0;
+}
+
+.inputField::-webkit-input-placeholder {
+    color: var(--color-grey-dark-3);
+}
+
+.inputLabel {
+    padding: 0 1.5rem;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-grey-dark-1);
+}

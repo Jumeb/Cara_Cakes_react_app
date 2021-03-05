@@ -1,8 +1,10 @@
 import React from 'react';
 import { 
     IoArchive, 
+    IoBrush, 
     IoCafe, 
     IoDocument, 
+    IoGift, 
     IoGrid, 
     IoLogOut, 
     IoPeople 
@@ -38,16 +40,31 @@ const AdminNav = () => {
                         </NavLink>
                     </li>
                     <li className={styles.panelSideNavItem}>
-                        <NavLink to="/admin/dashboard/all-orders" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                            <span className={styles.panelSideNavIcon}><IoDocument /></span><span>All Orders</span>
-                        </NavLink>
-                    </li>
+                            <NavLink to="/admin/dashboard/pastry" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                                <span className={styles.panelSideNavIcon}><IoGift /></span><span>Pastries</span>
+                            </NavLink>
+                    </li>  
+                    <li className={styles.panelSideNavItem}>
+                            <NavLink to="/admin/dashboard/pastry-super" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                                <span className={styles.panelSideNavIcon}><IoGift /></span><span>Pastries Super</span>
+                            </NavLink>
+                    </li>  
+                    <li className={styles.panelSideNavItem}>
+                            <NavLink to="/admin/dashboard/profile" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                                <span className={styles.panelSideNavIcon}><IoBrush /></span><span>Profile</span>
+                            </NavLink>
+                    </li>   
                     <li className={styles.panelSideNavItem}>
                             <NavLink to="/" className={styles.panelSideNavLink}>
                                 <span className={styles.panelSideNavIcon}><IoLogOut /></span><span>Logout</span>
                             </NavLink>
-                    </li>     
-                    {/* <li className={styles.panelSideNavItem}>
+                    </li> 
+                    {/*<li className={styles.panelSideNavItem}>
+                        <NavLink to="/admin/dashboard/all-orders" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                            <span className={styles.panelSideNavIcon}><IoDocument /></span><span>All Orders</span>
+                        </NavLink>
+                    </li>
+                     <li className={styles.panelSideNavItem}>
                         <NavLink to="/admin/addpastry" className={styles.panelSideNavLink}>
                             <span>Add Pastry</span>
                         </NavLink>

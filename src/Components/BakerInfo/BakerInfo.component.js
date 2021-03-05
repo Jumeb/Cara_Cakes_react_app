@@ -31,7 +31,7 @@ const BakerInfo = () => {
                 </div>
                 <div className={styles.bakerNumber}>
                     <h2 className={styles.bakerTitle}>50k</h2>
-                    <b className={styles.bakerSubTitle}>Total</b>
+                    <b className={styles.bakerSubTitle}>Earned</b>
                 </div>
             </div>
             <div className={styles.bakerFooter}>
