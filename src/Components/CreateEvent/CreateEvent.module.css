@@ -1,7 +1,7 @@
 .createButton {
     outline: none;
     border: none;
-    background-color: #ff1493;
+    background-color: var(--color-primary);
     position: fixed;
     bottom: 1.6rem;
     right: 1.6rem;
@@ -11,21 +11,21 @@
     border-radius: 50%;
     cursor: pointer;
     border: 0.2rem solid transparent;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow-medium);
     transition: all ease-in-out 0.4s;
 }
 
 .createButtonIcon {
-    font-size: 1.6rem;
-    color: #fff;
+    font-size: var(--font-size-normal);
+    color: var(--color-white);
     transition: all ease 0.3s;
 }
 
 .createButton:hover {
-    box-shadow:0 1rem 3rem rgba(202, 202, 202, 0.904);
+    box-shadow: var(--box-shadow-medium);
     background-color: rgba(255, 255, 255, 0.63);
-    border: 0.2rem solid #ff1493;
+    border: 0.2rem solid var(--color-primary);
 }
 .createButton:hover .createButtonIcon {
-    color: #ff1493cc;
+    color: var(--color-primary);
 }

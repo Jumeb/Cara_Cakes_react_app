@@ -5,7 +5,7 @@
     background-color: var(--color-primary);
     border: none;
     padding: 0.8rem 3rem;
-    color: #fff;
+    color: var(--color-white);
     min-width: 9rem;
     text-align: center;
     border-radius: var(--border-radius-small);

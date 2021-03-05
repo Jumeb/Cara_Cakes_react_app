@@ -2,11 +2,11 @@
     width: 31.5rem;
     display: flex;
     height: 35rem;
-    border-radius: 0.6rem;
+    border-radius: var(--border-radius-small);
     justify-content: center;
     flex-direction: column;
     margin: 1.4rem 0;
-    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow-medium);
     position: relative;
 }
 
@@ -18,12 +18,12 @@
 
 .bakerListImgLogoContainer {
     position: absolute;
-    background-color: #fff;
+    background-color: var(--color-white);
     bottom: 5.4rem;
     right: 0.3rem;
     padding: 0.1rem 0.7rem;
-    border-radius: 0.4rem;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--box-shadow-medium);
 }
 
 .bakerListImgLogo {
@@ -33,7 +33,7 @@
 
 .bakerListTitle {
     margin: 1.2rem 0;
-    background-color: #fff;
+    background-color: var(--color-white);
     text-align: center;
 }
 

@@ -22,9 +22,9 @@
     text-align: center;
     border-collapse: collapse;
     border-style: hidden;
-    border: 0.15rem solid #ddd;
+    border: 0.15rem solid var(--color-grey-light-3);
     padding: 0.5rem;
-    border-radius: 0.8rem;
+    border-radius: var(--border-radius-medium);
     overflow: hidden;
     flex-wrap: wrap;
     font-size: var(--font-size-normal);
@@ -35,22 +35,22 @@
 .cartTableHeader,
 .cartTableHeaderData {
     background-color: var(--color-primary-light);
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: 700;
+    font-size: var(--font-size-normal);
+    color: var(--color-white);
+    font-weight: var(--font-weight-medium);
 }
 
 .cartTableRow,
 .cartTableData {
     font-size: var(--font-size-normal);
     padding: 0.3rem;
-    border-bottom: 0.1rem solid #ddd;
-    color: #313030;
+    border-bottom: 0.1rem solid var(--color-grey-light-3);
+    color: var(--color-grey-dark-1);
     cursor: pointer;
 }
 
 .cartTableRow:nth-child(odd) {
-    background-color: #eee;
+    background-color: var(--color-grey-light-2);
 }
 
 .cartTableRow:hover {
@@ -60,13 +60,13 @@
 .cartTableHeader,
 .cartTableHeaderData {
     padding: 0.9rem;
-    border: 0.1rem solid #ddd;
+    border: 0.1rem solid var(--color-grey-light-3);
 }
 
 .cartListBaker {
     margin: 1.2rem 1.4rem;
     align-self: flex-start;
-    color: #313030;
+    color: var(--color-grey-dark-3);
 }
 
 
@@ -105,7 +105,7 @@
 
 
 .cartButton:hover {
-    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
+    box-shadow:var(--box-shadow-heavy);
 }
 
 .cartTableDataImage {
