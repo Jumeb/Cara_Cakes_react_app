@@ -66,7 +66,7 @@ only screen and (hover: none) {
 
 .title {
     font-size: 4rem;
-    background-image: linear-gradient(to right, rgba(199, 21, 133, 0.8), rgba(139, 69, 19, 0.8));
+    background-image: linear-gradient(to right, rgba(var(--color-secondary), 0.8), rgba(var(--color-secondary-medium), 0.8));
     -webkit-background-clip: text;
     background-clip: text;
     text-transform: uppercase;

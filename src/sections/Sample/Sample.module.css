@@ -1,5 +1,5 @@
 .txt-white {
-    color: #fff !important;
+    color: var(--color-white) !important;
 }
 
 .secSample {
@@ -23,10 +23,10 @@
 }
 
 .secTitle {
-    font-size: 4rem;
+    font-size: var(--font-size-big);
     text-transform: uppercase;
-    color: white;
-    font-weight: 700;
+    color: var(--color-white);
+    font-weight: var(--font-weight-medium);
     margin: 4rem 0;
     text-align: center;
 }
