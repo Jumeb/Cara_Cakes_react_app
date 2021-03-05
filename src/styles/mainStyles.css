@@ -2,9 +2,9 @@
     --color-primary: #14334a;
     --color-primary-light: #215379;
     --color-primary-medium: #4693cd;
-    --color-secondary: #01142F;
-    --color-secondary-light: #01142F;
-    --color-secondary-medium: #01142F;
+    --color-secondary: 20, 51, 74;
+    --color-secondary-light: 33, 83, 121;
+    --color-secondary-medium: 70, 147, 205;
 
     --color-white: #fff;
 
@@ -30,6 +30,7 @@
     --border-radius-small: 0.4rem;
     --border-radius-medium: 0.8rem;
     --border-radius-large: 2rem;
+    --border-radius-larger: 10rem;
     --border-radius-round: 50%;
 
     --font-size-extra-small: 1rem;
@@ -189,3 +190,4 @@ p:not(:last-child) {
         padding: 0 1.8rem;
     }
 }
+

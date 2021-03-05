@@ -45,8 +45,8 @@ body {
 }
 
 ::selection {
-  background-color: #c71585;
-  color: #fff;
+  background-color: var(--color-primary-medium);
+  color: var(--color-white);
 }
 
 body {
@@ -59,14 +59,14 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: .8rem;
-  background-color: #c0bbbb;
+  width: .4rem;
+  background-color: transparent;
   border-radius: 2rem;
 }
 
 body::-webkit-scrollbar-thumb {
-  width: .8rem;
-  background-color: rgba(255, 20, 147, 0.8);
+  width: .4rem;
+  background-color: var(--color-primary-medium);
   border-radius: 2rem;
 }
 
@@ -98,3 +98,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

@@ -15,9 +15,9 @@
 .naviButton {
     height: 7rem;
     width: 7rem;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.7);
+    border-radius: var(--border-radius-round);
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow-medium);
     z-index: 100;
     position: fixed;
     cursor: pointer;
@@ -28,7 +28,7 @@
     z-index: 90;
     height: 6.5rem;
     width: 6.5rem;
-    border-radius: 50%;
+    border-radius: var(--border-radius-round);
     text-align: center;
     left: 0;
     margin-top: 0.2rem;
@@ -62,22 +62,22 @@
 
 .naviLink {
     text-decoration: none;
-    font-size: 2.5rem;
+    font-size: var(--font-size-extra-large);
     padding: 2.5rem;
-    border-radius: 50%;
-    background-color: #fff;
-    color: #c71585;
+    border-radius: var(--border-radius-round);
+    background-color: var(--color-white);
+    color: var(--color-primary);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.8);
+    box-shadow: var(--box-shadow-medium);
     transform: scale(0.8);
     transition: all .3s;
 }
 
 .naviLink:link,
 .naviLink:visited {
-    color: #c71585;
+    color: var(--color-primary);
 }
 
 .naviLink:hover,
@@ -112,9 +112,9 @@
 .naviIcon,
 .naviIcon::after,
 .naviIcon::before {
-    background-color: #c71585;
+    background-color: var(--color-primary);
     width: 3rem;
-    height: 3px;
+    height: 0.3rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -206,6 +206,6 @@
 }
 
 .naviActive {
-    background-color: #c71585;
-    color: #fff !important;
+    background-color: var(--color-primary);
+    color: var(--color-white) !important;
 }

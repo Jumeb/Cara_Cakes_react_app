@@ -2,7 +2,7 @@
     height: 95vh;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 88.5vh, 50% 100%, 0 88.5vh);
-    background-image: linear-gradient(to right bottom, rgba(255, 105, 180, 0.5), rgba(160, 82, 45, 0.5)), url(../../res/img/cups-4.jpg);
+    background-image: linear-gradient(to right bottom, rgba(var(--color-secondary-light), 0.345), rgba(var(--color-secondary-medium), 0.4)), url(../../res/img/cups-2.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -142,5 +142,37 @@
     .subTitle {
         letter-spacing: .18rem;
         font-size: 1.3rem;
+    }
+}
+
+@keyframes moveInTop {
+    0% {
+        transform: translateY(-10rem);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(1.5rem);
+    }
+
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        transform: translateY(10rem);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(-1.5rem);
+    }
+
+    100% {
+        transform: translate(0);
+        opacity: 1;
     }
 }
