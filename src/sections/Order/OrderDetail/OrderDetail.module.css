@@ -9,6 +9,7 @@
     align-items: center;
     position: relative;
     height: 100vh;
+    margin-top: 8rem;
 }
 
 .orderNoDetail {
@@ -18,17 +19,17 @@
 .orderDetail::-webkit-scrollbar {
     width: .4rem;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: var(--border-radius-large);
 }
 
 .orderDetail::-webkit-scrollbar-thumb {
     width: .4rem;
-    background-color: #ff1493cc;
-    border-radius: 2rem;
+    background-color: rgba(var(--color-secondary-medium), 0.8);
+    border-radius: var(--border-radius-large);
 }
 
 .orderDetail::-webkit-scrollbar-track {
-    background-color: #ddd;
+    background-color: var(--color-grey-light-3);
     margin: 18rem 0;
 }
 
@@ -38,7 +39,7 @@
     border-radius: 0.6rem;
     justify-content: center;
     flex-direction: column;
-    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow-medium);
 }
 
 .orderDetailImgs {
@@ -82,7 +83,7 @@
 
 .orderDetailHover:hover{
     z-index: 3;
-    outline: 0.7rem solid #ff1493cc;
+    outline: 0.7rem solid var(--color-primary-medium);
 }
 
 .orderDetailImgs:hover .orderDetailHover:not(:hover) {
@@ -93,7 +94,7 @@
 
 .orderDetailTitle {
     padding: 1.2rem 0;
-    background-color: #fff;
+    background-color: var(--color-white);
     text-align: center;
 }
 
@@ -111,12 +112,12 @@
     outline: none;
     height: 3rem;
     width: 3rem;
-    border-radius: 50%;
+    border-radius: var(--border-radius-round);
     border: none;
-    color: #ff1493;
-    font-size: 1.1rem;
-    border: 0.2rem solid #ff1493;
-    background-color: #fff;
+    color: var(--color-primary);
+    font-size: var(--font-size-small);
+    border: 0.2rem solid var(--color-primary);
+    background-color: var(--color-white);
     text-align: center;
     vertical-align: center;
     box-shadow: 0 0 0rem 'transplant';
@@ -125,17 +126,17 @@
 }
 
 .orderDetailActionButton:hover {
-    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
+    box-shadow: var(--box-shadow-light);
 }
 
 .orderDetailActionButton:active {
     transform: translateY(0.2rem);
-    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.6);
+    box-shadow: var(--box-shadow-medium);
 
 }
 
 .orderDetailQtyText {
-    font-size: 1.4rem;
+    font-size: var(--font-weight-normal);
 }
 
 .orderDetails {
@@ -153,7 +154,7 @@
 
 .orderDescriptionText {
     text-align: left;
-    font-size: 1.2rem;
+    font-size: var(--font-size-small);
 }
 
 .orderDescription {
@@ -167,5 +168,5 @@
 
 .orderDescriptionText {
     text-align: left;
-    font-size: 1.2rem;
+    font-size: var(--font-size-small);
 }

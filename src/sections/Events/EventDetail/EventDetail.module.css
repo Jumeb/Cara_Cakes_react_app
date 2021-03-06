@@ -9,6 +9,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 8rem;
     /* border: 1px solid red; */
 }
 
@@ -18,19 +19,19 @@
 }
 
 .eventDetail::-webkit-scrollbar {
-    width: .2rem;
+    width: .4rem;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: var(--border-radius-large);
 }
 
 .eventDetail::-webkit-scrollbar-thumb {
-    width: .2rem;
-    background-color: #ff1493cc;
-    border-radius: 2rem;
+    width: .4rem;
+    background-color: rgba(var(--color-secondary-medium), 0.8);
+    border-radius: var(--border-radius-large);
 }
 
 .eventDetail::-webkit-scrollbar-track {
-    background-color: #ddd;
+    background-color: var(--color-grey-light-3);
     margin: 18rem 0;
 }
 
@@ -40,7 +41,7 @@
     border-radius: 0.6rem;
     justify-content: center;
     flex-direction: column;
-    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow-medium);
     position: relative;
     margin-top: 1.5rem;
 }
@@ -55,7 +56,7 @@
 
 .eventDetailCountdown {
     position: absolute;
-    background-color: #fff;
+    background-color: var(--color-white);
     bottom: .3rem;
     display: flex;
     flex-direction: row;
@@ -65,14 +66,14 @@
     min-width: 18rem;
     padding: 0.3rem 0.2rem;
     border-radius: 0.4rem;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+    box-shadow: var(--box-shadow-medium);
 }
 
 
 .eventDetailTitle {
     margin: 1.2rem 0;
     text-align: center;
-    background-color: #fff;
+    background-color: var(--color-white);
 }
 
 .eventDetails {
@@ -94,7 +95,7 @@
 
 .eventDescriptionText {
     text-align: left;
-    font-size: 1.2rem;
+    font-size: var(--font-size-normal);
 }
 
 .eventDetailDaysContainer {
@@ -130,21 +131,21 @@
 .eventMoreDetails {
     outline: none;
     border: none;
-    border-bottom: 0.2rem solid #ff1493cc;
+    border-bottom: 0.2rem solid var(--color-primary-medium);
     padding: 0.2rem 0;
-    background-color: #fff;
-    color: #ff1493cc;
-    font-weight: 700;
-    border-radius: 0.4rem;
+    background-color: var(--color-white);
+    color: var(--color-primary-medium);
+    font-weight: var(--font-weight-medium);
     width: 9rem;
+    margin: 1.5rem 0;
     margin-left: 1.3rem;
     cursor: pointer;
     transition: all ease-in-out 0.3s;
 }
 
 .eventMoreDetails:hover {
-    background-color: #ff1491c0;
-    color: #fff;
+    background-color: var(--color-primary-medium);
+    color: var(--color-white);
 }
 
 .eventButtons {

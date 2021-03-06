@@ -27,21 +27,20 @@
 
 .eventList::-webkit-scrollbar,
 .eventListDetail::-webkit-scrollbar {
-    width: .2rem;
+    width: .4rem;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: var(--border-radius-large);
 }
 
 .eventList::-webkit-scrollbar-thumb,
 .eventListDetail::-webkit-scrollbar-thumb {
-    width: .2rem;
-    background-color: #ff1493cc;
-    border-radius: 2rem;
+    width: .4rem;
+    background-color: rgba(var(--color-secondary-medium), 0.8);
+    border-radius: var(--border-radius-large);
 }
 
 .eventList::-webkit-scrollbar-track,
 .eventListDetail::-webkit-scrollbar-track {
-    background-color: #ddd;
+    background-color: var(--color-grey-light-3);
     margin: 18rem 0;
-    width: 0.2rem;
 }

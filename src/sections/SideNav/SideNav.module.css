@@ -1,6 +1,6 @@
 .panelUser {
     flex: 0 0 20%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--color-primary);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -9,7 +9,7 @@
 
 .panelUserDetail {
     flex: 0 0 10%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--color-primary);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -21,7 +21,6 @@
         flex-direction: row-reverse;
         align-items: center;
         flex-basis: 18%;
-        background-color: rgba(0, 0, 0, 0.8);
         margin-bottom: 0;
     }
 
@@ -29,7 +28,6 @@
         flex-direction: row-reverse;
         align-items: center;
         flex-basis: 10%;
-        background-color: rgba(0, 0, 0, 0.8);
         margin-bottom: 0;
     }
 }
@@ -81,7 +79,7 @@
     right: 0;
     height: 100%;
     width: 3px;
-    background-color: #ff69b4;
+    background-color: var(--color-primary-medium);
     transform: scaleY(0);
     transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, backgroud-color 0.1s;
 }
@@ -95,10 +93,11 @@
 .panelSideNavLink,
 .panelSideNavLink:link,
 .panelSideNavLink:visited {
-    color: #f1eeee;
+    color: var(--color-white);
     text-decoration: none;
     text-transform: uppercase;
     display: block;
+    font-size: var(--font-size-medium);
     padding: 1.2rem 2rem;
     position: relative;
     z-index: 10;
@@ -140,7 +139,7 @@
 
 .panelSideNavLink:active,
 .panelSideNavActive{
-    background-color: #ff69b4 !important;
+    background-color: var(--color-primary-medium) !important;
 }
 
 .panelSideNavIcon {
@@ -156,7 +155,7 @@
 }
 
 .power {
-    font-size: 1.4rem;
+    font-size: var(--font-size-normal);
     padding: 0 2rem;
     text-align: center;
 }
@@ -171,9 +170,9 @@
 .dev:visited {
     text-decoration: none;
     padding: 1.2rem;
-    color: #777;
+    color: var(--color-white);
 }
 
 .isDetailText {
-    font-size: 1.1rem;
+    font-size: var(--font-size-small);
 }

@@ -8,7 +8,6 @@ const OrderDetail = (props) => {
     const {isDetail, setIsDetail} = props;
     return (
         <div className={isDetail ? styles.orderDetail: styles.orderNoDetail}>
-            <Spacer />
             <div className={styles.orderDetailImgContainer}>
                 <div className={styles.orderDetailTitle}>
                     <h2>Order Summary</h2>

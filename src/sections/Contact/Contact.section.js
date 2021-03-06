@@ -14,13 +14,13 @@ const Contact = () => {
             <h3 className={styles.subTitle}>
                 Not sure!!! All you need do is call
             </h3>
-            <p>
+            <p  style={{color: '#eee'}}>
                 We always have an ever ready staff to careter to your needs. We are always available 24 hours a day, 365 days a year. So, don't be worried for long just call us.
             </p>
             <h3 className={styles.subTitle}>
                 Are facing difficulties? Hola us at
             </h3>
-            <p>
+            <p  style={{color: '#eeeeee'}}>
                 If you can't get to navigate through our platform efficiently and smoothly, we have a team, which is ready to help you through you difficulties. We are on your side today and forever.
             </p>
         </div>

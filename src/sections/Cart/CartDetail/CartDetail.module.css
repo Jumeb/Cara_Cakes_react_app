@@ -18,29 +18,29 @@
 .cartDetail::-webkit-scrollbar {
     width: .4rem;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: var(--border-radius-large);
 }
 
 .cartDetail::-webkit-scrollbar-thumb {
     width: .4rem;
-    background-color: rgba(255, 20, 147, 0.8);
-    border-radius: 2rem;
+    background-color: rgba(var(--color-secondary-medium), 0.8);
+    border-radius: var(--border-radius-large);
 }
 
 .cartDetail::-webkit-scrollbar-track {
-    background-color: #ddd;
+    background-color: var(--color-grey-light-3);
     margin: 18rem 0;
 }
 
 .cartDetailImgContainer {
     width: 90%;
     display: flex;
-    border-radius: 0.6rem;
+    border-radius: var(--border-radius-small);
     overflow: hidden;
     justify-content: center;
     margin-top: 1.5rem;
     flex-direction: column;
-    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow-light);
 }
 
 .cartDetailImg {
@@ -51,7 +51,7 @@
 
 .cartDetailTitle {
     padding: 1.2rem 0;
-    background-color: #fff;
+    background-color: var(--color-white);
     text-align: center;
 }
 
@@ -69,31 +69,31 @@
     outline: none;
     height: 3rem;
     width: 3rem;
-    border-radius: 50%;
+    border-radius: var(--border-radius-round);
     border: none;
-    color: #ff1493;
-    font-size: 1.1rem;
-    border: 0.2rem solid #ff1493;
-    background-color: #fff;
+    color: var(--color-primary);
+    font-size: var(--font-size-small);
+    border: 0.2rem solid var(--color-primary);
+    background-color: var(--color-white);
     text-align: center;
     vertical-align: center;
-    box-shadow: 0 0 0rem 'transplant';
+    box-shadow: 0 0 0rem transparent;
     transition: box-shadow ease-in 0.2s, transform ease-in-out 0.3s;
     cursor: pointer;
 }
 
 .cartDetailActionButton:hover {
-    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
+    box-shadow: var(--box-shadow-medium);
 }
 
 .cartDetailActionButton:active {
     transform: translateY(0.2rem);
-    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.6);
+    box-shadow: var(--box-shadow-light);
 
 }
 
 .cartDetailQtyText {
-    font-size: 1.4rem;
+    font-size: var(--font-size-normal);
 }
 
 .cartDetails {
@@ -111,5 +111,5 @@
 
 .cartDescriptionText {
     text-align: left;
-    font-size: 1.2rem;
+    font-size: var(--font-size-small);
 }
