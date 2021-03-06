@@ -1,5 +1,5 @@
 .Signup {
-    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.2), rgba(255, 20, 147, 0.3), rgba(199, 21, 133, 0.5)), url(../../res/img/vals-3.jpg);
+    background-image: linear-gradient(to right bottom, rgba(var(--color-secondary), 0.2), rgba(var(--color-secondary-light), 0.3), rgba(var(--color-secondary-medium), 0.6)), url(../../res/img/cups-1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
