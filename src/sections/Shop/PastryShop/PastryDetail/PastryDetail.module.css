@@ -8,6 +8,7 @@
     height: 100vh;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 8rem;
     justify-content: center;
 }
 
@@ -18,27 +19,27 @@
 .pastryDetail::-webkit-scrollbar {
     width: .4rem;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: var(--border-radius-large);
 }
 
 .pastryDetail::-webkit-scrollbar-thumb {
     width: .4rem;
-    background-color: rgba(255, 20, 147, 0.8);
-    border-radius: 2rem;
+    background-color: rgba(var(--color-primary), 0.8);
+    border-radius: var(--border-radius-large);
 }
 
 .pastryDetail::-webkit-scrollbar-track {
-    background-color: #ddd;
+    background-color: var(--color-grey-light-3);
     margin: 18rem 0;
 }
 
 .pastryDetailImgContainer {
     width: 90%;
     display: flex;
-    border-radius: 0.6rem;
+    border-radius: var(--border-radius-small);
     justify-content: center;
     flex-direction: column;
-    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow-medium);
     position: relative;
 }
 
@@ -50,12 +51,12 @@
 
 .pastryDetailImgLogoContainer {
     position: absolute;
-    background-color: #fff;
+    background-color: var(--color-white);
     bottom: 5.3rem;
     right: 0.3rem;
     padding: 0.1rem 0.7rem;
-    border-radius: 0.4rem;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--box-shadow-medium);
 }
 
 .pastryDetailImgLogo {
@@ -65,7 +66,7 @@
 
 .pastryDetailTitle {
     margin: 1.2rem 0;
-    background-color: #fff;
+    background-color: var(--color-white);
     text-align: center;
 }
 
@@ -105,11 +106,11 @@
     outline: none;
     height: 3rem;
     width: 3rem;
-    border-radius: 50%;
-    color: #ff1493;
-    font-size: 1.1rem;
-    border: 0.2rem solid #ff1493;
-    background-color: #fff;
+    border-radius: var(--border-radius-round);
+    color: var(--color-primary);
+    font-size: var(--font-size-small);
+    border: 0.2rem solid var(--color-primary);
+    background-color: var(--color-white);
     text-align: center;
     box-shadow: 0 0 0rem 'transplant';
     transition: box-shadow ease-in 0.2s, transform ease-in-out 0.3s;
@@ -118,13 +119,13 @@
 
 .pastryDetailButton {
     outline: none;
-    background-color: #fff;
+    background-color: var(--color-white);
     border: none;
     padding: 1rem 3rem;
-    font-size: 1.2rem;
+    font-size: var(--font-size-small);
     height: 3rem;
-    color:#ff1493;
-    border-radius: 0.4rem;
+    color: var(--color-primary);
+    border-radius: var(--border-radius-small);
     cursor: pointer;
     text-align: center;
     vertical-align: center;
@@ -132,34 +133,34 @@
 }
 
 .pastryDetailButton:hover {
-    background-color: #ff1493;
-    color: #fff;
-    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: var(--box-shadow-medium);
 }
 
 .pastryDetailActionButton:hover {
-    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
+    box-shadow: var(--box-shadow-medium);
 }
 
 .pastryDetailActionButton:active {
     transform: translateY(0.2rem);
-    box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.6);
+    box-shadow: var(--box-shadow-medium);
 
 }
 
 .pastryDetailQtyText {
-    font-size: 1.4rem;
+    font-size: var(--font-size-normal);
 }
 
 .pastryMessage {
     outline: none;
     padding: 0.8rem;
-    border: 0.1rem solid #ddd;
-    font-size: 1.4rem;
-    border-radius: 0.4rem;
+    border: 0.1rem solid var(--color-grey-light-4);
+    font-size: var(--font-size-normal);
+    border-radius: var(--border-radius-small);
     transition: border ease-in 0.4s;
 }
 
 .pastryMessage:focus {
-    border: 0.1rem solid #929292;
+    border: 0.1rem solid var(--color-grey-light-4);
 }

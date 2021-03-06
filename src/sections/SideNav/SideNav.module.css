@@ -78,7 +78,7 @@
     top: 0;
     right: 0;
     height: 100%;
-    width: 3px;
+    width: 0.3rem;
     background-color: var(--color-primary-medium);
     transform: scaleY(0);
     transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, backgroud-color 0.1s;
