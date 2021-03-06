@@ -27,34 +27,33 @@
 
 .pastriesList::-webkit-scrollbar,
 .pastriesListDetail::-webkit-scrollbar {
-    width: .2rem;
+    width: .4rem;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: var(--border-radius-large);
 }
 
 .pastriesList::-webkit-scrollbar-thumb,
 .pastriesListDetail::-webkit-scrollbar-thumb {
-    width: .2rem;
-    background-color: #ff1493cc;
-    border-radius: 2rem;
+    width: .4rem;
+    background-color: rgba(var(--color-primary), 0.8);
+    border-radius: var(--border-radius-large);
 }
 
 .pastriesList::-webkit-scrollbar-track,
 .pastriesListDetail::-webkit-scrollbar-track {
-    background-color: #ddd;
+    background-color: var(--color-grey-light-3);
     margin: 18rem 0;
-    width: 0.2rem;
 }
 
 .pastryListImgContainer {
     width: 31.5rem;
     display: flex;
     height: 35rem;
-    border-radius: 0.6rem;
+    border-radius: var(--border-radius-small);
     justify-content: center;
     flex-direction: column;
     margin: 1.4rem 0;
-    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow-medium);
     position: relative;
 }
 
@@ -66,12 +65,12 @@
 
 .pastryListImgLogoContainer {
     position: absolute;
-    background-color: #fff;
+    background-color: var(--color-white);
     bottom: 5.4rem;
     right: 0.3rem;
     padding: 0.1rem 0.7rem;
-    border-radius: 0.4rem;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--box-shadow-medium);
 }
 
 .pastryListImgLogo {
@@ -80,7 +79,7 @@
 
 .pastryListTitle {
     margin: 1.2rem 0;
-    background-color: #fff;
+    background-color: var(--color-white);
 }
 
 .pastriesButtonContainer {
@@ -92,15 +91,15 @@
 
 .pastriesButton {
     outline: none;
-    background-color: #ff1493;
+    background-color: var(--color-primary);
     border: none;
     padding: 1rem 3rem;
-    color: #fff;
-    border-radius: 0.4rem;
+    color: var(--color-white);
+    border-radius: var(--border-radius-small);
     cursor: pointer;
     transition: box-shadow ease-in 0.3s;
 }
 
 .pastriesButton:hover {
-    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.6);
+    box-shadow: var(--box-shadow-medium);
 }
