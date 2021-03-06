@@ -97,7 +97,7 @@
     text-decoration: none;
     text-transform: uppercase;
     display: block;
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-normal);
     padding: 1.2rem 2rem;
     position: relative;
     z-index: 10;
