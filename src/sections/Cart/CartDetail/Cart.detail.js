@@ -10,7 +10,6 @@ const CartDetail = (props) => {
 
     return (
         <div className={isDetail ? styles.cartDetail : styles.cartNoDetail}>
-            <Spacer />
             <div className={styles.cartDetailImgContainer}>
                 <div className={styles.cartDetailTitle}>
                     <h2>Pastry name</h2>

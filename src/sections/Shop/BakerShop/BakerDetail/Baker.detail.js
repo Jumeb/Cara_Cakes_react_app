@@ -8,7 +8,6 @@ const BakerDetail = (props) => {
     const {isDetail, setIsDetail} = props;
     return (
        <div className={isDetail ? styles.bakerDetail : styles.bakerNoDetail}>
-           <Spacer />
             <div className={styles.bakerDetailImgContainer}>
                 <div className={styles.bakerDetailTitle}>
                     <h2>Company Name</h2>

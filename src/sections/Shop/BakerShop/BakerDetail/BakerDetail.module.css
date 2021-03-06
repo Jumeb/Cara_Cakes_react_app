@@ -8,6 +8,7 @@
     height: 100vh;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 8rem;
     justify-content: center;
 }
 
