@@ -21,7 +21,7 @@
     width: 22rem;
     padding-left: 0.65rem;
     font-size: 1.3rem;
-    color: #5c5c5c;
+    color: var(--color-grey-dark-2);
     border-radius: 0.4rem;
     margin-left: 0.8rem;
     background: none;
@@ -34,7 +34,7 @@
 }
 
 .searchIcon {
-    font-size: 1.7rem;
+    font-size: var(--font-size-medium);
     line-height: 0.5rem;
     color: var(--color-primary);
     /* border: 1px solid red; */

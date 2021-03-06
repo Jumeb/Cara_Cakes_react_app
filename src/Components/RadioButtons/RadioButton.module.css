@@ -16,16 +16,18 @@
 
 .formRadioLabel {
     font-size: 1.6rem;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
     cursor: pointer;
     position: relative;
     padding-left: 4.5rem;
-    color: white;
+    padding-top: 0.4rem;
 }
 
 .formRadioButton {
     height: 3rem;
     width: 3rem;
-    border: 5px solid #fff;
+    border: 0.5rem solid var(--color-white);
     border-radius: 50%;
     display: inline-block;
     position: absolute;
@@ -44,7 +46,7 @@
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    background-color: #ff1493cc;
+    background-color: var(--color-primary);
     opacity: 0;
     -webkit-transition: opacity .2s;
     transition: opacity .2s

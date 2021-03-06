@@ -58,8 +58,8 @@
     --box-shadow-heavy: 0 0.2rem 0.4rem rgba(56, 56, 56, 0.7);
     --box-shadow-heavier: 0 0.2rem 0.4rem 0.3rem rgba(34, 33, 33, 0.5);
 
-    --linear-gradient-1: linear-gradient(to right, rgba(var(--color-gradient-2), 0.03), rgba(var(--color-gradient-1), 0.1));
-    --linear-gradient-2: linear-gradient(to right, rgba(var(--color-gradient-1), 0.5), rgba(var(--color-gradient-2), 0.7));
+    --linear-gradient-1: linear-gradient(to right, rgba(var(--color-gradien-2), 0.345), rgba(var(--color-gradient-1), 0.4));
+    --linear-gradient-2: linear-gradient(to right, rgba(var(--color-gradien-1), 0.3), rgba(var(--color-gradien-2), 0.3));
     --linear-gradient-3: linear-gradient(to right, rgba(var(--color-gradient-2), 0.7), rgba(var(--color-gradient-1), 0.5));
     --linear-gradient-4: linear-gradient(to right, #ffffff46, #ffffff67);
 
@@ -173,6 +173,7 @@ p {
     margin-top: 1.2rem;
     -webkit-hyphens: auto;
     hyphens: auto;
+    color: var(--color-white);
 }
 
 p:not(:last-child) {

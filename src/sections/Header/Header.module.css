@@ -2,7 +2,7 @@
     height: 95vh;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 88.5vh, 50% 100%, 0 88.5vh);
-    background-image: linear-gradient(to right bottom, rgba(var(--color-secondary-light), 0.345), rgba(var(--color-secondary-medium), 0.4)), url(../../res/img/cups-2.jpg);
+    background-image: var(--linear-gradient-1), url(../../res/img/cups-2.jpg);
     background-size: cover;
     background-position: center;
 }
