@@ -55,7 +55,7 @@
 }
 
 .title {
-    color: #fff;
+    color: var(--color-white);
     text-transform: uppercase;
     backface-visibility: hidden;
     margin-bottom: 7rem;
@@ -106,7 +106,7 @@
 
 .subTitle {
     display: block;
-    font-size: 2rem;
+    font-size: var(--font-size-big);
     letter-spacing: 1.1rem;
     font-weight: 700;
     animation: moveInBottom 1s ease-in-out .5s backwards;

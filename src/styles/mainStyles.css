@@ -173,7 +173,7 @@ p {
     margin-top: 1.2rem;
     -webkit-hyphens: auto;
     hyphens: auto;
-    color: var(--color-white);
+    color: var(--color-grey-dark-2);
 }
 
 p:not(:last-child) {

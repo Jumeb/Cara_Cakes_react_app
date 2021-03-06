@@ -8,7 +8,6 @@ const EventDetail = (props) => {
     const {isDetail, setIsDetail, setIsOpenEdit} = props;
     return (
          <div className={isDetail ? styles.eventDetail : styles.eventNoDetail}>
-            <Spacer />
             <div className={styles.eventDetailImgContainer}>
                 <div className={styles.eventDetailTitle}>
                     <h2>Purpose</h2>
@@ -38,7 +37,7 @@ const EventDetail = (props) => {
                 </ul>
                 <button className={styles.eventMoreDetails} onClick={() => setIsDetail()}>More Details</button>
                 <h1 className={styles.eventDescription}>Reason</h1>
-                <p className={styles.eventDescriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <p className={styles.eventDescriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin</p>
                 <div className={styles.eventButtons}>
                     <Link danger={true} title="Delete" link="#" />
                     <Button title="Edit" onClick={() => setIsOpenEdit()} />
