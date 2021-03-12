@@ -4,10 +4,13 @@
     font-size: var(--font-size-normal);
     background-color: var(--color-primary);
     border: none;
-    padding: 0.8rem 3rem;
+    /* padding: 0.8rem 3rem; */
     color: var(--color-white);
-    min-width: 9rem;
-    text-align: center;
+    min-width: 11rem;
+    min-height: 4.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: var(--border-radius-small);
     transition: box-shadow ease-in 0.3s;
     cursor: pointer;

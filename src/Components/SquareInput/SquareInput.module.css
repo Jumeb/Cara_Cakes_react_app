@@ -21,6 +21,11 @@
     color: var(--color-grey-dark-3);
 }
 
+.inputInvalid {
+    border: 0.2rem solid var(--color-danger);
+}
+
+
 .inputLabel {
     padding: 0 1.5rem;
     font-size: var(--font-size-small);

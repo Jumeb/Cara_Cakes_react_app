@@ -4,12 +4,12 @@ import { Header, NavBar } from '../../Components';
 import { LoginSection } from '../../sections';
 import styles from './Login.module.css';
 
-const Login = () => {
+const Login = (props) => {
     return (
         <body className={styles.Login}>
             <Header />
             <main>
-                <LoginSection error={false}/>
+                <LoginSection {...props} error={false}/>
             </main>
             <NavBar />
         </body>

@@ -25,15 +25,11 @@ const User = () => {
             <section className={styles.Panel}>
                 <SideNav isDetail={isDetail} />
                 <WorkArea isDetail={isDetail}>
-                    <Route path="/user/event"  render={(props) => (<Events  {...props} isDetail={isDetail} setIsDetail={toggleDetail} /> )} />
-                    <Route path="/user/bakers" render={(props) => (<Bakers {...props} isDetail={isDetail} setIsDetail={toggleDetail} />)} />
-                    <Route path="/user/pastries" render={(props) => (<Pastries {...props} isDetail={isDetail} setIsDetail={toggleDetail} />)} />
-                    <Route path="/user/cart" render={(props) => (<Cart {...props} isDetail={isDetail} setIsDetail={toggleDetail} />)} />
-                    <Route path="/user/orders" render={(props) => (<Orders {...props} isDetail={isDetail} setIsDetail={toggleDetail} />)} />
-                    {/* <Events isDetail={isDetail} setIsDetail={toggleDetail} /> */}
-                    {/* <Bakers isDetail={isDetail} setIsDetail={toggleDetail} /> */}
-                    {/* <Pastries isDetail={isDetail} setIsDetail={toggleDetail} /> */}
-                    {/* <Cart isDetail={isDetail} setIsDetail={toggleDetail} /> */}
+                    <Route path="/user/event"  render={(props) => (<Events  {...props} isDetail={isDetail} setIsDetail={setIsDetail} /> )} />
+                    <Route path="/user/shop" exact render={(props) => (<Bakers {...props} isDetail={isDetail} setIsDetail={setIsDetail} />)} />
+                    <Route path="/user/shop/pastries" render={(props) => (<Pastries {...props} isDetail={isDetail} setIsDetail={setIsDetail} />)} />
+                    <Route path="/user/cart" render={(props) => (<Cart {...props} isDetail={isDetail} setIsDetail={setIsDetail} />)} />
+                    <Route path="/user/orders" render={(props) => (<Orders {...props} isDetail={isDetail} setIsDetail={setIsDetail} />)} />
                 </WorkArea>
             </section>
         </div>

@@ -1,0 +1,50 @@
+.notifyContainer {
+    background-color: var(--color-white);
+    width: 45rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: var(--border-radius-small);
+    border: 0.3rem solid var(--color-primary-light);
+
+    transition: all ease-in-out 0.5s;
+}
+
+.dangerBorder {
+    border-color: var(--color-danger-medium);
+}
+
+.showContainer {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 1000;
+
+    transition: all ease-in-out 0.5s;
+}
+
+.hideContainer {
+    top: -20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 1000;
+
+    transition: all ease-in-out 0.5s;
+}
+
+.notifyTitle {
+    font-size: var(--font-size-large);
+    text-decoration: underline;
+    color: var(--color-primary-medium)
+}
+
+.dangerColor {
+    color: var(--color-danger-medium);
+}
+
+.notifyMessage {
+    font-size: 1.7rem;
+    font-weight: var(--font-weight-normal);
+    color: var(--color-primary);
+}

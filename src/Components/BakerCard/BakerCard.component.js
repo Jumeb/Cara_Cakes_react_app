@@ -1,26 +1,44 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import { Button, Link } from '..';
 import { logo5, vals3 } from '../../res/img';
-
 import styles from './BakerCard.module.css';
+import {setBaker} from '../../redux/Actions/Auth.actions';
 
 const BakerCard = (props) => {
-    const {isDetail, setIsDetail} = props;
+    const {isDetail, setIsDetail, baker, setDetail} = props;
+
+     const showDetail = (baker) => {
+        setIsDetail(true);
+        setDetail(baker);
+    }
+
+    const bakerShop = (bakerId) => {
+        props.setBaker(bakerId);
+        props.history.push({pathname: '/user/shop/pastries'})
+    }
+
     return (
             <div className={styles.bakerListImgContainer}>
                 <div className={styles.bakerListTitle}>
-                    <h2>Company Nse</h2>
+                    <h2>{baker.companyName}</h2>
                 </div>
-                <img src={vals3} alt="Product" className={styles.bakerListImg} />
+                <img src={vals3} alt={baker.name} className={styles.bakerListImg} />
                 <div className={styles.bakerListImgLogoContainer}>
                     <img src={logo5} alt="Product" className={styles.bakerListImgLogo}/>
                 </div>
                 <div className={styles.bakersButtonContainer}>
-                    <Button onClick={() => setIsDetail()} title="Details" />
-                    <Link link="#" title="Shop" />
+                    <Button onClick={() => showDetail(baker)} title="Details" />
+                    <Button onClick={() => bakerShop(baker._id)} title="Shop" />
                 </div>
             </div>
     )
 }
 
-export default BakerCard;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({setBaker}, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(BakerCard);

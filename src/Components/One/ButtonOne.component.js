@@ -1,10 +1,11 @@
 import React from 'react';
+import { Activity } from '..';
 
 import styles from './One.module.css';
 
 const ButtonOne = (props) => {
-    const {title, onClick} = props;
-    return <button className={[styles.btn, styles.btnHoverIcon].join(' ')} onClick={() => onClick()}>{title}</button>
+    const {title, onClick, loading} = props;
+    return <button className={[styles.btn, styles.btnHoverIcon].join(' ')} onClick={() => onClick()}>{loading ? <Activity /> :title}</button>
 }
 
 export default ButtonOne;

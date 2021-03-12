@@ -35,6 +35,8 @@ import PastryTable from './PastriesTable/PastryTable.component';
 import PastryTableSuper from './PastriesTableSuper/PastryTable.component';
 import SquareInput from './SquareInput/SquareInput.component';
 import SquareArea from './SquareInput/SquareTextArea.component';
+import Activity from './Activity/Activity.component';
+import Notification from './Notification/Notification.component';
 
 export {
     Header, 
@@ -74,4 +76,6 @@ export {
     PastryTableSuper,
     SquareInput,
     SquareArea,
+    Activity,
+    Notification,
 };

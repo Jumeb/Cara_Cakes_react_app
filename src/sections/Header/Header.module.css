@@ -64,7 +64,7 @@
 .mainTitle {
     display: block;
     letter-spacing: 2rem;
-    font-size: 6.5rem;
+    font-size: 6rem;
     font-weight: 400;
     animation: moveInTop 1s ease-in-out .5s backwards;
 }
@@ -107,8 +107,9 @@
 .subTitle {
     display: block;
     font-size: var(--font-size-big);
-    letter-spacing: 1.1rem;
+    letter-spacing: 1rem;
     font-weight: 700;
+    font-size: var(--font-size-large);
     animation: moveInBottom 1s ease-in-out .5s backwards;
 }
 
@@ -143,6 +144,11 @@
         letter-spacing: .18rem;
         font-size: 1.3rem;
     }
+}
+
+.actionContainer {
+    display: flex;
+    justify-content: center;
 }
 
 @keyframes moveInTop {

@@ -63,6 +63,6 @@
     box-shadow: var(--box-shadow-heavier);
 }
 
-.bakerChoice:first-child {
+.bakerActive {
     background-color: var(--color-success-medium);
 }

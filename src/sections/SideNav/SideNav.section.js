@@ -19,13 +19,13 @@ const SideNav = (props) => {
             <ul className={styles.panelSideNav}>
             <img src={favicon} alt="Logo" className={styles.panelLogo} />
                 <li className={styles.panelSideNavItem}>
-                    <NavLink to="/user/cart" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                        <span className={styles.panelSideNavIcon}><IoCart /> </span> <span className={isDetail && styles.isDetailText}>My Cart</span>
+                    <NavLink to="/user/shop" className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
+                        <span className={styles.panelSideNavIcon}><IoCard /></span> <span className={isDetail && styles.isDetailText}>Shop</span>
                     </NavLink>
                 </li>
                 <li className={styles.panelSideNavItem}>
-                    <NavLink to="/user/bakers" className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
-                        <span className={styles.panelSideNavIcon}><IoCard /></span> <span className={isDetail && styles.isDetailText}>Shop</span>
+                    <NavLink to="/user/cart" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                        <span className={styles.panelSideNavIcon}><IoCart /> </span> <span className={isDetail && styles.isDetailText}>My Cart</span>
                     </NavLink>
                 </li>
                 <li className={styles.panelSideNavItem}>

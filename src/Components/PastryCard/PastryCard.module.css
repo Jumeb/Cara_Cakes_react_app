@@ -1,13 +1,75 @@
 .pastryListImgContainer {
     width: 31.5rem;
     display: flex;
-    height: 35rem;
+    height: 36rem;
     border-radius: 0.6rem;
     justify-content: center;
     flex-direction: column;
     margin: 1.4rem 0;
     box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
     position: relative;
+}
+
+.pastryImgContainer {
+    position: relative;
+}
+
+.pastryTitle {
+    padding: 0.8rem 0;
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--color-primary-light);
+}
+
+.pastryDiscount {
+    position: absolute;
+    background-color: var(--color-white);
+    top: 0.5rem;
+    width: 10rem;
+    margin-left: 0.5rem;
+    padding: 0.3rem 0.2rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: var(--font-size-small);
+
+}
+
+.pastryStats {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    background-color: var(--color-white);
+    font-size: var(--font-size-small);
+    color: var(--color-primary);
+}
+
+.pastryLikes {
+    width: 11rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.likeData {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 5rem;
+    border: var(--border-radius-small);
+
+    cursor: pointer;
+
+    transition: all ease-in-out 0.5s;
+}
+
+.likeData:hover {
+    box-shadow: var(--box-shadow-medium);
 }
 
 .pastryListImg {
@@ -19,8 +81,8 @@
 .pastryListImgLogoContainer {
     position: absolute;
     background-color: #fff;
-    bottom: 5.4rem;
-    right: 0.3rem;
+    bottom: 6.3rem;
+    right: 0.4rem;
     padding: 0.1rem 0.7rem;
     border-radius: 0.4rem;
     box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.6);
@@ -41,19 +103,4 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin: 0.8rem 0;
-}
-
-.pastriesButton {
-    outline: none;
-    background-color: #ff1493;
-    border: none;
-    padding: 1rem 3rem;
-    color: #fff;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    transition: box-shadow ease-in 0.3s;
-}
-
-.pastriesButton:hover {
-    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.6);
 }

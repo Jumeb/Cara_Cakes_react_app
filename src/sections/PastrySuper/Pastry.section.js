@@ -1,27 +1,99 @@
-import React from 'react';
-import { PastryTableSuper } from '../../Components';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { Notification, PastryTableSuper } from '../../Components';
+import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Pastry.module.css';
+import {setPastries} from '../../redux/Actions/Data.actions';
 
-const Pastry = () => {
+const Pastry = (props) => {
+    const {token, user, pastry} = props;
+    const [active, setActive] = useState(-1);
+    const [page, setPage] = useState(1);
+    const [pastries, setPastries] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [message, setMessage] = useState({});
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        fetch(`${BASE_URL}/superpastries?page=${page}`, {
+            method: 'GET',
+        })
+        .then(res => {
+            const statusCode = res.status;
+            const response = res.json();
+            return Promise.all([statusCode, response]);
+        })
+        .then(res => {
+            const statusCode = res[0];
+            const response = res[1];
+
+            if(statusCode === 200) {
+                console.log(response.pastries);
+                setPastries(response.pastries.reverse());
+                props.setPastries(response.pastries.reverse());
+                setTotal(response.totalItems);
+            }
+
+            if(statusCode === 500) {
+                console.log(response, '500');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: response.message,
+                })
+            }
+        })
+    }, []);
+
+    const setFilter = (index, type) => {
+        setActive(index);
+
+        if (type !== 'all') {
+            let _pastries = pastry.filter(data => data.type === type);
+            setPastries(_pastries);
+        }
+        if (type === 'all') {
+            console.log(pastry);
+            setPastries(pastry);
+        }
+    }
+
     return(
        <div className={styles.bakerSection}>
            <div className={styles.bakerLength}>
-               <h2 className={styles.bakerLengthTitle}>5 Pastries</h2>
+               <h2 className={styles.bakerLengthTitle}>{total} {(total === 0 || total > 1) ? 'Pastries' : 'Pastry'}</h2>
            </div>
            <div className={styles.bakerScroll}>
                 <div className={styles.bakerCat}>
-                    <button className={styles.bakerChoice}>All Pastries</button>
-                    <button className={styles.bakerChoice}>Dougnuts</button>
-                    <button className={styles.bakerChoice}>Cookies</button>
-                    <button className={styles.bakerChoice}>Wedding Cakes</button>
-                    <button className={styles.bakerChoice}>Birthday Cakes</button>
-                    <button className={styles.bakerChoice}>Gift Baskets</button>
+                    <button className={[styles.bakerChoice, active === -1 && styles.bakerActive].join(' ')} onClick={() => setFilter(-1, 'all')}>All Pastries</button>
+                    <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')} onClick={() => setFilter(0, 'Birthday Cakes')}>Birthday Cakes</button>
+                    <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')} onClick={() => setFilter(1, 'Wedding Cakes')}>Wedding Cakes</button>
+                    <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')} onClick={() => setFilter(2, 'Doughnuts')}>Dougnuts</button>
+                    <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'Cookies')}>Cookies</button>
+                    <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')} onClick={() => setFilter(4, 'Pancakes')}>Pancakes</button>
+                    <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')} onClick={() => setFilter(5, 'Gift Baskets')}>Gift Baskets</button>
+                    <button className={[styles.bakerChoice, active === 6 && styles.bakerActive].join(' ')} onClick={() => setFilter(6, 'Cup Cakes')}>Cup Cakes</button>
                 </div>
            </div>
-           <PastryTableSuper />
+           <PastryTableSuper pastries={pastries} />
+           <Notification message={message} show={show} setShow={setShow} />
        </div>
     )
 }
 
-export default Pastry;
+const mapStateToProps = ({auth, data}) => {
+    return {
+        token: auth.token,
+        user: auth.user,
+        pastry: data.pastries,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({setPastries}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pastry);

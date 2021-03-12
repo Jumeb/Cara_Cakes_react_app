@@ -24,7 +24,7 @@
 
 .pastryDetail::-webkit-scrollbar-thumb {
     width: .4rem;
-    background-color: rgba(var(--color-primary), 0.8);
+    background-color: rgba(var(--color-secondary), 0.8);
     border-radius: var(--border-radius-large);
 }
 
