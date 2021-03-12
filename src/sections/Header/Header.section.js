@@ -11,8 +11,10 @@ const Header = () => {
                     <span className={styles.mainTitle}>Cara Cakes</span>
                     <span className={styles.subTitle}>Resting place for flavours</span>
                 </h1>
-                <LinkOne link="/signup" title="Register" animate="left" />
-                <LinkOne link="/login" title="Login"  animate="right" />
+                <div className={styles.actionContainer}>
+                    <LinkOne link="/register" title="Register" animate="left" />
+                    <LinkOne link="/login" title="Login"  animate="right" />
+                </div>
             </div>
         </header>
     );

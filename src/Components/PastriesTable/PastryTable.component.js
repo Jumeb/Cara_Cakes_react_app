@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { pans2 } from '../../res/img';
+import { BASE_URL } from '../../utils/globalVariable';
 import styles from './PastryTable.module.css';
 
 const PastryTable = (props) => { 
-    const {isDetail, setIsDetail} = props;
+    const {pastries} = props;
     return (
             <div className={styles.cartSeparator}>
                 <table className={styles.cartTable}>
@@ -15,71 +16,19 @@ const PastryTable = (props) => {
                         <td className={styles.cartTableHeaderData}>Discount</td>
                         <td className={styles.cartTableHeaderData}>Actions</td>
                     </thead>
-                    <tr className={styles.cartTableRow}>
+                    {pastries.map((pastry, index) => (<tr className={styles.cartTableRow}>
                         <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
+                            <img src={pastry.image ? `${BASE_URL}/${pastry.image}` : pans2} alt={pastry.name} className={styles.cartTableDataImage} />
+                            <b>{pastry.name}</b>
                         </td>
-                        <td className={styles.cartTableData}>Birthday Cake</td>
-                        <td className={styles.cartTableData}>10,000</td>
-                        <td className={styles.cartTableData}>2%</td>
+                        <td className={styles.cartTableData}>{pastry.type}</td>
+                        <td className={styles.cartTableData}>{pastry.price}</td>
+                        <td className={styles.cartTableData}>{pastry.discount}%</td>
                         <td className={styles.cartTableData}>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
                         </td>
-                    </tr>
-                    <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
-                        </td>
-                        <td className={styles.cartTableData}>Birthday Cake</td>
-                        <td className={styles.cartTableData}>10,000</td>
-                        <td className={styles.cartTableData}>2%</td>
-                        <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
-                        </td>
-                    </tr>
-                    <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
-                        </td>
-                        <td className={styles.cartTableData}>Birthday Cake</td>
-                        <td className={styles.cartTableData}>10,000</td>
-                        <td className={styles.cartTableData}>2%</td>
-                        <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
-                        </td>
-                    </tr>
-                    <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
-                        </td>
-                        <td className={styles.cartTableData}>Birthday Cake</td>
-                        <td className={styles.cartTableData}>10,000</td>
-                        <td className={styles.cartTableData}>2%</td>
-                        <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
-                        </td>
-                    </tr>
-                    <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
-                        </td>
-                        <td className={styles.cartTableData}>Birthday Cake</td>
-                        <td className={styles.cartTableData}>10,000</td>
-                        <td className={styles.cartTableData}>2%</td>
-                        <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
-                        </td>
-                    </tr>
+                    </tr>))}
                 </table>
             </div>
     )

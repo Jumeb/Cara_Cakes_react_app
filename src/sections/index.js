@@ -22,6 +22,7 @@ import AOrders from './Orders/Order.section';
 import APastry from './Pastry/Pastry.section';
 import APastryS from './PastrySuper/Pastry.section';
 import AProfile from './AdminProfile/AdminProfile.section';
+import AddPastry from './AddPastry/AddPastry.section';
 
 export {
     HeaderSection,
@@ -49,4 +50,5 @@ export {
     APastry,
     APastryS,
     AProfile,
+    AddPastry,
 };

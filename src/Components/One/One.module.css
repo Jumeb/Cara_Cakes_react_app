@@ -1,17 +1,23 @@
 .btn {
     text-decoration: none;
-    padding: 1.3rem 3.5rem;
+    /* padding: 1.1rem 3.5rem; */
+    min-height: 5rem;
     margin: 2rem .5rem;
-    display: inline-block;
+    width: 12rem;
     color: var(--color-white);
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-normal);
     border-radius: var(--border-radius-larger);
     outline: none;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-primary);
     transition: all 0.4s ease-in-out;
     position: relative;
+
+    cursor: pointer;
 }
 
 .btn:visited,

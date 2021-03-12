@@ -1,34 +1,33 @@
 import React from 'react';
-import { Button, Link, Spacer } from '../../../../Components';
+import { Button, Link } from '../../../../Components';
 
 import {logo5, vals3 } from '../../../../res/img';
+import { BASE_URL } from '../../../../utils/globalVariable';
 import styles from './BakerDetail.module.css'
 
 const BakerDetail = (props) => {
-    const {isDetail, setIsDetail} = props;
+    const {isDetail, setIsDetail, detail} = props;
     return (
        <div className={isDetail ? styles.bakerDetail : styles.bakerNoDetail}>
             <div className={styles.bakerDetailImgContainer}>
                 <div className={styles.bakerDetailTitle}>
-                    <h2>Company Name</h2>
+                    <h2>{detail.companyName}</h2>
                 </div>
-                <img src={vals3} alt="Product" className={styles.bakerDetailImg}/>
+                <img src={detail.image ? `${BASE_URL}/${detail.image}` : vals3} alt="Product" className={styles.bakerDetailImg}/>
                 <div className={styles.bakerDetailImgLogoContainer}>
                     <img src={logo5} alt="Product" className={styles.bakerDetailImgLogo} />
                 </div>
             </div>
             <div className={styles.bakerDetails}>
-                <h1>About CEO: Tuijah Christian</h1>
-                <h1 className={styles.bakerDescription}>Categories</h1>
+                <h1 className={styles.bakerTitle}>About CEO: {detail.name}</h1>
+                <b className={styles.bakerDescription}>Categories</b>
                 <ul className={styles.bakerDescriptionList}>
-                    <li  className={styles.bakerDescriptionText}>Birthday Cakes</li>
-                    <li  className={styles.bakerDescriptionText}>Wedding Cakes</li>
-                    <li  className={styles.bakerDescriptionText}>Cookies</li>
-                    <li  className={styles.bakerDescriptionText}>Valentines</li>
+                    {detail.categories && detail.categories.map((category, index) => <li  className={styles.bakerDescriptionText}>{category}</li> )}
                 </ul>
-                <h1 className={styles.bakerDescription}>Order: 45</h1>
+                <h1 className={styles.bakerDescription}>Verified: {detail.verify ? 'True' : 'False'}</h1>
+                <h1 className={styles.bakerDescription}>Completed Orders: {detail.orders}</h1>
                 <h1 className={styles.bakerDescription}>Biography</h1>
-                <p className={styles.bakerDescriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <p className={styles.bakerDescriptionText}>{detail.about}</p>
                 <div className={styles.bakerButtons}>
                     <Link danger={false} title="Shop" link="#" />
                     <Button title="Close" onClick={() => setIsDetail()} />

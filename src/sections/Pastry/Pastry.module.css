@@ -59,10 +59,10 @@
     cursor: pointer;
 }
 
-.bakerChoice:hover {
-    box-shadow: var(--box-shadow-heavier);
+.bakerActive {
+    background-color: var(--color-success-medium);
 }
 
-.bakerChoice:first-child {
-    background-color: var(--color-success-medium);
+.bakerChoice:hover {
+    box-shadow: var(--box-shadow-heavier);
 }

@@ -1,0 +1,297 @@
+import React, { useEffect, useState } from 'react';
+import Modal from 'react-modal';
+import { connect } from 'react-redux';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+
+import { Button, Link, Notification, SquareArea, SquareInput } from '../../Components';
+import { BASE_URL } from '../../utils/globalVariable';
+import styles from './AddPastry.module.css';
+
+const animatedComponents = makeAnimated();
+
+const AddPastry = (props) => {
+    const {isOpen, setIsOpen, user, token} = props;
+    const [message, setMessage] = useState({});
+    const [show, setShow] = useState(false);
+    const [name, setName] = useState('');
+    const [discount, setDiscount] = useState('');
+    const [type, setType] = useState('');
+    const [image, setImage] = useState('');
+    const [price, setPrice] = useState('');
+    const [about, setAbout] = useState('');
+    const [nameError, setNameError] = useState(false);
+    const [discountError, setDiscountError] = useState(false);
+    const [typeError, setTypeError] = useState(false);
+    const [imageError, setImageError] = useState(false);
+    const [priceError, setPriceError] = useState(false);
+    const [aboutError, setAboutError] = useState(false);
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        let _categories = [];
+        user.categories.map((category, index) => _categories.push({value: category, label: category}));
+        setCategories(_categories);
+    }, [isOpen]);
+    
+    const authenticate = () => {
+        let hasError = false;
+        setLoading(true);
+
+        if (name.length < 5) {
+            hasError = true;
+            setNameError(true);
+        }
+
+        if (name.length >= 5) {
+            setNameError(false);
+        }
+
+        if (Number(discount) < 0) {
+            hasError = true;
+            setDiscountError(true);
+        }
+
+        if (Number(discount) >= 0) {
+            setDiscountError(false);
+        }
+
+        if (type.length < 2) {
+            hasError = true;
+            setTypeError(true);
+        }
+
+        if (Number(price) < 25) {
+            hasError = true;
+            setPriceError(true);
+        }
+
+        if (Number(price) >= 25) {
+            setPriceError(false);
+        }
+
+        if (about.length < 10) {
+            hasError = true;
+            setAboutError(true);
+        }
+
+        if (!image) {
+            hasError = true;
+            console.log(image, 'this is the file')
+            setImageError(true);
+        }
+
+        if(hasError) {
+            setLoading(false);
+            setShow(true);
+            setMessage({
+                type: 'error',
+                title: 'Invalid Data',
+                message: 'Data provided is not correct, please check again.'
+            });
+            return false;
+        }
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('price', price);
+        formData.append('about', about);
+        formData.append('pastryImage', image[0]);
+        formData.append('userImage', image);
+        formData.append('logo', image);
+        formData.append('bakerImage', image);
+        formData.append('discount', discount);
+        formData.append('type', type.value);
+        formData.append('bakerId', user._id);
+
+        console.log(formData.values(), 'values', image);
+
+        fetch(`${BASE_URL}/create/pastry`, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(res => {
+            const statusCode = res.status;
+            const responseJson = res.json();
+            return Promise.all([statusCode, responseJson]);
+        })
+        .then(res => {
+            setLoading(false);
+            const statusCode = res[0];
+            const response = res[1];
+
+            if (statusCode === 201) {
+                setShow(true);
+                setMessage({
+                    type: 'success',
+                    title: 'Success',
+                    message: `Pastry has ben added to ${type.value} store.`
+                });
+
+                setTimeout(() => {
+                    setIsOpen(false);
+                }, 4000);
+            }
+
+            if (statusCode === 401) {
+                console.log(response, '401');
+                    setShow(true);
+                    setMessage({
+                        type: 'error',
+                        title: 'Unexpected Error',
+                        message: response.data[0].msg,
+                    })
+            }
+
+            if (statusCode === 422) {
+                console.log(response, '422');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: response.data[0].msg,
+                })
+            }
+
+            if(statusCode === 500) {
+                console.log(response, '500');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: response.message,
+                })
+            }
+        })
+        .catch(err => {
+                console.log(err);
+                setLoading(false);
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
+            })
+
+    }
+
+    return (
+        <>
+            <Modal isOpen={isOpen} closeTimeoutMS={400} className={styles.secAddPastry} overlayClassName={styles.secAddPastry}>
+                <div className={styles.addPastryForm}>
+                    <h2 className={styles.formTitle}>Add Pastry</h2>
+                    <SquareInput
+                        placeholder="Frosty Cake"
+                        type="text"
+                        label="Name"
+                        value={name}
+                        setValue={(event) => setName(event.target.value)}
+                        error={nameError}
+                        setError={() => setNameError}
+                    />
+                    <SquareInput 
+                        placeholder="5"
+                        type="number"
+                        label="Discount"
+                        value={discount}
+                        setValue={(event) => setDiscount(event.target.value)}
+                        error={discountError}
+                        setError={() => setDiscountError}
+                    />
+                    <div className={styles.formSelect}>
+                        <label className={styles.inputLabel}>Type</label>
+                        <Select 
+                            value={type}
+                            options={categories}
+                            styles={colourStyles}
+                            onChange={(value) => setType(value)}
+                            components={animatedComponents}
+                            className={[styles.formLength4, styles.formSelectInput].join(' ')} />
+                    </div>
+                    <SquareInput 
+                        placeholder="5"
+                        type="file"
+                        label="Image"
+                        value={image}
+                        name='pastryImage'
+                        setValue={(event) => setImage(event.target.files)}
+                        error={imageError}
+                        setError={() => setImageError}
+                    />
+                    <SquareInput
+                        placeholder="40000"
+                        type="number"
+                        label="Price"
+                        value={price}
+                        setValue={(event) => setPrice(event.target.value)}
+                        error={priceError}
+                        setError={() => setPriceError}
+                    />
+                    <SquareArea
+                        placeholder="Frosty Cake"
+                        type="text"
+                        label="About"
+                        value={about}
+                        setValue={(event) => setAbout(event.target.value)}
+                        error={aboutError}
+                        setError={() => setAboutError}
+                    />
+                    <div className={styles.addButtons}>
+                        <Button onClick={() => authenticate()} title="Add" loading={loading} />
+                        <Button onClick={() => setIsOpen(false)} title="Cancel"  />
+                    </div>
+                </div>
+            </Modal>
+            <Notification message={message} show={show} setShow={setShow} />
+        </>
+    )
+}
+
+const mapStateToProps = ({auth}) => {
+    return {
+        token: auth.token,
+        user: auth.user,
+    }
+}
+
+export default connect(mapStateToProps)(AddPastry);
+
+
+const colourStyles = {
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    return {
+      ...styles,
+      backgroundColor: isFocused ? "#215379" : null,
+      color: isFocused ? "white" : '#999',
+    };
+  },
+  control: (base, {isFocused}) => ({
+    ...base,
+    border: 'none',
+    // This line disable the blue border
+    boxShadow: 'none',
+    borderRadius: '4px',
+    borderBottom: '2px',
+    borderBottomStyle: 'solid',
+    borderBottomColor: '#14334a',
+    borderTop: '2px',
+    borderTopStyle: 'solid',
+    borderTopColor: '#14334a',
+    borderLeft: '2px',
+    borderLeftStyle: 'solid',
+    borderLeftColor: '#14334a',
+    borderRight: '2px',
+    borderRightStyle: 'solid',
+    borderRightColor: '#14334a',
+    marginTop: '5px',
+    cursor: 'pointer',
+    '&:hover': {
+        border: '2px',
+        boxShadow: 'none',
+        borderStyle: 'solid',
+        borderColor: isFocused ? "#14334a" : '#14334a',
+    }
+  })
+};

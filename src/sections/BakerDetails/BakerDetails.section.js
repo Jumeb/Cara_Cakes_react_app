@@ -3,7 +3,7 @@ import makeAnimated from 'react-select/animated';
 import Select from 'react-select';
 
 import styles from './BakerDetails.module.css';
-import {ButtonOne, Input, Selector} from '../../Components';
+import {ButtonOne, Input, Notification, Selector} from '../../Components';
 import { AuthMail, AuthTel } from '../../utils/auth';
 import {BASE_URL} from '../../utils/globalVariable';
 
@@ -43,7 +43,6 @@ const BakerDetails = (props) => {
         let hasError = false;
         setLoading(true);
 
-
         if (name.length < 5) {
             hasError = true;
             setErrorName(true);
@@ -81,24 +80,32 @@ const BakerDetails = (props) => {
 
         if(hasError) {
             setLoading(false)
+            setShow(true);
+            setMessage({
+                type: 'error',
+                title: 'Invalid Data',
+                message: 'Data provided is not correct, please check again.'
+            })
             return false;
         }
 
         if(!hasError) {
-            categories.map((value, index) => {
-                console.log(value.label);
-                Categories.push(value.label);
-            })
+            categories.map((value, index) => (
+                Categories.push(value.label)
+            ))
         }
 
         const body = {
             name,
+            email,
             categories: Categories,
             idCard,
             password,
             tel,
             companyName
         }
+
+        console.log(body, 'body');
 
         let url = `${BASE_URL}/baker/register`;
         let statusCode, responseJson;
@@ -119,11 +126,38 @@ const BakerDetails = (props) => {
             statusCode = res[0];
             responseJson = res[1];
             setLoading(false);
+            if(statusCode === 201) {
+                console.log(responseJson);
+                props.history.push({pathname: '/login'});
+            }
+            if(statusCode === 422) {
+                console.log(responseJson, '422');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Details Conflict',
+                    message: responseJson.data[0].msg,
+                })
+            }
+            if(statusCode === 500) {
+                console.log(responseJson, '500');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: responseJson.message,
+                })
+            }
             console.log(responseJson, statusCode);
         })
         .catch(err => {
-            console.log(err, 'The ultimate error');
             setLoading(false);
+            setShow(true);
+            setMessage({
+                type: 'error',
+                title: 'Unexpected Error',
+                message: 'Please check your internet connection.'
+            })
         })
     }
 
@@ -135,6 +169,8 @@ const BakerDetails = (props) => {
         { value: 'pancakes', label: 'Pancakes' },
         { value: 'cup-cakes', label: 'Cup Cake' },
     ]);
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState({});
 
     const previous = () => {
         props.history.push({pathname: '/register'});
@@ -187,7 +223,7 @@ const BakerDetails = (props) => {
                             />
                             <div className={styles.formGroup}>
                                 <ButtonOne title="Back" onClick={() => previous()} />
-                                <ButtonOne title="Register" onClick={() => authenticate()} />
+                                <ButtonOne title="Register" onClick={() => authenticate()} loading={loading} />
                             </div>
                         </div>
                     </div>
@@ -197,6 +233,7 @@ const BakerDetails = (props) => {
                         </h2>
                     </div>
             </div>
+            <Notification message={message} show={show} setShow={setShow} />
         </section>
     )
 }
