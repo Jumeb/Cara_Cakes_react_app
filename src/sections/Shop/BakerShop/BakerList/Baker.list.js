@@ -36,7 +36,7 @@ const BakerList = (props) => {
             setLoading(false);
 
             if (statusCode === 200) {
-                console.log(response, '200');
+                console.log(bakers, 'hahhahah')
                 props.setBakers(response.bakers);
                 setBakers(response.bakers);
                 setTotal(response.totalItems);

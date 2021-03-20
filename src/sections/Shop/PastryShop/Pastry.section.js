@@ -10,7 +10,7 @@ const PastrySection = (props) => {
     return (
         <div className={styles.pastries}>
             <PastryList isDetail={isDetail} setIsDetail={setIsDetail} setDetail={setDetail} />
-            <PastryDetail addToCart={false} isDetail={isDetail} setIsDetail={setIsDetail} detail={detail} />
+            <PastryDetail isDetail={isDetail} setIsDetail={setIsDetail} detail={detail} />
         </div>
     )
 }
