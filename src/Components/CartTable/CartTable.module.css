@@ -2,7 +2,7 @@
     margin-bottom: 1rem;
     margin: 0 2rem;
     padding-bottom: 3rem;
-    border-bottom-style: dotted;
+    border-bottom-style: solid;
     border-bottom-width: 0.2rem;
     border-bottom-color: var(--color-primary);
     display: flex;
@@ -47,7 +47,7 @@
     font-size: var(--font-size-normal);
     padding: 0.3rem;
     border-bottom: 0.1rem solid var(--color-grey-light-3);
-    color: var(--color-grey-dark-1);
+    color: var(--color-primary);
     cursor: pointer;
 }
 
@@ -80,6 +80,7 @@
 .cartCouponInput {
     padding: 0.7rem;
     border: 0.2rem solid var(--color-grey-light-4);
+    border-radius: var(--border-radius-small);
     outline: none;
     margin-right: 3rem;
     margin-left: -1rem;
