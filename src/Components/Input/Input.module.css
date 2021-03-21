@@ -46,7 +46,7 @@
     position: relative;
     top: -6.8rem;
     padding-left: 1.9rem;
-    z-index: 10000;
+    z-index: 5;
     transition: all .4s ease;
     color: var(--color-grey-dark-1);
 }

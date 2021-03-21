@@ -5,6 +5,7 @@
     padding: 1rem;
     border-radius: var(--border-radius-small);
     border: 0.3rem solid var(--color-primary-light);
+    z-index: 10;
 
     transition: all ease-in-out 0.5s;
 }
@@ -18,7 +19,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;
-    z-index: 1000;
 
     transition: all ease-in-out 0.5s;
 }
@@ -28,7 +28,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;
-    z-index: 1000;
 
     transition: all ease-in-out 0.5s;
 }

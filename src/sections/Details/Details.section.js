@@ -5,12 +5,12 @@ import Select from 'react-select';
 
 import { Button, SquareArea, SquareInput } from '../../Components';
 import { cups1, vals3 } from '../../res/img';
-import styles from './AdminProfile.module.css';
+import styles from './Details.module.css';
 import { connect } from 'react-redux';
 
 const animatedComponents = makeAnimated();
 
-const AdminProfile = (props) => {
+const Details = (props) => {
     const {user} = props;
     const [locations] = useState([
         {value:"north-west", label: "North-West"},
@@ -104,7 +104,7 @@ const mapStateToProps = ({auth}) => {
     }
 }
 
-export default connect(mapStateToProps)(AdminProfile);
+export default connect(mapStateToProps)(Details);
 
 const locationStyles = {
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {

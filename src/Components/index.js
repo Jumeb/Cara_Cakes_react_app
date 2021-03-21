@@ -38,6 +38,7 @@ import SquareArea from './SquareInput/SquareTextArea.component';
 import Activity from './Activity/Activity.component';
 import ActivityTwo from './ActivityTwo/Activity.component';
 import Notification from './Notification/Notification.component';
+import Verification from './Verification/Verification.component';
 
 export {
     Header, 
@@ -80,4 +81,5 @@ export {
     Activity,
     ActivityTwo,
     Notification,
+    Verification,
 };

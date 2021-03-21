@@ -31,6 +31,7 @@ const CartTable = (props) => {
             setLoading(false);
 
             if (statusCode === 200) {
+                console.log(response.user.findIndex(data => data.pastryId.creator.companyName === 'C & K Cakes'));
                 setCart(response.bakers);
                 setShow(true);
                 setMessage({
@@ -73,7 +74,7 @@ const CartTable = (props) => {
         <>
             {Object.values(cart).map((pastries, index) => (
                 <div className={styles.cartSeparator}>
-                    <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[index]} </h1>
+                    <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[index]} {false && <span className={styles.suspended}>Suspended, order at your own discretion.</span>}</h1>
                     <table className={styles.cartTable}>
                         <thead className={styles.cartTableHeader}>
                             <td className={styles.cartTableHeadeData}>Product</td>

@@ -1,4 +1,5 @@
 export const SET_USER = 'set_user';
+export const SET_USERS = 'set_users';
 export const SET_TOKEN = 'set_token';
 export const SET_PASTRIES = 'set_pastries';
 export const SET_BAKERS = 'set_bakers';
