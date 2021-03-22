@@ -35,7 +35,7 @@
 .pastriesList::-webkit-scrollbar-thumb,
 .pastriesListDetail::-webkit-scrollbar-thumb {
     width: .4rem;
-    background-color: rgba(var(--color-secondary), 0.8);
+    background-color: rgba(var(--color-secondary-medium), 0.8);
     border-radius: var(--border-radius-large);
 }
 

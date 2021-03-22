@@ -131,3 +131,27 @@
     margin-left: 2rem;
     color: var(--color-danger-medium);
 }
+
+.cartDelete {
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius-small);
+    background-color: var(--transparent-1);
+    padding: 0.5rem;
+    color: var(--color-white);
+    margin: 0 0.8rem;
+    margin-right: -4rem;
+    margin-left: 2rem;
+    font-size: 1.15rem;
+    transition: all 0.4s ease-in-out;
+
+    cursor: pointer;
+}
+
+.cartDelete:hover {
+    box-shadow: var(--box-shadow-heavy);
+}
+
+.suspend {
+    background-color: var(--color-danger-light);
+}
