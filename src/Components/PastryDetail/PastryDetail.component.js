@@ -116,7 +116,7 @@ const PastryDetail = (props) => {
             setLikes(pastry.likes.users.length);
             setDislikes(pastry.dislikes.users.length);
         }
-        setCount(pastry.quantity);
+        setCount(0);
     }, [detail]);
 
     const Message = (id) => {

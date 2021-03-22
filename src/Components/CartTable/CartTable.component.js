@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Notification } from '..';
 
+import { Notification } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import styles from './CartTable.module.css';
+import { IoTrashBinSharp } from 'react-icons/io5';
 
 const CartTable = (props) => { 
     const {isDetail, setIsDetail, setPastry, user} = props;
 
     const showDetail = (pastry) => {
-        console.log(pastry)
         setIsDetail(true);
         setPastry(pastry);
     }
@@ -68,7 +68,57 @@ const CartTable = (props) => {
                 message: `Please check your internet connection.`
             });
         })
-    }, [isDetail]);
+    }, [isDetail, loading]);
+
+    const Trash = (event, id) => {
+        event.stopPropagation();
+        setLoading(true);
+        fetch(`${BASE_URL}/user/removeFromCart/${id}?user=${user._id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => {
+            const statusCode = res.status;
+            const response = res.json();
+            return Promise.all([statusCode, response]);
+        })
+        .then(res => {
+            const statusCode = res[0];
+            const response = res[1];
+            setLoading(false);
+
+            if(statusCode === 200) {
+                setShow(true);
+                setMessage({
+                    type: 'success',
+                    message: `Pastry removed from cart`,
+                    title: 'Success'
+                });
+
+            }
+
+            if(statusCode === 422) {
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    message: `Not removed from cart.`,
+                    title: 'Failed'
+                });
+            }
+
+        })
+        .catch(err => {
+            console.log(err);
+            setShow(true);
+            setMessage({
+                type: 'error',
+                title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+            });
+        })
+    }
 
     return (
         <>
@@ -90,7 +140,7 @@ const CartTable = (props) => {
                                 <b>{pastry.pastryId.name}</b>
                             </td>
                             <td className={styles.cartTableData}>{Thousand(pastry.pastryId.price)}</td>
-                            <td className={styles.cartTableData}>{pastry.quantity}</td>
+                            <td className={styles.cartTableData}>{pastry.quantity} <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={(event) => Trash(event, pastry.pastryId._id)}><IoTrashBinSharp /></button></td>
                             <td className={styles.cartTableData}>{Thousand(pastry.quantity * pastry.pastryId.price)}</td>
                         </tr>
                     )}
