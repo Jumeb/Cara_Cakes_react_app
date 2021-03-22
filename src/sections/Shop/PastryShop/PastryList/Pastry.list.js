@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Notification, PastryCard } from '../../../../Components';
+import { Notification, PastryCard, PastryDetail } from '../../../../Components';
 import { BASE_URL } from '../../../../utils/globalVariable';
 import styles from './PastryList.module.css'
 import {setPastries} from '../../../../redux/Actions/Data.actions';
@@ -11,7 +11,7 @@ const PastryList = (props) => {
     const {
         isDetail, 
         setIsDetail, 
-        setDetail,
+        setPastry,
         token,
         bakerId
     } = props;
@@ -76,8 +76,8 @@ const PastryList = (props) => {
     }, [])
 
     return (
-        <div className={isDetail ? styles.pastriesListDetail : styles.pastriesList}>
-            {pastries.map((pastry, index) => <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} setDetail={setDetail} pastry={pastry} /> )}
+        <div className={styles.pastriesList}>
+            {pastries.map((pastry, index) => <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} pastry={pastry} /> )}
             <Notification message={message} show={show} setShow={setShow} />
         </div>
     )

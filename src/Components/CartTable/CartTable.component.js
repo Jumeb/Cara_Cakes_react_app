@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Notification } from '..';
 
-import { pans2 } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import styles from './CartTable.module.css';
 
 const CartTable = (props) => { 
-    const {isDetail, setIsDetail, user} = props;
+    const {isDetail, setIsDetail, setPastry, user} = props;
+
+    const showDetail = (pastry) => {
+        console.log(pastry)
+        setIsDetail(true);
+        setPastry(pastry);
+    }
 
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
+    const [_user, setUser] = useState([]);
     const [message, setMessage] = useState({});
     const [cart, setCart] = useState({});
 
@@ -31,14 +37,8 @@ const CartTable = (props) => {
             setLoading(false);
 
             if (statusCode === 200) {
-                console.log(response.user.findIndex(data => data.pastryId.creator.companyName === 'C & K Cakes'));
+                setUser(response.user);
                 setCart(response.bakers);
-                setShow(true);
-                setMessage({
-                    type: 'success',
-                    title: `Your cart ${user.name}`,
-                    message: `Your cart ${user.name}`
-                });
             }
 
             if (statusCode === 404) {
@@ -68,13 +68,13 @@ const CartTable = (props) => {
                 message: `Please check your internet connection.`
             });
         })
-    }, []);
+    }, [isDetail]);
 
     return (
         <>
             {Object.values(cart).map((pastries, index) => (
                 <div className={styles.cartSeparator}>
-                    <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[index]} {false && <span className={styles.suspended}>Suspended, order at your own discretion.</span>}</h1>
+                    <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[index]} {_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[index]}`).pastryId.creator.suspend && <span className={styles.suspended}>Suspended, order at your own discretion.</span>}</h1>
                     <table className={styles.cartTable}>
                         <thead className={styles.cartTableHeader}>
                             <td className={styles.cartTableHeadeData}>Product</td>
@@ -84,7 +84,7 @@ const CartTable = (props) => {
                         </thead>
 
                     {pastries.map((pastry, index) => 
-                        <tr className={styles.cartTableRow} onClick={() => setIsDetail(true)}>
+                        <tr className={styles.cartTableRow} onClick={() => showDetail(pastry)}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                                 <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt={pastry.pastryId.name} className={styles.cartTableDataImage} />
                                 <b>{pastry.pastryId.name}</b>

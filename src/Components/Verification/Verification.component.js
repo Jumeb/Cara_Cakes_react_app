@@ -8,7 +8,7 @@ const Verification = (props) => {
 
     return (
         <div className={verify ? styles.notifyBackdrop : styles.notifyNoBackdrop}>
-            <div className={[styles.notifyContainer, verify ? styles.showContainer : styles.hideContainer, message.type === 'error' && styles.dangerBorder, ].join(' ')}>
+            <div className={[styles.notifyContainer, verify ? styles.showContainer : styles.hideContainer, message.type === 'danger' && styles.dangerBorder, ].join(' ')}>
                 <h2 className={[styles.notifyTitle, message.type === 'danger' && styles.dangerColor].join(' ')}>{message.title}</h2>
                 <b className={styles.notifyMessage}>{message.message}</b>
                 <div className={styles.notifyActions}>

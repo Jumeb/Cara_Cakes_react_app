@@ -39,6 +39,8 @@ import Activity from './Activity/Activity.component';
 import ActivityTwo from './ActivityTwo/Activity.component';
 import Notification from './Notification/Notification.component';
 import Verification from './Verification/Verification.component';
+import PastryDetail from './PastryDetail/PastryDetail.component';
+import PastryCart from './PastryCart/PastryCart.component';
 
 export {
     Header, 
@@ -82,4 +84,6 @@ export {
     ActivityTwo,
     Notification,
     Verification,
+    PastryDetail,
+    PastryCart,
 };
