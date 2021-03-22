@@ -53,7 +53,6 @@ const LoginSection = (props) => {
                 email,
                 password,
             };
-            console.log('hahahah');
             fetch(`${BASE_URL}/baker/login`, {
                 method: 'POST',
                 headers: {
@@ -71,15 +70,7 @@ const LoginSection = (props) => {
                 statusCode = res[0];
                 responseJson = res[1];
 
-                if(statusCode === 401) {
-                    setShow(true);
-                    setMessage({
-                        type: 'error',
-                        title: 'Unexpected Error',
-                        message: responseJson.message,
-                    })
-                }
-
+                
                 if(statusCode === 200) {
                     console.log(responseJson);
                     props.setUser(responseJson.user);
@@ -87,13 +78,30 @@ const LoginSection = (props) => {
                     props.history.push({pathname: '/admin/dashboard'});
                 }
 
+                if(statusCode === 401) {
+                    setShow(true);
+                    setMessage({
+                        type: 'success',
+                        title: 'Verification Error',
+                        message: responseJson.message,
+                    })
+                }
+
+                if(statusCode === 402) {
+                    setShow(true);
+                    setMessage({
+                        type: 'error',
+                        title: 'Suspension Error',
+                        message: responseJson.message,
+                    })
+                }
+
                 if(statusCode === 422) {
-                    console.log(responseJson, '422');
                     setShow(true);
                     setMessage({
                         type: 'error',
                         title: 'Details Conflict',
-                        message: responseJson.data[0].msg,
+                        message: responseJson.message,
                     })
                 }
 
@@ -103,7 +111,7 @@ const LoginSection = (props) => {
                     setMessage({
                         type: 'error',
                         title: 'Unexpected Error',
-                        message: responseJson.message,
+                        message: responseJson.data[0].msg,
                     })
                 }
             })
@@ -140,38 +148,41 @@ const LoginSection = (props) => {
                 statusCode = res[0];
                 responseJson = res[1];
 
-                console.log(res[0]);
+                if(res[0] === 200) {
+                    props.setUser(responseJson.user);
+                    props.setToken(responseJson.token);
+                    props.history.push({pathname: '/user'});
+                }
 
                 if(statusCode === 401) {
                     console.log(responseJson, '401');
                     setShow(true);
                     setMessage({
                         type: 'error',
-                        title: 'Unexpected Error',
+                        title: 'Authentication Error',
                         message: responseJson.message,
                     })
                 }
 
-                if(res[0] === 200) {
-                    console.log(props, 'false');
-                    console.log(responseJson, 'isss')
-                    props.setUser(responseJson.user);
-                    props.setToken(responseJson.token);
-                    props.history.push({pathname: '/user'});
+                if(statusCode === 402) {
+                    setShow(true);
+                    setMessage({
+                        type: 'error',
+                        title: 'Suspension Error',
+                        message: responseJson.message,
+                    })
                 }
 
                 if(statusCode === 422) {
-                    console.log(responseJson, '422');
                     setShow(true);
                     setMessage({
                         type: 'error',
                         title: 'Details Conflict',
-                        message: responseJson.data[0].msg,
+                        message: responseJson.message,
                     })
                 }
 
                 if(statusCode === 500) {
-                    console.log(responseJson, '500');
                     setShow(true);
                     setMessage({
                         type: 'error',
@@ -181,7 +192,6 @@ const LoginSection = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
                 setLoading(false);
                 setShow(true);
                 setMessage({

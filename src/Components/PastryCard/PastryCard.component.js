@@ -4,7 +4,7 @@ import { IoStatsChart, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 
 import styles from './PastryCard.module.css';
 import { logo5, vals3 } from '../../res/img';
-import { Button, Notification } from '..';
+import { Button, Notification, PastryDetail } from '..';
 import {BASE_URL} from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 
@@ -13,7 +13,7 @@ const PastryCard = (props) => {
         isDetail, 
         setIsDetail, 
         pastry, 
-        setDetail,
+        setPastry,
         user,
     } = props;
 
@@ -22,11 +22,13 @@ const PastryCard = (props) => {
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
     const [likes, setLikes] = useState(pastry.likes.users.length);
-    const [dislikes, setDislikes] = useState(pastry.dislikes.users.length)
+    const [dislikes, setDislikes] = useState(pastry.dislikes.users.length);
+    const [detail, setDetails] = useState(false);
 
     const showDetail = (pastry) => {
         setIsDetail(true);
-        setDetail(pastry)
+        setPastry(pastry);
+        setDetails(true);
     }
 
     const disLikePastry = (id) => {

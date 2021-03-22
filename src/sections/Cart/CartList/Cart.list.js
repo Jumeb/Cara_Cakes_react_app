@@ -4,11 +4,11 @@ import {CartTable} from '../../../Components';
 import styles from './CartList.module.css';
 
 const CartList = (props) => {
-    const {isDetail, setIsDetail} = props;
+    const {isDetail, setIsDetail, setPastry} = props;
 
     return (
-        <div className={isDetail ? styles.cartListDetail : styles.cartList}>
-            <CartTable isDetail={isDetail} setIsDetail={setIsDetail} />
+        <div className={styles.cartList}>
+            <CartTable isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} />
         </div>
     )
 }

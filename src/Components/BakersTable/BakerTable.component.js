@@ -1,11 +1,141 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {IoTrashBinSharp } from 'react-icons/io5';
+import { Notification, Verification } from '..';
 
 import { pans2 } from '../../res/img';
+import { BASE_URL } from '../../utils/globalVariable';
 import styles from './BakerTable.module.css';
 
 const BakerTable = (props) => { 
-    const {isDetail, setIsDetail} = props;
+    const {bakers, token} = props;
+    const [loading, setLoading] = useState(false);
+    const [show, setShow] = useState(false);
+    const [verify, setVerify] = useState(false);
+    const [message, setMessage] = useState({});
+
+    const Delete = (data) => {
+        setVerify(true);
+        setMessage({
+            type: 'danger',
+            data: data,
+            title: 'Deletion imminent',
+            message: `Are you sure you want to delete company ${data.companyName}. They might have pending orders.`
+        })
+    }
+
+    const DeleteAuth = (id) => {
+        fetch(`${BASE_URL}/baker/delete/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
+        })
+        .then(res => {
+            const statusCode = res.status;
+            const response = res.json();
+            return Promise.all([statusCode, response]);
+        })
+        .then(res => {
+            const statusCode = res[0];
+            const response = res[1];
+
+            if (statusCode === 200) {
+                setMessage({
+                    type: 'success',
+                    title: 'Success',
+                    message: response.message,
+                })
+
+                setTimeout(() => {
+                    setVerify(false);
+                }, 2000)
+            }
+
+        })
+        .catch(err => {
+            setShow(true);
+            setMessage({
+                type: 'error',
+                title: 'Unexpected Error',
+                message: 'Please check your internet connection.',
+            })
+        })
+    }
+
+    const Suspend = (id) => {
+        fetch(`${BASE_URL}/baker/suspend/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
+        })
+        .then(res => {
+            const statusCode = res.status;
+            const response = res.json();
+            return Promise.all([statusCode, response]);
+        })
+        .then(res => {
+            const statusCode = res[0];
+            const response = res[1];
+
+            if (statusCode === 200) {
+                setShow(true);
+                setMessage({
+                    type: 'success',
+                    title: 'Success',
+                    message: response.message,
+                })
+            }
+
+        })
+        .catch(err => {
+            setShow(true);
+            setMessage({
+                type: 'error',
+                title: 'Unexpected Error',
+                message: 'Please check your internet connection.',
+            })
+        })
+    }
+
+    const Verify = (id) => {
+        fetch(`${BASE_URL}/baker/verify/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
+        })
+        .then(res => {
+            const statusCode = res.status;
+            const response = res.json();
+            return Promise.all([statusCode, response]);
+        })
+        .then(res => {
+            const statusCode = res[0];
+            const response = res[1];
+
+            if (statusCode === 200) {
+                setShow(true);
+                setMessage({
+                    type: 'success',
+                    title: 'Success',
+                    message: response.message,
+                })
+            }
+
+        })
+        .catch(err => {
+            setShow(true);
+            setMessage({
+                type: 'error',
+                title: 'Unexpected Error',
+                message: 'Please check your internet connection.',
+            })
+        })
+    }
+
     return (
+        <>
             <div className={styles.cartSeparator}>
                 <table className={styles.cartTable}>
                     <thead className={styles.cartTableHeader}>
@@ -16,83 +146,29 @@ const BakerTable = (props) => {
                         <td className={styles.cartTableHeaderData}>Verified</td>
                         <td className={styles.cartTableHeaderData}>Actions</td>
                     </thead>
-                    <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
-                        </td>
-                        <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
-                        <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
-                        <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
-                        </td>
-                    </tr>
-                    <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
-                        </td>
-                        <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
-                        <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
-                        <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
-                        </td>
-                    </tr>
-                    <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
-                        </td>
-                        <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
-                        <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
-                        <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
-                        </td>
-                    </tr>
-                    <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
-                        </td>
-                        <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
-                        <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
-                        <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
-                        </td>
-                    </tr>
-                    <tr className={styles.cartTableRow}>
-                        <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
-                            <b>Ice Cake</b>
-                        </td>
-                        <td className={styles.cartTableData}>Noelaa</td>
-                        <td className={styles.cartTableData}>4</td>
-                        <td className={styles.cartTableData}>False</td>
-                        <td className={styles.cartTableData}>True</td>
-                        <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Suspend</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Verify</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
-                        </td>
-                    </tr>
+                    {bakers.map((baker, index) => 
+                        <tr className={styles.cartTableRow}>
+                            <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
+                                <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
+                                <b>{baker.name}</b>
+                            </td>
+                            <td className={styles.cartTableData}>{baker.companyName}</td>
+                            <td className={styles.cartTableData}>{baker.categories.length}</td>
+                            <td className={styles.cartTableData}>{baker.suspend ? 'True' : 'False'}</td>
+                            <td className={styles.cartTableData}>{baker.verify ? 'True' : 'False'}</td>
+                            <td className={styles.cartTableData}>
+                                <button className={[styles.cartButton, styles.suspend].join(' ')} onClick={() => Suspend(baker._id)}>{baker.suspend ? 'Unsuspend' : 'Suspend'}</button>
+                                <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => Verify(baker._id)}>{baker.verify ? 'Unverify' : 'Verify'}</button>
+                                <button className={[styles.cartButton, styles.details].join(' ')} onClick={() => console.log('Ordered')}>Details</button>
+                                <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => Delete(baker)}><IoTrashBinSharp /></button>
+                            </td>
+                        </tr>
+                    )}
                 </table>
             </div>
+            <Notification show={show} setShow={setShow} message={message} />
+            <Verification verify={verify} setVerify={setVerify} message={message} onClick={(id) => DeleteAuth(id)} />
+        </>
     )
 }
 

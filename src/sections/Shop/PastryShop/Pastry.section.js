@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { PastryDetail } from '../../../Components';
 
 import styles from './Pastry.module.css'
 import PastryList from './PastryList/Pastry.list';
-import PastryDetail from './PastryDetail/Pastry.detail';
 
 const PastrySection = (props) => {
-    const {isDetail, setIsDetail} = props;
-    const [detail, setDetail] = useState({});
+    const {} = props;
+    const [pastry, setPastry] = useState([])
+    const [isDetail, setIsDetail] = useState(false);
     return (
         <div className={styles.pastries}>
-            <PastryList isDetail={isDetail} setIsDetail={setIsDetail} setDetail={setDetail} />
-            <PastryDetail isDetail={isDetail} setIsDetail={setIsDetail} detail={detail} />
+            <PastryList isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} />
+            <PastryDetail detail={isDetail} setDetail={setIsDetail} pastry={pastry} />
+            {/* <PastryDetail isDetail={isDetail} setIsDetail={setIsDetail} detail={detail} /> */}
         </div>
     )
 }

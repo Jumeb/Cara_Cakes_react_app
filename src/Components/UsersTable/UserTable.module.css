@@ -2,9 +2,6 @@
     margin-bottom: 1rem;
     margin: 0 2rem;
     padding-bottom: 3rem;
-    border-bottom-style: dotted;
-    border-bottom-width: 0.2rem;
-    border-bottom-color: var(--color-primary);
     display: flex;
     align-items: center;
     flex: 0 0 95%;
@@ -77,37 +74,34 @@
 .cartButton {
     outline: none;
     border: none;
+    min-width: 6.7rem;
     border-radius: var(--border-radius-small);
     background-color: var(--transparent-1);
     padding: 0.5rem 1.2rem;
-    color: var(--color-grey-dark-1);
+    color: var(--color-white);
+    margin: 0 0.8rem;
     font-size: 1.15rem;
     transition: all 0.4s ease-in-out;
 
     cursor: pointer;
 }
 
-.cartButton:nth-child(odd) {
-    background-color: var(--color-success);
+.cartDelete {
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius-small);
+    background-color: var(--transparent-1);
+    padding: 0.5rem;
     color: var(--color-white);
+    margin: 0 0.8rem;
+    font-size: 1.15rem;
+    transition: all 0.4s ease-in-out;
+
+    cursor: pointer;
 }
 
-.cartButton:first-child {
-    background-color: var(--color-danger-light);
-    color: var(--color-white);
-    margin: 0 1.5rem;
-
-}
-
-.cartButton:nth-child(even) {
-    background-color: var(--color-primary-medium);
-    color: var(--color-white);
-    margin: 0 1.5rem;
-
-}
-
-
-.cartButton:hover {
+.cartButton:hover,
+.cartDelete:hover {
     box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
 }
 
@@ -123,4 +117,13 @@
     flex-direction: row;
     align-items: center;
     border: none;
+}
+
+.suspend {
+    background-color: var(--color-danger-light);
+}
+
+
+.details {
+    background-color: var(--color-success);
 }
