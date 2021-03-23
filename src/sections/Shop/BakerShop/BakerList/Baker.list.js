@@ -74,7 +74,7 @@ const BakerList = (props) => {
 
     return (
         <div className={isDetail ? styles.bakersListDetail : styles.bakersList}>
-            {bakers.map((baker, index) => <BakerCard isDetail={isDetail} setIsDetail={setIsDetail} setDetail={setDetail} baker={baker} {...props} />)}
+            {bakers.map((baker, index) => <BakerCard isDetail={isDetail} setIsDetail={setIsDetail} setDetail={setDetail} baker={baker} {...props} key={index} />)}
             <Notification message={message} show={show} setShow={setShow} />
         </div>
     )

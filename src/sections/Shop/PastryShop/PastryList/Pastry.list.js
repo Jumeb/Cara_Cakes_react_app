@@ -77,7 +77,7 @@ const PastryList = (props) => {
 
     return (
         <div className={styles.pastriesList}>
-            {pastries.map((pastry, index) => <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} pastry={pastry} /> )}
+            {pastries.map((pastry, index) => <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} pastry={pastry} key={index} /> )}
             <Notification message={message} show={show} setShow={setShow} />
         </div>
     )

@@ -8,9 +8,8 @@ import { Thousand } from '../../utils/utilities';
 import styles from './PastryCart.module.css';
 
 const PastryCart = (props) => {
-    const {detail, setDetail, pastry, onClick, user} = props;
-
-    const [clicked, setClicked] = useState('');
+    const { detail, setDetail, pastry, onClick, user } = props;
+    
     const [loading, setLoading] = useState(false);
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
@@ -23,9 +22,6 @@ const PastryCart = (props) => {
         setLoading(true);
         fetch(`${BASE_URL}/user/addToCart/${id}?user=${user._id}`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
         })
         .then(res => {
             const statusCode = res.status;
@@ -154,12 +150,6 @@ const PastryCart = (props) => {
 
     const disLikePastry = (id) => {
         setLoading(true);
-        const userIndex = pastry.pastryId.likes.users.findIndex(ui => {
-            return ui.userId.toString() === user._id.toString();
-        });
-        const _userIndex = pastry.pastryId.dislikes.users.findIndex(ui => {
-            return ui.userId.toString() === user._id.toString();
-        })
         fetch(`${BASE_URL}/pastry/dislike/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -170,29 +160,12 @@ const PastryCart = (props) => {
         })
         .then(res => {
             const statusCode = res[0];
-            const response = res[1];
+            const response = res[1].response;
             setLoading(false);
 
             if (statusCode === 200) {
-                if (clicked === 'Like') {
-                    setClicked('Dislike');
-                    setDislikes(pastry.pastryId.dislikes.users.length + 1);
-                    setLikes(pastry.pastryId.likes.users.length);
-                }
-                if(clicked === 'Dislike') {
-                    setClicked('');
-                    setDislikes(dislikes - 1);
-                }
-                if (clicked === '') {
-                    setClicked('Dislike');
-                    if(_userIndex !== -1) {
-                        setDislikes(pastry.pastryId.dislikes.users.length);
-                    }
-                    if(userIndex !== -1) {
-                        setLikes(pastry.pastryId.likes.users.length);
-                    }
-                    setDislikes(dislikes + 1);
-                }
+                setLikes(response.likes.users.length);
+                setDislikes(response.dislikes.users.length);
             }
 
             if (statusCode === 500) {
@@ -206,13 +179,6 @@ const PastryCart = (props) => {
 
     const likePastry = (id) => {
         setLoading(true);
-        const userIndex = pastry.pastryId.likes.users.findIndex(ui => {
-            return ui.userId.toString() === user._id.toString();
-        });
-        const _userIndex = pastry.pastryId.dislikes.users.findIndex(ui => {
-            return ui.userId.toString() === user._id.toString();
-        })
-        console.log(userIndex, 'userIndex');
         fetch(`${BASE_URL}/pastry/like/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -227,25 +193,8 @@ const PastryCart = (props) => {
             setLoading(false);
 
             if (statusCode === 200) {
-                if (clicked === 'Dislike') {
-                    setClicked('Like');
-                    setLikes(pastry.pastryId.likes.users.length + 1);
-                    setDislikes(pastry.pastryId.dislikes.users.length);
-                }
-                if (clicked === 'Like') {
-                    setClicked('');
-                    setLikes(likes - 1);
-                }
-                if (clicked === '') {
-                    setClicked('Like');
-                    if(_userIndex !== -1) {
-                        setDislikes(pastry.pastryId.dislikes.users.length);
-                    }
-                    if(userIndex !== -1) {
-                        setLikes(pastry.pastryId.likes.users.length);
-                    }
-                    setLikes(likes + 1);
-                }
+                setLikes(response.likes.users.length);
+                setDislikes(response.dislikes.users.length);
             }
 
             if (statusCode === 404) {
