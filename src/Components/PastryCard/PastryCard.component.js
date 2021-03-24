@@ -18,7 +18,6 @@ const PastryCard = (props) => {
     } = props;
 
     const [loading, setLoading] = useState(false);
-    const [clicked, setClicked] = useState('');
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
     const [likes, setLikes] = useState(pastry.likes.users.length);
@@ -33,12 +32,6 @@ const PastryCard = (props) => {
 
     const disLikePastry = (id) => {
         setLoading(true);
-        const userIndex = pastry.likes.users.findIndex(ui => {
-            return ui.userId.toString() === user._id.toString();
-        });
-        const _userIndex = pastry.dislikes.users.findIndex(ui => {
-            return ui.userId.toString() === user._id.toString();
-        })
         fetch(`${BASE_URL}/pastry/dislike/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -49,29 +42,12 @@ const PastryCard = (props) => {
         })
         .then(res => {
             const statusCode = res[0];
-            const response = res[1];
+            const response = res[1].response;
             setLoading(false);
 
             if (statusCode === 200) {
-                if (clicked === 'Like') {
-                    setClicked('Dislike');
-                    setDislikes(pastry.dislikes.users.length + 1);
-                    setLikes(pastry.likes.users.length);
-                }
-                if(clicked === 'Dislike') {
-                    setClicked('');
-                    setDislikes(dislikes - 1);
-                }
-                if (clicked === '') {
-                    setClicked('Dislike');
-                    if(_userIndex !== -1) {
-                        setDislikes(pastry.dislikes.users.length);
-                    }
-                    if(userIndex !== -1) {
-                        setLikes(pastry.likes.users.length);
-                    }
-                    setDislikes(dislikes + 1);
-                }
+                setLikes(response.likes.users.length);
+                setDislikes(response.dislikes.users.length);
             }
 
             if (statusCode === 500) {
@@ -85,13 +61,6 @@ const PastryCard = (props) => {
 
     const likePastry = (id) => {
         setLoading(true);
-        const userIndex = pastry.likes.users.findIndex(ui => {
-            return ui.userId.toString() === user._id.toString();
-        });
-        const _userIndex = pastry.dislikes.users.findIndex(ui => {
-            return ui.userId.toString() === user._id.toString();
-        })
-        console.log(userIndex, 'userIndex');
         fetch(`${BASE_URL}/pastry/like/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -102,29 +71,12 @@ const PastryCard = (props) => {
         })
         .then(res => {
             const statusCode = res[0];
-            const response = res[1];
+            const response = res[1].response;
             setLoading(false);
 
             if (statusCode === 200) {
-                if (clicked === 'Dislike') {
-                    setClicked('Like');
-                    setLikes(pastry.likes.users.length + 1);
-                    setDislikes(pastry.dislikes.users.length);
-                }
-                if (clicked === 'Like') {
-                    setClicked('');
-                    setLikes(likes - 1);
-                }
-                if (clicked === '') {
-                    setClicked('Like');
-                    if(_userIndex !== -1) {
-                        setDislikes(pastry.dislikes.users.length);
-                    }
-                    if(userIndex !== -1) {
-                        setLikes(pastry.likes.users.length);
-                    }
-                    setLikes(likes + 1);
-                }
+                setLikes(response.likes.users.length);
+                setDislikes(response.dislikes.users.length);
             }
 
             if (statusCode === 404) {

@@ -10,7 +10,7 @@ const Baker = () => {
                 Our team of expert bakers
             </h2>
             <div className={styles.secContainer}>
-                {bakers.map((baker, index) => <BakersCard baker={baker} />)}
+                {bakers.map((baker, index) => <BakersCard baker={baker} key={index} />)}
             </div>
         </section>
     )
