@@ -6,7 +6,7 @@ import styles from './Admin.module.css'
 const Admin = (props) => {
     const {error} = props;
     return (
-        <body className={styles.admin}>
+        <section className={styles.admin}>
             <div className={styles.adminBox}>
                 <h2 className={styles.adminTitle}>Welcome Admin</h2>
                 <div className={styles.adminContainer}>
@@ -14,18 +14,18 @@ const Admin = (props) => {
                     <div className={styles.adminSignIn}>
                         <div className={styles.adminSignInSheet}>
                             <input type="text" className={styles.adminInput} id="user" name="user" placeholder="User Name" required />
-                            <label for="user" className={styles.adminLabel}>Username</label>
+                            <label htmlFor="user" className={styles.adminLabel}>Username</label>
                         </div>
                         <div className={styles.adminSignInSheet}>
                             <input type="password" className={styles.adminInput} id="password" name="password" placeholder="Password"
                                 required />
-                            <label for="password" className={styles.adminLabel}>Password</label>
+                            <label htmlFor="password" className={styles.adminLabel}>Password</label>
                         </div>
                         <button className={styles.adminBtn} type="submit">Login</button>
                     </div>
                 </div>
             </div>
-        </body>
+        </section>
     )
 }
 

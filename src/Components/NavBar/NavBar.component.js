@@ -8,7 +8,7 @@ const NavBar = () => {
     return (
         <div className={styles.navi}>
             <input type="checkbox" id="navi-toggle" className={styles.naviCheckbox}/>
-            <label for="navi-toggle" className={styles.naviButton}>
+            <label htmlFor="navi-toggle" className={styles.naviButton}>
                 <span className={styles.naviIcon}></span>
             </label>
             <div className={styles.naviList}>

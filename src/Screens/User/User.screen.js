@@ -26,7 +26,7 @@ const User = () => {
                 <SideNav isDetail={isDetail} />
                 <WorkArea isDetail={isDetail}>
                     <Route path="/user/event"  render={(props) => (<Events  {...props} isDetail={isDetail} setIsDetail={setIsDetail} /> )} />
-                    <Route path="/user/shop" exact render={(props) => (<Bakers {...props} isDetail={isDetail} setIsDetail={setIsDetail} />)} />
+                    <Route path="/user/shop" exact render={(props) => (<Bakers {...props}  />)} />
                     <Route path="/user/shop/pastries" render={(props) => (<Pastries {...props}  />)} />
                     <Route path="/user/cart" render={(props) => (<Cart {...props} />)} />
                     <Route path="/user/orders" render={(props) => (<Orders {...props} isDetail={isDetail} setIsDetail={setIsDetail} />)} />

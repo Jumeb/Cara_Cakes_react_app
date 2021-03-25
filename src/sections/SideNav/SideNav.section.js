@@ -20,27 +20,27 @@ const SideNav = (props) => {
             <img src={favicon} alt="Logo" className={styles.panelLogo} />
                 <li className={styles.panelSideNavItem}>
                     <NavLink to="/user/shop" className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
-                        <span className={styles.panelSideNavIcon}><IoCard /></span> <span className={isDetail && styles.isDetailText}>Shop</span>
+                        <span className={styles.panelSideNavIcon}><IoCard /></span> <span className={isDetail ? styles.isDetailText : ''}>Shop</span>
                     </NavLink>
                 </li>
                 <li className={styles.panelSideNavItem}>
                     <NavLink to="/user/cart" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                        <span className={styles.panelSideNavIcon}><IoCart /> </span> <span className={isDetail && styles.isDetailText}>My Cart</span>
+                        <span className={styles.panelSideNavIcon}><IoCart /> </span> <span className={isDetail ? styles.isDetailText : ''}>My Cart</span>
                     </NavLink>
                 </li>
                 <li className={styles.panelSideNavItem}>
                     <NavLink to="/user/event" className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
-                        <span className={styles.panelSideNavIcon}><IoCalendar /></span> <span className={isDetail && styles.isDetailText}>Events</span>
+                        <span className={styles.panelSideNavIcon}><IoCalendar /></span> <span className={isDetail ? styles.isDetailText : ''}>Events</span>
                     </NavLink>
                 </li>
                 <li className={styles.panelSideNavItem}>
                     <NavLink to="/user/orders" className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
-                        <span className={styles.panelSideNavIcon}><IoStatsChart /></span><span className={isDetail && styles.isDetailText}> Orders</span>
+                        <span className={styles.panelSideNavIcon}><IoStatsChart /></span><span className={isDetail ? styles.isDetailText : ''}> Orders</span>
                     </NavLink>
                 </li>
                 <li className={styles.panelSideNavItem}>
                     <NavLink to="/" exact className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
-                        <span className={styles.panelSideNavIcon}><IoLogOut /></span><span className={isDetail && styles.isDetailText}>Logout</span>
+                        <span className={styles.panelSideNavIcon}><IoLogOut /></span><span className={isDetail ? styles.isDetailText : ''}>Logout</span>
                     </NavLink>
                 </li>
             </ul>

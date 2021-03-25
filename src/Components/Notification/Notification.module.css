@@ -24,7 +24,7 @@
 }
 
 .hideContainer {
-    top: -20%;
+    top: -40%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;

@@ -2,17 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Button, Link } from '..';
+import { Button } from '..';
 import { logo5, vals3 } from '../../res/img';
 import styles from './BakerCard.module.css';
 import {setBaker} from '../../redux/Actions/Auth.actions';
 
 const BakerCard = (props) => {
-    const {isDetail, setIsDetail, baker, setDetail} = props;
+    const {isDetail, setIsDetail, baker, _setBaker,} = props;
 
-     const showDetail = (baker) => {
+    const showDetail = (baker) => {
+        _setBaker(baker);
         setIsDetail(true);
-        setDetail(baker);
     }
 
     const bakerShop = (bakerId) => {

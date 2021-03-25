@@ -17,7 +17,8 @@ const SquareArea = (props) => {
             <textarea 
                 className={[styles.inputField, error && styles.inputInvalid].join(' ')} 
                 placeholder={placeholder} 
-                rows={5} 
+                rows={5}
+                value={value}
                 onChange={setValue}
             >
             </textarea>

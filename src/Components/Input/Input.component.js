@@ -23,7 +23,7 @@ const Input = (props) => {
                 name={label} id={label} 
                 placeholder={placeholder} 
                 onChange={setValue} />
-                <label for={label} className={styles.formLabel}>{label}</label>
+                <label htmlFor={label} className={styles.formLabel}>{label}</label>
         </div>
     )
 }

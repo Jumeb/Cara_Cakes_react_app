@@ -35,14 +35,7 @@ const PastryCart = (props) => {
 
             if(statusCode === 200) {
                 setCount(count + 1);
-                if(count === 0) {
-                    setShow(true);
-                    setMessage({
-                        type: 'success',
-                        message: `${pastry.name} added to cart`,
-                        title: 'Success'
-                    });
-                }
+                console.log(response);
             }
 
             if(statusCode === 422) {
@@ -114,7 +107,14 @@ const PastryCart = (props) => {
             setPastryMessage(pastry.message);
             setCount(pastry.quantity);
         }
+        return () => {
+            setLikes(0);
+            setDislikes(0);
+            setPastryMessage('');
+            setCount(0);
+        }
     }, [detail]);
+
 
     const Message = (id) => {
         fetch(`${BASE_URL}/user/message/${id}?user=${user._id}&message=${pastryMessage}`, {
@@ -189,7 +189,7 @@ const PastryCart = (props) => {
         })
         .then(res => {
             const statusCode = res[0];
-            const response = res[1];
+            const response = res[1].response;
             setLoading(false);
 
             if (statusCode === 200) {
@@ -217,26 +217,26 @@ const PastryCart = (props) => {
                 <>
                     <button className={styles.closeButton} onClick={() => setDetail(false)}><IoClose /></button>
                     <div className={styles.pastryContainer}>
-                        {pastry.pastryId.discount > 0 && <div className={styles.pastryDiscount}><IoStatsChart /> Discount: {pastry.pastryId.discount}%</div>}
-                        <div className={styles.pastryName}>{pastry.pastryId.name}</div>
-                        <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt={pastry.price} className={styles.pastryImage} />
+                        {pastry.pastryId.discount > 0 && <div className={styles.pastryDiscount}><IoStatsChart /> Discount: {pastry.pastryId.discount || ''}%</div>}
+                        <div className={styles.pastryName}>{pastry.pastryId.name || ''}</div>
+                        <img src={`${BASE_URL}/${pastry.pastryId.image || ''}`} alt={pastry.price} className={styles.pastryImage} />
                         <div className={styles.pastryPrice}><IoWallet className={styles.icon} /> Price: {Thousand(count >= 1 ? count * pastry.pastryId.price : pastry.pastryId.price || 0)} XAF</div>
-                        <div className={styles.pastryLikes} onClick={() => likePastry(pastry.pastryId._id)}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
-                        <div className={styles.pastryDislikes} onClick={() => disLikePastry(pastry.pastryId._id)}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
+                        <div className={styles.pastryLikes} onClick={() => likePastry(pastry.pastryId._id || '')}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
+                        <div className={styles.pastryDislikes} onClick={() => disLikePastry(pastry.pastryId._id || '')}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
                     </div>
                         {count === 0 ? 
                             <div className={styles.notifyActions}>
-                                <button className={styles.notifyButton} onClick={() => AddToCart(pastry.pastryId._id)}>Add to Cart</button>
+                                <button className={styles.notifyButton} onClick={() => AddToCart(pastry.pastryId._id || '')}>Add to Cart</button>
                             </div> :
                             <div className={styles.notifyActions}>
-                                <button className={styles.pastryButton} onClick={() => SubFromCart(pastry.pastryId._id)}><IoRemove /></button>
-                                <b className={styles.pastryQty}>Quantity: {count}</b>
-                                <button className={styles.pastryButton} onClick={() => AddToCart(pastry.pastryId._id)}><IoAdd /></button>
+                                <button className={styles.pastryButton} onClick={() => SubFromCart(pastry.pastryId._id || '')}><IoRemove /></button>
+                                <b className={styles.pastryQty}>Quantity: {count || ''}</b>
+                                <button className={styles.pastryButton} onClick={() => AddToCart(pastry.pastryId._id || '')}><IoAdd /></button>
                             </div>
                         }
                     <div>
-                        <input type="text" placeholder="Message on pastry" value={pastryMessage} className={styles.pastryMessage} onChange={event => setPastryMessage(event.target.value)} />
-                        <button className={styles.notifyButton} onClick={() => Message(pastry.pastryId._id)}><IoBrush className={styles.icon} style={{paddingTop: '3px'}} />Paste</button>
+                        <input type="text" placeholder="Message on pastry" value={pastryMessage || ''} className={styles.pastryMessage} onChange={event => setPastryMessage(event.target.value)} />
+                        <button className={styles.notifyButton} onClick={() => Message(pastry.pastryId._id || '')}><IoBrush className={styles.icon} style={{paddingTop: '3px'}} />Paste</button>
                     </div>
                     <button className={styles.notifyButton} onClick={() => setDetail(false)}>Close</button>
                 </>}

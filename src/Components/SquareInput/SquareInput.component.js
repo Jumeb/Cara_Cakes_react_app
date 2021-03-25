@@ -16,11 +16,12 @@ const SquareInput = (props) => {
     return (
         <div className={styles.inputContainer}>
             <label className={styles.inputLabel}>{label}</label>
-            <input 
-                className={[styles.inputField, error && styles.inputInvalid].join(' ')} 
-                placeholder={placeholder} 
+            <input
+                className={[styles.inputField, error && styles.inputInvalid].join(' ')}
+                placeholder={placeholder}
                 type={type}
                 name={name}
+                value={value}
                 onChange={setValue}
             />
         </div>
