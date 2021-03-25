@@ -345,4 +345,5 @@
     font-weight: var(--font-weight-normal);
     padding-bottom: 5rem;
     line-height: 3rem;
+    display: block;
 }

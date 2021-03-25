@@ -3,15 +3,18 @@ import { IoBrush } from 'react-icons/io5';
 import makeAnimated from 'react-select/animated';
 import Select from 'react-select';
 
-import { Button, SquareArea, SquareInput } from '../../Components';
+import { Button, Notification, SquareArea, SquareInput } from '../../Components';
 import { cups1, vals3 } from '../../res/img';
 import styles from './AdminProfile.module.css';
 import { connect } from 'react-redux';
+import { BASE_URL } from '../../utils/globalVariable';
+import { bindActionCreators } from 'redux';
+import { setUser } from '../../redux/Actions/Auth.actions';
 
 const animatedComponents = makeAnimated();
 
 const AdminProfile = (props) => {
-    const {user} = props;
+    const {user, token} = props;
     const [locations] = useState([
         { value: "north-west", label: "North-West" },
         { value: "south-west", label: "South-West" },
@@ -31,6 +34,7 @@ const AdminProfile = (props) => {
     const [contact, setContact] = useState('');
     const [location, setLocation] = useState('');
     const [about, setAbout] = useState('');
+    const [categories, setCategories] = useState([]);
     const [nameError, setNameError] = useState(false);
     const [companyError, setCompanyError] = useState(false);
     const [momoNameError, setMomoNameError] = useState(false);
@@ -39,6 +43,9 @@ const AdminProfile = (props) => {
     const [contactError, setContactError] = useState(false);
     const [locationError, setLocationError] = useState(false);
     const [aboutError, setAboutError] = useState(false);
+
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState({});
 
 
     useEffect(() => {
@@ -51,6 +58,7 @@ const AdminProfile = (props) => {
         setContact(user.telNumber || "'empty'");
         setLocation(user.location || "'empty'");
         setAbout(user.about || "'empty'");
+        setCategories(user.categories);
 
         return () => {
             setName('');
@@ -74,9 +82,84 @@ const AdminProfile = (props) => {
         }
     }, [])
 
-    const Authenticate = () => {
+    const Authenticate = (id) => {
         let hasError = false;
         setLoading(true);
+
+        if (name.length < 6) {
+            setNameError(true);
+            hasError = true;
+        }
+
+        if (company.length < 6) {
+            setCompanyError(true);
+            hasError = true;
+        }
+
+        if (momoName.length < 9) {
+            setMomoNameError(true);
+            hasError = true;
+        }
+
+        if (momo.length < 9) {
+            setMomoError(true);
+            hasError = true;
+        }
+
+        if (about.length < 10) {
+            setAboutError(true);
+            hasError = true;
+        }
+
+        if (hasError) {
+            return false;
+        }
+
+        const body = {
+            name,
+            company,
+            categories,
+            about,
+            momo,
+            momoName,
+            contact,
+            email,
+            location,
+        }
+
+        console.log(body);
+
+        fetch(`${BASE_URL}/baker/profile/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Basic ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        })
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                setLoading(false);
+
+                if (statusCode === 200) {
+                    setShow(true);
+                    setMessage({
+                        title: 'Success',
+                        message: 'Your profile has been updated'
+                    })
+                    props.setUser(response.baker);
+                }
+
+            })
+            .catch(err => {
+                console.log(err);
+        })
 
     }
 
@@ -90,8 +173,8 @@ const AdminProfile = (props) => {
                         <button className={styles.profileEdit}><IoBrush className={styles.profileIcon} /></button>
                     </div>
                     <div className={styles.profileCredentials}>
-                        <h2 className={styles.profileName}>{name} | {company || 'House of Flavours'}</h2>
-                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{contact || "'empty'"}</span> | <span className={styles.profileSubInfo} >{user.idCardNumber}</span> | <span className={styles.profileSubInfo} >{name.substr(0, 12) || "'empty'"}</span> </h3>
+                        <h2 className={styles.profileName}>{name.substr(0, 15)} | {company.substr(0, 15) || 'House of Flavours'}</h2>
+                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{contact || "'empty'"}</span> | <span className={styles.profileSubInfo} >{user.idCardNumber}</span> | <span className={styles.profileSubInfo} >{momoName.substr(0, 12) || "'empty'"}</span> </h3>
                         <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{momo || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{location || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{email.substr(0, 12)}...</span> </h3>
                     </div>
                     <div className={styles.profileStats}>
@@ -123,7 +206,7 @@ const AdminProfile = (props) => {
                     <div className={styles.profileAbout}>
                         <h2 className={styles.profileName}>About</h2>
                         <b className={styles.profileHistory}>
-                            {about || "'empty'"}
+                            {about}
                         </b>
                     </div>
                 </div>
@@ -195,23 +278,29 @@ const AdminProfile = (props) => {
                             setError={setAboutError}
                         />
                         <div className={styles.profileActions}>
-                            <Button title="Save Changes" />
+                            <Button title="Save Changes" onClick={() => Authenticate(user._id)} />
                             <Button title="Edit Password" />
                         </div>
                     </div>
                 </div>
             </div>
+            <Notification setShow={setShow} show={show} message={message} />
         </div>
     )
 }
 
 const mapStateToProps = ({auth}) => {
     return {
+        token: auth.token,
         user: auth.user,
     }
 }
 
-export default connect(mapStateToProps)(AdminProfile);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ setUser }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminProfile);
 
 const locationStyles = {
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
