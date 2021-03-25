@@ -6,13 +6,13 @@ import styles from './Login.module.css';
 
 const Login = (props) => {
     return (
-        <body className={styles.Login}>
+        <div className={styles.Login}>
             <Header />
             <main>
                 <LoginSection {...props} error={false}/>
             </main>
             <NavBar />
-        </body>
+        </div>
     )
 }
 

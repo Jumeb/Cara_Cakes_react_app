@@ -22,7 +22,6 @@ const CartTable = (props) => {
     const [cart, setCart] = useState({});
 
     useEffect(() => {
-        setLoading(true);
         fetch(`${BASE_URL}/user/getcart/${user._id}`, {
             method: 'GET'
         })
@@ -68,6 +67,14 @@ const CartTable = (props) => {
                 message: `Please check your internet connection.`
             });
         })
+
+        return () => {
+            setLoading(false);
+            setUser([]);
+            setShow(false);
+            setMessage({});
+            setCart({});
+        }
     }, [isDetail, loading]);
 
     const Trash = (event, id) => {
@@ -75,9 +82,6 @@ const CartTable = (props) => {
         setLoading(true);
         fetch(`${BASE_URL}/user/removeFromCart/${id}?user=${user._id}`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
         })
         .then(res => {
             const statusCode = res.status;
@@ -98,7 +102,6 @@ const CartTable = (props) => {
                 });
 
             }
-
             if(statusCode === 422) {
                 setShow(true);
                 setMessage({
@@ -123,7 +126,7 @@ const CartTable = (props) => {
     return (
         <>
             {Object.values(cart).map((pastries, index) => (
-                <div className={styles.cartSeparator}>
+                <div className={styles.cartSeparator} key={ index }>
                     <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[index]} {_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[index]}`).pastryId.creator.suspend && <span className={styles.suspended}>Suspended, order at your own discretion.</span>}</h1>
                     <table className={styles.cartTable}>
                         <thead className={styles.cartTableHeader}>
@@ -134,7 +137,7 @@ const CartTable = (props) => {
                         </thead>
 
                     {pastries.map((pastry, index) => 
-                        <tr className={styles.cartTableRow} onClick={() => showDetail(pastry)}>
+                        <tr className={styles.cartTableRow} onClick={() => showDetail(pastry)} key={index}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                                 <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt={pastry.pastryId.name} className={styles.cartTableDataImage} />
                                 <b>{pastry.pastryId.name}</b>

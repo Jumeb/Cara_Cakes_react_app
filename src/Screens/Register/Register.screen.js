@@ -27,7 +27,7 @@ const Register = () => {
 
 
     return (
-        <body className={styles.Signup}>
+        <section className={styles.Signup}>
             <Header />
             <main>
                 <Route path="/register" exact render={(props) => (<RegisterSection 
@@ -106,7 +106,7 @@ const Register = () => {
                  />)} />
             </main>
             <NavBar />
-        </body>
+        </section>
     )
 }
 

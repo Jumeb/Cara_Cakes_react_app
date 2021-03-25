@@ -8,7 +8,7 @@ import {BASE_URL} from '../../../../utils/globalVariable';
 import {setBakers} from '../../../../redux/Actions/Data.actions';
 
 const BakerList = (props) => {
-    const {isDetail, setIsDetail, token, setDetail} = props;
+    const {isDetail, setIsDetail, token, setBaker, _baker} = props;
 
     const [bakers, setBakers] = useState([]);
     const [message, setMessage] = useState({});
@@ -17,6 +17,7 @@ const BakerList = (props) => {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
+        // setBaker([1,2]);
         setLoading(true);
         setIsDetail(false);
         fetch(`${BASE_URL}/bakers`, {
@@ -69,12 +70,20 @@ const BakerList = (props) => {
             })
         })
 
+        return () => {
+            setTotal(0)
+            setLoading(false);
+            setShow(false);
+            setMessage({});
+            setBakers([]);
+        }
+
     }, []);
 
 
     return (
-        <div className={isDetail ? styles.bakersListDetail : styles.bakersList}>
-            {bakers.map((baker, index) => <BakerCard isDetail={isDetail} setIsDetail={setIsDetail} setDetail={setDetail} baker={baker} {...props} key={index} />)}
+        <div className={styles.bakersList}>
+            {bakers.map((baker, index) => <BakerCard isDetail={isDetail} _setBaker={setBaker} setIsDetail={setIsDetail} baker={baker} key={index} {...props}/>)}
             <Notification message={message} show={show} setShow={setShow} />
         </div>
     )

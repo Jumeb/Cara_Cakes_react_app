@@ -73,6 +73,14 @@ const PastryList = (props) => {
                 message: 'Please check your internet connection.'
             })
         })
+
+        return () => {
+            setLoading(false);
+            setPastries([]);
+            setMessage({});
+            setShow(false);
+            setTotal(0);
+        }
     }, [])
 
     return (

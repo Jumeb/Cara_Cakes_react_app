@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { IoStatsChart, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 
@@ -27,7 +27,6 @@ const PastryCard = (props) => {
     const showDetail = (pastry) => {
         setIsDetail(true);
         setPastry(pastry);
-        setDetails(true);
     }
 
     const disLikePastry = (id) => {
@@ -136,6 +135,17 @@ const PastryCard = (props) => {
             });
         })
     }
+
+    useEffect(() => {
+        return () => {
+            setLikes(0);
+            setDislikes(0);
+            setLoading(false);
+            setShow(false);
+            setDetails(false);
+            setMessage({});
+        }
+    }, [])
 
     return (
         <>

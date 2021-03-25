@@ -41,6 +41,7 @@ import Notification from './Notification/Notification.component';
 import Verification from './Verification/Verification.component';
 import PastryDetail from './PastryDetail/PastryDetail.component';
 import PastryCart from './PastryCart/PastryCart.component';
+import BakerDetails from './BakerDetails/BakerDetails.component'
 
 export {
     Header, 
@@ -86,4 +87,5 @@ export {
     Verification,
     PastryDetail,
     PastryCart,
+    BakerDetails,
 };

@@ -1,16 +1,3 @@
-.pastriesListDetail {
-    flex: 0 0 65%;
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    padding: 0 1rem;
-    margin-top: 8rem;
-    flex-wrap: wrap;
-    overflow: auto;
-    justify-content: space-evenly;
-    position: relative;
-}
-
 .pastriesList {
     flex: 0 0 100%;
     display: flex;
@@ -25,22 +12,19 @@
     position: relative;
 }
 
-.pastriesList::-webkit-scrollbar,
-.pastriesListDetail::-webkit-scrollbar {
+.pastriesList::-webkit-scrollbar {
     width: .4rem;
     background-color: transparent;
     border-radius: var(--border-radius-large);
 }
 
-.pastriesList::-webkit-scrollbar-thumb,
-.pastriesListDetail::-webkit-scrollbar-thumb {
+.pastriesList::-webkit-scrollbar-thumb {
     width: .4rem;
     background-color: rgba(var(--color-secondary-medium), 0.8);
     border-radius: var(--border-radius-large);
 }
 
-.pastriesList::-webkit-scrollbar-track,
-.pastriesListDetail::-webkit-scrollbar-track {
+.pastriesList::-webkit-scrollbar-track {
     background-color: var(--color-grey-light-3);
     margin: 18rem 0;
 }

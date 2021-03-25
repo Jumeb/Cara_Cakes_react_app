@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 
 import BakerList from './BakerList/Baker.list';
-import BakerDetail from './BakerDetail/Baker.detail';
 import styles from './Baker.module.css'
+import { BakerDetails, PastryCard } from '../../../Components';
 
 const BakerSection = (props) => {
-    const {isDetail, setIsDetail} = props;
-    const [detail, setDetail] = useState({});
+    
+    const [isDetail, setIsDetail] = useState(false);
+    const [baker, setBaker] = useState([]);
     return (
         <div className={styles.bakers}>
-            <BakerList isDetail={isDetail} setIsDetail={setIsDetail} setDetail={setDetail} {...props} />
-            <BakerDetail isDetail={isDetail} setIsDetail={setIsDetail} detail={detail} />
+            <BakerList isDetail={isDetail} setIsDetail={setIsDetail} setBaker={setBaker} _baker={baker} {...props} />
+            <BakerDetails detail={isDetail} setDetail={setIsDetail} baker={baker} {...props} />
         </div>
     )
 }

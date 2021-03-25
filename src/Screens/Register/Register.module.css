@@ -3,5 +3,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    position: relative;
     height: 100vh;
+    overflow: hidden;
 }
