@@ -10,20 +10,30 @@ import { connect } from 'react-redux';
 import { BASE_URL } from '../../utils/globalVariable';
 import { bindActionCreators } from 'redux';
 import { setUser } from '../../redux/Actions/Auth.actions';
+import { SetLocation, SetCategories } from '../../utils/utilities';
 
 const animatedComponents = makeAnimated();
 
 const AdminProfile = (props) => {
-    const {user, token} = props;
+    const { user, token } = props;
     const [locations] = useState([
-        { value: "north-west", label: "North-West" },
-        { value: "south-west", label: "South-West" },
-        { value: "west", label: "West" },
-        { value: "center", label: "Center" },
-        { value: "litoral", label: "Litoral" },
-        { value: "north", label: "North" },
-        { value: "east", label: "East" },
-        { value: "north-west", label: "North-West" },
+        { value: "North-West", label: "North-West" },
+        { value: "South-West", label: "South-West" },
+        { value: "West", label: "West" },
+        { value: "Center", label: "Center" },
+        { value: "Litoral", label: "Litoral" },
+        { value: "North", label: "North" },
+        { value: "East", label: "East" },
+        { value: "North-West", label: "North-West" },
+    ]);
+    const [_categories] = useState([
+        { value: 'birthday-cake', label: 'Birthday Cakes' },
+        { value: 'wedding-cake', label: 'Wedding Cakes' },
+        { value: 'cookies', label: 'Cookies' },
+        { value: 'doughnuts', label: 'Doughnuts' },
+        { value: 'pancakes', label: 'Pancakes' },
+        { value: 'cup-cakes', label: 'Cup Cake' },
+        { value: 'gift-baskets', label: 'Gift Baskets' },
     ]);
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState('');
@@ -32,7 +42,7 @@ const AdminProfile = (props) => {
     const [momo, setMomo] = useState('');
     const [email, setEmail] = useState('');
     const [contact, setContact] = useState('');
-    const [location, setLocation] = useState('');
+    const [location, setLocation] = useState({});
     const [about, setAbout] = useState('');
     const [categories, setCategories] = useState([]);
     const [nameError, setNameError] = useState(false);
@@ -46,6 +56,7 @@ const AdminProfile = (props) => {
 
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState({});
+    let Categories = [];
 
 
     useEffect(() => {
@@ -56,9 +67,13 @@ const AdminProfile = (props) => {
         setEmail(user.email || "'empty'");
         setAbout(user.about || "'empty'");
         setContact(user.telNumber || "'empty'");
-        setLocation(user.location || "'empty'");
         setAbout(user.about || "'empty'");
         setCategories(user.categories);
+        let loc = user.location;
+        let cats = user.categories;
+    
+        setLocation(SetLocation(loc, locations) || "'empty'")
+        setCategories(SetCategories(cats, _categories));
 
         return () => {
             setName('');
@@ -115,16 +130,22 @@ const AdminProfile = (props) => {
             return false;
         }
 
+        if(!hasError) {
+            if(categories){categories.map((value, index) => (
+                Categories.push(value.label)
+            ))}
+        }
+
         const body = {
             name,
             company,
-            categories,
+            categories: Categories,
             about,
             momo,
             momoName,
             contact,
             email,
-            location,
+            location: location.value,
         }
 
         console.log(body);
@@ -175,7 +196,7 @@ const AdminProfile = (props) => {
                     <div className={styles.profileCredentials}>
                         <h2 className={styles.profileName}>{name.substr(0, 15)} | {company.substr(0, 15) || 'House of Flavours'}</h2>
                         <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{contact || "'empty'"}</span> | <span className={styles.profileSubInfo} >{user.idCardNumber}</span> | <span className={styles.profileSubInfo} >{momoName.substr(0, 12) || "'empty'"}</span> </h3>
-                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{momo || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{location || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{email.substr(0, 12)}...</span> </h3>
+                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{momo || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{location.value || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{email.substr(0, 12)}...</span> </h3>
                     </div>
                     <div className={styles.profileStats}>
                         <div className={styles.profileNumber}>
@@ -254,10 +275,26 @@ const AdminProfile = (props) => {
                             setError={setContactError}
                         />
                         <div className={styles.profileGroup}>
+                            <b className={styles.profileLabel}>Categories</b>
+                            <div className={styles.selectWidth}>
+                                <Select
+                                    value={categories}
+                                    options={_categories}
+                                    components={animatedComponents}
+                                    onChange={value => setCategories(value)}
+                                    styles={locationStyles}
+                                    isMulti
+                                    className={styles.profileSelect}
+                                />
+                            </div>
+                        </div>
+                        <div className={styles.profileGroup}>
                             <b className={styles.profileLabel}>Location</b>
-                            <Select 
+                            <Select
+                                value={location}
                                 options={locations}
                                 components={animatedComponents}
+                                onChange={value => setLocation(value)}
                                 styles={locationStyles}
                                 className={styles.profileSelect} />
                         </div>
@@ -311,24 +348,23 @@ const locationStyles = {
     };
   },
   control: (base, {isFocused}) => ({
-    ...base,
-    border: 'none',
-    // This line disable the blue border
-    boxShadow: 'none',
-    borderRadius: '4px',
-    borderBottom: '2px',
-    borderBottomStyle: 'solid',
-    borderBottomColor: '#14334a',
-    borderTop: '2px',
-    borderTopStyle: 'solid',
-    borderTopColor: '#14334a',
-    borderLeft: '2px',
-    borderLeftStyle: 'solid',
-    borderLeftColor: '#14334a',
-    borderRight: '2px',
-    borderRightStyle: 'solid',
-    borderRightColor: '#14334a',
-    cursor: 'pointer',
+      ...base,
+      border: 'none',
+      boxShadow: 'none',
+      borderRadius: '4px',
+      borderBottom: '2px',
+      borderBottomStyle: 'solid',
+      borderBottomColor: '#14334a',
+      borderTop: '2px',
+      borderTopStyle: 'solid',
+      borderTopColor: '#14334a',
+      borderLeft: '2px',
+      borderLeftStyle: 'solid',
+      borderLeftColor: '#14334a',
+      borderRight: '2px',
+      borderRightStyle: 'solid',
+      borderRightColor: '#14334a',
+      cursor: 'pointer',
     '&:hover': {
         border: '2px',
         boxShadow: 'none',

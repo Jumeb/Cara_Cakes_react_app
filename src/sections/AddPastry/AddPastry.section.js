@@ -131,7 +131,7 @@ const AddPastry = (props) => {
 
                 setTimeout(() => {
                     setIsOpen(false);
-                }, 4000);
+                }, 3000);
             }
 
             if (statusCode === 401) {
@@ -214,7 +214,7 @@ const AddPastry = (props) => {
                         placeholder="5"
                         type="file"
                         label="Image"
-                        value={image}
+                        // value={image}
                         name='pastryImage'
                         setValue={(event) => setImage(event.target.files)}
                         error={imageError}

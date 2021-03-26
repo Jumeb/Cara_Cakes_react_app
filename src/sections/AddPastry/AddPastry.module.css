@@ -1,6 +1,6 @@
 .secAddPastry {
     position: fixed;
-    z-index: 10;
+    z-index: 5;
     top: 0;
     left: 0;
     right: 0;
@@ -48,6 +48,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 5;
 }
 
 @media only screen and (max-width: 37.5em) {

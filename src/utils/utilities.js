@@ -20,3 +20,21 @@ export const DateString = (dateString) => {
 
     }
 }
+
+export const SetLocation = (location, options) => {
+    if(location){const filteredLocation = options.filter(value => {
+        return value.value.toLowerCase() === location.toLowerCase();
+    })
+    return filteredLocation;}
+}
+
+export const SetCategories = (categories, options) => {
+    let _categories = [];
+    categories.map((category, index) => {
+        let filtered = options.filter(value => {
+            return value.label.toLowerCase() === category.toLowerCase();
+        });
+        return _categories.push(filtered[0]);
+    });
+    return _categories;
+}

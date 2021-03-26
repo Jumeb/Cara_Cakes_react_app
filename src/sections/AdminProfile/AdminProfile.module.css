@@ -196,3 +196,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+.selectWidth {
+    max-width: 32rem;
+}

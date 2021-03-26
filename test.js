@@ -48,3 +48,35 @@ const filtered = Object.keys(objes)
   }, {});
 
 console.log(filtered);
+
+const objHel = [
+        { value: "North-West", label: "North-West" },
+        { value: "South-West", label: "South-West" },
+        { value: "West", label: "West" },
+        { value: "Center", label: "Center" },
+        { value: "Litoral", label: "Litoral" },
+        { value: "North", label: "North" },
+        { value: "East", label: "East" },
+        { value: "North-West", label: "North-West" },
+]
+
+const arr = ['South-West', 'West', 'Center'];
+    
+const filet = objHel.filter(value => {
+  return value.value === ('South-West' && 'Center');
+})
+
+let _categories = [];
+
+const categories = (categories, options) => {
+    categories.map((category, index) => {
+        let filtered = options.filter(value => {
+            return value.value === category;
+        });
+        return _categories.push(filtered[0]);
+    })
+}
+
+categories(arr, objHel);
+
+console.log(_categories);
