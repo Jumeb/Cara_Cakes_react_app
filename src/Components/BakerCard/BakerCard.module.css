@@ -1,7 +1,7 @@
 .bakerListImgContainer {
     width: 31.5rem;
     display: flex;
-    height: 36rem;
+    height: 50rem;
     border-radius: var(--border-radius-small);
     justify-content: center;
     flex-direction: column;
@@ -11,15 +11,15 @@
 }
 
 .bakerListImg {
-    height: 25rem;
-    width: 100%;
+    height: 40rem;
+    width: 31.5rem;
     margin: 0;
 }
 
 .bakerListImgLogoContainer {
     position: absolute;
     background-color: var(--color-white);
-    bottom: 6.5rem;
+    bottom: 6.3rem;
     right: 0.5rem;
     height: 3.5rem;
     border-radius: var(--border-radius-small);
