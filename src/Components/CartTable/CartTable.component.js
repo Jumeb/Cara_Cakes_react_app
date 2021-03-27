@@ -3,7 +3,7 @@ import { IoTrashBinSharp } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Notification } from '..';
+import { ActivityTwo, Notification } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import styles from './CartTable.module.css';
@@ -131,42 +131,46 @@ const CartTable = (props) => {
 
     return (
         <>
-            {Object.values(cart).map((pastries, index) => (
-                <div className={styles.cartSeparator} key={ index }>
-                    <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[index]} {_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[index]}`).pastryId.creator.suspend && <span className={styles.suspended}>Suspended, order at your own discretion.</span>}</h1>
-                    <table className={styles.cartTable}>
-                        <thead className={styles.cartTableHeader}>
-                            <td className={styles.cartTableHeadeData}>Product</td>
-                            <td className={styles.cartTableHeaderData}>Price</td>
-                            <td className={styles.cartTableHeaderData}>Quantity</td>
-                            <td className={styles.cartTableHeaderData}>Total</td>
-                        </thead>
+            {loading ? <div>
+                <ActivityTwo />
+            </div> : <>
+                {Object.values(cart).map((pastries, index) => (
+                    <div className={styles.cartSeparator} key={ index }>
+                        <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[index]} {_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[index]}`).pastryId.creator.suspend && <span className={styles.suspended}>Suspended, order at your own discretion.</span>}</h1>
+                        <table className={styles.cartTable}>
+                            <thead className={styles.cartTableHeader}>
+                                <td className={styles.cartTableHeadeData}>Product</td>
+                                <td className={styles.cartTableHeaderData}>Price</td>
+                                <td className={styles.cartTableHeaderData}>Quantity</td>
+                                <td className={styles.cartTableHeaderData}>Total</td>
+                            </thead>
 
-                    {pastries.map((pastry, index) => 
-                        <tr className={styles.cartTableRow} onClick={() => showDetail(pastry)} key={index}>
-                            <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                                <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt={pastry.pastryId.name} className={styles.cartTableDataImage} />
-                                <b>{pastry.pastryId.name}</b>
-                            </td>
-                            <td className={styles.cartTableData}>{Thousand(pastry.pastryId.price)}</td>
-                            <td className={styles.cartTableData}>{pastry.quantity} <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={(event) => Trash(event, pastry.pastryId._id)}><IoTrashBinSharp /></button></td>
-                            <td className={styles.cartTableData}>{Thousand(pastry.quantity * pastry.pastryId.price)}</td>
-                        </tr>
-                    )}
-                        <tr className={styles.cartTableRow}>
-                            <td colSpan="2" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
-                                <input type="text" placeholder="Coupon Code" className={styles.cartCouponInput} /> 
-                                <button className={styles.cartButton}>Apply</button>
-                            </td>
-                            <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
-                                <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Order</button>
-                            </td>
-                            <td colSpan="1" className={styles.cartTableData}>Total: {Thousand(Object.values(cart)[index].reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
-                        </tr>
-                    </table>
-                </div>
-            ))}
-            <Notification setShow={setShow} show={show} message={message} />
+                        {pastries.map((pastry, index) => 
+                            <tr className={styles.cartTableRow} onClick={() => showDetail(pastry)} key={index}>
+                                <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
+                                    <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt={pastry.pastryId.name} className={styles.cartTableDataImage} />
+                                    <b>{pastry.pastryId.name}</b>
+                                </td>
+                                <td className={styles.cartTableData}>{Thousand(pastry.pastryId.price)}</td>
+                                <td className={styles.cartTableData}>{pastry.quantity} <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={(event) => Trash(event, pastry.pastryId._id)}><IoTrashBinSharp /></button></td>
+                                <td className={styles.cartTableData}>{Thousand(pastry.quantity * pastry.pastryId.price)}</td>
+                            </tr>
+                        )}
+                            <tr className={styles.cartTableRow}>
+                                <td colSpan="2" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
+                                    <input type="text" placeholder="Coupon Code" className={styles.cartCouponInput} /> 
+                                    <button className={styles.cartButton}>Apply</button>
+                                </td>
+                                <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
+                                    <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Order</button>
+                                </td>
+                                <td colSpan="1" className={styles.cartTableData}>Total: {Thousand(Object.values(cart)[index].reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
+                            </tr>
+                        </table>
+                    </div>
+                ))}
+                <Notification setShow={setShow} show={show} message={message} />
+            </>}
         </>
     )
 }
