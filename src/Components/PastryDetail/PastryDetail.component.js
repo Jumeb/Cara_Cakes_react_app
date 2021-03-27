@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { IoAdd, IoBrush, IoClose, IoRemove, IoStatsChart, IoThumbsDown, IoThumbsUp, IoWallet } from 'react-icons/io5';
 import { connect } from 'react-redux';
-import { Notification } from '..';
+import { bindActionCreators } from 'redux';
 
+import { Notification } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import styles from './PastryDetail.module.css';
+import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const PastryDetail = (props) => {
     const {detail, setDetail, pastry, onClick, user} = props;
@@ -109,12 +111,17 @@ const PastryDetail = (props) => {
         })
     }
 
+    const Close = () => {
+        setDetail(false);
+        props.setRefresh(true);
+    }
 
     useEffect(() => {
         if(pastry.length !== 0) {
             setLikes(pastry.likes.users.length);
             setDislikes(pastry.dislikes.users.length);
         }
+        props.setRefresh(false);
         setCount(0);
     }, [detail]);
 
@@ -215,7 +222,7 @@ const PastryDetail = (props) => {
     return (
         <div className={detail ? styles.notifyBackdrop : styles.notifyNoBackdrop}>
             <div className={[styles.notifyContainer, detail ? styles.showContainer : styles.hideContainer].join(' ')}>
-                <button className={styles.closeButton} onClick={() => setDetail(false)}><IoClose /></button>
+                <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                 <div className={styles.pastryContainer}>
                     {pastry.discount > 0 && <div className={styles.pastryDiscount}><IoStatsChart /> Discount: {pastry.discount}%</div>}
                     <div className={styles.pastryName}>{pastry.name}</div>
@@ -259,5 +266,8 @@ const mapStateToProps = ({auth}) => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ setRefresh }, dispatch);
+};
 
-export default connect(mapStateToProps)(PastryDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(PastryDetail);
