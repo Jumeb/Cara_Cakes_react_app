@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import BakerList from './BakerList/Baker.list';
 import styles from './Baker.module.css'
-import { BakerDetails, PastryCard } from '../../../Components';
+import { BakerDetails } from '../../../Components';
 
 const BakerSection = (props) => {
     

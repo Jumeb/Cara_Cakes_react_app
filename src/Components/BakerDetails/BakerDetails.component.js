@@ -8,7 +8,8 @@ import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import { setBaker } from '../../redux/Actions/Auth.actions';
 import styles from './BakerDetails.module.css';
-import { cups1, vals3 } from '../../res/img';
+import { logo5, vals3 } from '../../res/img';
+import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const BakerDetails = (props) => {
     const { detail, setDetail, baker, user } = props;
@@ -26,12 +27,18 @@ const BakerDetails = (props) => {
             setDislikes(baker.dislikes.users.length);
             setFollowers(baker.followers.users.length);
         }
+        props.setRefresh(false);
         return () => {
             setLikes(0);
             setDislikes(0);
             setFollowers(0);
         }
     }, [detail]);
+
+    const Close = () => {
+        setDetail(false);
+        props.setRefresh(true);
+    }
 
 
     const disLikeBaker = (id) => {
@@ -136,12 +143,12 @@ const BakerDetails = (props) => {
             <div className={[styles.notifyContainer, detail ? styles.showContainer : styles.hideContainer].join(' ')}>
                 {baker.length !== 0 && 
                     <>
-                    <button className={styles.closeButton} onClick={() => setDetail(false)}><IoClose /></button>
+                    <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                     <div className={styles.bakerContainer}>
                         <div className={styles.pastryContainer}>
                             <div className={styles.pastryDiscount} onClick={() => followBaker(baker._id || '')}><IoPeople className={styles.icon} /> Followers: {Thousand(followers)}</div>
                             <img src={baker.ceoImage ? `${BASE_URL}/${baker.ceoImage}` : vals3} alt={baker.price} className={styles.pastryImage} />
-                            <div className={styles.pastryPrice}> </div>
+                            <div className={styles.pastryPrice}><img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : logo5} alt="Product" className={styles.bakerListImgLogo}/></div>
                             <div className={styles.pastryLikes} onClick={() => likeBaker(baker._id || '')}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
                             <div className={styles.pastryDislikes} onClick={() => disLikeBaker(baker._id || '')}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
                         </div>
@@ -169,7 +176,7 @@ const mapStateToProps = ({auth}) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({setBaker}, dispatch);
+    return bindActionCreators({setBaker, setRefresh}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BakerDetails);

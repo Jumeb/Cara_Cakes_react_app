@@ -172,15 +172,6 @@ const AdminProfile = (props) => {
                         title: 'Success',
                         message: 'Your profile has been updated'
                     });
-                    setName('');
-                    setCompany('');
-                    setMomoName('');
-                    setMomo('');
-                    setEmail('');
-                    setAbout('');
-                    setContact('');
-                    setLocation('');
-                    setAbout('');
                     props.setUser(response.baker);
                 }
 
