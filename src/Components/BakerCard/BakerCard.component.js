@@ -6,6 +6,7 @@ import { Button } from '..';
 import { logo5, vals3 } from '../../res/img';
 import styles from './BakerCard.module.css';
 import {setBaker} from '../../redux/Actions/Auth.actions';
+import { BASE_URL } from '../../utils/globalVariable';
 
 const BakerCard = (props) => {
     const {isDetail, setIsDetail, baker, _setBaker,} = props;
@@ -25,9 +26,9 @@ const BakerCard = (props) => {
                 <div className={styles.bakerListTitle}>
                     <h2>{baker.companyName}</h2>
                 </div>
-                <img src={vals3} alt={baker.name} className={styles.bakerListImg} />
+                <img src={baker.ceoImage ? `${BASE_URL}/${baker.ceoImage}` : vals3} alt={baker.name} className={styles.bakerListImg} />
                 <div className={styles.bakerListImgLogoContainer}>
-                    <img src={logo5} alt="Product" className={styles.bakerListImgLogo}/>
+                    <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : logo5} alt="Product" className={styles.bakerListImgLogo}/>
                 </div>
                 <div className={styles.bakersButtonContainer}>
                     <Button onClick={() => showDetail(baker)} title="Details" />

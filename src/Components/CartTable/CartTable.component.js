@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { IoTrashBinSharp } from 'react-icons/io5';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { Notification } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import styles from './CartTable.module.css';
-import { IoTrashBinSharp } from 'react-icons/io5';
+import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const CartTable = (props) => { 
-    const {isDetail, setIsDetail, setPastry, user} = props;
+    const {isDetail, setIsDetail, setPastry, user, refresh} = props;
 
     const showDetail = (pastry) => {
         setIsDetail(true);
@@ -20,6 +22,10 @@ const CartTable = (props) => {
     const [_user, setUser] = useState([]);
     const [message, setMessage] = useState({});
     const [cart, setCart] = useState({});
+
+    useEffect(() => {
+        props.setRefresh(false);
+    }, [isDetail])
 
     useEffect(() => {
         fetch(`${BASE_URL}/user/getcart/${user._id}`, {
@@ -75,7 +81,7 @@ const CartTable = (props) => {
             setMessage({});
             setCart({});
         }
-    }, [isDetail, loading]);
+    }, [refresh]);
 
     const Trash = (event, id) => {
         event.stopPropagation();
@@ -165,10 +171,15 @@ const CartTable = (props) => {
     )
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({auth, refresh}) => {
     return {
         user: auth.user,
+        refresh: refresh.refresh
     }
 }
 
-export default connect(mapStateToProps)(CartTable);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ setRefresh }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartTable);

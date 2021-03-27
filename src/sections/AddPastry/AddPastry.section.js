@@ -214,7 +214,6 @@ const AddPastry = (props) => {
                         placeholder="5"
                         type="file"
                         label="Image"
-                        // value={image}
                         name='pastryImage'
                         setValue={(event) => setImage(event.target.files)}
                         error={imageError}

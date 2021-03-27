@@ -42,6 +42,8 @@ import Verification from './Verification/Verification.component';
 import PastryDetail from './PastryDetail/PastryDetail.component';
 import PastryCart from './PastryCart/PastryCart.component';
 import BakerDetails from './BakerDetails/BakerDetails.component'
+import AdminImage from './AdminImage/AdminImage.component';
+import SquareImage from './SquareInput/SquareImg.component';
 
 export {
     Header, 
@@ -88,4 +90,6 @@ export {
     PastryDetail,
     PastryCart,
     BakerDetails,
+    AdminImage,
+    SquareImage,
 };

@@ -3,7 +3,7 @@ import { IoBrush } from 'react-icons/io5';
 import makeAnimated from 'react-select/animated';
 import Select from 'react-select';
 
-import { Button, Notification, SquareArea, SquareInput } from '../../Components';
+import { AdminImage, Button, Notification, SquareArea, SquareInput } from '../../Components';
 import { cups1, vals3 } from '../../res/img';
 import styles from './AdminProfile.module.css';
 import { connect } from 'react-redux';
@@ -53,7 +53,7 @@ const AdminProfile = (props) => {
     const [contactError, setContactError] = useState(false);
     const [locationError, setLocationError] = useState(false);
     const [aboutError, setAboutError] = useState(false);
-
+    const [isOpen, setIsOpen] = useState(false);
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState({});
     let Categories = [];
@@ -101,7 +101,7 @@ const AdminProfile = (props) => {
         let hasError = false;
         setLoading(true);
 
-        if (name.length < 6) {
+        if (name.length < 2) {
             setNameError(true);
             hasError = true;
         }
@@ -148,8 +148,6 @@ const AdminProfile = (props) => {
             location: location.value,
         }
 
-        console.log(body);
-
         fetch(`${BASE_URL}/baker/profile/${id}`, {
             method: 'PUT',
             headers: {
@@ -173,7 +171,16 @@ const AdminProfile = (props) => {
                     setMessage({
                         title: 'Success',
                         message: 'Your profile has been updated'
-                    })
+                    });
+                    setName('');
+                    setCompany('');
+                    setMomoName('');
+                    setMomo('');
+                    setEmail('');
+                    setAbout('');
+                    setContact('');
+                    setLocation('');
+                    setAbout('');
                     props.setUser(response.baker);
                 }
 
@@ -189,9 +196,9 @@ const AdminProfile = (props) => {
             <div className={styles.profileContainer}>
                 <div className={styles.profileInfo}>
                     <div className={styles.profileBoard}>
-                        <img src={cups1} alt={'Username'} className={styles.profileImg} />
-                        <img src={vals3} alt={'Username'} className={styles.profileLogo} />
-                        <button className={styles.profileEdit}><IoBrush className={styles.profileIcon} /></button>
+                        <img src={user.ceoImage ? `${BASE_URL}/${user.ceoImage}`  : cups1} alt={'Username'} className={styles.profileImg} />
+                        <img src={user.companyImage ? `${BASE_URL}/${user.companyImage}`  : cups1} alt={'Username'} className={styles.profileLogo} />
+                        <button className={styles.profileEdit} onClick={() => setIsOpen(true)}><IoBrush className={styles.profileIcon} /></button>
                     </div>
                     <div className={styles.profileCredentials}>
                         <h2 className={styles.profileName}>{name.substr(0, 15)} | {company.substr(0, 15) || 'House of Flavours'}</h2>
@@ -204,8 +211,8 @@ const AdminProfile = (props) => {
                             <b className={styles.profileSub}>Orders</b>
                         </div>
                         <div className={styles.profileNumber}>
-                            <h2 className={styles.profileTitle}>100</h2>
-                            <b className={styles.profileSub}>Ordered</b>
+                            <h2 className={styles.profileTitle}>{user.followers.users.length}</h2>
+                            <b className={styles.profileSub}>Followers</b>
                         </div>
                         <div className={styles.profileNumber}>
                             <h2 className={styles.profileTitle}>{user.categories.length}</h2>
@@ -321,6 +328,7 @@ const AdminProfile = (props) => {
                     </div>
                 </div>
             </div>
+            <AdminImage isOpen={isOpen} setIsOpen={setIsOpen} user={user} />
             <Notification setShow={setShow} show={show} message={message} />
         </div>
     )

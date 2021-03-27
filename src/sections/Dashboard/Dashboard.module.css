@@ -2,6 +2,25 @@
     width: 100%;
     margin-top: 8rem;
     padding: 0 1rem;
+    height: 87vh;
+    overflow: auto;
+}
+
+.dashboard::-webkit-scrollbar {
+    width: .4rem;
+    background-color: transparent;
+    border-radius: var(--border-radius-large);
+}
+
+.dashboard::-webkit-scrollbar-thumb {
+    width: .4rem;
+    background-color: rgba(var(--color-secondary-medium), 0.8);
+    border-radius: var(--border-radius-large);
+}
+
+.dashboard::-webkit-scrollbar-track {
+    background-color: var(--color-grey-light-3);
+    margin: 18rem 0;
 }
 
 .dashTitle {
@@ -44,5 +63,3 @@
     display: flex;
     flex-wrap: nowrap;
 }
-
-

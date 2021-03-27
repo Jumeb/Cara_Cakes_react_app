@@ -32,3 +32,36 @@
     font-weight: var(--font-weight-medium);
     color: var(--color-grey-dark-1);
 }
+
+.sqrImgFile {
+    font-size: var(--font-size-normal);
+    background-color: var(--color-primary);
+    border: none;
+    color: var(--color-white);
+    width: 11rem;
+    min-height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-small);
+    transition: box-shadow ease-in 0.3s;
+    cursor: pointer;
+}
+
+.sqrImgFile:hover {
+    box-shadow: var(--box-shadow-medium);
+}
+
+.sqrImg {
+    height: 15rem;
+    width: 20rem;
+    border-radius: var(--border-radius-small);
+}
+
+.sqrImgSpc {
+    height: 15rem;
+    width: 20rem;
+    margin: 0 auto;
+    border-radius: var(--border-radius-small);
+    border: 0.2rem solid var(--color-primary-light);
+}
