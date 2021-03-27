@@ -13,7 +13,8 @@ const PastryList = (props) => {
         setIsDetail, 
         setPastry,
         token,
-        bakerId
+        bakerId,
+        refresh,
     } = props;
 
     const [show, setShow] = useState(false);
@@ -91,11 +92,12 @@ const PastryList = (props) => {
     )
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({auth, refresh}) => {
     return {
         token: auth.token,
         user: auth.user,
-        bakerId: auth.bakerId
+        bakerId: auth.bakerId,
+        refresh: refresh.refresh,
     }
 }
 
