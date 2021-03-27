@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { BakerCard, Notification } from '../../../../Components';
+import { ActivityTwo, BakerCard, Notification } from '../../../../Components';
 import styles from './BakerList.module.css'
 import {BASE_URL} from '../../../../utils/globalVariable';
 import {setBakers} from '../../../../redux/Actions/Data.actions';
 
 const BakerList = (props) => {
-    const {isDetail, setIsDetail, token, setBaker, _baker} = props;
+    const {isDetail, setIsDetail, token, setBaker, refresh} = props;
 
     const [bakers, setBakers] = useState([]);
     const [message, setMessage] = useState({});
@@ -78,21 +78,24 @@ const BakerList = (props) => {
             setBakers([]);
         }
 
-    }, []);
+    }, [refresh]);
 
 
     return (
         <div className={styles.bakersList}>
-            {bakers.map((baker, index) => <BakerCard isDetail={isDetail} _setBaker={setBaker} setIsDetail={setIsDetail} baker={baker} key={index} {...props}/>)}
+            {loading ? <div>
+                <ActivityTwo />
+            </div> : bakers.map((baker, index) => <BakerCard isDetail={isDetail} _setBaker={setBaker} setIsDetail={setIsDetail} baker={baker} key={index} {...props}/>)}
             <Notification message={message} show={show} setShow={setShow} />
         </div>
     )
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({auth, refresh}) => {
     return {
         token: auth.token,
         user: auth.user,
+        refresh: refresh.refresh
     }
 }
 

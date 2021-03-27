@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Notification, PastryCard, PastryDetail } from '../../../../Components';
+import { ActivityTwo, Notification, PastryCard, PastryDetail } from '../../../../Components';
 import { BASE_URL } from '../../../../utils/globalVariable';
 import styles from './PastryList.module.css'
 import {setPastries} from '../../../../redux/Actions/Data.actions';
@@ -24,6 +24,7 @@ const PastryList = (props) => {
     const [pastries, setPastries] = useState([]);
 
     useEffect(() => {
+        setLoading(true);
         fetch(`${BASE_URL}/bakerpastries/${bakerId}`, {
             method: 'GET',
             headers: {
@@ -82,11 +83,13 @@ const PastryList = (props) => {
             setShow(false);
             setTotal(0);
         }
-    }, [])
+    }, [refresh])
 
     return (
         <div className={styles.pastriesList}>
-            {pastries.map((pastry, index) => <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} pastry={pastry} key={index} /> )}
+            {loading ? <div>
+                <ActivityTwo />
+            </div> : pastries.map((pastry, index) => <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} pastry={pastry} key={index} /> )}
             <Notification message={message} show={show} setShow={setShow} />
         </div>
     )

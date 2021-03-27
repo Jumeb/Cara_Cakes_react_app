@@ -106,6 +106,7 @@
     outline: none;
     border: none;
     /* border-radius: var(--border-radius-round); */
+    vertical-align: top;
 }
 
 .pastryDiscount {
@@ -119,6 +120,7 @@
     z-index: 5;
     text-align: center;
     color: var(--color-primary);
+    box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
 
     cursor: pointer;
@@ -143,7 +145,7 @@
 .pastryPrice {
     position: absolute;
     background-color: var(--color-white);
-    bottom: 1.3rem;
+    bottom: 1rem;
     right: 0.7rem;
     min-width: 10rem;
     padding: 0.4rem 0.5rem;
@@ -153,13 +155,14 @@
     display: flex;
     align-items: center;
     color: var(--color-primary);
+    box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
 }
 
 .pastryLikes {
     position: absolute;
     background-color: var(--color-white);
-    bottom: 1.3rem;
+    bottom: 1rem;
     left: 0.7rem;
     min-width: 7.3rem;
     padding: 0.4rem 0.5rem;
@@ -169,6 +172,7 @@
     display: flex;
     align-items: center;
     color: var(--color-primary);
+    box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
 
     cursor: pointer;
@@ -177,7 +181,7 @@
 .pastryDislikes {
     position: absolute;
     background-color: var(--color-white);
-    bottom: 1.3rem;
+    bottom: 1rem;
     left: 9rem;
     min-width: 8.5rem;
     padding: 0.4rem 0.5rem;
@@ -187,6 +191,7 @@
     display: flex;
     align-items: center;
     color: var(--color-primary);
+    box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
 
     cursor: pointer;
@@ -317,6 +322,7 @@
 }
 
 .info {
+    font-size: var(--font-size-normal);
     font-weight: var(--font-weight-normal);
     color: var(--color-grey-dark-1);
 }
@@ -343,7 +349,14 @@
     font-size: var(--font-size-normal);
     color: var(--color-grey-dark-1);
     font-weight: var(--font-weight-normal);
+    padding: 0 0.8rem;
     padding-bottom: 5rem;
-    line-height: 3rem;
+    line-height: 2.2rem;
     display: block;
+    text-align: justify;
+}
+
+.bakerListImgLogo {
+    height: 3.5rem;
+    border-radius: var(--border-radius-small);
 }

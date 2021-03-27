@@ -43,3 +43,62 @@
     justify-content: space-evenly;
     margin: 0.8rem 0;
 }
+
+.bakerDiscount {
+    position: absolute;
+    background-color: var(--color-white);
+    top: 5.7rem;
+    min-width: 10rem;
+    right: 0.7rem;
+    padding: 0.3rem 0.2rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    color: var(--color-primary);
+    box-shadow: var(--box-shadow-light);
+    font-size: var(--font-size-small);
+
+    cursor: pointer;
+}
+
+.bakerLikes {
+    position: absolute;
+    background-color: var(--color-white);
+    bottom: 6.3rem;
+    left: 0.7rem;
+    min-width: 7.3rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: var(--color-primary);
+    box-shadow: var(--box-shadow-light);
+    font-size: var(--font-size-small);
+
+    cursor: pointer;
+}
+
+.bakerDislikes {
+    position: absolute;
+    background-color: var(--color-white);
+    bottom: 6.3rem;
+    left: 9rem;
+    min-width: 8.5rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: var(--color-primary);
+    box-shadow: var(--box-shadow-light);
+    font-size: var(--font-size-small);
+
+    cursor: pointer;
+}
+
+.icon {
+    margin-right: 0.5rem;
+}

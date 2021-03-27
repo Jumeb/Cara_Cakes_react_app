@@ -167,7 +167,6 @@ const AdminProfile = (props) => {
                 setLoading(false);
 
                 if (statusCode === 200) {
-                    console.log(response.baker);
                     setShow(true);
                     setMessage({
                         title: 'Success',
