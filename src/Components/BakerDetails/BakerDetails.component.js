@@ -8,6 +8,7 @@ import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import { setBaker } from '../../redux/Actions/Auth.actions';
 import styles from './BakerDetails.module.css';
+import { cups1, vals3 } from '../../res/img';
 
 const BakerDetails = (props) => {
     const { detail, setDetail, baker, user } = props;
@@ -139,7 +140,7 @@ const BakerDetails = (props) => {
                     <div className={styles.bakerContainer}>
                         <div className={styles.pastryContainer}>
                             <div className={styles.pastryDiscount} onClick={() => followBaker(baker._id || '')}><IoPeople className={styles.icon} /> Followers: {Thousand(followers)}</div>
-                            <img src={`${BASE_URL}/${baker.image || ''}`} alt={baker.price} className={styles.pastryImage} />
+                            <img src={baker.ceoImage ? `${BASE_URL}/${baker.ceoImage}` : vals3} alt={baker.price} className={styles.pastryImage} />
                             <div className={styles.pastryPrice}> </div>
                             <div className={styles.pastryLikes} onClick={() => likeBaker(baker._id || '')}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
                             <div className={styles.pastryDislikes} onClick={() => disLikeBaker(baker._id || '')}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>

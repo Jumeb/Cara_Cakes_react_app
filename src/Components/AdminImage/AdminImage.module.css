@@ -1,0 +1,139 @@
+.notifyBackdrop {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--transparent-1);
+    backdrop-filter: blur(1rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: auto;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.notifyBackdrop::-webkit-scrollbar {
+    width: .4rem;
+    background-color: #242240bb;
+}
+
+.notifyBackdrop::-webkit-scrollbar-thumb {
+    width: .4rem;
+    background-color: var(--color-primary);
+    border-radius: 2rem;
+}
+
+.notifyBackdrop::-webkit-scrollbar-track {
+    background-color: transparent;
+    width: 0.2rem;
+}
+
+.notifyNoBackdrop {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--transparent-1);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s
+}
+
+
+.notifyContainer {
+    background-color: var(--color-white);
+    min-width: 55rem;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--box-shadow-heavier);
+    border-radius: var(--border-radius-small);
+    border: 0.3rem solid var(--color-primary-light);
+    z-index: 10;
+
+    transition: all ease-in-out 0.8s;
+}
+
+.closeButton {
+    position: absolute;
+    top: -2.5rem;
+    right: -2.5rem;
+    outline: none;
+    border: none;
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-medium);
+    border-radius: var(--border-radius-round);
+    box-shadow: var(--box-shadow-medium);
+    border: 0.2rem solid var(--color-primary-light);
+
+    cursor: pointer;
+}
+
+
+.showContainer {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+
+    transition: all ease-in-out 0.8s;
+}
+
+.hideContainer {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.25);
+    position: fixed;
+
+    transition: all ease-in-out 0.8s;
+}
+
+.profileInfo {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 5rem;
+}
+
+.profileBoard {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.profileImg {
+    height: 35rem;
+    width: 35rem;
+    border-radius: var(--border-radius-round);
+    border: 0.4rem solid var(--color-primary);
+    box-shadow: var(--box-shadow-heavy);
+}
+
+.profileLogo {
+    position: absolute;
+    height: 10rem;
+    width: 10rem;
+    border-radius: var(--border-radius-round);
+    border: 0.3rem solid var(--color-primary);
+    box-shadow: var(--box-shadow-medium);
+    left: 1rem;
+    background-color: var(--color-white);
+}
+
+.sqrButtons {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+}

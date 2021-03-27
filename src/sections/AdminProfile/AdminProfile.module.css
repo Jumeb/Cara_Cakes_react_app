@@ -24,8 +24,8 @@
 
 .profileContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .profileInfo {
@@ -33,7 +33,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 10rem;
 }
 
 .profileBoard {
@@ -57,6 +58,7 @@
     border: 0.3rem solid var(--color-primary);
     box-shadow: var(--box-shadow-medium);
     left: 1rem;
+    background-color: var(--color-white);
 }
 
 .profileEdit {

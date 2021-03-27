@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { IoAdd, IoBrush, IoClose, IoRemove, IoStatsChart, IoThumbsDown, IoThumbsUp, IoWallet } from 'react-icons/io5';
 import { connect } from 'react-redux';
-import { Notification } from '..';
+import { bindActionCreators } from 'redux';
 
+import { Notification } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import styles from './PastryCart.module.css';
+import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const PastryCart = (props) => {
     const { detail, setDetail, pastry, onClick, user } = props;
@@ -97,6 +99,11 @@ const PastryCart = (props) => {
                     message: 'Please check your internet connection.'
             });
         })
+    }
+
+    const Close = () => {
+        setDetail(false);
+        props.setRefresh(true);
     }
 
 
@@ -215,7 +222,7 @@ const PastryCart = (props) => {
             <div className={[styles.notifyContainer, detail ? styles.showContainer : styles.hideContainer].join(' ')}>
                 {pastry.length !== 0 && 
                 <>
-                    <button className={styles.closeButton} onClick={() => setDetail(false)}><IoClose /></button>
+                    <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                     <div className={styles.pastryContainer}>
                         {pastry.pastryId.discount > 0 && <div className={styles.pastryDiscount}><IoStatsChart /> Discount: {pastry.pastryId.discount || ''}%</div>}
                         <div className={styles.pastryName}>{pastry.pastryId.name || ''}</div>
@@ -252,5 +259,8 @@ const mapStateToProps = ({auth}) => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ setRefresh }, dispatch);
+}
 
-export default connect(mapStateToProps)(PastryCart);
+export default connect(mapStateToProps, mapDispatchToProps)(PastryCart);
