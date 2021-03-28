@@ -98,15 +98,16 @@ const CartTable = (props) => {
             const statusCode = res[0];
             const response = res[1];
             setLoading(false);
+            props.setRefresh(true);
 
-            if(statusCode === 200) {
+            if (statusCode === 200) {
                 setShow(true);
                 setMessage({
                     type: 'success',
                     message: `Pastry removed from cart`,
                     title: 'Success'
                 });
-
+                props.setRefresh(false);
             }
             if(statusCode === 422) {
                 setShow(true);

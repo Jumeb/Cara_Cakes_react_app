@@ -2,19 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { BakerTable, Notification} from '../../Components';
+import { ActivityTwo, BakerTable, Notification} from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Baker.module.css';
-import {setBakers} from '../../redux/Actions/Data.actions';
+import { setBakers } from '../../redux/Actions/Data.actions';
+import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const Bakers = (props) => {
-    const {user, token} = props;
+    const {user, token, refresh} = props;
 
     const [bakers, setBakers] = useState([]);
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false);
     const [total, setTotal] = useState(0);
+
+    useEffect(() => {
+        props.setRefresh(false);
+    }, []);
 
     useEffect(() => {
         setLoading(true);
@@ -32,6 +37,7 @@ const Bakers = (props) => {
         .then(res => {
             const statusCode = res[0];
             const response = res[1];
+            setLoading(false);
 
             if(statusCode === 200) {
                 setBakers(response.bakers);
@@ -66,7 +72,7 @@ const Bakers = (props) => {
                     message: 'Please check your internet connection.'
                 })
             })
-    }, []);
+    }, [refresh]);
 
     return(
        <div className={styles.bakerSection}>
@@ -80,21 +86,24 @@ const Bakers = (props) => {
                <button className={styles.bakerChoice}>Suspended</button>
                <button className={styles.bakerChoice}>Add Baker</button>
            </div>
-           <BakerTable bakers={bakers} token={token} />
+            {loading ? <div className={styles.activity}>
+                <ActivityTwo />
+               </div> : <BakerTable bakers={bakers} token={token} />}
            <Notification show={show} setShow={setShow} message={message} />
        </div>
     )
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({auth, refresh}) => {
     return {
         user: auth.user,
         token: auth.token,
+        refresh: refresh.refresh,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({setBakers}, dispatch);
+    return bindActionCreators({setBakers, setRefresh}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bakers);

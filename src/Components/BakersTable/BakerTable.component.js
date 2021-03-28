@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {IoTrashBinSharp } from 'react-icons/io5';
-import { Notification, Verification } from '..';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { Notification, Verification } from '..';
 import { pans2 } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './BakerTable.module.css';
+import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const BakerTable = (props) => { 
-    const {bakers, token} = props;
+    const {bakers, token, refresh} = props;
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
     const [verify, setVerify] = useState(false);
     const [message, setMessage] = useState({});
+
+    useEffect(() => {
+        props.setRefresh(false);
+    }, []);
 
     const Delete = (data) => {
         setVerify(true);
@@ -38,6 +45,7 @@ const BakerTable = (props) => {
         .then(res => {
             const statusCode = res[0];
             const response = res[1];
+            props.setRefresh(true);
 
             if (statusCode === 200) {
                 setMessage({
@@ -45,20 +53,19 @@ const BakerTable = (props) => {
                     title: 'Success',
                     message: response.message,
                 })
-
                 setTimeout(() => {
                     setVerify(false);
                 }, 2000)
             }
 
         })
-        .catch(err => {
-            setShow(true);
-            setMessage({
-                type: 'error',
-                title: 'Unexpected Error',
-                message: 'Please check your internet connection.',
-            })
+            .catch(err => {
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.',
+                })
         })
     }
 
@@ -77,6 +84,7 @@ const BakerTable = (props) => {
         .then(res => {
             const statusCode = res[0];
             const response = res[1];
+            props.setRefresh(true);
 
             if (statusCode === 200) {
                 setShow(true);
@@ -88,7 +96,7 @@ const BakerTable = (props) => {
             }
 
         })
-        .catch(err => {
+            .catch(err => {
             setShow(true);
             setMessage({
                 type: 'error',
@@ -113,6 +121,7 @@ const BakerTable = (props) => {
         .then(res => {
             const statusCode = res[0];
             const response = res[1];
+            props.setRefresh(true);
 
             if (statusCode === 200) {
                 setShow(true);
@@ -124,7 +133,7 @@ const BakerTable = (props) => {
             }
 
         })
-        .catch(err => {
+            .catch(err => {
             setShow(true);
             setMessage({
                 type: 'error',
@@ -149,7 +158,7 @@ const BakerTable = (props) => {
                     {bakers.map((baker, index) => 
                         <tr className={styles.cartTableRow}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                                <img src={pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
+                                <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
                                 <b>{baker.name}</b>
                             </td>
                             <td className={styles.cartTableData}>{baker.companyName}</td>
@@ -172,4 +181,14 @@ const BakerTable = (props) => {
     )
 }
 
-export default BakerTable;
+const mapStateToProps = ({auth, refresh}) => {
+    return {
+        refresh: refresh.refresh,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({setRefresh}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BakerTable);
