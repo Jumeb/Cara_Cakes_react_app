@@ -121,6 +121,7 @@ const CartTable = (props) => {
         })
         .catch(err => {
             console.log(err);
+            setLoading(false);
             setShow(true);
             setMessage({
                 type: 'error',
