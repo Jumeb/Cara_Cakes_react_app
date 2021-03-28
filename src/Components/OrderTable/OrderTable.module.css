@@ -1,5 +1,5 @@
 .orderTable {
-    width: 96%;
+    width: 95%;
     text-align: center;
     border-collapse: collapse;
     border-style: hidden;
@@ -12,6 +12,10 @@
     box-shadow: var(--box-shadow-medium);
 }
 
+.orderTable:not(:last-child) {
+    margin-bottom: 2.5rem;
+}
+
 .orderTableHeader,
 .orderTableHeaderData {
     background-color: var(--color-primary);
@@ -22,18 +26,18 @@
 
 .orderTableRow,
 .orderTableData {
-    font-size: 1.3rem;
+    font-size: var(--font-size-normal);
     padding: 0.3rem;
     border-bottom: 0.1rem solid var(--color-grey-light-3);
-    color: var(--color-grey-dark-1);
+    color: var(--color-primary);
 }
 
 .orderTableRow:nth-child(odd) {
-    background-color: var(--color-grey-light-2);
+    background-color: var(--color-grey-light-3);
 }
 
 .orderTableRow:hover {
-    background-color: var(--color-grey-light-3);
+    background-color: var(--color-grey-light-2);
 }
 
 .orderTableHeader,
@@ -45,7 +49,8 @@
 .orderListBaker {
     margin: 1.2rem 1.4rem;
     align-self: flex-start;
-    color: var(--color-grey-dark-1);
+    color: var(--color-primary);
+    font-size: var(--font-size-medium);
 }
 
 .orderCoupon {
@@ -105,9 +110,7 @@
     margin-bottom: 1rem;
     margin: 0 2rem;
     padding-bottom: 3rem;
-    border-bottom-style: dotted;
-    border-bottom-width: 0.2rem;
-    border-bottom-color: var(--color-primary);
+    border-bottom: 0.2rem solid var(--color-primary);
     display: flex;
     align-items: center;
     flex: 0 0 95%;
@@ -121,4 +124,12 @@
     flex-direction: column;
     margin-bottom: 3rem;
     flex: 0 0 95%;
+}
+
+.message {
+    width: 20rem;
+}
+
+.product {
+    width: 27rem;
 }
