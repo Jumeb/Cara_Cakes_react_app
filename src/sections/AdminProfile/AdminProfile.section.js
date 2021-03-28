@@ -178,6 +178,12 @@ const AdminProfile = (props) => {
             })
             .catch(err => {
                 console.log(err);
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.',
+                });
         })
 
     }
@@ -194,7 +200,7 @@ const AdminProfile = (props) => {
                     <div className={styles.profileCredentials}>
                         <h2 className={styles.profileName}>{name.substr(0, 15)} | {company.substr(0, 15) || 'House of Flavours'}</h2>
                         <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{contact || "'empty'"}</span> | <span className={styles.profileSubInfo} >{user.idCardNumber}</span> | <span className={styles.profileSubInfo} >{momoName.substr(0, 12) || "'empty'"}</span> </h3>
-                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{momo || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{location.value || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{email.substr(0, 12)}...</span> </h3>
+                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{momo || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{user.location || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{email.substr(0, 12)}...</span> </h3>
                     </div>
                     <div className={styles.profileStats}>
                         <div className={styles.profileNumber}>

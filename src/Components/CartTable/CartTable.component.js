@@ -10,7 +10,7 @@ import styles from './CartTable.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const CartTable = (props) => { 
-    const {isDetail, setIsDetail, setPastry, user, refresh} = props;
+    const {isDetail, setIsDetail, setPastry, user, refresh, token} = props;
 
     const showDetail = (pastry) => {
         setIsDetail(true);
@@ -130,6 +130,48 @@ const CartTable = (props) => {
         })
     }
 
+    const Order = (id) => {
+        setLoading(true);
+        fetch(`${BASE_URL}/create/order/${user._id}?baker=${id}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Basic ${token}`,
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                setLoading(false);
+
+                if (statusCode === 200) {
+                    console.log('here', response);
+                    setShow(true);
+                    setMessage({
+                        title: 'Success',
+                        message: response.message,
+                    });
+                    setTimeout(() => {
+                        props.setRefresh(true);                        
+                    }, 3000);
+                }
+            })
+            .catch(err => {
+                setLoading(false);
+                console.log(err);
+                setShow(true);
+                setMessage({
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.',
+                });
+        })
+    }
+
     return (
         <>
             {loading ? <div>
@@ -163,7 +205,7 @@ const CartTable = (props) => {
                                     <button className={styles.cartButton}>Apply</button>
                                 </td>
                                 <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
-                                    <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Order</button>
+                                    <button className={styles.cartButton} onClick={() => Order(_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[index]}`).pastryId.creator._id)}>Order</button>
                                 </td>
                                 <td colSpan="1" className={styles.cartTableData}>Total: {Thousand(Object.values(cart)[index].reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
                             </tr>
@@ -179,6 +221,7 @@ const CartTable = (props) => {
 const mapStateToProps = ({auth, refresh}) => {
     return {
         user: auth.user,
+        token: auth.token,
         refresh: refresh.refresh
     }
 }
