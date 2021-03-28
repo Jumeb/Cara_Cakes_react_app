@@ -1,10 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
 import { AOrderTable } from '../../Components';
+
 import styles from './Order.module.css';
-import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const Orders = () => {
     return(
@@ -25,16 +22,4 @@ const Orders = () => {
     )
 }
 
-const mapStateToProps = ({auth, refresh}) => {
-    return {
-        user: auth.user,
-        token: auth.token,
-        refresh: refresh.refresh,
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({setRefresh}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Orders);
+export default Orders;
