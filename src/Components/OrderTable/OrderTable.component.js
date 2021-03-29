@@ -10,7 +10,7 @@ import { ActivityTwo, Notification } from '..';
 import { Thousand } from '../../utils/utilities';
 
 const OrderTable = (props) => {
-    const { isDetail, setIsDetail, user, token } = props;
+    const { user, token, refresh } = props;
 
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState({});
@@ -19,6 +19,7 @@ const OrderTable = (props) => {
 
     useEffect(() => {
         setLoading(true);
+        props.setRefresh(false);
         fetch(`${BASE_URL}/user/getorders/${user._id}`, {
             method: 'GET',
             headers: {
@@ -67,7 +68,7 @@ const OrderTable = (props) => {
                     title: `Unexpected Error`,
                     message: `Please check your internet connection.`
                 });
-        })
+            })
 
         return () => {
             setLoading(false);
@@ -75,7 +76,49 @@ const OrderTable = (props) => {
             setOrders({});
             setMessage({});
         }
-    }, [])
+    }, [refresh]);
+
+    const Delivered = (id) => {
+        fetch(`${BASE_URL}/order/delivered/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Basic ${token}`,
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                setLoading(false);
+
+                if (statusCode === 200) {
+                    if (response.order.status === 'Delivered') {
+                        setShow(true);
+                        setMessage({
+                            title: 'Success',
+                            message: 'Order status updated.'
+                        });
+                        props.setRefresh(true);
+                    };
+                }
+
+            })
+            .catch(err => {
+                console.log(err);
+                setLoading(false);
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.',
+                });
+            })
+    };
     
     return (
         <>
@@ -108,7 +151,7 @@ const OrderTable = (props) => {
                                     <h3>Order Status: {order.status}</h3>
                                 </td>
                                 <td colSpan="1" className={[styles.orderTableData, styles.orderCoupon].join(' ')}>
-                                    {false && <button className={styles.orderButton} onClick={() => setIsDetail()} >Details</button>}
+                                    <button className={styles.orderButton} onClick={() => Delivered(order._id)} >Delivered!</button>
                                 </td>
                                 <td colSpan="1" className={styles.orderTableData}>Total: {Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
                             </tr>
@@ -121,12 +164,13 @@ const OrderTable = (props) => {
         </>
     )
 }
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({ auth, refresh }) => {
     return {
         token: auth.token,
         user: auth.user,
+        refresh: refresh.refresh
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ setRefresh }, dispatch);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { ActivityTwo, BakerTable, Notification} from '../../Components';
+import { ActivityTwo, BakerDetails, BakerTable, Notification} from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Baker.module.css';
 import { setBakers } from '../../redux/Actions/Data.actions';
@@ -16,10 +16,12 @@ const Bakers = (props) => {
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false);
     const [total, setTotal] = useState(0);
+    const [baker, setBaker] = useState([]);
+    const [detail, setDetail] = useState(false);
 
     useEffect(() => {
         props.setRefresh(false);
-    }, []);
+    }, [refresh]);
 
     useEffect(() => {
         setLoading(true);
@@ -71,7 +73,17 @@ const Bakers = (props) => {
                     title: 'Unexpected Error',
                     message: 'Please check your internet connection.'
                 })
-            })
+        })
+        
+        return () => {
+            setDetail(false);
+            setBakers([]);
+            setMessage({});
+            setShow(false);
+            setLoading(false);
+            setTotal(0);
+        }
+
     }, [refresh]);
 
     return(
@@ -88,8 +100,9 @@ const Bakers = (props) => {
            </div>
             {loading ? <div className={styles.activity}>
                 <ActivityTwo />
-               </div> : <BakerTable bakers={bakers} token={token} />}
+               </div> : <BakerTable bakers={bakers} token={token} setBaker={setBaker} setDetail={setDetail} />}
            <Notification show={show} setShow={setShow} message={message} />
+            <BakerDetails detail={detail} setDetail={setDetail} baker={baker} />
        </div>
     )
 }

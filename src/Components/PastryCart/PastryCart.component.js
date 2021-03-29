@@ -10,7 +10,7 @@ import styles from './PastryCart.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const PastryCart = (props) => {
-    const { detail, setDetail, pastry, onClick, user } = props;
+    const { detail, setDetail, pastry, user, refresh } = props;
     
     const [loading, setLoading] = useState(false);
     const [likes, setLikes] = useState(0);
@@ -18,47 +18,52 @@ const PastryCart = (props) => {
     const [count, setCount] = useState(0);
     const [show, setShow] = useState(false);
     const [pastryMessage, setPastryMessage] = useState('');
-    const [message, setMessage] = useState(false);
+    const [message, setMessage] = useState({});
+
+    useEffect(() => {
+        props.setRefresh(false);
+    }, [refresh]);
 
     const AddToCart = (id) => {
         setLoading(true);
         fetch(`${BASE_URL}/user/addToCart/${id}?user=${user._id}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1];
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                setLoading(false);
 
-            if(statusCode === 200) {
-                setCount(count + 1);
-                console.log(response);
-            }
+                if (statusCode === 200) {
+                    setCount(count + 1);
+                    console.log(response);
+                    props.setRefresh(true);
+                }
 
-            if(statusCode === 422) {
+                if (statusCode === 422) {
+                    setShow(true);
+                    setMessage({
+                        type: 'error',
+                        message: `${pastry.name} not added to cart.`,
+                        title: 'Failed'
+                    });
+                }
+
+            })
+            .catch(err => {
                 setShow(true);
                 setMessage({
                     type: 'error',
-                    message: `${pastry.name} not added to cart.`,
-                    title: 'Failed'
-                });
-            }
-
-        })
-        .catch(err => {
-            setShow(true);
-            setMessage({
-                type: 'error',
-                title: 'Unexpected Error',
+                    title: 'Unexpected Error',
                     message: 'Please check your internet connection.'
-            });
-        })
-    }
+                });
+            })
+    };
 
     const SubFromCart = (id) => {
         setLoading(true);
@@ -68,43 +73,43 @@ const PastryCart = (props) => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1];
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                setLoading(false);
 
-            if(statusCode === 200) {
-                setCount(count - 1);
-            }
+                if (statusCode === 200) {
+                    setCount(count - 1);
+                    props.setRefresh(true);
+                }
 
-            if(statusCode === 422) {
+                if (statusCode === 422) {
+                    setShow(true);
+                    setMessage({
+                        type: 'error',
+                        message: `${pastry.name} not added to cart.`,
+                        title: 'Failed'
+                    });
+                }
+            })
+            .catch(err => {
                 setShow(true);
                 setMessage({
                     type: 'error',
-                    message: `${pastry.name} not added to cart.`,
-                    title: 'Failed'
-                });
-            }
-        })
-        .catch(err => {
-            setShow(true);
-            setMessage({
-                type: 'error',
-                title: 'Unexpected Error',
+                    title: 'Unexpected Error',
                     message: 'Please check your internet connection.'
-            });
-        })
-    }
+                });
+            })
+    };
 
     const Close = () => {
         setDetail(false);
-        props.setRefresh(true);
-    }
+    };
 
 
     useEffect(() => {
@@ -119,6 +124,9 @@ const PastryCart = (props) => {
             setDislikes(0);
             setPastryMessage('');
             setCount(0);
+            setShow(false);
+            setMessage({});
+            setLoading(false);
         }
     }, [detail]);
 
@@ -127,95 +135,98 @@ const PastryCart = (props) => {
         fetch(`${BASE_URL}/user/message/${id}?user=${user._id}&message=${pastryMessage}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1];
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                setLoading(false);
 
-            if (statusCode === 200) {
-               setShow(true);
-                setMessage({
-                    type: 'success',
-                    message: `${pastryMessage} added for pastry.`,
-                    title: 'Success'
-                });
-            }
+                if (statusCode === 200) {
+                    setShow(true);
+                    setMessage({
+                        type: 'success',
+                        message: `${pastryMessage} added for pastry.`,
+                        title: 'Success'
+                    });
+                    props.setRefresh(true);
+                }
 
-            if (statusCode === 500) {
-                console.log('error');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
+                if (statusCode === 500) {
+                    console.log('error');
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    };
 
     const disLikePastry = (id) => {
         setLoading(true);
         fetch(`${BASE_URL}/pastry/dislike/${id}?user=${user._id}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].response;
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1].response;
+                setLoading(false);
 
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
+                if (statusCode === 200) {
+                    setLikes(response.likes.users.length);
+                    setDislikes(response.dislikes.users.length);
+                    props.setRefresh(true);
+                }
 
-            if (statusCode === 500) {
-                console.log('error');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
+                if (statusCode === 500) {
+                    console.log('error');
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    };
 
     const likePastry = (id) => {
         setLoading(true);
         fetch(`${BASE_URL}/pastry/like/${id}?user=${user._id}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].response;
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1].response;
+                setLoading(false);
 
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
+                if (statusCode === 200) {
+                    setLikes(response.likes.users.length);
+                    setDislikes(response.dislikes.users.length);
+                    props.setRefresh(true);
+                }
 
-            if (statusCode === 404) {
-                console.log(response)
-            }
+                if (statusCode === 404) {
+                    console.log(response)
+                }
 
-            if (statusCode === 500) {
-                console.log('error 500');
-            }
-        })
-        .catch(err => {
-            console.log(err, 'ksjdkfljlsjf');
-        })
-    }
+                if (statusCode === 500) {
+                    console.log('error 500');
+                }
+            })
+            .catch(err => {
+                console.log(err, 'ksjdkfljlsjf');
+            })
+    };
 
     return (
         <div className={detail ? styles.notifyBackdrop : styles.notifyNoBackdrop}>
@@ -253,11 +264,12 @@ const PastryCart = (props) => {
     )
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({ auth, refresh }) => {
     return {
         user: auth.user,
+        refresh: refresh.refresh,
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ setRefresh }, dispatch);

@@ -19,7 +19,7 @@ const BakerList = (props) => {
     useEffect(() => {
         // setBaker([1,2]);
         setLoading(true);
-        setIsDetail(false);
+        // setIsDetail(false);
         fetch(`${BASE_URL}/bakers`, {
             method: 'GET',
             headers: {

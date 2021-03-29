@@ -12,14 +12,12 @@ import { logo5, vals3 } from '../../res/img';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const BakerDetails = (props) => {
-    const { detail, setDetail, baker, user } = props;
+    const { detail, setDetail, baker, user, refresh } = props;
     
     const [loading, setLoading] = useState(false);
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
     const [followers, setFollowers] = useState(0);
-    const [show, setShow] = useState(false);
-    const [message, setMessage] = useState(false);
 
     useEffect(() => {
         if (baker.length !== 0) {
@@ -27,7 +25,6 @@ const BakerDetails = (props) => {
             setDislikes(baker.dislikes.users.length);
             setFollowers(baker.followers.users.length);
         }
-        props.setRefresh(false);
         return () => {
             setLikes(0);
             setDislikes(0);
@@ -35,10 +32,22 @@ const BakerDetails = (props) => {
         }
     }, [detail]);
 
+    useEffect(() => {
+        return () => {
+            setLoading(false);
+            setLikes(0);
+            setDislikes(0);
+            setFollowers(0);
+        }
+    }, []);
+
+    useEffect(() => {
+        props.setRefresh(false);
+    }, [refresh]);
+
     const Close = () => {
         setDetail(false);
-        props.setRefresh(true);
-    }
+    };
 
 
     const disLikeBaker = (id) => {
@@ -59,6 +68,7 @@ const BakerDetails = (props) => {
             if (statusCode === 200) {
                 setLikes(response.likes.users.length);
                 setDislikes(response.dislikes.users.length);
+                props.setRefresh(true);
             }
 
             if (statusCode === 500) {
@@ -87,6 +97,7 @@ const BakerDetails = (props) => {
             if (statusCode === 200) {
                 setLikes(response.likes.users.length);
                 setDislikes(response.dislikes.users.length);
+                props.setRefresh(true);
             }
 
             if (statusCode === 404) {
@@ -118,6 +129,7 @@ const BakerDetails = (props) => {
             setLoading(false);
             if (statusCode === 200) {
                 setFollowers(response.followers.users.length);
+                props.setRefresh(true);
             }
 
             if (statusCode === 404) {
@@ -154,12 +166,27 @@ const BakerDetails = (props) => {
                         </div>
                         <div className={styles.bakerDetails}>
                             <h1 className={styles.bakerCompany}>{baker.companyName}</h1>
-                            <b className={styles.bakerCEO}>CEO: <span className={styles.info}>{baker.name}</span></b>
-                            <h2 className={styles.subTitle}>About</h2>
-                            <b className={styles.bakerAbout}>{baker.about || 'empty'}</b>
+                            <div className={styles.bakerDetailsScroll}>
+                                <b className={styles.bakerCEO}>CEO: <span className={styles.info}>{baker.name}</span></b>
+                                <h2 className={styles.subTitle}>Categories</h2>
+                                <ol className={styles.bakerCategories}>
+                                    {baker.categories.map((category, index) => <li>{category}</li>)}
+                                </ol>
+                                {user.type === 'Baker' &&
+                                    <>
+                                        <h2 className={styles.smallDetails}>Email: <span className={styles.info}>{baker.email}</span></h2>
+                                        <h2 className={styles.smallDetails}>Telephone: <span className={styles.info}>{baker.telNumber}</span></h2>
+                                        <h2 className={styles.smallDetails}>ID No: <span className={styles.info}>{baker.idCardNumber}</span></h2>
+                                        <h2 className={styles.smallDetails}>Location: <span className={styles.info}>{baker.location}</span></h2>
+                                        <h2 className={styles.smallDetails}>MoMO Number: <span className={styles.info}>{baker.momp}</span></h2>
+                                        <h2 className={styles.smallDetails}>MOMO Name : <span className={styles.info}>{baker.momoName}</span></h2>
+                                    </>
+                                }
+                                <h2 className={styles.subTitle}>About</h2>
+                                <b className={styles.bakerAbout}>{baker.about || 'empty'}</b>
+                            </div>
                             <div className={styles.actions}>
-                                {user.type === 'Admin' && <Button title='Delete' danger={true} onClick={() => console.log('haha')} />}
-                                <Button title='Shop' onClick={() => bakerShop(baker._id)} />
+                                {user.type !== ('Baker' || 'Admin') && <Button title='Shop' onClick={() => bakerShop(baker._id)} />}
                             </div>
                         </div>
                     </div>
@@ -169,11 +196,12 @@ const BakerDetails = (props) => {
     )
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({ auth, refresh }) => {
     return {
         user: auth.user,
+        refresh: refresh.refresh,
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({setBaker, setRefresh}, dispatch);

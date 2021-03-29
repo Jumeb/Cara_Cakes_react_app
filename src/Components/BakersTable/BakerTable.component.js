@@ -10,7 +10,7 @@ import styles from './BakerTable.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const BakerTable = (props) => { 
-    const {bakers, token, refresh} = props;
+    const {bakers, token, refresh, setDetail, setBaker} = props;
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
     const [verify, setVerify] = useState(false);
@@ -19,6 +19,11 @@ const BakerTable = (props) => {
     useEffect(() => {
         props.setRefresh(false);
     }, []);
+
+    const ShowDetails = (baker) => {
+        setBaker(baker);
+        setDetail(true);
+    }
 
     const Delete = (data) => {
         setVerify(true);
@@ -168,7 +173,7 @@ const BakerTable = (props) => {
                             <td className={styles.cartTableData}>
                                 <button className={[styles.cartButton, styles.suspend].join(' ')} onClick={() => Suspend(baker._id)}>{baker.suspend ? 'Unsuspend' : 'Suspend'}</button>
                                 <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => Verify(baker._id)}>{baker.verify ? 'Unverify' : 'Verify'}</button>
-                                <button className={[styles.cartButton, styles.details].join(' ')} onClick={() => console.log('Ordered')}>Details</button>
+                                <button className={[styles.cartButton, styles.details].join(' ')} onClick={() => ShowDetails(baker)}>Details</button>
                                 <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => Delete(baker)}><IoTrashBinSharp /></button>
                             </td>
                         </tr>
