@@ -44,6 +44,7 @@ import PastryCart from './PastryCart/PastryCart.component';
 import BakerDetails from './BakerDetails/BakerDetails.component'
 import AdminImage from './AdminImage/AdminImage.component';
 import SquareImage from './SquareInput/SquareImg.component';
+import SOrdersTable from './SOrdersTable/OrderTable.component';
 
 export {
     Header, 
@@ -92,4 +93,5 @@ export {
     BakerDetails,
     AdminImage,
     SquareImage,
+    SOrdersTable,
 };

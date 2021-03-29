@@ -80,3 +80,7 @@ const categories = (categories, options) => {
 categories(arr, objHel);
 
 console.log(_categories);
+
+const fullDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+console.log(fullDay[new Date().getDay()])

@@ -71,7 +71,9 @@ const OrderTable = (props) => {
 
         return () => {
             setLoading(false);
-            
+            setShow(false);
+            setOrders({});
+            setMessage({});
         }
     }, [])
     

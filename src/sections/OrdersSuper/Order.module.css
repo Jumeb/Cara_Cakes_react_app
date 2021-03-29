@@ -64,3 +64,8 @@
 .bakerChoice:first-child {
     background-color: var(--color-success-medium);
 }
+
+.activity {
+    display: flex;
+    justify-content: center;
+}

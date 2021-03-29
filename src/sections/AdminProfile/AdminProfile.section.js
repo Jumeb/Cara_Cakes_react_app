@@ -185,7 +185,6 @@ const AdminProfile = (props) => {
                     message: 'Please check your internet connection.',
                 });
         })
-
     }
 
     return (
@@ -204,7 +203,7 @@ const AdminProfile = (props) => {
                     </div>
                     <div className={styles.profileStats}>
                         <div className={styles.profileNumber}>
-                            <h2 className={styles.profileTitle}>{user.orders}</h2>
+                            <h2 className={styles.profileTitle}>{user.orders.ordered.length}</h2>
                             <b className={styles.profileSub}>Orders</b>
                         </div>
                         <div className={styles.profileNumber}>

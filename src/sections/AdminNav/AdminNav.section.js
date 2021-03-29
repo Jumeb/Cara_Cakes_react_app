@@ -40,6 +40,11 @@ const AdminNav = () => {
                         </NavLink>
                     </li>
                     <li className={styles.panelSideNavItem}>
+                        <NavLink to="/admin/dashboard/orders-super" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                           <span className={styles.panelSideNavIcon}><IoArchive /></span><span>Orders Super</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.panelSideNavItem}>
                             <NavLink to="/admin/dashboard/pastry" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
                                 <span className={styles.panelSideNavIcon}><IoGift /></span><span>Pastries</span>
                             </NavLink>
