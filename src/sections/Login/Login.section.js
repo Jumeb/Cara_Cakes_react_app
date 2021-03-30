@@ -211,7 +211,7 @@ const LoginSection = (props) => {
             <div className={styles.loginForm}>
                 <div className={styles.form}>
                     <Input 
-                        placeholder="Email or ID Number"
+                        placeholder="Email or ID Number(Baker)"
                         label="Email or ID Number"
                         len={3}
                         type="text"
