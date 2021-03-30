@@ -14,7 +14,7 @@ const SampleCard = ({ pastry, index }) => {
                     <img src={pastry && `${BASE_URL}/${pastry.image}`} alt={'name'} className={styles.cardImage} />
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                    <h5 className={[styles.cardHeading, index === 1 ? styles.cardHeading1 : index === 2 ? styles.cardHeading2 : styles.cardHeading3].join(' ')}>{pastry && pastry.name.substr(0, 20)}...</h5>
+                    <h5 className={[styles.cardHeading, index === 1 ? styles.cardHeading1 : index === 2 ? styles.cardHeading2 : styles.cardHeading3].join(' ')}>{pastry && pastry.name.substr(0, 20)}{pastry && pastry.name.length >= 20 && '...'}</h5>
                     <ul className={[styles.cardList, index === 1 ? styles.cardList1 : index === 2 ? styles.cardList2 : styles.cardList3].join(' ')}>
                         <li>Company: {pastry && pastry.creator.companyName}</li>
                         <li>CEO: {pastry && pastry.creator.name}</li>
