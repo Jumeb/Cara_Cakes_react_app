@@ -231,8 +231,8 @@ const RegisterSection = (props) => {
                         <div className={styles.formGroup}>
                             {type === "Client" && (
                                 <>
-                                    <LinkOne link="/login" title="Login" />
                                     <ButtonOne title={loading ? 'Creating...' : "Register"} onClick={() => authenticate()} loading={loading} />
+                                    <LinkOne link="/login" title="Login" />
                                 </>
                             )}
                             {type === "Baker" && <ButtonOne title="Next" onClick={() => nextPage()} />}

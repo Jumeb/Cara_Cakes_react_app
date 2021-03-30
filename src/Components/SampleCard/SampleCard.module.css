@@ -52,7 +52,7 @@
 
 .cardPic1 {
     background-image: linear-gradient(to right, rgba(var(--color-secondary-light), 0.7), rgba(var(--color-secondary-medium), 0.8)),
-    url(../../res/img/cups-2.jpg);
+        url(../../res/img/cups-2.jpg);
     background-position: top;
     background-size: cover;
 }
