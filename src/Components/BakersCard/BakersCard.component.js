@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './BakersCard.module.css'
 import {pans1} from '../../res/img';
 import { NavLink } from 'react-router-dom';
+import { BASE_URL } from '../../utils/globalVariable';
 
 const BakersCard = (props) => {
     const {baker} = props;
@@ -11,11 +12,11 @@ const BakersCard = (props) => {
             <div className={styles.bakerInfo}>
                 <h3 className={styles.lilTitle}>The Founder</h3>
                 <p>
-                    I really loved baking from when I was really young, because my mum did a lot of baking. Growing up I used to supply power to my mum in the mixing and checking. Now I am used to it and I did a lot of experimenting.
+                    {baker.about ? baker.about.substr(0, 220) : "'empty'"}...
                 </p>
                 <div className={styles.bakerInfoPic}>
                     <div className={styles.bakerInfoPicRound}>
-                        <img src={pans1} alt="Founder" className={styles.bakerInfoImg} />
+                        <img src={baker.ceoImage ? `${BASE_URL}/${baker.ceoImage}` : pans1} alt="Founder" className={styles.bakerInfoImg} />
                     </div>
                     <NavLink to="/hlloe"
                         className={styles.bakerInfoName}>{baker.name}</NavLink>

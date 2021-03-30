@@ -6,6 +6,13 @@
     --color-secondary-light: 33, 83, 121;
     --color-secondary-medium: 70, 147, 205;
 
+    --color-mix-1: 74, 20, 51;
+    --color-mix-11: 121, 33, 83;
+    --color-mix-12: 205, 70, 147;
+    --color-mix-2: 51, 74, 20;
+    --color-mix-21: 83, 121, 33;
+    --color-mix-22: 147, 205, 70;
+
     --color-white: #fff;
 
     --color-grey-light-1: #F1F2F2;
@@ -191,4 +198,3 @@ p:not(:last-child) {
         padding: 0 1.8rem;
     }
 }
-

@@ -83,4 +83,10 @@ console.log(_categories);
 
 const fullDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-console.log(fullDay[new Date().getDay()])
+console.log(fullDay[new Date().getDay()]);
+
+const strong = 'I really loved baking from when I was really young, because my mum did a lot of baking. Growing up I used to supply power to my mum in the mixing and checking. Now I am used to it and I did a lot of experimenting.';
+
+console.log(strong.length);
+
+console.log(Math.floor(Math.random() * 14))

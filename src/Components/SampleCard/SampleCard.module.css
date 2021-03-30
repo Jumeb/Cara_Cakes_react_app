@@ -36,11 +36,11 @@
 }
 
 .cardViewBack2 {
-    background-image: linear-gradient(to right bottom, red, darkred);
+    background-image: linear-gradient(to right bottom, rgb(var(--color-mix-1)), rgb(var(--color-mix-11)));
 }
 
 .cardViewBack3 {
-    background-image: linear-gradient(to right bottom, #a0522d, #8b4513);
+    background-image: linear-gradient(to right bottom, rgb(var(--color-mix-2)), rgb(var(--color-mix-21)));
 }
 
 .cardPic {
@@ -51,22 +51,26 @@
 }
 
 .cardPic1 {
-    background-image: linear-gradient(to right, rgba(var(--color-secondary-light), 0.7), rgba(var(--color-secondary-medium), 0.8)),
-        url(../../res/img/cups-2.jpg);
+    background-image: linear-gradient(to right, rgba(var(--color-secondary-light), 0.7), rgba(var(--color-secondary-medium), 0.8));
     background-position: top;
     background-size: cover;
 }
 
 .cardPic2 {
-    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.8), rgba(139, 0, 0, 0.9)), url(../../res/img/chris-1.jpg);
+    background-image: linear-gradient(to right, rgba(var(--color-mix-11), 0.8), rgba(var(--color-mix-12), 0.9));
     background-position: top;
     background-size: cover;
 }
 
 .cardPic3 {
-    background-image: linear-gradient(to right, rgba(160, 82, 45, 0.7), rgba(139, 69, 19, 0.8)), url(../../res/img/bds-3.jpg);
+    background-image: linear-gradient(to right, rgba(var(--color-mix-21), 0.7), rgba(var(--color-mix-22), 0.8));
     background-position: top;
     background-size: cover;
+}
+
+.cardImage {
+    height: 25rem;
+    width: 100%;
 }
 
 .cardList {
@@ -90,7 +94,7 @@
 }
 
 .cardList2 li:not(:last-child) {
-    border-bottom: 0.2rem solid rgba(139, 0, 0, 0.7);
+    border-bottom: 0.2rem solid rgba(var(--color-mix-1), 0.7);
 }
 
 .cardList3 li {
@@ -98,7 +102,7 @@
 }
 
 .cardList3 li:not(:last-child) {
-    border-bottom: 0.2rem solid rgba(139, 69, 19, 0.7);
+    border-bottom: 0.2rem solid rgba(var(--color-mix-2), 0.7);
 }
 
 .cardJust {
@@ -138,7 +142,7 @@
 }
 
 .cardHeading2 {
-    background-image: linear-gradient(to right, darkred, red);
+    background-image: linear-gradient(to right, rgb(var(--color-mix-1)), rgb(var(--color-mix-12)));
     -webkit-background-clip: text;
     background-clip: text;
     background-clip: text;
@@ -146,7 +150,7 @@
 }
 
 .cardHeading3 {
-    background-image: linear-gradient(to right, #8b4513, #a0522d);
+    background-image: linear-gradient(to right, rgb(var(--color-mix-2)), rgb(var(--color-mix-22)));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

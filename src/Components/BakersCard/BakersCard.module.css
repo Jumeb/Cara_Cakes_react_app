@@ -1,10 +1,14 @@
 .bakerContainer {
-    flex: 0 0 calc((100% - (3 * 4rem)) / 4);
+    width: 28rem;
     text-align: center;
+    height: 35rem !important;
+    margin: 1rem 1.5rem;
+    position: relative;
 }
 
 .bakerInfo {
     width: 100%;
+    height: 100%;
     box-shadow: var(--box-shadow-medium);
     padding: 1rem .9rem;
     -moz-hyphens: auto;
@@ -12,6 +16,7 @@
     -webkit-hyphens: auto;
     hyphens: auto;
     text-align: center;
+    position: relative;
 }
 
 .bakerInfo::after {
@@ -56,9 +61,12 @@
 }
 
 .bakerInfoPic {
-    margin: -5rem 0;
+    bottom: -4rem;
     padding: 1rem 0;
-    position: relative;
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    align-items: center;
 }
 
 .bakerInfoPicRound {
@@ -67,6 +75,7 @@
     border-radius: var(--border-radius-round);
     box-shadow: var(--box-shadow-heavy);
     overflow: hidden;
+    z-index: 10;
 }
 
 .bakerInfoImg {
@@ -78,15 +87,12 @@
 }
 
 .bakerInfoName {
-    width: 50%;
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-medium);
     color: var(--color-primary);
+    transform: translateX(-70%);
     opacity: 0;
-    position: absolute;
-    transform: translate(-50%, -250%);
-    transition: all .4s;
-    text-align: left;
+    transition: all ease-in-out 0.5s;
 }
 
 @media only screen and (max-width: 67.5em) {
@@ -99,7 +105,7 @@
 @media only screen and (max-width: 56.25em),
 only screen and (hover: none) {
     .bakerInfoName {
-        transform: translate(80%, -190%);
+        transform: translateX(80%);
         opacity: 1;
     }
 }
@@ -111,7 +117,7 @@ only screen and (hover: none) {
 }
 
 .bakerInfo:hover .bakerInfoName {
-    transform: translateY(-250%) translateX(-30%);
+    transform: translateX(15%);
     opacity: 1;
 }
 
@@ -130,5 +136,6 @@ only screen and (hover: none) {
     color: transparent;
     font-weight: var(--font-weight-medium);
     padding: 2rem 0;
+    padding-bottom: 0rem;
     text-align: center;
 }
