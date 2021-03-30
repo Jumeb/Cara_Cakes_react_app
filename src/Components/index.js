@@ -46,6 +46,7 @@ import AdminImage from './AdminImage/AdminImage.component';
 import SquareImage from './SquareInput/SquareImg.component';
 import SOrdersTable from './SOrdersTable/OrderTable.component';
 import UserDetails from './UserDetails/UserDetails.component';
+import OrderDetails from './OrderDetails/OrderDetails.component';
 
 export {
     Header, 
@@ -96,4 +97,5 @@ export {
     SquareImage,
     SOrdersTable,
     UserDetails,
+    OrderDetails,
 };

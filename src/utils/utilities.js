@@ -10,6 +10,12 @@ export const Thousand = (num) => {
   return num_parts.join('.');
 };
 
+export const HNumber = (num) => {
+  var num_parts = num.toString().split('.');
+  num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '-');
+  return num_parts.join('.');
+};
+
 export const DateString = (dateString) => {
     const myDate = new Date(dateString);
     if (myDate.getDate().toString() === new Date().getDate().toString()) {

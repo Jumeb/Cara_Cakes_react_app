@@ -7,10 +7,10 @@ import { DateString, Thousand } from '../../utils/utilities';
 import styles from './OrderTable.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 import { BASE_URL } from '../../utils/globalVariable';
-import { Notification } from '..';
+import { Notification, OrderDetails } from '..';
 
 const OrderTable = (props) => { 
-    const { orders, token, refresh } = props;
+    const { orders, token, refresh, setDetail, setOrder } = props;
 
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
@@ -67,6 +67,11 @@ const OrderTable = (props) => {
             })
     };
 
+    const OrderDetails = (order) => {
+        setOrder(order);
+        setDetail(true);
+    }
+
 
     return (
             <div className={styles.cartSeparator}>
@@ -89,7 +94,7 @@ const OrderTable = (props) => {
                             <td className={styles.cartTableData}>
                                 <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
                                 <button className={styles.cartButton} onClick={() => IncStatus(order._id)}>Inc Status</button>
-                                <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
+                                <button className={styles.cartButton} onClick={() => OrderDetails(order)}>Details</button>
                             </td>
                         </tr>
                     )}

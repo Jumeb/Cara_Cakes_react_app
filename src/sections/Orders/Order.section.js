@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { ActivityTwo, AOrderTable } from '../../Components';
+import { ActivityTwo, AOrderTable, OrderDetails } from '../../Components';
 import styles from './Order.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 import { BASE_URL } from '../../utils/globalVariable';
@@ -14,6 +14,8 @@ const Orders = (props) => {
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState({});
     const [orders, setOrders] = useState([]);
+    const [order, setOrder] = useState([]);
+    const [detail, setDetail] = useState(false);
 
     useEffect(() => {
         fetch(`${BASE_URL}/baker/getorders/${user._id}`, {
@@ -88,7 +90,8 @@ const Orders = (props) => {
            </div>
            {loading ? <div className={styles.activity}>
                 <ActivityTwo />
-               </div> :<AOrderTable orders={orders} token={token} />}
+            </div> : <AOrderTable orders={orders} token={token} setDetail={setDetail} setOrder={setOrder} />}
+            <OrderDetails detail={detail} setDetail={setDetail} order={order} />
        </div>
     )
 }

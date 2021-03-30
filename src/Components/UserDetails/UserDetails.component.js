@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import { Button, Notification } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
-import { Thousand } from '../../utils/utilities';
+import { Thousand, HNumber } from '../../utils/utilities';
 import { setBaker } from '../../redux/Actions/Auth.actions';
 import styles from './UserDetails.module.css';
 import { logo5, vals3 } from '../../res/img';
@@ -112,32 +112,34 @@ const UserDetails = (props) => {
                     <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                     <div className={styles.bakerContainer}>
                         <div className={styles.pastryContainer}>
+                            <div className={styles.pastryDiscount}> {HNumber(_user.telNumber)}</div>
+                            <div className={styles.pastryName}>{_user.name || ''}</div>
                             <img src={_user.ceoImage ? `${BASE_URL}/${_user.ceoImage}` : vals3} alt={_user.price} className={styles.pastryImage} />
                             <div className={styles.pastryLikes} onClick={() => likeBaker(_user._id || '')}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
                             <div className={styles.pastryDislikes} onClick={() => disLikeBaker(_user._id || '')}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
                         </div>
-                        <div className={styles.bakerDetails}>
+                        {/* <div className={styles.bakerDetails}>
                             <h1 className={styles.bakerCompany}>{_user.name}</h1>
                             <div className={styles.bakerDetailsScroll}>
-                                {/* <b className={styles.bakerCEO}>N: <span className={styles.info}>{_user.name}</span></b> */}
-                                {/* <h2 className={styles.subTitle}>Categories</h2> */}
+                                <b className={styles.bakerCEO}>N: <span className={styles.info}>{_user.name}</span></b>
+                                <h2 className={styles.subTitle}>Categories</h2>
                                 {user.type === 'Baker' &&
                                     <>
                                         <h2 className={styles.smallDetails}>Email: <span className={styles.info}>{_user.email}</span></h2>
                                         <h2 className={styles.smallDetails}>Telephone: <span className={styles.info}>{_user.telNumber}</span></h2>
-                                        {/* <h2 className={styles.smallDetails}>ID No: <span className={styles.info}>{_user.idCardNumber}</span></h2> */}
-                                        {/* <h2 className={styles.smallDetails}>Location: <span className={styles.info}>{_user.location}</span></h2>
-                                        <h2 className={styles.smallDetails}>MoMO Number: <span className={styles.info}>{_user.momp}</span></h2> */}
-                                        {/* <h2 className={styles.smallDetails}>MOMO Name : <span className={styles.info}>{_user.momoName}</span></h2> */}
+                                        <h2 className={styles.smallDetails}>ID No: <span className={styles.info}>{_user.idCardNumber}</span></h2>
+                                        <h2 className={styles.smallDetails}>Location: <span className={styles.info}>{_user.location}</span></h2>
+                                        <h2 className={styles.smallDetails}>MoMO Number: <span className={styles.info}>{_user.momp}</span></h2>
+                                        <h2 className={styles.smallDetails}>MOMO Name : <span className={styles.info}>{_user.momoName}</span></h2>
                                     </>
                                 }
-                                {/* <h2 className={styles.subTitle}>About</h2>
-                                <b className={styles.bakerAbout}>{_user.about || 'empty'}</b> */}
+                                <h2 className={styles.subTitle}>About</h2>
+                                <b className={styles.bakerAbout}>{_user.about || 'empty'}</b>
                             </div>
                             <div className={styles.actions}>
                                 {user.type !== ('Baker' || 'Admin') && <Button title='Shop' onClick={() => bakerShop(_user._id)} />}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </>}
             </div>

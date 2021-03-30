@@ -44,40 +44,65 @@
 
 
 .notifyContainer {
-    background-color: var(--color-white);
-    /* min-width: 47rem; */
-    text-align: center;
     position: relative;
+    background-color: var(--color-white);
+    width: 67rem;
+    max-height: 63rem;
+    text-align: center;
     box-shadow: var(--box-shadow-heavier);
     border-radius: var(--border-radius-small);
     border: 0.3rem solid var(--color-primary-light);
     z-index: 10;
 
     transition: all ease-in-out 0.8s;
+    overflow: auto;
+
+}
+
+.pastriesScroll {
+    max-height: 60rem;
+    overflow: auto;
+}
+
+.pastriesScroll::-webkit-scrollbar {
+    width: .4rem;
+    background-color: transparent;
+    border-radius: var(--border-radius-large);
+}
+
+.pastriesScroll::-webkit-scrollbar-thumb {
+    width: .4rem;
+    background-color: rgba(var(--color-secondary-medium), 0.8);
+    border-radius: var(--border-radius-large);
+}
+
+.pastriesScroll::-webkit-scrollbar-track {
+    background-color: var(--color-grey-light-3);
+    margin: 18rem 0;
 }
 
 .closeButton {
-    position: absolute;
-    top: -2.5rem;
-    right: -2.5rem;
+    position: fixed;
+    bottom: 0;
     outline: none;
     border: none;
-    height: 5rem;
-    width: 5rem;
+    width: 100%;
     display: flex;
-    z-index: 10;
+    z-index: 20;
     justify-content: center;
     align-items: center;
     font-size: var(--font-size-medium);
-    border-radius: var(--border-radius-round);
-    box-shadow: var(--box-shadow-medium);
-    border: 0.2rem solid var(--color-primary-light);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    /* border-radius: var(--border-radius-small); */
+    background-color: var(--color-white);
+    padding: 1.2rem 0.5rem;
 
     cursor: pointer;
 }
 
 
-.showContainer {
+.notifyContainer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -97,22 +122,33 @@
 
 .pastryContainer {
     position: relative;
-    flex: 0 0 100%;
+    width: 60rem;
+    margin: 2rem auto;
+}
+
+.pastryContainer:last-child {
+    margin-bottom: 6rem;
+}
+
+.pastryContainer:first-child {
+    margin-top: 6rem;
 }
 
 .pastryImage {
-    height: 50rem;
-    width: 40rem;
+    height: 35rem;
+    width: 60rem;
     outline: none;
     border: none;
-    /* border-radius: var(--border-radius-round); */
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
+    border: 0.2rem solid var(--color-primary-light);
     vertical-align: top;
 }
 
 .pastryDiscount {
     position: absolute;
     background-color: var(--color-white);
-    top: 1.1rem;
+    top: 1.2rem;
     min-width: 10rem;
     left: 1rem;
     padding: 0.3rem 0.2rem;
@@ -124,6 +160,19 @@
     font-size: var(--font-size-small);
 
     cursor: pointer;
+}
+
+.clientName {
+    position: fixed;
+    background-color: var(--color-white);
+    width: 100%;
+    padding: 1rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    z-index: 6;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
 }
 
 .pastryName {
@@ -145,8 +194,8 @@
 .pastryPrice {
     position: absolute;
     background-color: var(--color-white);
-    bottom: 1rem;
-    right: 0.7rem;
+    bottom: 5.5rem;
+    right: 1rem;
     min-width: 10rem;
     padding: 0.4rem 0.5rem;
     border-radius: var(--border-radius-small);
@@ -193,6 +242,26 @@
     color: var(--color-primary);
     box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
+
+    cursor: pointer;
+}
+
+.pastryMessage2 {
+    position: absolute;
+    background-color: var(--color-white);
+    bottom: 1rem;
+    right: 1rem;
+    /* transform: translateX(-50%); */
+    min-width: 10rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: var(--color-primary);
+    box-shadow: var(--box-shadow-light);
+    font-size: var(--font-size-normal);
 
     cursor: pointer;
 }
