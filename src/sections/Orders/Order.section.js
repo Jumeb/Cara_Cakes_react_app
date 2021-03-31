@@ -5,10 +5,11 @@ import { bindActionCreators } from 'redux';
 import { ActivityTwo, AOrderTable, OrderDetails } from '../../Components';
 import styles from './Order.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
+import { setOrders } from '../../redux/Actions/Data.actions';
 import { BASE_URL } from '../../utils/globalVariable';
 
 const Orders = (props) => {
-    const { user, token, refresh } = props;
+    const { user, token, refresh, _orders } = props;
 
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
@@ -16,6 +17,7 @@ const Orders = (props) => {
     const [orders, setOrders] = useState([]);
     const [order, setOrder] = useState([]);
     const [detail, setDetail] = useState(false);
+    const [active, setActive] = useState(0);
 
     useEffect(() => {
         fetch(`${BASE_URL}/baker/getorders/${user._id}`, {
@@ -37,6 +39,7 @@ const Orders = (props) => {
 
                 if (statusCode === 200) {
                     setOrders(response.orders);
+                    props.setOrders(response.orders);
                 }
 
                 if (statusCode === 404) {
@@ -75,18 +78,31 @@ const Orders = (props) => {
         }
     }, [refresh]);
 
+    const setFilter = (index, type) => {
+        setActive(index);
+        console.log(_orders, 'Hahah');
+
+        if (type !== 'all') {
+            let _order = _orders.filter(data => data.status === type);
+            setOrders(_order);
+        }
+        if (type === 'all') {
+            setOrders(_orders);
+        }
+    }
+
     return(
        <div className={styles.bakerSection}>
            <div className={styles.bakerLength}>
                <h2 className={styles.bakerLengthTitle}>{orders.length} Order{orders.length !== 1 && 's'}</h2>
            </div>
            <div className={styles.bakerCat}>
-               <button className={styles.bakerChoice}>All Orders</button>
-               <button className={styles.bakerChoice}>New</button>
-               <button className={styles.bakerChoice}>Registered</button>
-               <button className={styles.bakerChoice}>Processing</button>
-               <button className={styles.bakerChoice}>On the Way</button>
-               <button className={styles.bakerChoice}>Delivered</button>
+               <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')} onClick={() => setFilter(0, 'all')}>All Orders</button>
+               <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')} onClick={() => setFilter(1, 'New')}>New</button>
+               <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')} onClick={() => setFilter(2, 'Registered')}>Registered</button>
+               <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'Processing')}>Processing</button>
+               <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')} onClick={() => setFilter(4, 'On the Way')}>On the Way</button>
+               <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')} onClick={() => setFilter(5, 'Delivered')}>Delivered</button>
            </div>
            {loading ? <div className={styles.activity}>
                 <ActivityTwo />
@@ -96,16 +112,17 @@ const Orders = (props) => {
     )
 }
 
-const mapStateToProps = ({auth, refresh}) => {
+const mapStateToProps = ({auth, refresh, data}) => {
     return {
         user: auth.user,
         token: auth.token,
         refresh: refresh.refresh,
+        _orders: data.orders,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({setRefresh}, dispatch);
+    return bindActionCreators({ setRefresh, setOrders }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Orders);

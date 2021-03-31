@@ -242,8 +242,23 @@
     color: var(--color-primary);
     box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
+}
 
-    cursor: pointer;
+.pastryQty {
+    position: absolute;
+    background-color: var(--color-white);
+    bottom: 1rem;
+    left: 18.5rem;
+    min-width: 8.5rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: var(--color-primary);
+    box-shadow: var(--box-shadow-light);
+    font-size: var(--font-size-small);
 }
 
 .pastryMessage2 {
@@ -342,13 +357,13 @@
 
 }
 
-.pastryQty {
+/* .pastryQty {
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-normal);
     margin: 0.5rem;
     min-width: 8rem;
     color: var(--color-primary-light);
-}
+} */
 
 .pastryMessage {
     outline: none;

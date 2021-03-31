@@ -22,7 +22,6 @@ const OrderDetails = (props) => {
 
     useEffect(() => {
         props.setRefresh(false);
-        console.log(order)
         return () => {
             setLikes(0);
             setDislikes(0);
@@ -32,73 +31,6 @@ const OrderDetails = (props) => {
     const Close = () => {
         setDetail(false);
         // props.setRefresh(true);
-    }
-
-
-    const disLikeBaker = (id) => {
-        setLoading(true);
-        fetch(`${BASE_URL}/baker/dislike/${id}?user=${user._id}`, {
-            method: 'POST',
-        })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].baker;
-            setLoading(false);
-
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
-
-            if (statusCode === 500) {
-                console.log('error');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
-
-    const likeBaker = (id) => {
-        setLoading(true);
-        fetch(`${BASE_URL}/baker/like/${id}?user=${user._id}`, {
-            method: 'POST',
-        })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].baker;
-            setLoading(false);
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
-
-            if (statusCode === 404) {
-                console.log(response)
-            }
-
-            if (statusCode === 500) {
-                console.log('error 500');
-            }
-        })
-        .catch(err => {
-            console.log(err, 'ksjdkfljlsjf');
-        })
-    }
-
-    const bakerShop = (bakerId) => {
-        props.setBaker(bakerId);
-        props.history.push({pathname: '/user/shop/pastries'})
     }
 
     return (
@@ -115,8 +47,9 @@ const OrderDetails = (props) => {
                                 <div className={styles.pastryName}>{pastry.pastryId.name}</div>
                                 <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt={'pastry.price'} className={styles.pastryImage} />
                                 <div className={styles.pastryPrice}><IoWallet className={styles.icon} /> Price:{ Thousand(pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : pastry.pastryId.price * pastry.quantity) }XAF</div>
-                                <div className={styles.pastryLikes}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
-                                <div className={styles.pastryDislikes}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
+                                <div className={styles.pastryLikes}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(pastry.pastryId.likes.users.length)}</div>
+                                <div className={styles.pastryDislikes}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(pastry.pastryId.dislikes.users.length)}</div>
+                                <div className={styles.pastryQty}><IoThumbsDown className={styles.icon} /> Quantity: {pastry.quantity}</div>
                                 <div className={styles.pastryMessage2}><IoBrush className={styles.icon} /> Message: {pastry.message || "'empty'"}</div>
                             </div>
                         </>)}

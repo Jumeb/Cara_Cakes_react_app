@@ -70,7 +70,6 @@ const Pastry = (props) => {
             setPastries(_pastries);
         }
         if (type === 'all') {
-            console.log(pastry);
             setPastries(pastry);
         }
     }
@@ -78,7 +77,7 @@ const Pastry = (props) => {
     return(
        <div className={styles.bakerSection}>
            <div className={styles.bakerLength}>
-               <h2 className={styles.bakerLengthTitle}>{total} {(total === 0 || total > 1) ? 'Pastries' : 'Pastry'}</h2>
+               <h2 className={styles.bakerLengthTitle}>{pastries.length} {(pastries.length === 0 || pastries.length > 1) ? 'Pastries' : 'Pastry'}</h2>
            </div>
            <div className={styles.bakerScroll}>
                 <div className={styles.bakerCat}>

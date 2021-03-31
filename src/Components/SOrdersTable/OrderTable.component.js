@@ -7,7 +7,13 @@ import { DateString, Thousand } from '../../utils/utilities';
 import styles from './OrderTable.module.css';
 
 const OrderTable = (props) => { 
-    const {orders, token} = props;
+    const { orders, token, setOrder, setDetail } = props;
+
+    const OrderDetails = (order) => {
+        setOrder(order);
+        setDetail(true);
+    }
+
     return (
             <div className={styles.cartSeparator}>
                 <table className={styles.cartTable}>
@@ -30,7 +36,7 @@ const OrderTable = (props) => {
                             <td className={styles.cartTableData}>{Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
                             <td className={styles.cartTableData}>{DateString(order.createdAt)}</td>
                             <td className={styles.cartTableData}>
-                                <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => console.log('Haha')}>Details</button>
+                                <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => OrderDetails(order)}>Details</button>
                                 <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => console.log('Haha')}><IoTrashBinSharp /></button>
                             </td>
                         </tr>

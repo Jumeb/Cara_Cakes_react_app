@@ -1,10 +1,11 @@
-import { SET_BAKERS, SET_PASTRIES, SET_USERS } from "../types"
+import { SET_BAKERS, SET_ORDERS, SET_PASTRIES, SET_USERS } from "../types"
 
 
 const INITIAL_STATE = {
     pastries: [],
     bakers: [],
     users: [],
+    orders: [],
 }
 
 const DataReducer = (state = INITIAL_STATE, action) => {
@@ -17,7 +18,10 @@ const DataReducer = (state = INITIAL_STATE, action) => {
             return {...state, bakers};
         case SET_USERS:
             const users = action.payload;
-            return {...state, users};
+            return { ...state, users };
+        case SET_ORDERS:
+            const orders = action.payload;
+            return { ...state, orders };
         default:
             return state;
     }

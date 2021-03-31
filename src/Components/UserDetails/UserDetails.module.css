@@ -102,9 +102,11 @@
 
 .pastryImage {
     height: 50rem;
-    width: 40rem;
+    width: 65rem;
     outline: none;
     border: none;
+    background-position: center;
+    background-size: contain;
     /* border-radius: var(--border-radius-round); */
     vertical-align: top;
 }
@@ -297,7 +299,7 @@
 
 .bakerContainer {
     /* width: 70rem; */
-    width: 40rem;
+    width: 65rem;
     display: flex;
     flex-direction: row;
 
