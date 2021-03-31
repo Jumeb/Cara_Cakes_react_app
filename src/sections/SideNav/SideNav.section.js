@@ -5,6 +5,7 @@ import {
     IoCard, 
     IoCart, 
     IoLogOut, 
+    IoPerson, 
     IoStatsChart 
 } from 'react-icons/io5';
 
@@ -36,6 +37,11 @@ const SideNav = (props) => {
                 <li className={styles.panelSideNavItem}>
                     <NavLink to="/user/orders" className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
                         <span className={styles.panelSideNavIcon}><IoStatsChart /></span><span className={isDetail ? styles.isDetailText : ''}> Orders</span>
+                    </NavLink>
+                </li>
+                <li className={styles.panelSideNavItem}>
+                    <NavLink to="/user" exact className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
+                        <span className={styles.panelSideNavIcon}><IoPerson /></span><span className={isDetail ? styles.isDetailText : ''}> Profile</span>
                     </NavLink>
                 </li>
                 <li className={styles.panelSideNavItem}>

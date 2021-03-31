@@ -25,19 +25,19 @@ export const DateString = (dateString) => {
         return 'Yesterday';
     }
     if (myDate.getDate().toString() === (Number(new Date().getDate()) - 2).toString()) {
-        return fullDay[myDate.getDate()];
+        return fullDay[myDate.getDay()];
     }
     if (myDate.getDate().toString() === (Number(new Date().getDate()) - 3).toString()) {
-        return fullDay[myDate.getDate()];
+        return fullDay[myDate.getDay()];
     }
     if (myDate.getDate().toString() === (Number(new Date().getDate()) - 4).toString()) {
-        return fullDay[myDate.getDate()];
+        return fullDay[myDate.getDay()];
     }
     if (myDate.getDate().toString() === (Number(new Date().getDate()) - 5).toString()) {
-        return fullDay[myDate.getDate()];
+        return fullDay[myDate.getDay()];
     }
     if (myDate.getDate().toString() === (Number(new Date().getDate()) - 6).toString()) {
-        return fullDay[myDate.getDate()];
+        return fullDay[myDate.getDay()];
     } else {
         return day[myDate.getDay()] + ', ' + myDate.getDate() + month[myDate.getMonth()] + ', ' + myDate.getFullYear();
 

@@ -44,11 +44,11 @@ const Baker = (props) => {
     return (
         <section className={styles.secDescription} id="stry">
             <h2 className={styles.title}>
-                Our team of expert bakers
+                Our top expert bakers
             </h2>
             <div className={styles.dashScroll}>
                 <div className={styles.dashContainer}>
-                    {bakers.map((baker, index) => <BakersCard baker={baker} key={index} />)}
+                    {bakers.map((baker, index) => ((index <= 9) && <BakersCard baker={baker} key={index} />))}
                 </div>
             </div>
         </section>

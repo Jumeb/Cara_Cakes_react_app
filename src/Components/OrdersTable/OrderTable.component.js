@@ -8,6 +8,7 @@ import styles from './OrderTable.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Notification, OrderDetails } from '..';
+import { IoTrashBinSharp } from 'react-icons/io5';
 
 const OrderTable = (props) => { 
     const { orders, token, refresh, setDetail, setOrder } = props;
@@ -77,7 +78,7 @@ const OrderTable = (props) => {
             <div className={styles.cartSeparator}>
                 <table className={styles.cartTable}>
                     <thead className={styles.cartTableHeader}>
-                        <td className={styles.cartTableHeadeData}>Client Name</td>
+                        <td className={styles.cartTableHeaderData}>Client Name</td>
                         <td className={styles.cartTableHeaderData}>Suspended</td>
                         <td className={styles.cartTableHeaderData}>Status</td>
                         <td className={styles.cartTableHeaderData}>Total</td>
@@ -86,15 +87,18 @@ const OrderTable = (props) => {
                     </thead>
                     {orders.map((order, index) => 
                         <tr className={styles.cartTableRow}>
-                            <td className={styles.cartTableData}><b>{order.userId.name}</b></td>
+                            <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
+                                <img src={order.userId.image ? `${BASE_URL}/${order.userId.image}` : pans2} alt={order.userId.name} className={styles.cartTableDataImage} />
+                                <b>{order.userId.name.substr(0, 15)}</b>
+                            </td>
                             <td className={styles.cartTableData}>{order.userId.suspend ? "True" : "False"}</td>
                             <td className={styles.cartTableData}>{order.status}</td>
                             <td className={styles.cartTableData}>{Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
                             <td className={styles.cartTableData}>{DateString(order.createdAt)}</td>
                             <td className={styles.cartTableData}>
-                                <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
-                                <button className={styles.cartButton} onClick={() => IncStatus(order._id)}>Inc Status</button>
-                                <button className={styles.cartButton} onClick={() => OrderDetails(order)}>Details</button>
+                                <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => IncStatus(order._id)}>Inc Status</button>
+                                <button className={[styles.cartButton, styles.details].join(' ')} onClick={() => OrderDetails(order)}>Details</button>
+                                <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => console.log('Haha')}><IoTrashBinSharp /></button>
                             </td>
                         </tr>
                     )}

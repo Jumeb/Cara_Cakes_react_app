@@ -7,6 +7,7 @@ import { Notification, Verification } from '..';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 import { pans2 } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
+import { HNumber } from '../../utils/utilities';
 import styles from './UserTable.module.css';
 
 const UserTable = (props) => {
@@ -139,11 +140,11 @@ const UserTable = (props) => {
                     {users.map((user, index) =>
                         <tr className={styles.cartTableRow}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                                <img src={pans2} alt={user.name} className={styles.cartTableDataImage} />
-                                <b>{user.name}</b>
+                                <img src={user.image ? `${BASE_URL}/${user.image}` : pans2} alt={user.name} className={styles.cartTableDataImage} />
+                                <b>{user.name.substr(0, 15)}</b>
                             </td>
-                            <td className={styles.cartTableData}>{user.telNumber}</td>
-                            <td className={styles.cartTableData}>{user.ordered || 0}</td>
+                            <td className={styles.cartTableData}>{HNumber(user.telNumber)}</td>
+                            <td className={styles.cartTableData}>{user.orders.ordered.length || 0}</td>
                             <td className={styles.cartTableData}>{user.suspend ? 'True' : 'False'}</td>
                             <td className={styles.cartTableData}>
                                 <button className={[styles.cartButton, styles.suspend].join(' ')} onClick={() => Suspend(user._id)}>{user.suspend ? 'Unsuspend' : 'Suspend'}</button>

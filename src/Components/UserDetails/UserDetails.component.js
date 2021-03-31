@@ -114,7 +114,7 @@ const UserDetails = (props) => {
                         <div className={styles.pastryContainer}>
                             <div className={styles.pastryDiscount}> {HNumber(_user.telNumber)}</div>
                             <div className={styles.pastryName}>{_user.name || ''}</div>
-                            <img src={_user.ceoImage ? `${BASE_URL}/${_user.ceoImage}` : vals3} alt={_user.price} className={styles.pastryImage} />
+                            <img src={_user.image ? `${BASE_URL}/${_user.image}` : vals3} alt={_user.price} className={styles.pastryImage} />
                             <div className={styles.pastryLikes} onClick={() => likeBaker(_user._id || '')}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
                             <div className={styles.pastryDislikes} onClick={() => disLikeBaker(_user._id || '')}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
                         </div>

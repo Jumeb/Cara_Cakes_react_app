@@ -1,6 +1,8 @@
 import React from 'react';
+import { IoTrashBinSharp } from 'react-icons/io5';
 
 import { pans2 } from '../../res/img';
+import { BASE_URL } from '../../utils/globalVariable';
 import { DateString, Thousand } from '../../utils/utilities';
 import styles from './OrderTable.module.css';
 
@@ -19,15 +21,17 @@ const OrderTable = (props) => {
                     </thead>
                     {orders.map((order, index) => 
                         <tr className={styles.cartTableRow}>
-                            <td className={styles.cartTableData}><b>{order.userId.name}</b></td>
+                            <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
+                                <img src={order.userId.image ? `${BASE_URL}/${order.userId.image}` : pans2} alt={order.userId.name} className={styles.cartTableDataImage} />
+                                <b>{order.userId.name.substr(0, 15)}</b>
+                            </td>
                             <td className={styles.cartTableData}>{order.bakerId.companyName}</td>
                             <td className={styles.cartTableData}>{order.status}</td>
                             <td className={styles.cartTableData}>{Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
                             <td className={styles.cartTableData}>{DateString(order.createdAt)}</td>
                             <td className={styles.cartTableData}>
-                                <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
-                                <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Inc Status</button>
-                                <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
+                                <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => console.log('Haha')}>Details</button>
+                                <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => console.log('Haha')}><IoTrashBinSharp /></button>
                             </td>
                         </tr>
                     )}

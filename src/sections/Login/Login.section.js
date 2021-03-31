@@ -151,7 +151,7 @@ const LoginSection = (props) => {
                 if(res[0] === 200) {
                     props.setUser(responseJson.user);
                     props.setToken(responseJson.token);
-                    props.history.push({pathname: '/user'});
+                    props.history.push({pathname: '/user/shop'});
                 }
 
                 if(statusCode === 401) {

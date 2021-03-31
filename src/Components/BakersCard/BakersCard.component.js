@@ -10,7 +10,7 @@ const BakersCard = (props) => {
     return (
         <div className={styles.bakerContainer}>
             <div className={styles.bakerInfo}>
-                <h3 className={styles.lilTitle}>The Founder</h3>
+                <h3 className={styles.lilTitle}>{baker.companyName}</h3>
                 <p>
                     {baker.about ? baker.about.substr(0, 220) : "'empty'"}...
                 </p>

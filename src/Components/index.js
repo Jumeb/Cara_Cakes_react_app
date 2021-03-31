@@ -47,6 +47,7 @@ import SquareImage from './SquareInput/SquareImg.component';
 import SOrdersTable from './SOrdersTable/OrderTable.component';
 import UserDetails from './UserDetails/UserDetails.component';
 import OrderDetails from './OrderDetails/OrderDetails.component';
+import UserImage from './UserImage/UserImage.component';
 
 export {
     Header, 
@@ -98,4 +99,5 @@ export {
     SOrdersTable,
     UserDetails,
     OrderDetails,
+    UserImage,
 };
