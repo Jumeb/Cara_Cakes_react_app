@@ -9,7 +9,7 @@ import { setBakers } from '../../redux/Actions/Data.actions';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const Bakers = (props) => {
-    const {user, token, refresh} = props;
+    const {user, token, refresh, _bakers} = props;
 
     const [bakers, setBakers] = useState([]);
     const [message, setMessage] = useState({});
@@ -18,6 +18,7 @@ const Bakers = (props) => {
     const [total, setTotal] = useState(0);
     const [baker, setBaker] = useState([]);
     const [detail, setDetail] = useState(false);
+    const [active, setActive] = useState(0);
 
     useEffect(() => {
         props.setRefresh(false);
@@ -44,6 +45,7 @@ const Bakers = (props) => {
             if(statusCode === 200) {
                 setBakers(response.bakers);
                 props.setBakers(response.bakers);
+                setActive(0);
                 setTotal(response.totalItems);
             }
 
@@ -86,17 +88,42 @@ const Bakers = (props) => {
 
     }, [refresh]);
 
+    const setFilter = (index, type) => {
+        setActive(index);
+
+        if (type === 'Verified') {
+            let _baker = _bakers.filter(data => data.verify);
+            setBakers(_baker);
+        }
+        if (type === 'Suspended') {
+            let _baker = _bakers.filter(data => !data.suspend);
+            setBakers(_baker);
+        }
+        if (type === 'Unverified') {
+            let _baker = _bakers.filter(data => !data.verify);
+            setBakers(_baker);
+        }
+        if (type === 'Unsuspended') {
+            let _baker = _bakers.filter(data => data.suspend);
+            setBakers(_baker);
+        }
+        if (type === 'all') {
+            setBakers(_bakers);
+        }
+    }
+
     return(
        <div className={styles.bakerSection}>
            <div className={styles.bakerLength}>
-               <h2 className={styles.bakerLengthTitle}>{total} Baker{total !== 1 && 's'}</h2>
+               <h2 className={styles.bakerLengthTitle}>{bakers.length} Baker{bakers.length !== 1 && 's'}</h2>
            </div>
            <div className={styles.bakerCat}>
-               <button className={styles.bakerChoice}>All Bakers</button>
-               <button className={styles.bakerChoice}>New Bakers</button>
-               <button className={styles.bakerChoice}>Verified</button>
-               <button className={styles.bakerChoice}>Suspended</button>
-               <button className={styles.bakerChoice}>Add Baker</button>
+               <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')}  onClick={() => setFilter(0, 'all')}>All Bakers</button>
+               <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')}  onClick={() => setFilter(1, 'Verified')}>Verified</button>
+               <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')}  onClick={() => setFilter(2, 'Suspended')}>Suspended</button>
+               <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')}  onClick={() => setFilter(3, 'Unverified')}>Unverified</button>
+               <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')}  onClick={() => setFilter(4, 'Unsuspended')}>Unsuspended</button>
+               <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')}  onClick={() => setFilter(5, 'all')}>Add Baker</button>
            </div>
             {loading ? <div className={styles.activity}>
                 <ActivityTwo />
@@ -107,11 +134,12 @@ const Bakers = (props) => {
     )
 }
 
-const mapStateToProps = ({auth, refresh}) => {
+const mapStateToProps = ({auth, refresh, data}) => {
     return {
         user: auth.user,
         token: auth.token,
         refresh: refresh.refresh,
+        _bakers: data.bakers,
     }
 }
 

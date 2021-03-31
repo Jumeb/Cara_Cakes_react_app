@@ -39,6 +39,7 @@ const Orders = (props) => {
 
                 if (statusCode === 200) {
                     setOrders(response.orders);
+                    setActive(0);
                     props.setOrders(response.orders);
                 }
 

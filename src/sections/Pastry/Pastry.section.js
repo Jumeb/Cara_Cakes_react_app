@@ -37,6 +37,7 @@ const Pastry = (props) => {
                 console.log(response.pastries);
                 setPastries(response.pastries.reverse());
                 props.setPastries(response.pastries.reverse());
+                setActive(-1);
                 setTotal(response.totalItems);
             }
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Notification, PastryTableSuper } from '../../Components';
+import { ActivityTwo, Notification, PastryTableSuper } from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Pastry.module.css';
 import {setPastries} from '../../redux/Actions/Data.actions';
@@ -15,8 +15,10 @@ const Pastry = (props) => {
     const [total, setTotal] = useState(0);
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        setLoading(true);
         fetch(`${BASE_URL}/superpastries?page=${page}`, {
             method: 'GET',
         })
@@ -28,11 +30,13 @@ const Pastry = (props) => {
         .then(res => {
             const statusCode = res[0];
             const response = res[1];
+            setLoading(false);
 
             if(statusCode === 200) {
                 console.log(response.pastries);
                 setPastries(response.pastries.reverse());
                 props.setPastries(response.pastries.reverse());
+                setActive(-1);
                 setTotal(response.totalItems);
             }
 
@@ -78,7 +82,9 @@ const Pastry = (props) => {
                     <button className={[styles.bakerChoice, active === 6 && styles.bakerActive].join(' ')} onClick={() => setFilter(6, 'Cup Cakes')}>Cup Cakes</button>
                 </div>
            </div>
-           <PastryTableSuper pastries={pastries} />
+           {loading ? <div className={styles.activity}>
+                <ActivityTwo />
+               </div>: <PastryTableSuper pastries={pastries} />}
            <Notification message={message} show={show} setShow={setShow} />
        </div>
     )

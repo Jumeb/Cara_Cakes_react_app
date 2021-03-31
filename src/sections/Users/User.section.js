@@ -8,7 +8,7 @@ import styles from './User.module.css';
 import {setUsers} from '../../redux/Actions/Data.actions';
 
 const Users = (props) => {
-    const {user, token, refresh} = props;
+    const {user, token, refresh, _users} = props;
 
     const [users, setUsers] = useState([]);
     const [message, setMessage] = useState({});
@@ -17,6 +17,7 @@ const Users = (props) => {
     const [total, setTotal] = useState(0);
     const [_user, setUser] = useState([]);
     const [detail, setDetail] = useState(false);
+    const [active, setActive] = useState(0);
 
     useEffect(() => {
         setLoading(true);
@@ -38,6 +39,7 @@ const Users = (props) => {
             if(statusCode === 200) {
                 setUsers(response.users);
                 props.setUsers(response.users);
+                setActive(0);
                 setTotal(response.totalItems);
             }
 
@@ -70,16 +72,32 @@ const Users = (props) => {
             })
     }, [refresh]);
 
+    const setFilter = (index, type) => {
+        setActive(index);
+
+        if (type === 'Suspended') {
+            let _user = _users.filter(data => !data.suspend);
+            setUsers(_user);
+        }
+        if (type === 'Unsuspended') {
+            let _user = _users.filter(data => data.suspend);
+            setUsers(_user);
+        }
+        if (type === 'all') {
+            setUsers(_users);
+        }
+    }
+
     return(
        <div className={styles.bakerSection}>
            <div className={styles.bakerLength}>
                <h2 className={styles.bakerLengthTitle}>{total} User{total !== 1 && 's'}</h2>
            </div>
            <div className={styles.bakerCat}>
-               <button className={styles.bakerChoice}>All Users</button>
-               <button className={styles.bakerChoice}>New Users</button>
-               <button className={styles.bakerChoice}>Suspended</button>
-               <button className={styles.bakerChoice}>Add User</button>
+               <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')}  onClick={() => setFilter(0, 'all')}>All Users</button>
+               <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')}  onClick={() => setFilter(1, 'Suspended')}>Suspended</button>
+               <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')}  onClick={() => setFilter(2, 'Unsuspended')}>Unsuspended</button>
+               <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')}  onClick={() => setFilter(3, 'all')}>Add User</button>
            </div>
             <UserTable users={users} token={token} setDetail={setDetail} setUser={setUser} />
             <UserDetails detail={detail} setDetail={setDetail} _user={_user} />
@@ -88,11 +106,12 @@ const Users = (props) => {
     )
 }
 
-const mapStateToProps = ({ auth, refresh }) => {
+const mapStateToProps = ({ auth, refresh, data }) => {
     return {
         user: auth.user,
         token: auth.token,
-        refresh: refresh.refresh
+        refresh: refresh.refresh,
+        _users: data.users,
     }
 };
 
