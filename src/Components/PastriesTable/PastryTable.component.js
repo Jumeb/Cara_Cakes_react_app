@@ -5,7 +5,13 @@ import { BASE_URL } from '../../utils/globalVariable';
 import styles from './PastryTable.module.css';
 
 const PastryTable = (props) => { 
-    const {pastries} = props;
+    const { pastries, setDetail, setPastry } = props;
+
+    const ShowDetail = (pastry) => {
+        setDetail(true);
+        setPastry(pastry);
+    }
+    
     return (
             <div className={styles.cartSeparator}>
                 <table className={styles.cartTable}>
@@ -26,7 +32,7 @@ const PastryTable = (props) => {
                         <td className={styles.cartTableData}>{pastry.discount}%</td>
                         <td className={styles.cartTableData}>
                             <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Details</button>
+                            <button className={styles.cartButton} onClick={() => ShowDetail(pastry)}>Details</button>
                         </td>
                     </tr>))}
                 </table>

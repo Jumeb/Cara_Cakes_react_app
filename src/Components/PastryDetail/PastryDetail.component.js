@@ -63,7 +63,6 @@ const PastryDetail = (props) => {
 
             if(statusCode === 200) {
                 setCount(count + 1);
-                props.setRefresh(true);
                 if(count === 0) {
                     setShow(true);
                     setMessage({
@@ -114,7 +113,6 @@ const PastryDetail = (props) => {
 
                 if (statusCode === 200) {
                     setCount(count - 1);
-                    props.setRefresh(true);
                 }
 
                 if (statusCode === 422) {
@@ -161,7 +159,6 @@ const PastryDetail = (props) => {
                         message: `${pastryMessage} added for pastry.`,
                         title: 'Success'
                     });
-                    props.setRefresh(true);
                 }
 
                 if (statusCode === 500) {
@@ -238,18 +235,28 @@ const PastryDetail = (props) => {
     };
 
     return (
-        <div className={detail ? styles.notifyBackdrop : styles.notifyNoBackdrop}>
+        <div className={detail ? styles.notifyBackdrop : styles.notifyNoBackdrop}  onClick={() => Close()}>
             <div className={[styles.notifyContainer, detail ? styles.showContainer : styles.hideContainer].join(' ')}>
                 <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                 <div className={styles.pastryContainer}>
                     {pastry.discount > 0 && <div className={styles.pastryDiscount}><IoStatsChart /> Discount: {pastry.discount}%</div>}
                     <div className={styles.pastryName}>{pastry.name}</div>
                     <img src={`${BASE_URL}/${pastry.image}`} alt={pastry.price} className={styles.pastryImage} />
-                    <div className={styles.pastryPrice}><IoWallet className={styles.icon} /> Price: {Thousand(count >= 1 ? count * pastry.price : pastry.price || 0)} XAF</div>
-                    <div className={styles.pastryLikes} onClick={() => likePastry(pastry._id)}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
-                    <div className={styles.pastryDislikes} onClick={() => disLikePastry(pastry._id)}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
+                    {user.type !== 'Baker' ?
+                        <>
+                            <div className={styles.pastryPrice}><IoWallet className={styles.icon} /> Price: {Thousand(count >= 1 ? count * pastry.price : pastry.price || 0)} XAF</div>
+                            <div className={styles.pastryDislikes} onClick={() => disLikePastry(pastry._id)}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
+                            <div className={styles.pastryLikes} onClick={() => likePastry(pastry._id)}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
+                        </> :
+                        <>
+                            <div className={styles.pastryDislikes}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
+                            <div className={styles.pastryLikes}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
+                            {user.type === 'Baker' && <div className={styles.pastryEdit}><IoBrush className={styles.icon} /> Edit</div>}
+                            <div className={styles.pastryPrice2}><IoThumbsUp className={styles.icon} /> Price: {Thousand(pastry.price || 0)} XAF</div>
+                        </>
+                    }
                 </div>
-                    {count === 0 ? 
+                    {user.type !== 'Baker' && (count === 0 ? 
                         <div className={styles.notifyActions}>
                             <button className={styles.notifyButton} onClick={() => AddToCart(pastry._id)}>Add to Cart</button>
                         </div> :
@@ -258,7 +265,7 @@ const PastryDetail = (props) => {
                             <b className={styles.pastryQty}>Quantity: {count}</b>
                             <button className={styles.pastryButton} onClick={() => AddToCart(pastry._id)}><IoAdd /></button>
                         </div>
-                    }
+                    )}
                 {count !== 0 && (
                     <div>
                         <input type="text" placeholder="Message on pastry" className={styles.pastryMessage} onChange={event => setPastryMessage(event.target.value)} />

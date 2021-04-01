@@ -148,8 +148,47 @@
     text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--color-primary);
     font-size: var(--font-size-small);
+}
+
+.pastryPrice2 {
+    position: absolute;
+    background-color: var(--color-white);
+    bottom: 1.3rem;
+    left: 18.6rem;
+    min-width: 10rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: var(--font-size-small);
+}
+
+
+
+.pastryEdit {
+    position: absolute;
+    background-color: var(--color-primary-light);
+    bottom: 1.3rem;
+    right: 0.7rem;
+    min-width: 7rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-size: var(--font-size-small);
+
+    cursor: pointer;
 }
 
 .pastryLikes {
@@ -285,4 +324,3 @@
 .pastryMessage:focus {
     border: 0.2rem solid var(--color-primary-light);
 }
-

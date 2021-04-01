@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { ActivityTwo, Notification, PastryTableSuper } from '../../Components';
+import { ActivityTwo, Notification, PastryDetail, PastryTableSuper } from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Pastry.module.css';
 import {setPastries} from '../../redux/Actions/Data.actions';
@@ -16,6 +16,8 @@ const Pastry = (props) => {
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [detail, setDetail] = useState(false);
+    const [_pastry, setPastry] = useState([]);
 
     useEffect(() => {
         setLoading(true);
@@ -84,7 +86,8 @@ const Pastry = (props) => {
            </div>
            {loading ? <div className={styles.activity}>
                 <ActivityTwo />
-               </div>: <PastryTableSuper pastries={pastries} />}
+            </div> : <PastryTableSuper pastries={pastries} setDetail={setDetail} setPastry={setPastry} />}
+            <PastryDetail setDetail={setDetail} detail={detail} pastry={_pastry} />
            <Notification message={message} show={show} setShow={setShow} />
        </div>
     )
