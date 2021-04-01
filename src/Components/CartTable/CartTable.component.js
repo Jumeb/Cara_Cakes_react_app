@@ -151,7 +151,7 @@ const CartTable = (props) => {
                 setLoading(false);
 
                 if (statusCode === 200) {
-                    console.log('here', response);
+                    console.log('here', 'response');
                     setShow(true);
                     setMessage({
                         title: 'Success',
@@ -185,6 +185,7 @@ const CartTable = (props) => {
                             <thead className={styles.cartTableHeader}>
                                 <td className={styles.cartTableHeadeData}>Product</td>
                                 <td className={styles.cartTableHeaderData}>Price</td>
+                                <td className={styles.cartTableHeaderData}>Discount</td>
                                 <td className={styles.cartTableHeaderData}>Quantity</td>
                                 <td className={styles.cartTableHeaderData}>Total</td>
                             </thead>
@@ -196,19 +197,20 @@ const CartTable = (props) => {
                                     <b>{pastry.pastryId.name}</b>
                                 </td>
                                 <td className={styles.cartTableData}>{Thousand(pastry.pastryId.price)}</td>
+                                <td className={styles.cartTableData}>{pastry.pastryId.discount}%</td>
                                 <td className={styles.cartTableData}>{pastry.quantity} <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={(event) => Trash(event, pastry.pastryId._id)}><IoTrashBinSharp /></button></td>
                                 <td className={styles.cartTableData}>{Thousand(pastry.quantity * pastry.pastryId.price)}</td>
                             </tr>
                         )}
                             <tr className={styles.cartTableRow}>
-                                <td colSpan="2" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
+                                <td colSpan="3" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
                                     <input type="text" placeholder="Coupon Code" className={styles.cartCouponInput} /> 
                                     <button className={styles.cartButton}>Apply</button>
                                 </td>
                                 <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
                                     <button className={styles.cartButton} onClick={() => Order(_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[index]}`).pastryId.creator._id)}>Order</button>
                                 </td>
-                                <td colSpan="1" className={styles.cartTableData}>Total: {Thousand(Object.values(cart)[index].reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
+                                <td colSpan="1" className={styles.cartTableData}>Total: {Thousand(Object.values(cart)[index].reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}</td>
                             </tr>
                         </table>
                     </div>

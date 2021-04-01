@@ -77,7 +77,7 @@ const BakerCard = (props) => {
             }
 
             if (statusCode === 404) {
-                console.log(response)
+                console.log('response')
             }
 
             if (statusCode === 500) {
@@ -108,7 +108,7 @@ const BakerCard = (props) => {
             }
 
             if (statusCode === 404) {
-                console.log(response)
+                console.log('response');
             }
 
             if (statusCode === 500) {

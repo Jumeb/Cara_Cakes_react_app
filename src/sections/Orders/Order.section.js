@@ -96,14 +96,17 @@ const Orders = (props) => {
        <div className={styles.bakerSection}>
            <div className={styles.bakerLength}>
                <h2 className={styles.bakerLengthTitle}>{orders.length} Order{orders.length !== 1 && 's'}</h2>
-           </div>
-           <div className={styles.bakerCat}>
-               <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')} onClick={() => setFilter(0, 'all')}>All Orders</button>
-               <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')} onClick={() => setFilter(1, 'New')}>New</button>
-               <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')} onClick={() => setFilter(2, 'Registered')}>Registered</button>
-               <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'Processing')}>Processing</button>
-               <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')} onClick={() => setFilter(4, 'On the Way')}>On the Way</button>
-               <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')} onClick={() => setFilter(5, 'Delivered')}>Delivered</button>
+            </div>
+            <div className={styles.bakerScroll}>
+                <div className={styles.bakerCat}>
+                    <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')} onClick={() => setFilter(0, 'all')}>All Orders</button>
+                    <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')} onClick={() => setFilter(1, 'New')}>New</button>
+                    <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')} onClick={() => setFilter(2, 'Registered')}>Registered</button>
+                    <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'Processing')}>Processing</button>
+                    <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')} onClick={() => setFilter(4, 'On the Way')}>On the Way</button>
+                    <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')} onClick={() => setFilter(5, 'Delivered')}>Delivered</button>
+                    <button className={[styles.bakerChoice, active === 6 && styles.bakerActive].join(' ')} onClick={() => setFilter(6, 'Confirmed')}>Confirmed</button>
+                </div>    
            </div>
            {loading ? <div className={styles.activity}>
                 <ActivityTwo />

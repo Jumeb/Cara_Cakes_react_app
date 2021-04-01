@@ -33,7 +33,7 @@ const OrderTable = (props) => {
                             </td>
                             <td className={styles.cartTableData}>{order.bakerId.companyName}</td>
                             <td className={styles.cartTableData}>{order.status}</td>
-                            <td className={styles.cartTableData}>{Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
+                            <td className={styles.cartTableData}>{Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}</td>
                             <td className={styles.cartTableData}>{DateString(order.createdAt)}</td>
                             <td className={styles.cartTableData}>
                                 <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => OrderDetails(order)}>Details</button>

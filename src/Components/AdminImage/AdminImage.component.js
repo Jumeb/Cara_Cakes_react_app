@@ -56,7 +56,6 @@ const AdminImage = (props) => {
 
             if (statusCode === 200) {
                 setShow(true);
-                console.log(response);
                 props.setUser(response.baker);
                 setMessage({
                     type: 'success',
@@ -69,7 +68,7 @@ const AdminImage = (props) => {
             }
 
             if (statusCode === 500) {
-                console.log(response, 'error');
+                console.log('error');
                 setIsOpen(false);
             }
         })

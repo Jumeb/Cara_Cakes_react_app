@@ -101,7 +101,7 @@ const BakerDetails = (props) => {
             }
 
             if (statusCode === 404) {
-                console.log(response)
+                console.log('response')
             }
 
             if (statusCode === 500) {
@@ -133,7 +133,7 @@ const BakerDetails = (props) => {
             }
 
             if (statusCode === 404) {
-                console.log(response)
+                console.log('response')
             }
 
             if (statusCode === 500) {

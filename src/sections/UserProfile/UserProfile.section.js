@@ -10,12 +10,13 @@ import { connect } from 'react-redux';
 import { BASE_URL } from '../../utils/globalVariable';
 import { bindActionCreators } from 'redux';
 import { setUser } from '../../redux/Actions/Auth.actions';
-import { HNumber, SetLocation } from '../../utils/utilities';
+import { setRefresh } from '../../redux/Actions/Refresh.actions';
+import { HNumber, SetLocation, Thousand } from '../../utils/utilities';
 
 const animatedComponents = makeAnimated();
 
 const UserProfile = (props) => {
-    const { user, token } = props;
+    const { user, token, refresh } = props;
     const [locations] = useState([
         { value: "North-West", label: "North-West" },
         { value: "South-West", label: "South-West" },
@@ -40,11 +41,12 @@ const UserProfile = (props) => {
     const [message, setMessage] = useState({});
 
     useEffect(() => {
+        props.setRefresh(false);
         setName(user.name || "'empty'");
         setEmail(user.email || "'empty'");
         setContact(user.telNumber || "'empty'");
         let loc = user.location;
-    
+
         setLocation(SetLocation(loc, locations) || "'empty'");
 
         return () => {
@@ -57,7 +59,7 @@ const UserProfile = (props) => {
             setContactError(false);
             setLocationError(false);
         }
-    }, [])
+    }, [refresh]);
 
     const Authenticate = (id) => {
         let hasError = false;
@@ -99,6 +101,7 @@ const UserProfile = (props) => {
                 setLoading(false);
 
                 if (statusCode === 200) {
+                    props.setRefresh(true);
                     setShow(true);
                     setMessage({
                         title: 'Success',
@@ -146,7 +149,7 @@ const UserProfile = (props) => {
                             <b className={styles.profileSub}>Categories</b>
                         </div> */}
                         <div className={styles.profileNumber}>
-                            <h2 className={styles.profileTitle}>{user.total}</h2>
+                            <h2 className={styles.profileTitle}>{Thousand(user.total)}</h2>
                             <b className={styles.profileSub}>Spendings</b>
                         </div>
                         <div className={styles.profileNumber}>
@@ -215,15 +218,16 @@ const UserProfile = (props) => {
     )
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({ auth, refresh }) => {
     return {
         token: auth.token,
         user: auth.user,
+        refresh: refresh.refresh,
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ setUser }, dispatch);
+    return bindActionCreators({ setUser, setRefresh }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

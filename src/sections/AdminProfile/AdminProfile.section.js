@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { BASE_URL } from '../../utils/globalVariable';
 import { bindActionCreators } from 'redux';
 import { setUser } from '../../redux/Actions/Auth.actions';
-import { SetLocation, SetCategories } from '../../utils/utilities';
+import { SetLocation, SetCategories, Thousand } from '../../utils/utilities';
 
 const animatedComponents = makeAnimated();
 
@@ -215,7 +215,7 @@ const AdminProfile = (props) => {
                             <b className={styles.profileSub}>Categories</b>
                         </div>
                         <div className={styles.profileNumber}>
-                            <h2 className={styles.profileTitle}>{user.total}</h2>
+                            <h2 className={styles.profileTitle}>{Thousand(user.total)}</h2>
                             <b className={styles.profileSub}>Earnings</b>
                         </div>
                         <div className={styles.profileNumber}>

@@ -27,45 +27,47 @@ const OrderTable = (props) => {
         }
     }, [refresh]);
     
-    const IncStatus = (id) => {
-        setLoading(true);
-        fetch(`${BASE_URL}/order/status/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Authorization': `Basic ${token}`,
-                'Content-Type': 'application/json',
-            }
-        })
-            .then(res => {
-                const statusCode = res.status;
-                const response = res.json();
-                return Promise.all([statusCode, response]);
+    const IncStatus = (order, total) => {
+        if (order.status !== 'On the Way') {
+            setLoading(true);
+            fetch(`${BASE_URL}/order/status/${order._id}?total=${total}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Basic ${token}`,
+                    'Content-Type': 'application/json',
+                }
             })
-            .then(res => {
-                const statusCode = res[0];
-                const response = res[1];
-                setLoading(false);
-
-                if (statusCode === 200) {
+                .then(res => {
+                    const statusCode = res.status;
+                    const response = res.json();
+                    return Promise.all([statusCode, response]);
+                })
+                .then(res => {
+                    const statusCode = res[0];
+                    const response = res[1];
+                    setLoading(false);
+    
+                    if (statusCode === 200) {
+                        setShow(true);
+                        setMessage({
+                            title: 'Success',
+                            message: 'Order status updated.'
+                        });
+                        props.setRefresh(true);
+                    }
+    
+                })
+                .catch(err => {
+                    console.log(err);
+                    setLoading(false);
                     setShow(true);
                     setMessage({
-                        title: 'Success',
-                        message: 'Order status updated.'
+                        type: 'error',
+                        title: 'Unexpected Error',
+                        message: 'Please check your internet connection.',
                     });
-                    props.setRefresh(true);
-                }
-
-            })
-            .catch(err => {
-                console.log(err);
-                setLoading(false);
-                setShow(true);
-                setMessage({
-                    type: 'error',
-                    title: 'Unexpected Error',
-                    message: 'Please check your internet connection.',
-                });
-            })
+                })
+        }
     };
 
     const OrderDetails = (order) => {
@@ -93,12 +95,11 @@ const OrderTable = (props) => {
                             </td>
                             <td className={styles.cartTableData}>{order.userId.suspend ? "True" : "False"}</td>
                             <td className={styles.cartTableData}>{order.status}</td>
-                            <td className={styles.cartTableData}>{Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.quantity * pastry.pastryId.price), 0))}</td>
+                            <td className={styles.cartTableData}>{Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}</td>
                             <td className={styles.cartTableData}>{DateString(order.createdAt)}</td>
                             <td className={styles.cartTableData}>
-                                <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => IncStatus(order._id)}>Inc Status</button>
+                                <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => IncStatus(order, order.pastries.reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}>Inc Status</button>
                                 <button className={[styles.cartButton, styles.details].join(' ')} onClick={() => OrderDetails(order)}>Details</button>
-                                <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => console.log('Haha')}><IoTrashBinSharp /></button>
                             </td>
                         </tr>
                     )}

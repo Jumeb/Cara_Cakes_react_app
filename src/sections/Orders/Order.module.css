@@ -34,9 +34,23 @@
 
 }
 
+.bakerScroll {
+    display: flex;
+    overflow: auto;
+    width: 100rem;
+    margin-left: 5rem;
+    /* border: 0.2rem solid blue; */
+}
+
+.bakerScroll::-webkit-scrollbar {
+    height: 0rem;
+}
+
 .bakerCat {
-    padding: 0 6rem;
-    display: inline-block;
+    padding: 0 2rem;
+    display: flex;
+    flex: 0 0 100%;
+    flex-wrap: nowrap;
     /* border: 0.2rem solid teal; */
 
 }
@@ -48,6 +62,8 @@
     font-size: var(--font-size-normal);
     color: var(--color-white);
     padding: 1.2rem 3rem;
+    min-width: 16.4rem;
+    max-width: none;
     background-color: var(--color-primary);
     border-top-left-radius: var(--border-radius-medium);
     border-top-right-radius: var(--border-radius-medium);

@@ -73,6 +73,7 @@ const LoginSection = (props) => {
                 
                 if(statusCode === 200) {
                     console.log(responseJson);
+                    console.log(responseJson.user);
                     props.setUser(responseJson.user);
                     props.setToken(responseJson.token);
                     props.history.push({pathname: '/admin/dashboard'});
@@ -155,7 +156,6 @@ const LoginSection = (props) => {
                 }
 
                 if(statusCode === 401) {
-                    console.log(responseJson, '401');
                     setShow(true);
                     setMessage({
                         type: 'error',
