@@ -6,12 +6,12 @@ import makeAnimated from 'react-select/animated';
 
 import { Button, Link, Notification, SquareArea, SquareInput } from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
-import styles from './AddPastry.module.css';
+import styles from './EditPastry.module.css';
 
 const animatedComponents = makeAnimated();
 
-const AddPastry = (props) => {
-    const {isOpen, setIsOpen, user, token} = props;
+const EditPastry = (props) => {
+    const {isOpen, setIsOpen, user, token, pastry} = props;
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
     const [name, setName] = useState('');
@@ -20,12 +20,14 @@ const AddPastry = (props) => {
     const [image, setImage] = useState('');
     const [price, setPrice] = useState('');
     const [about, setAbout] = useState('');
+    const [recipe, setRecipe] = useState('');
     const [nameError, setNameError] = useState(false);
     const [discountError, setDiscountError] = useState(false);
     const [typeError, setTypeError] = useState(false);
     const [imageError, setImageError] = useState(false);
     const [priceError, setPriceError] = useState(false);
     const [aboutError, setAboutError] = useState(false);
+    const [recipeError, setRecipeError] = useState(false);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -33,6 +35,23 @@ const AddPastry = (props) => {
         let _categories = [];
         user.categories.map((category, index) => _categories.push({value: category, label: category}));
         setCategories(_categories);
+        setName(pastry.name);
+        setDiscount(pastry.discount);
+        setType({ value: pastry.type, label: pastry.type });
+        setPrice(pastry.price);
+        setAbout(pastry.description);
+        setImage(pastry.image);
+        setRecipe(pastry.recipe);
+
+        return () => {
+            setName('');
+            setDiscount('');
+            setType({ });
+            setPrice('');
+            setAbout('');
+            setImage('');
+            setRecipe('');
+        }
     }, [isOpen]);
     
     const authenticate = () => {
@@ -97,18 +116,17 @@ const AddPastry = (props) => {
         formData.append('name', name);
         formData.append('price', price);
         formData.append('about', about);
-        formData.append('pastryImage', image[0]);
-        formData.append('userImage', image);
-        formData.append('logo', image);
-        formData.append('bakerImage', image);
+        if (image) {
+          formData.append('pastryImage', image[0]);
+        }
         formData.append('discount', discount);
         formData.append('type', type.value);
-        formData.append('bakerId', user._id);
+        formData.append('creator', user._id);
 
-        console.log(formData.values(), 'values', image);
+        console.log('values', image);
 
-        fetch(`${BASE_URL}/pastry/create`, {
-            method: 'POST',
+        fetch(`${BASE_URL}/pastry/edit/${pastry._id}`, {
+            method: 'PUT',
             body: formData,
         })
         .then(res => {
@@ -126,7 +144,7 @@ const AddPastry = (props) => {
                 setMessage({
                     type: 'success',
                     title: 'Success',
-                    message: `Pastry has ben added to ${type.value} store.`
+                    message: `${response.pastry.name} has been updated successfully`
                 });
 
                 setTimeout(() => {
@@ -135,6 +153,7 @@ const AddPastry = (props) => {
             }
 
             if (statusCode === 401) {
+                console.log(response, '401');
                     setShow(true);
                     setMessage({
                         type: 'error',
@@ -180,7 +199,7 @@ const AddPastry = (props) => {
         <>
             <Modal isOpen={isOpen} closeTimeoutMS={400} className={styles.secAddPastry} overlayClassName={styles.secAddPastry}>
                 <div className={styles.addPastryForm}>
-                    <h2 className={styles.formTitle}>Add Pastry</h2>
+                    <h2 className={styles.formTitle}>Edit {pastry.name}</h2>
                     <SquareInput
                         placeholder="Frosty Cake"
                         type="text"
@@ -236,8 +255,17 @@ const AddPastry = (props) => {
                         error={aboutError}
                         setError={() => setAboutError}
                     />
+                    <SquareArea
+                        placeholder="Very optional, but can be a gift to your loyal clients"
+                        type="text"
+                        label="Recipe"
+                        value={recipe}
+                        setValue={(event) => setRecipe(event.target.value)}
+                        error={recipeError}
+                        setError={() => setRecipeError}
+                    />
                     <div className={styles.addButtons}>
-                        <Button onClick={() => authenticate()} title="Add" loading={loading} />
+                        <Button onClick={() => authenticate()} title="Edit" loading={loading} />
                         <Button onClick={() => setIsOpen(false)} title="Cancel"  />
                     </div>
                 </div>
@@ -254,7 +282,7 @@ const mapStateToProps = ({auth}) => {
     }
 }
 
-export default connect(mapStateToProps)(AddPastry);
+export default connect(mapStateToProps)(EditPastry);
 
 
 const colourStyles = {

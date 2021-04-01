@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { AddPastry } from '..';
+import { AddPastry, EditPastry } from '..';
 import { Notification, PastryDetail, PastryTable } from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Pastry.module.css';
@@ -14,7 +14,7 @@ const Pastry = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [page, setPage] = useState(1);
     const [pastries, setPastries] = useState([]);
-    const [total, setTotal] = useState(0);
+    const [isEdit, setIsEdit] = useState(false);
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -40,7 +40,6 @@ const Pastry = (props) => {
                     setPastries(response.pastries.reverse());
                     props.setPastries(response.pastries.reverse());
                     setActive(-1);
-                    setTotal(response.totalItems);
                 }
 
                 if (statusCode === 500) {
@@ -91,7 +90,8 @@ const Pastry = (props) => {
             </div>
             <PastryTable pastries={pastries} setDetail={setDetail} setPastry={setPastry} />
             <AddPastry isOpen={isOpen} setIsOpen={setIsOpen} />
-            <PastryDetail setDetail={setDetail} detail={detail} pastry={pastry} />
+            <EditPastry isOpen={isEdit} setIsOpen={setIsEdit} pastry={pastry} />
+            <PastryDetail setDetail={setDetail} detail={detail} pastry={pastry} setIsEdit={setIsEdit} />
             <Notification message={message} show={show} setShow={setShow} />
         </div>
     )

@@ -10,7 +10,7 @@ import styles from './PastryDetail.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const PastryDetail = (props) => {
-    const {detail, setDetail, pastry, user, refresh} = props;
+    const {detail, setDetail, pastry, user, refresh, setIsEdit} = props;
 
     const [loading, setLoading] = useState(false);
     const [likes, setLikes] = useState(0);
@@ -138,6 +138,10 @@ const PastryDetail = (props) => {
         setDetail(false);
     }
 
+    const EditPastry = (pastry) => {
+        setIsEdit(true);
+    }
+
     const Message = (id) => {
         fetch(`${BASE_URL}/user/message/${id}?user=${user._id}&message=${pastryMessage}`, {
             method: 'POST',
@@ -251,7 +255,7 @@ const PastryDetail = (props) => {
                         <>
                             <div className={styles.pastryDislikes}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
                             <div className={styles.pastryLikes}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
-                            {user.type === 'Baker' && <div className={styles.pastryEdit}><IoBrush className={styles.icon} /> Edit</div>}
+                            {user.type === 'Baker' && <div className={styles.pastryEdit} onClick={() => EditPastry(pastry)}><IoBrush className={styles.icon} /> Edit</div>}
                             <div className={styles.pastryPrice2}><IoThumbsUp className={styles.icon} /> Price: {Thousand(pastry.price || 0)} XAF</div>
                         </>
                     }
