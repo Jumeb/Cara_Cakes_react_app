@@ -145,14 +145,18 @@ const BakerDetails = (props) => {
         })
     }
 
+    const stopClose = (e) => {
+        e.stopPropagation();
+    }
+
     const bakerShop = (bakerId) => {
         props.setBaker(bakerId);
         props.history.push({pathname: '/user/shop/pastries'})
     }
 
     return (
-        <div className={detail ? styles.notifyBackdrop : styles.notifyNoBackdrop}>
-            <div className={[styles.notifyContainer, detail ? styles.showContainer : styles.hideContainer].join(' ')}>
+        <div className={detail ? styles.notifyBackdrop : styles.notifyNoBackdrop} onClick={() => Close()}>
+            <div className={[styles.notifyContainer, detail ? styles.showContainer : styles.hideContainer].join(' ')} onClick={(event) => stopClose(event)}>
                 {baker.length !== 0 && 
                     <>
                     <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>

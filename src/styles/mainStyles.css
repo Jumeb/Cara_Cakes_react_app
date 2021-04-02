@@ -67,7 +67,7 @@
 
     --linear-gradient-1: linear-gradient(to right, rgba(var(--color-gradien-2), 0.345), rgba(var(--color-gradient-1), 0.4));
     --linear-gradient-2: linear-gradient(to right, rgba(var(--color-gradien-1), 0.3), rgba(var(--color-gradien-2), 0.3));
-    --linear-gradient-3: linear-gradient(to right, rgba(var(--color-gradient-2), 0.7), rgba(var(--color-gradient-1), 0.5));
+    --linear-gradient-3: linear-gradient(to right, rgba(var(--color-secondary-medium), 0.7), rgba(var(--color-secondary-medium), 0.5));
     --linear-gradient-4: linear-gradient(to right, #ffffff46, #ffffff67);
 
     --longest-width: 112.5em;

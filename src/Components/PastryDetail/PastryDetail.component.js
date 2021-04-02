@@ -238,9 +238,13 @@ const PastryDetail = (props) => {
             })
     };
 
+    const stopClose = (e) => {
+        e.stopPropagation();
+    }
+
     return (
         <div className={detail ? styles.notifyBackdrop : styles.notifyNoBackdrop}  onClick={() => Close()}>
-            <div className={[styles.notifyContainer, detail ? styles.showContainer : styles.hideContainer].join(' ')}>
+            <div className={[styles.notifyContainer, detail ? styles.showContainer : styles.hideContainer].join(' ')} onClick={(e) => stopClose(e)}>
                 <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                 <div className={styles.pastryContainer}>
                     {pastry.discount > 0 && <div className={styles.pastryDiscount}><IoStatsChart /> Discount: {pastry.discount}%</div>}
