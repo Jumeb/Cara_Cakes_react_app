@@ -37,8 +37,10 @@ const Dashboard = ({token}) => {
                 setLbakers(false);
 
                 if (statusCode === 200) {
-                    setBakers(response.bakers.sort((x, y) => y.total - x.total));
-                    setObakers(response.bakers.sort((x, y) => y.orders.ordered.length - x.orders.ordered.length));
+                    let sortByOrders = [...response.bakers];
+                    let sortByTotal = [...response.bakers]
+                    setBakers(sortByTotal.sort((x, y) => y.total - x.total));
+                    setObakers(sortByOrders.sort((x, y) => y.orders.ordered.length - x.orders.ordered.length));
                     let total = response.bakers.reduce((sum, baker) => sum + baker.orders.ordered.length, 0);
                     setTotalOrders(total);
                     setRbakers(false);
@@ -108,7 +110,7 @@ const Dashboard = ({token}) => {
             <h2 className={styles.dashTitle}>Top 10 Bakers</h2>
             <div className={styles.dashScroll}>
                 <div className={styles.dashContainer}>
-                    {lbakers ? <ActivityTwo /> :bakers.map((baker, index) => <BakerInfo baker={baker} setRbakers={setRbakers} key={index} />)}
+                    {lbakers ? <ActivityTwo /> : bakers.map((baker, index) => <BakerInfo baker={baker} setRbakers={setRbakers} key={index} />)}
                 </div>
             </div>
             <h2 className={styles.dashTitle}>Top 10 Users</h2>

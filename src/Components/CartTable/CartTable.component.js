@@ -132,7 +132,6 @@ const CartTable = (props) => {
     }
 
     const Order = (id) => {
-        setLoading(true);
         fetch(`${BASE_URL}/create/order/${user._id}?baker=${id}`, {
             method: 'POST',
             headers: {
@@ -155,11 +154,11 @@ const CartTable = (props) => {
                     setShow(true);
                     setMessage({
                         title: 'Success',
-                        message: response.message,
+                        message: 'Successfully placed your order',
                     });
                     setTimeout(() => {
                         props.setRefresh(true);                        
-                    }, 3000);
+                    }, 2000);
                 }
             })
             .catch(err => {

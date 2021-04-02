@@ -20,7 +20,7 @@ const OrderDetails = (props) => {
     const [message, setMessage] = useState(false);
 
     useEffect(() => {
-        if(order.length !== 0) {
+        if (order.length !== 0) {
             setLikes(order.userId.likes.users.length);
             setDislikes(order.userId.dislikes.users.length);
         }
