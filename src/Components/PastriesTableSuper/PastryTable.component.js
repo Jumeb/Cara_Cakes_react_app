@@ -1,4 +1,5 @@
 import React from 'react';
+import { IoTrashBinSharp } from 'react-icons/io5';
 
 import { pans2 } from '../../res/img';
 import styles from './PastryTable.module.css';
@@ -32,8 +33,8 @@ const PastryTable = (props) => {
                         <td className={styles.cartTableData}>{pastry.price}</td>
                         <td className={styles.cartTableData}>{pastry.discount}%</td>
                         <td className={styles.cartTableData}>
-                            <button className={styles.cartButton} onClick={() => console.log('Ordered')}>Delete</button>
-                            <button className={styles.cartButton} onClick={() => ShowDetail(pastry)}>Details</button>
+                            <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => ShowDetail(pastry)}>Details</button>
+                            <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => console.log('Ordered')}><IoTrashBinSharp /></button>
                         </td>
                     </tr>))}
                 </table>

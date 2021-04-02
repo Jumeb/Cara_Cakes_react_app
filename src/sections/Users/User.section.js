@@ -95,8 +95,8 @@ const Users = (props) => {
            </div>
            <div className={styles.bakerCat}>
                <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')}  onClick={() => setFilter(0, 'all')}>All Users</button>
-               <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')}  onClick={() => setFilter(1, 'Suspended')}>Suspended</button>
-               <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')}  onClick={() => setFilter(2, 'Unsuspended')}>Unsuspended</button>
+               <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')}  onClick={() => setFilter(1, 'Suspended')}>Not Suspended</button>
+               <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')}  onClick={() => setFilter(2, 'Unsuspended')}>Suspended</button>
                <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')}  onClick={() => setFilter(3, 'all')}>Add User</button>
            </div>
             <UserTable users={users} token={token} setDetail={setDetail} setUser={setUser} />

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { IoAdd, IoBrush, IoClose, IoRemove, IoSave, IoStatsChart, IoThumbsDown, IoThumbsUp, IoWallet } from 'react-icons/io5';
+import { IoClose } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Button, Notification, SquareImage } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
-import { Thousand } from '../../utils/utilities';
 import styles from './UserImage.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
-import { cups1, vals3 } from '../../res/img';
+import { cups1 } from '../../res/img';
 import { setUser } from '../../redux/Actions/Auth.actions';
 
 const UserImage = (props) => {
@@ -80,12 +79,12 @@ const UserImage = (props) => {
     }
 
     return (
-        <div className={isOpen ? styles.notifyBackdrop : styles.notifyNoBackdrop}>
+        <div className={isOpen ? styles.notifyBackdrop : styles.notifyNoBackdrop} onClick={() => Close()}>
             <div className={[styles.notifyContainer, isOpen ? styles.showContainer : styles.hideContainer].join(' ')}>
                 <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                 <div className={styles.profileInfo}>
                     <div className={styles.profileBoard}>
-                        <img src={image ? URL.createObjectURL(image[0]) : user.ceoImage ? `${BASE_URL}/${user.ceoImage}` : cups1} alt={'Username'} className={styles.profileImg} />
+                        <img src={image ? URL.createObjectURL(image[0]) : user.image ? `${BASE_URL}/${user.image}` : cups1} alt={'Username'} className={styles.profileImg} />
                     </div>
                 </div>
                 <div className={styles.sqrButtons}>

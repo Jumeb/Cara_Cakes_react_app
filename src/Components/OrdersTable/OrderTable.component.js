@@ -28,7 +28,7 @@ const OrderTable = (props) => {
     }, [refresh]);
     
     const IncStatus = (order, total) => {
-        if (order.status !== 'On the Way') {
+        if (order.status !== 'On the Way' && order.status !== 'Confirmed') {
             setLoading(true);
             fetch(`${BASE_URL}/order/status/${order._id}?total=${total}`, {
                 method: 'PUT',

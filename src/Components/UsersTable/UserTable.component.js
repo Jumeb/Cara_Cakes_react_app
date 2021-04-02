@@ -30,6 +30,11 @@ const UserTable = (props) => {
         }
     }, []);
 
+    const ShowDetail = (user) => {
+        setUser(user);
+        setDetail(true);
+    };
+    
     const Delete = (data) => {
         setVerify(true);
         setMessage({
@@ -40,10 +45,6 @@ const UserTable = (props) => {
         })
     }
 
-    const ShowDetail = (user) => {
-        setUser(user);
-        setDetail(true);
-    }
 
     const DeleteAuth = (id) => {
         fetch(`${BASE_URL}/user/delete/${id}`, {

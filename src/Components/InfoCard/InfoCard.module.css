@@ -9,6 +9,7 @@
 .infoTitle {
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-normal);
+    color: var(--color-primary-light);
 }
 
 .infoStats {
@@ -24,6 +25,7 @@
 .infoIcon {
     font-size: var(--font-size-medium);
     color: var(--color-grey-light-4);
+    color: var(--color-primary-medium);
 }
 
 .infoRise {

@@ -120,9 +120,9 @@ const Bakers = (props) => {
            <div className={styles.bakerCat}>
                <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')}  onClick={() => setFilter(0, 'all')}>All Bakers</button>
                <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')}  onClick={() => setFilter(1, 'Verified')}>Verified</button>
-               <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')}  onClick={() => setFilter(2, 'Suspended')}>Suspended</button>
+               <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')}  onClick={() => setFilter(2, 'Suspended')}>Not Suspended</button>
                <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')}  onClick={() => setFilter(3, 'Unverified')}>Unverified</button>
-               <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')}  onClick={() => setFilter(4, 'Unsuspended')}>Unsuspended</button>
+               <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')}  onClick={() => setFilter(4, 'Unsuspended')}>Suspended</button>
                <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')}  onClick={() => setFilter(5, 'all')}>Add Baker</button>
            </div>
             {loading ? <div className={styles.activity}>

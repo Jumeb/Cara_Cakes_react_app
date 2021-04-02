@@ -77,32 +77,12 @@
     border-radius: var(--border-radius-small);
     background-color: var(--transparent-1);
     padding: 0.5rem 1.2rem;
-    color: var(--color-grey-dark-1);
+    color: var(--color-white);
     font-size: 1.15rem;
     transition: all 0.4s ease-in-out;
 
     cursor: pointer;
 }
-
-.cartButton:nth-child(odd) {
-    background-color: var(--color-success);
-    color: var(--color-white);
-}
-
-.cartButton:first-child {
-    background-color: var(--color-danger-light);
-    color: var(--color-white);
-    margin: 0 1.5rem;
-
-}
-
-.cartButton:nth-child(even) {
-    background-color: var(--color-primary-medium);
-    color: var(--color-white);
-    margin: 0 1.5rem;
-
-}
-
 
 .cartButton:hover {
     box-shadow: 0 0.2rem 1rem rgba(90, 89, 89, 0.774);
@@ -121,4 +101,31 @@
     flex-direction: row;
     align-items: center;
     border: none;
+}
+
+.cartDelete {
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius-small);
+    background-color: var(--transparent-1);
+    padding: 0.5rem;
+    color: var(--color-white);
+    margin: 0 0.8rem;
+    font-size: 1.15rem;
+    transition: all 0.4s ease-in-out;
+
+    cursor: pointer;
+}
+
+.suspend {
+    background-color: var(--color-danger-light);
+}
+
+.verify {
+    background-color: var(--color-primary-medium);
+}
+
+
+.details {
+    background-color: var(--color-success);
 }

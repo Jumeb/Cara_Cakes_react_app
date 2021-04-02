@@ -78,7 +78,7 @@ const AdminImage = (props) => {
     }
 
     return (
-        <div className={isOpen ? styles.notifyBackdrop : styles.notifyNoBackdrop}>
+        <div className={isOpen ? styles.notifyBackdrop : styles.notifyNoBackdrop} onClick={() => Close()}>
             <div className={[styles.notifyContainer, isOpen ? styles.showContainer : styles.hideContainer].join(' ')}>
                 <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                 <div className={styles.profileInfo}>

@@ -1,49 +1,87 @@
 import React from 'react';
-import { IoMail, IoThumbsDownSharp, IoThumbsUpSharp } from 'react-icons/io5';
+import { IoThumbsDownSharp, IoThumbsUpSharp } from 'react-icons/io5';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { cups2 } from '../../res/img';
+import { Thousand } from '../../utils/utilities';
 import styles from './BakerInfo.module.css';
+import { BASE_URL } from '../../utils/globalVariable';
 
-const BakerInfo = () => {
+const BakerInfo = (props) => {
+    const { token, baker, setRbakers } = props;
+
+    const Suspend = (id) => {
+        fetch(`${BASE_URL}/baker/suspend/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
+        })
+        .then(res => {
+            const statusCode = res.status;
+            const response = res.json();
+            return Promise.all([statusCode, response]);
+        })
+        .then(res => {
+            const statusCode = res[0];
+            const response = res[1];
+
+            if (statusCode === 200) {
+                setRbakers(true);
+            }
+
+        })
+            .catch(err => {
+                console.log(err);
+        })
+    }
+
     return (
         <div className={styles.bakerCard}> 
             <div className={styles.bakerInfo}>
                 <img src={cups2} alt="Baker name" className={styles.bakerImg} />
                 <div className={styles.bakerId}>
-                    <h2 className={styles.bakerTitle}>Noella Cara</h2>
-                    <b className={styles.bakerSubTitle}>C & K</b>
+                    <h2 className={styles.bakerTitle}>{baker.name}</h2>
+                    <b className={styles.bakerSubTitle}>{baker.companyName}</b>
                 </div>
                 <button className={styles.bakerButton}>Details</button>
             </div>
             <div className={styles.bakerStats}>
                 <div className={styles.bakerNumber}>
-                    <h2 className={styles.bakerTitle}>60</h2>
+                    <h2 className={styles.bakerTitle}>{baker.orders.ordered.length}</h2>
                     <b className={styles.bakerSubTitle}>Orders</b>
                 </div>
                 <div className={styles.bakerNumber}>
-                    <h2 className={styles.bakerTitle}>10</h2>
-                    <b className={styles.bakerSubTitle}>Ordered</b>
+                    <h2 className={styles.bakerTitle}>{baker.followers.users.length}</h2>
+                    <b className={styles.bakerSubTitle}>Followers</b>
                 </div>
                 <div className={styles.bakerNumber}>
-                    <h2 className={styles.bakerTitle}>5</h2>
+                    <h2 className={styles.bakerTitle}>{baker.categories.length}</h2>
                     <b className={styles.bakerSubTitle}>Categories</b>
                 </div>
                 <div className={styles.bakerNumber}>
-                    <h2 className={styles.bakerTitle}>50k</h2>
+                    <h2 className={styles.bakerTitle}>{Thousand(baker.total)}</h2>
                     <b className={styles.bakerSubTitle}>Earned</b>
                 </div>
             </div>
             <div className={styles.bakerFooter}>
                 {/* <NavLink to="#" className={styles.bakerMsg}><IoMail className={styles.bakerIcon} /> MESSAGE</NavLink> */}
                 <div className={styles.bakerRating}>
-                    <b className={styles.bakerRatingVal}><IoThumbsUpSharp className={styles.bakerRatingIcon} /> 23K</b>
-                    <b className={styles.bakerRatingVal}><IoThumbsDownSharp className={styles.bakerRatingIcon} /> 2K</b>
+                    <b className={styles.bakerRatingVal}><IoThumbsUpSharp className={styles.bakerRatingIcon} /> {baker.likes.users.length}</b>
+                    <b className={styles.bakerRatingVal}><IoThumbsDownSharp className={styles.bakerRatingIcon} /> {baker.dislikes.users.length}</b>
                 </div>
-                <button className={styles.bakerBtn}>Suspend</button>
+                <button className={styles.bakerBtn} onClick={() => Suspend(baker._id)}>{baker.suspend ? 'Unsuspend' : 'Suspend'}</button>
             </div>
         </div>
     )
 }
 
-export default BakerInfo;
+const mapStateToProps = ({ auth, refresh }) => {
+    return {
+        token: auth.token,
+        refresh: refresh.refresh,
+    }
+}
+
+export default connect(mapStateToProps)(BakerInfo);

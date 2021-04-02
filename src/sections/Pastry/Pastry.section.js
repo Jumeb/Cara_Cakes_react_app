@@ -9,7 +9,7 @@ import styles from './Pastry.module.css';
 import {setPastries} from '../../redux/Actions/Data.actions';
 
 const Pastry = (props) => {
-    const { token, user, _pastries } = props;
+    const { token, user, _pastries, refresh } = props;
     const [active, setActive] = useState(-1);
     const [isOpen, setIsOpen] = useState(false);
     const [page, setPage] = useState(1);
@@ -62,7 +62,7 @@ const Pastry = (props) => {
                     message: 'Please check your internet connection.'
                 })
             })
-    }, [isOpen]);
+    }, [isOpen, refresh]);
 
     const setFilter = (index, type) => {
         setActive(index);
@@ -97,13 +97,14 @@ const Pastry = (props) => {
     )
 };
 
-const mapStateToProps = ({auth, data}) => {
+const mapStateToProps = ({ auth, data, refresh }) => {
     return {
         token: auth.token,
         user: auth.user,
         _pastries: data.pastries,
+        refresh: refresh.refresh,
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({setPastries}, dispatch);
