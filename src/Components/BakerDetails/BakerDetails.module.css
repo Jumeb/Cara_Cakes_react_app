@@ -147,7 +147,7 @@
     background-color: var(--color-white);
     bottom: 1rem;
     right: 0.7rem;
-    min-width: 10rem;
+    width: auto;
     padding: 0.4rem 0.5rem;
     border-radius: var(--border-radius-small);
     z-index: 5;

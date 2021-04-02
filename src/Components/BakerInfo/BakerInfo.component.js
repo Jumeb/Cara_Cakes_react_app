@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoThumbsDownSharp, IoThumbsUpSharp } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -7,9 +7,17 @@ import { cups2 } from '../../res/img';
 import { Thousand } from '../../utils/utilities';
 import styles from './BakerInfo.module.css';
 import { BASE_URL } from '../../utils/globalVariable';
+import { BakerDetails } from '../';
 
 const BakerInfo = (props) => {
     const { token, baker, setRbakers } = props;
+    const [detail, setDetail] = useState(false);
+    const [_baker, setBaker] = useState([]);
+
+    const ShowDetails = (baker) => {
+        setDetail(true);
+        setBaker(baker);
+    }
 
     const Suspend = (id) => {
         fetch(`${BASE_URL}/baker/suspend/${id}`, {
@@ -45,7 +53,7 @@ const BakerInfo = (props) => {
                     <h2 className={styles.bakerTitle}>{baker.name}</h2>
                     <b className={styles.bakerSubTitle}>{baker.companyName}</b>
                 </div>
-                <button className={styles.bakerButton}>Details</button>
+                <button className={styles.bakerButton} onClick={() => ShowDetails(baker)}>Details</button>
             </div>
             <div className={styles.bakerStats}>
                 <div className={styles.bakerNumber}>
@@ -73,6 +81,7 @@ const BakerInfo = (props) => {
                 </div>
                 <button className={styles.bakerBtn} onClick={() => Suspend(baker._id)}>{baker.suspend ? 'Unsuspend' : 'Suspend'}</button>
             </div>
+            <BakerDetails detail={detail} setDetail={setDetail} baker={_baker} />
         </div>
     )
 }

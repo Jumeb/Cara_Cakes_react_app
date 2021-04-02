@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoThumbsDownSharp, IoThumbsUpSharp } from 'react-icons/io5';
 import { connect } from 'react-redux';
+import { UserDetails } from '..';
 
 import { cups2 } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
@@ -9,6 +10,13 @@ import styles from './UserInfo.module.css';
 
 const UserInfo = (props) => {
     const { user, token, setRusers } = props;
+    const [_user, setUser] = useState([]);
+    const [detail, setDetail] = useState(false);
+
+    const ShowDetail = (user) => {
+        setUser(user);
+        setDetail(true);
+    };
 
     const Suspend = (id) => {
         fetch(`${BASE_URL}/user/suspend/${id}`, {
@@ -44,7 +52,7 @@ const UserInfo = (props) => {
                     <h2 className={styles.bakerTitle}>{user.name.substr(0, 12)}</h2>
                     <b className={styles.bakerSubTitle}>{HNumber(user.telNumber)}</b>
                 </div>
-                <button className={styles.bakerButton}>Details</button>
+                <button className={styles.bakerButton} onClick={() => ShowDetail(user)}>Details</button>
             </div>
             <div className={styles.bakerStats}>
                 <div className={styles.bakerNumber}>
@@ -72,6 +80,7 @@ const UserInfo = (props) => {
                 </div>
                 <button className={styles.bakerBtn} onClick={() => Suspend(user._id)}>{user.suspend ? 'Unsuspend' : 'Suspend'}</button>
             </div>
+            <UserDetails detail={detail} setDetail={setDetail} _user={_user} />
         </div>
     )
 }

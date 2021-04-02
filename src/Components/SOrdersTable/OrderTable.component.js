@@ -37,7 +37,7 @@ const OrderTable = (props) => {
                             <td className={styles.cartTableData}>{DateString(order.createdAt)}</td>
                             <td className={styles.cartTableData}>
                                 <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => OrderDetails(order)}>Details</button>
-                                <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => console.log('Haha')}><IoTrashBinSharp /></button>
+                                {/* <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => console.log('Haha')}><IoTrashBinSharp /></button> */}
                             </td>
                         </tr>
                     )}

@@ -34,7 +34,7 @@ const PastryTable = (props) => {
                         <td className={styles.cartTableData}>{pastry.discount}%</td>
                         <td className={styles.cartTableData}>
                             <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => ShowDetail(pastry)}>Details</button>
-                            <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => console.log('Ordered')}><IoTrashBinSharp /></button>
+                            {/* <button className={[styles.cartDelete, styles.suspend].join(' ')} onClick={() => console.log('Ordered')}><IoTrashBinSharp /></button> */}
                         </td>
                     </tr>))}
                 </table>
