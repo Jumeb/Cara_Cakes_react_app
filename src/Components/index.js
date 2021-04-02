@@ -48,6 +48,7 @@ import SOrdersTable from './SOrdersTable/OrderTable.component';
 import UserDetails from './UserDetails/UserDetails.component';
 import OrderDetails from './OrderDetails/OrderDetails.component';
 import UserImage from './UserImage/UserImage.component';
+import PastryFilter from './PastryFilter/PastryFilter.section';
 
 export {
     Header, 
@@ -100,4 +101,5 @@ export {
     UserDetails,
     OrderDetails,
     UserImage,
+    PastryFilter,
 };

@@ -1,4 +1,4 @@
-import { SET_BAKERS, SET_ORDERS, SET_PASTRIES, SET_USERS } from "../types"
+import { SET_BAKERS, SET_CATEGORIES, SET_ORDERS, SET_PASTRIES, SET_USERS } from "../types"
 
 
 export const setPastries = (data) => {
@@ -25,6 +25,13 @@ export const setUsers = (data) => {
 export const setOrders = (data) => {
     return {
         type: SET_ORDERS,
+        payload: data,
+    }
+}
+
+export const setCategories = (data) => {
+    return {
+        type: SET_CATEGORIES,
         payload: data,
     }
 }

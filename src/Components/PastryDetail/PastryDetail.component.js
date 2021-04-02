@@ -140,7 +140,8 @@ const PastryDetail = (props) => {
 
     const EditPastry = (pastry) => {
         setIsEdit(true);
-    }
+        setDetail(false);
+    };
 
     const Message = (id) => {
         fetch(`${BASE_URL}/user/message/${id}?user=${user._id}&message=${pastryMessage}`, {

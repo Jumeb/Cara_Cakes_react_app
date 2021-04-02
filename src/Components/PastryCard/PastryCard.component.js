@@ -10,11 +10,12 @@ import { Thousand } from '../../utils/utilities';
 
 const PastryCard = (props) => {
     const {
-        isDetail, 
-        setIsDetail, 
-        pastry, 
+        isDetail,
+        setIsDetail,
+        pastry,
         setPastry,
         user,
+        filter,
     } = props;
 
     const [loading, setLoading] = useState(false);
@@ -34,28 +35,28 @@ const PastryCard = (props) => {
         fetch(`${BASE_URL}/pastry/dislike/${id}?user=${user._id}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].response;
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1].response;
+                setLoading(false);
 
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
+                if (statusCode === 200) {
+                    setLikes(response.likes.users.length);
+                    setDislikes(response.dislikes.users.length);
+                }
 
-            if (statusCode === 500) {
-                console.log('error');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
+                if (statusCode === 500) {
+                    console.log('error');
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     const likePastry = (id) => {
@@ -63,32 +64,32 @@ const PastryCard = (props) => {
         fetch(`${BASE_URL}/pastry/like/${id}?user=${user._id}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].response;
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1].response;
+                setLoading(false);
 
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
+                if (statusCode === 200) {
+                    setLikes(response.likes.users.length);
+                    setDislikes(response.dislikes.users.length);
+                }
 
-            if (statusCode === 404) {
-                console.log(response)
-            }
+                if (statusCode === 404) {
+                    console.log(response)
+                }
 
-            if (statusCode === 500) {
-                console.log('error 500');
-            }
-        })
-        .catch(err => {
-            console.log(err, 'ksjdkfljlsjf');
-        })
+                if (statusCode === 500) {
+                    console.log('error 500');
+                }
+            })
+            .catch(err => {
+                console.log(err, 'ksjdkfljlsjf');
+            })
     }
 
     const AddToCart = (id) => {
@@ -99,41 +100,41 @@ const PastryCard = (props) => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1];
-            setLoading(false);
-            if(statusCode === 200) {
-                setShow(true);
-                setMessage({
-                    type: 'success',
-                    message: `${pastry.name} added to cart.`,
-                    title: 'Success'
-                });
-            }
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                setLoading(false);
+                if (statusCode === 200) {
+                    setShow(true);
+                    setMessage({
+                        type: 'success',
+                        message: `${pastry.name} added to cart.`,
+                        title: 'Success'
+                    });
+                }
 
-            if(statusCode === 422) {
+                if (statusCode === 422) {
+                    setShow(true);
+                    setMessage({
+                        type: 'error',
+                        message: `${pastry.name} not added to cart.`,
+                        title: 'Failed'
+                    });
+                }
+            })
+            .catch(err => {
                 setShow(true);
                 setMessage({
                     type: 'error',
-                    message: `${pastry.name} not added to cart.`,
-                    title: 'Failed'
-                });
-            }
-        })
-        .catch(err => {
-            setShow(true);
-            setMessage({
-                type: 'error',
-                title: 'Unexpected Error',
+                    title: 'Unexpected Error',
                     message: 'Please check your internet connection.'
-            });
-        })
+                });
+            })
     }
 
     useEffect(() => {
@@ -145,7 +146,7 @@ const PastryCard = (props) => {
             setDetails(false);
             setMessage({});
         }
-    }, [])
+    }, []);
 
     return (
         <>
@@ -170,12 +171,12 @@ const PastryCard = (props) => {
             <Notification message={message} show={show} setShow={setShow} />
         </>
     )
-}
+};
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({ auth }) => {
     return {
         user: auth.user,
     }
-}
+};
 
 export default connect(mapStateToProps)(PastryCard);

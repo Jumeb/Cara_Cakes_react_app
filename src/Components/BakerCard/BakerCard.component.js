@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { IoPeople, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 
 import { Button } from '..';
 import { logo5, vals3 } from '../../res/img';
@@ -8,7 +9,7 @@ import styles from './BakerCard.module.css';
 import {setBaker} from '../../redux/Actions/Auth.actions';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
-import { IoPeople, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
+import { setCategories } from '../../redux/Actions/Data.actions';
 
 const BakerCard = (props) => {
     const { isDetail, setIsDetail, baker, _setBaker, user } = props;
@@ -23,8 +24,9 @@ const BakerCard = (props) => {
         setIsDetail(true);
     }
 
-    const bakerShop = (bakerId) => {
-        props.setBaker(bakerId);
+    const bakerShop = (baker) => {
+        props.setBaker(baker._id);
+        props.setCategories(baker.categories);
         props.history.push({pathname: '/user/shop/pastries'})
     }
 
@@ -134,7 +136,7 @@ const BakerCard = (props) => {
                 </div>
                 <div className={styles.bakersButtonContainer}>
                     <Button onClick={() => showDetail(baker)} title="Details" />
-                    <Button onClick={() => bakerShop(baker._id)} title="Shop" />
+                    <Button onClick={() => bakerShop(baker)} title="Shop" />
                 </div>
             </div>
     )
@@ -147,7 +149,7 @@ const mapStateToProps = ({ auth }) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({setBaker}, dispatch);
+    return bindActionCreators({setBaker, setCategories}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BakerCard);

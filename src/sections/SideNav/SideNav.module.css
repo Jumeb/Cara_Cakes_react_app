@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    z-index: 7;
 }
 
 .panelUserDetail {
@@ -138,7 +139,7 @@
 }
 
 .panelSideNavLink:active,
-.panelSideNavActive{
+.panelSideNavActive {
     background-color: var(--color-primary-medium) !important;
 }
 

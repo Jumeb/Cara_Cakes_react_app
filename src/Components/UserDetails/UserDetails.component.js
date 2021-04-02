@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { IoClose, IoPeople, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
+import { IoClose, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Button, Notification } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand, HNumber } from '../../utils/utilities';
 import { setBaker } from '../../redux/Actions/Auth.actions';
 import styles from './UserDetails.module.css';
-import { logo5, vals3 } from '../../res/img';
+import { vals3 } from '../../res/img';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const UserDetails = (props) => {
@@ -17,8 +16,6 @@ const UserDetails = (props) => {
     const [loading, setLoading] = useState(false);
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
-    const [show, setShow] = useState(false);
-    const [message, setMessage] = useState(false);
 
     useEffect(() => {
         if (_user.length !== 0) {
