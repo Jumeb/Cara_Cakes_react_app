@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { AddPastry, EditPastry } from '..';
-import { Notification, PastryDetail, PastryTable } from '../../Components';
+import { Language, Notification, PastryDetail, PastryTable, Profile, SearchBar } from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Pastry.module.css';
 import {setPastries} from '../../redux/Actions/Data.actions';
@@ -77,22 +77,31 @@ const Pastry = (props) => {
     }
 
     return (
-        <div className={styles.bakerSection}>
-            <div className={styles.bakerLength}>
-                <h2 className={styles.bakerLengthTitle}>{pastries.length} {(pastries.length === 0 || pastries.length > 1) ? 'Pastries' : 'Pastry'}</h2>
+        <div className={styles.bakerContainer}>
+            <div className={styles.bakerSection}>
+                <div className={styles.bakerLength}>
+                    <h2 className={styles.bakerLengthTitle}>{pastries.length} {(pastries.length === 0 || pastries.length > 1) ? 'Pastries' : 'Pastry'}</h2>
+                </div>
+                <div className={styles.bakerScroll}>
+                    <div className={styles.bakerCat}>
+                        <button className={[styles.bakerChoice, active === -1 && styles.bakerActive].join(' ')} onClick={() => setFilter(-1, 'all')}>All Pastries</button>
+                        {user.categories.map((category, index) => <button className={[styles.bakerChoice, active === index && styles.bakerActive].join(' ')} onClick={() => setFilter(index, category)}>{category}</button>)}
+                        <button className={styles.bakerChoice} onClick={() => setIsOpen(true)}>Add Pastry</button>
+                    </div>
+                </div>
+                <PastryTable pastries={pastries} setDetail={setDetail} setPastry={setPastry} />
+                <AddPastry isOpen={isOpen} setIsOpen={setIsOpen} />
+                <EditPastry isOpen={isEdit} setIsOpen={setIsEdit} pastry={pastry} />
+                <PastryDetail setDetail={setDetail} detail={detail} pastry={pastry} setIsEdit={setIsEdit} />
+                <Notification message={message} show={show} setShow={setShow} />
             </div>
-            <div className={styles.bakerScroll}>
-                <div className={styles.bakerCat}>
-                    <button className={[styles.bakerChoice, active === -1 && styles.bakerActive].join(' ')} onClick={() => setFilter(-1, 'all')}>All Pastries</button>
-                    {user.categories.map((category, index) => <button className={[styles.bakerChoice, active === index && styles.bakerActive].join(' ')} onClick={() => setFilter(index, category)}>{category}</button>)}
-                    <button className={styles.bakerChoice} onClick={() => setIsOpen(true)}>Add Pastry</button>
+            <div className={styles.panelEventHeader}>
+                <div className={styles.panelPosition}>
+                    <SearchBar />
+                    <Language />
+                    <Profile />
                 </div>
             </div>
-            <PastryTable pastries={pastries} setDetail={setDetail} setPastry={setPastry} />
-            <AddPastry isOpen={isOpen} setIsOpen={setIsOpen} />
-            <EditPastry isOpen={isEdit} setIsOpen={setIsEdit} pastry={pastry} />
-            <PastryDetail setDetail={setDetail} detail={detail} pastry={pastry} setIsEdit={setIsEdit} />
-            <Notification message={message} show={show} setShow={setShow} />
         </div>
     )
 };

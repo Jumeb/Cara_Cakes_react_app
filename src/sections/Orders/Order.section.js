@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { ActivityTwo, AOrderTable, OrderDetails } from '../../Components';
+import { ActivityTwo, AOrderTable, Language, OrderDetails, Profile, SearchBar } from '../../Components';
 import styles from './Order.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 import { setOrders } from '../../redux/Actions/Data.actions';
@@ -92,29 +92,38 @@ const Orders = (props) => {
         }
     }
 
-    return(
-       <div className={styles.bakerSection}>
-           <div className={styles.bakerLength}>
-               <h2 className={styles.bakerLengthTitle}>{orders.length} Order{orders.length !== 1 && 's'}</h2>
+    return (
+        <div className={styles.bakerContainer}>
+            <div className={styles.bakerSection}>
+                <div className={styles.bakerLength}>
+                    <h2 className={styles.bakerLengthTitle}>{orders.length} Order{orders.length !== 1 && 's'}</h2>
+                </div>
+                <div className={styles.bakerScroll}>
+                    <div className={styles.bakerCat}>
+                        <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')} onClick={() => setFilter(0, 'all')}>All Orders</button>
+                        <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')} onClick={() => setFilter(1, 'New')}>New</button>
+                        <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')} onClick={() => setFilter(2, 'Registered')}>Registered</button>
+                        <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'Processing')}>Processing</button>
+                        <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')} onClick={() => setFilter(4, 'On the Way')}>On the Way</button>
+                        <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')} onClick={() => setFilter(5, 'Delivered')}>Delivered</button>
+                        <button className={[styles.bakerChoice, active === 6 && styles.bakerActive].join(' ')} onClick={() => setFilter(6, 'Confirmed')}>Confirmed</button>
+                    </div>
+                </div>
+                {loading ? <div className={styles.activity}>
+                    <ActivityTwo />
+                </div> : <AOrderTable orders={orders} token={token} setDetail={setDetail} setOrder={setOrder} />}
+                <OrderDetails detail={detail} setDetail={setDetail} order={order} />
             </div>
-            <div className={styles.bakerScroll}>
-                <div className={styles.bakerCat}>
-                    <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')} onClick={() => setFilter(0, 'all')}>All Orders</button>
-                    <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')} onClick={() => setFilter(1, 'New')}>New</button>
-                    <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')} onClick={() => setFilter(2, 'Registered')}>Registered</button>
-                    <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'Processing')}>Processing</button>
-                    <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')} onClick={() => setFilter(4, 'On the Way')}>On the Way</button>
-                    <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')} onClick={() => setFilter(5, 'Delivered')}>Delivered</button>
-                    <button className={[styles.bakerChoice, active === 6 && styles.bakerActive].join(' ')} onClick={() => setFilter(6, 'Confirmed')}>Confirmed</button>
-                </div>    
-           </div>
-           {loading ? <div className={styles.activity}>
-                <ActivityTwo />
-            </div> : <AOrderTable orders={orders} token={token} setDetail={setDetail} setOrder={setOrder} />}
-            <OrderDetails detail={detail} setDetail={setDetail} order={order} />
-       </div>
+            <div className={styles.panelEventHeader}>
+                <div className={styles.panelPosition}>
+                    <SearchBar />
+                    <Language />
+                    <Profile />
+                </div>
+            </div>
+        </div>
     )
-}
+};
 
 const mapStateToProps = ({auth, refresh, data}) => {
     return {

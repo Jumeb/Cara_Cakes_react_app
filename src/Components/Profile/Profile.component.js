@@ -1,15 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { vals3 } from '../../res/img';
+import { BASE_URL } from '../../utils/globalVariable';
 
 import styles from './Profile.module.css';
 
-const Profile = () => {
+const Profile = ({user}) => {
     return (
         <div className={styles.profile}>
-            <b className={styles.profileUserName}>Jume Brice</b>
-            <img src={vals3} className={styles.profileImg} alt="Profile_Image"/>
+            <b className={styles.profileUserName}>{user.name.substr(0, 12)}</b>
+            <img src={user.image ? `${BASE_URL}/${user.image}` : user.ceoImage ? `${BASE_URL}/${user.ceoImage}` : vals3} className={styles.profileImg} alt="Profile_Image"/>
         </div>
     )
 }
 
-export default Profile;
+const mapStateToProps = ({ auth }) => {
+    return {
+        user: auth.user,
+    }
+}
+
+export default connect(mapStateToProps)(Profile);

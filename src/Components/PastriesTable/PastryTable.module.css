@@ -1,6 +1,5 @@
 .cartSeparator:not(:last-child) {
     margin-bottom: 1rem;
-    margin: 0 2rem;
     padding-bottom: 3rem;
     display: flex;
     align-items: center;
@@ -9,7 +8,6 @@
 }
 
 .cartSeparator:last-child {
-    margin: 0 2rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -18,7 +16,7 @@
 }
 
 .cartTable {
-    width: 95%;
+    width: 100%;
     text-align: center;
     border-collapse: collapse;
     border-style: hidden;

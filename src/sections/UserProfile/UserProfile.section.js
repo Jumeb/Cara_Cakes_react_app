@@ -131,7 +131,7 @@ const UserProfile = (props) => {
                         <button className={styles.profileEdit} onClick={() => setIsOpen(true)}><IoBrush className={styles.profileIcon} /></button>
                     </div>
                     <div className={styles.profileCredentials}>
-                        <h2 className={styles.profileName}>{name.substr(0, 15)}</h2>
+                        <h2 className={styles.profileName}>{name}</h2>
                         <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{HNumber(contact) || "'empty'"}</span> | <span className={styles.profileSubInfo} >{user.location || "'location'"}</span></h3>
                         <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{user.location || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{email}</span> </h3>
                     </div>
