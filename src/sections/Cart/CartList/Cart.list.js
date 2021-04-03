@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CartTable } from '../../../Components';
+import { CartTable, Language, Profile, SearchBar } from '../../../Components';
 import styles from './CartList.module.css';
 
 const CartList = (props) => {
@@ -8,7 +8,14 @@ const CartList = (props) => {
 
     return (
         <div className={styles.cartList}>
-            <CartTable isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} />
+            <div className={styles.cartContainer}><CartTable isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} /></div>
+            <div className={styles.panelEventHeader}>
+                <div className={styles.panelPosition}>
+                    <SearchBar />
+                    <Language />
+                    <Profile />
+                </div>
+            </div>
         </div>
     )
 }

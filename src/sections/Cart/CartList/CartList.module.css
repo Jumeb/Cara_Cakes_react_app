@@ -1,35 +1,60 @@
 .cartList {
     flex: 0 0 100%;
-    display: flex;
-    flex-direction: row;
-    height: 88vh;
+    height: 100vh;
     padding: 0 1rem;
-    margin-top: 8rem;
     flex-wrap: wrap;
-    overflow: auto;
-    justify-content: center;
-    align-items: flex-start;
-    transition: flex-basis ease-in 0.3s;
+    overflow: hidden;
     position: relative;
 }
 
-.cartList::-webkit-scrollbar,
-.cartListDetail::-webkit-scrollbar {
+.cartContainer {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: row;
+    height: 87vh;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-evenly;
+    transition: flex-basis ease-in 0.3s;
+    position: relative;
+    margin-top: 8rem;
+}
+
+.cartContainer::-webkit-scrollbar {
     width: .4rem;
     background-color: transparent;
     border-radius: var(--border-radius-large);
 }
 
-.cartList::-webkit-scrollbar-thumb,
-.cartListDetail::-webkit-scrollbar-thumb {
+.cartContainer::-webkit-scrollbar-thumb {
     width: .2rem;
     background-color: rgba(var(--color-secondary-medium), 0.8);
     border-radius: var(--border-radius-large);
 }
 
-.cartList::-webkit-scrollbar-track,
-.cartListDetail::-webkit-scrollbar-track {
+.cartContainer::-webkit-scrollbar-track {
     background-color: var(--color-grey-light-3);
     margin: 18rem 0;
     width: 0.2rem;
+}
+
+.panelEventHeader {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.panelPosition {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 0rem;
+    align-items: center;
+    position: fixed;
+    min-height: 8rem;
+    flex-direction: row;
+    width: 100%;
+    background-color: var(--color-white);
 }

@@ -10,11 +10,11 @@ const WorkArea = (props) => {
     return (
         <div className={isDetail ? styles.panelEventDetail : styles.panelEvent}>
             {children}
-            <div className={styles.panelEventHeader}>
+            {/* <div className={styles.panelEventHeader}>
                 <SearchBar />
                 <Language />
                 <Profile />
-            </div>
+            </div> */}
         </div>
     )
 }

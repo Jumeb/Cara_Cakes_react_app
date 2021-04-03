@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { ActivityTwo, Notification, PastryCard, PastryDetail, PastryFilter } from '../../../../Components';
+import { ActivityTwo, Language, Notification, PastryCard, PastryDetail, PastryFilter, Profile, SearchBar } from '../../../../Components';
 import { BASE_URL } from '../../../../utils/globalVariable';
 import styles from './PastryList.module.css'
 import {setPastries} from '../../../../redux/Actions/Data.actions';
 
 const PastryList = (props) => {
     const {
-        isDetail, 
-        setIsDetail, 
+        isDetail,
+        setIsDetail,
         setPastry,
         token,
         bakerId,
@@ -101,11 +101,20 @@ const PastryList = (props) => {
             <PastryFilter setFilter={setFilter} {...props} />
             {loading ? <div>
                 <ActivityTwo />
-            </div> : pastries.map((pastry, index) => <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} pastry={pastry} key={index} /> )}
+            </div> : <div className={styles.pastriesContainer}>
+                {pastries.map((pastry, index) => <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} pastry={pastry} key={index} />)}
+            </div>}
+            <div className={styles.panelEventHeader}>
+                <div className={styles.panelPosition}>
+                    <SearchBar />
+                    <Language />
+                    <Profile />
+                </div>
+            </div>
             <Notification message={message} show={show} setShow={setShow} />
         </div>
     )
-}
+};
 
 const mapStateToProps = ({ auth, refresh, data }) => {
     return {

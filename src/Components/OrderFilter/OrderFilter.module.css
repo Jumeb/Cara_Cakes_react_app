@@ -1,6 +1,6 @@
 .filterPosition {
     position: absolute;
-    top: 7.6rem;
+    top: 10.6rem;
     left: -1rem;
     z-index: 6;
 }
@@ -33,7 +33,7 @@
 
 .filterCategories {
     position: absolute;
-    top: 11.6rem;
+    top: 14.6rem;
     left: -1rem;
     z-index: 6;
     transition: all ease-in-out 0.5s;
@@ -41,7 +41,7 @@
 
 .filterCategoriesHide {
     position: absolute;
-    top: 11.6rem;
+    top: 14.6rem;
     left: -14rem;
     z-index: 6;
     transition: all ease-in-out 0.5s;
