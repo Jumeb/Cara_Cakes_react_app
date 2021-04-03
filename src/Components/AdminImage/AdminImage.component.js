@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { IoAdd, IoBrush, IoClose, IoRemove, IoSave, IoStatsChart, IoThumbsDown, IoThumbsUp, IoWallet } from 'react-icons/io5';
+import { IoClose } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Button, Notification, SquareImage } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
-import { Thousand } from '../../utils/utilities';
 import styles from './AdminImage.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 import { cups1, vals3 } from '../../res/img';
@@ -14,7 +13,6 @@ import { setUser } from '../../redux/Actions/Auth.actions';
 const AdminImage = (props) => {
     const {isOpen, setIsOpen, user, token} = props;
 
-    const [loading, setLoading] = useState(false);
     const [logo, setLogo] = useState('');
     const [image, setImage] = useState('');
     const [show, setShow] = useState(false);
@@ -35,8 +33,6 @@ const AdminImage = (props) => {
     }, [])
 
     const Save = (id) => {
-
-        setLoading(true);
         const formData = new FormData();
         formData.append('image', image[0]);
         formData.append('logo', logo[0]);
@@ -56,7 +52,6 @@ const AdminImage = (props) => {
         .then(res => {
             const statusCode = res[0];
             const response = res[1];
-            setLoading(false);
 
             if (statusCode === 200) {
                 setShow(true);

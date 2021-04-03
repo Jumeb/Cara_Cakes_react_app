@@ -3,7 +3,7 @@ import { IoClose, IoPeople, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Button, Notification } from '..';
+import { Button } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import { setBaker } from '../../redux/Actions/Auth.actions';
@@ -13,8 +13,7 @@ import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const BakerDetails = (props) => {
     const { detail, setDetail, baker, user, refresh } = props;
-    
-    const [loading, setLoading] = useState(false);
+
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
     const [followers, setFollowers] = useState(0);
@@ -34,7 +33,6 @@ const BakerDetails = (props) => {
 
     useEffect(() => {
         return () => {
-            setLoading(false);
             setLikes(0);
             setDislikes(0);
             setFollowers(0);
@@ -51,7 +49,6 @@ const BakerDetails = (props) => {
 
 
     const disLikeBaker = (id) => {
-        setLoading(true);
         fetch(`${BASE_URL}/baker/dislike/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -63,7 +60,6 @@ const BakerDetails = (props) => {
         .then(res => {
             const statusCode = res[0];
             const response = res[1].baker;
-            setLoading(false);
 
             if (statusCode === 200) {
                 setLikes(response.likes.users.length);
@@ -81,7 +77,6 @@ const BakerDetails = (props) => {
     }
 
     const likeBaker = (id) => {
-        setLoading(true);
         fetch(`${BASE_URL}/baker/like/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -93,7 +88,6 @@ const BakerDetails = (props) => {
         .then(res => {
             const statusCode = res[0];
             const response = res[1].baker;
-            setLoading(false);
             if (statusCode === 200) {
                 setLikes(response.likes.users.length);
                 setDislikes(response.dislikes.users.length);
@@ -114,7 +108,6 @@ const BakerDetails = (props) => {
     }
 
     const followBaker = (id) => {
-        setLoading(true);
         fetch(`${BASE_URL}/baker/follow/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -126,7 +119,6 @@ const BakerDetails = (props) => {
         .then(res => {
             const statusCode = res[0];
             const response = res[1].baker;
-            setLoading(false);
             if (statusCode === 200) {
                 setFollowers(response.followers.users.length);
                 props.setRefresh(true);

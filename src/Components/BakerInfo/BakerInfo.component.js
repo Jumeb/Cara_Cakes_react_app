@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { IoThumbsDownSharp, IoThumbsUpSharp } from 'react-icons/io5';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 
 import { cups2 } from '../../res/img';
 import { Thousand } from '../../utils/utilities';
