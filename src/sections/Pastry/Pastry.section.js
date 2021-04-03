@@ -62,7 +62,7 @@ const Pastry = (props) => {
                     message: 'Please check your internet connection.'
                 })
             })
-    }, [isOpen, refresh]);
+    }, [isOpen, refresh, isEdit]);
 
     const setFilter = (index, type) => {
         setActive(index);

@@ -9,7 +9,7 @@ import { HNumber, Thousand } from '../../utils/utilities';
 import styles from './UserInfo.module.css';
 
 const UserInfo = (props) => {
-    const { user, token, setRusers } = props;
+    const { user, token, setRusers, User } = props;
     const [_user, setUser] = useState([]);
     const [detail, setDetail] = useState(false);
 
@@ -52,7 +52,7 @@ const UserInfo = (props) => {
                     <h2 className={styles.bakerTitle}>{user.name.substr(0, 12)}</h2>
                     <b className={styles.bakerSubTitle}>{HNumber(user.telNumber)}</b>
                 </div>
-                <button className={styles.bakerButton} onClick={() => ShowDetail(user)}>Details</button>
+                {User.type === 'Admin' && <button className={styles.bakerButton} onClick={() => ShowDetail(user)}>Details</button>}
             </div>
             <div className={styles.bakerStats}>
                 <div className={styles.bakerNumber}>
@@ -78,7 +78,7 @@ const UserInfo = (props) => {
                     <b className={styles.bakerRatingVal}><IoThumbsUpSharp className={styles.bakerRatingIcon} /> {user.likes.users.length}</b>
                     <b className={styles.bakerRatingVal}><IoThumbsDownSharp className={styles.bakerRatingIcon} /> {user.dislikes.users.length}</b>
                 </div>
-                <button className={styles.bakerBtn} onClick={() => Suspend(user._id)}>{user.suspend ? 'Unsuspend' : 'Suspend'}</button>
+                {User.type === 'Admin' && <button className={styles.bakerBtn} onClick={() => Suspend(user._id)}>{user.suspend ? 'Unsuspend' : 'Suspend'}</button>}
             </div>
             <UserDetails detail={detail} setDetail={setDetail} _user={_user} />
         </div>
@@ -89,6 +89,7 @@ const mapStateToProps = ({ auth, refresh }) => {
     return {
         token: auth.token,
         refresh: refresh.refresh,
+        User: auth.user,
     }
 }
 

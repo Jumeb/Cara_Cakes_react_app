@@ -342,8 +342,8 @@
     font-size: var(--font-size-medium);
     margin-right: auto;
     color: var(--color-primary-light);
-    display: block;
-    padding: 0.2rem 0.5rem;
+    /* display: block; */
+    padding: 0 0.5rem;
 }
 
 .info {
@@ -355,6 +355,7 @@
 .subTitle {
     text-align: left;
     padding: 0 0.5rem;
+    margin-top: 1rem;
     font-size: var(--font-size-medium);
     color: var(--color-primary-light)
 }
@@ -377,7 +378,6 @@
 }
 
 .bakerAbout {
-    margin-top: 1rem;
     font-size: var(--font-size-normal);
     color: var(--color-grey-dark-1);
     font-weight: var(--font-weight-normal);

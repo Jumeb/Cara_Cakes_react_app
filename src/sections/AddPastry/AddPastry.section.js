@@ -31,9 +31,27 @@ const AddPastry = (props) => {
 
     useEffect(() => {
         let _categories = [];
-        user.categories.map((category, index) => _categories.push({value: category, label: category}));
+        user.categories.map((category, index) => _categories.push({ value: category, label: category }));
         setCategories(_categories);
+        setPrice(0);
+        setName('');
+        setDiscount('');
+        setType('');
+        setAbout('');
+        setImage('');
     }, [isOpen]);
+
+    useEffect(() => {
+        return () => {
+            setPrice(0);
+            setName('');
+            setDiscount('');
+            setType('');
+            setAbout('');
+            setImage('');
+            setCategories([]);
+        }
+    }, [])
     
     const authenticate = () => {
         let hasError = false;
@@ -101,7 +119,7 @@ const AddPastry = (props) => {
         formData.append('userImage', image);
         formData.append('logo', image);
         formData.append('bakerImage', image);
-        formData.append('discount', discount);
+        formData.append('discount', discount || 0);
         formData.append('type', type.value);
         formData.append('bakerId', user._id);
 

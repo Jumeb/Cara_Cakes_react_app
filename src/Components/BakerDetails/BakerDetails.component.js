@@ -176,7 +176,7 @@ const BakerDetails = (props) => {
                                 <ol className={styles.bakerCategories}>
                                     {baker.categories.map((category, index) => <li>{category}</li>)}
                                 </ol>
-                                {user.type === 'Baker' &&
+                                {user.type === ('Admin') &&
                                     <>
                                         <h2 className={styles.smallDetails}>Email: <span className={styles.info}>{baker.email}</span></h2>
                                         <h2 className={styles.smallDetails}>Telephone: <span className={styles.info}>{baker.telNumber}</span></h2>
@@ -190,7 +190,7 @@ const BakerDetails = (props) => {
                                 <b className={styles.bakerAbout}>{baker.about || 'empty'}</b>
                             </div>
                             <div className={styles.actions}>
-                                {user.type !== ('Baker' || 'Admin') && <Button title='Shop' onClick={() => bakerShop(baker._id)} />}
+                                {user.type !== 'Baker' && user.type !== 'Admin' && <Button title='Shop' onClick={() => bakerShop(baker._id)} />}
                             </div>
                         </div>
                     </div>

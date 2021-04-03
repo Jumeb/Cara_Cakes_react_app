@@ -1,4 +1,4 @@
-import {SET_USER, SET_TOKEN, SET_BAKERID} from '../types';
+import {SET_USER, SET_TOKEN, SET_BAKERID, RESET} from '../types';
 
 export const setUser = (user) => {
   return {
@@ -18,5 +18,11 @@ export const setBaker = (id) => {
   return {
     type: SET_BAKERID,
     payload: id,
+  }
+}
+
+export const resetUser = () => {
+  return {
+    type: RESET
   }
 }

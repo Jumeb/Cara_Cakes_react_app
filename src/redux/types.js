@@ -9,3 +9,4 @@ export const SET_DISLIKE = 'set_dislike';
 export const SET_REFRESH = 'set_refresh';
 export const SET_ORDERS = 'set_orders';
 export const SET_CATEGORIES = 'set_categories';
+export const RESET = 'reset';

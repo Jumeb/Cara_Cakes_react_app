@@ -10,7 +10,7 @@ import { BASE_URL } from '../../utils/globalVariable';
 import { BakerDetails } from '../';
 
 const BakerInfo = (props) => {
-    const { token, baker, setRbakers } = props;
+    const { token, baker, setRbakers, user } = props;
     const [detail, setDetail] = useState(false);
     const [_baker, setBaker] = useState([]);
 
@@ -53,7 +53,7 @@ const BakerInfo = (props) => {
                     <h2 className={styles.bakerTitle}>{baker.name}</h2>
                     <b className={styles.bakerSubTitle}>{baker.companyName}</b>
                 </div>
-                <button className={styles.bakerButton} onClick={() => ShowDetails(baker)}>Details</button>
+                {user.type === 'Admin' &&<button className={styles.bakerButton} onClick={() => ShowDetails(baker)}>Details</button>}
             </div>
             <div className={styles.bakerStats}>
                 <div className={styles.bakerNumber}>
@@ -79,7 +79,7 @@ const BakerInfo = (props) => {
                     <b className={styles.bakerRatingVal}><IoThumbsUpSharp className={styles.bakerRatingIcon} /> {baker.likes.users.length}</b>
                     <b className={styles.bakerRatingVal}><IoThumbsDownSharp className={styles.bakerRatingIcon} /> {baker.dislikes.users.length}</b>
                 </div>
-                <button className={styles.bakerBtn} onClick={() => Suspend(baker._id)}>{baker.suspend ? 'Unsuspend' : 'Suspend'}</button>
+                {user.type === 'Admin' && <button className={styles.bakerBtn} onClick={() => Suspend(baker._id)}>{baker.suspend ? 'Unsuspend' : 'Suspend'}</button>}
             </div>
             <BakerDetails detail={detail} setDetail={setDetail} baker={_baker} />
         </div>
@@ -90,6 +90,7 @@ const mapStateToProps = ({ auth, refresh }) => {
     return {
         token: auth.token,
         refresh: refresh.refresh,
+        user: auth.user,
     }
 }
 

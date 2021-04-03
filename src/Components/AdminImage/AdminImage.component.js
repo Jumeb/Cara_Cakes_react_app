@@ -24,6 +24,10 @@ const AdminImage = (props) => {
         setIsOpen(false);
     }
 
+    const stopClose = (e) => {
+        e.stopPropagation();
+    }
+
     useEffect(() => {
         return () => {
 
@@ -79,7 +83,7 @@ const AdminImage = (props) => {
 
     return (
         <div className={isOpen ? styles.notifyBackdrop : styles.notifyNoBackdrop} onClick={() => Close()}>
-            <div className={[styles.notifyContainer, isOpen ? styles.showContainer : styles.hideContainer].join(' ')}>
+            <div className={[styles.notifyContainer, isOpen ? styles.showContainer : styles.hideContainer].join(' ')} onClick={(e) => stopClose(e)}>
                 <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                 <div className={styles.profileInfo}>
                     <div className={styles.profileBoard}>
