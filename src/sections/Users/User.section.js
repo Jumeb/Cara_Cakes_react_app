@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Notification, UserDetails, UserTable } from '../../Components';
+import { Language, Notification, Profile, SearchBar, UserDetails, UserTable } from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './User.module.css';
 import {setUsers} from '../../redux/Actions/Data.actions';
 
 const Users = (props) => {
-    const {user, token, refresh, _users} = props;
+    const { user, token, refresh, _users } = props;
 
     const [users, setUsers] = useState([]);
     const [message, setMessage] = useState({});
@@ -27,41 +27,41 @@ const Users = (props) => {
                 'Authorization': `Basic ${token}`,
             }
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1];
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
 
-            if(statusCode === 200) {
-                setUsers(response.users);
-                props.setUsers(response.users);
-                setActive(0);
-                setTotal(response.totalItems);
-            }
+                if (statusCode === 200) {
+                    setUsers(response.users);
+                    props.setUsers(response.users);
+                    setActive(0);
+                    setTotal(response.totalItems);
+                }
 
-            if (statusCode === 404) {
-                setShow(true);
-                setMessage({
-                    type: 'error',
-                    title: 'Unexpected Error',
-                    message: response.message,
-                })
-            }
+                if (statusCode === 404) {
+                    setShow(true);
+                    setMessage({
+                        type: 'error',
+                        title: 'Unexpected Error',
+                        message: response.message,
+                    })
+                }
 
-            if(statusCode === 500) {
-                setShow(true);
-                setMessage({
-                    type: 'error',
-                    title: 'Unexpected Error',
-                    message: response.message,
-                })
-            }
-        })
-        .catch(err => {
+                if (statusCode === 500) {
+                    setShow(true);
+                    setMessage({
+                        type: 'error',
+                        title: 'Unexpected Error',
+                        message: response.message,
+                    })
+                }
+            })
+            .catch(err => {
                 setLoading(false);
                 setShow(true);
                 setMessage({
@@ -88,23 +88,34 @@ const Users = (props) => {
         }
     }
 
-    return(
-       <div className={styles.bakerSection}>
-           <div className={styles.bakerLength}>
-               <h2 className={styles.bakerLengthTitle}>{total} User{total !== 1 && 's'}</h2>
-           </div>
-           <div className={styles.bakerCat}>
-               <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')}  onClick={() => setFilter(0, 'all')}>All Users</button>
-               <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')}  onClick={() => setFilter(1, 'Suspended')}>Not Suspended</button>
-               <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')}  onClick={() => setFilter(2, 'Unsuspended')}>Suspended</button>
-               <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')}  onClick={() => setFilter(3, 'all')}>Add User</button>
-           </div>
-            <UserTable users={users} token={token} setDetail={setDetail} setUser={setUser} />
-            <UserDetails detail={detail} setDetail={setDetail} _user={_user} />
-           <Notification show={show} setShow={setShow} message={message} />
-       </div>
+    return (
+        <div className={styles.bakerContainer}>
+            <div className={styles.bakerSection}>
+                <div className={styles.bakerLength}>
+                    <h2 className={styles.bakerLengthTitle}>{total} User{total !== 1 && 's'}</h2>
+                </div>
+                <div className={styles.bakerScroll}>
+                    <div className={styles.bakerCat}>
+                        <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')} onClick={() => setFilter(0, 'all')}>All Users</button>
+                        <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')} onClick={() => setFilter(1, 'Suspended')}>Not Suspended</button>
+                        <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')} onClick={() => setFilter(2, 'Unsuspended')}>Suspended</button>
+                        <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'all')}>Add User</button>
+                    </div>
+                </div>
+                <UserTable users={users} token={token} setDetail={setDetail} setUser={setUser} />
+                <UserDetails detail={detail} setDetail={setDetail} _user={_user} />
+                <Notification show={show} setShow={setShow} message={message} />
+            </div>
+            <div className={styles.panelEventHeader}>
+                <div className={styles.panelPosition}>
+                    <SearchBar />
+                    <Language />
+                    <Profile />
+                </div>
+            </div>
+        </div>
     )
-}
+};
 
 const mapStateToProps = ({ auth, refresh, data }) => {
     return {

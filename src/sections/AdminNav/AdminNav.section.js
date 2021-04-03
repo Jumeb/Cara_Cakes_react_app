@@ -25,7 +25,7 @@ const AdminNav = (props) => {
                 <img src={favicon} alt="Logo" className={styles.panelLogo} />
                 <li className={styles.panelSideNavItem}>
                     <NavLink to="/admin/dashboard" exact className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                        <span className={styles.panelSideNavIcon}><IoGrid /></span><span>Dasboard</span>
+                        <span className={styles.panelSideNavIcon}><IoGrid /></span><span>Dashboard</span>
                     </NavLink>
                 </li>
                 {user.type === 'Admin' &&
@@ -42,12 +42,12 @@ const AdminNav = (props) => {
                         </li>
                         <li className={styles.panelSideNavItem}>
                             <NavLink to="/admin/dashboard/pastry-super" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoGift /></span><span>Pastries Super</span>
+                                <span className={styles.panelSideNavIcon}><IoGift /></span><span>All Pastries</span>
                             </NavLink>
                         </li>
                         <li className={styles.panelSideNavItem}>
                             <NavLink to="/admin/dashboard/orders-super" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoArchive /></span><span>Orders Super</span>
+                                <span className={styles.panelSideNavIcon}><IoArchive /></span><span>All Orders</span>
                             </NavLink>
                         </li>
                     </>}
