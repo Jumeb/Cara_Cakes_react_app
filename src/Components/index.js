@@ -49,6 +49,7 @@ import UserDetails from './UserDetails/UserDetails.component';
 import OrderDetails from './OrderDetails/OrderDetails.component';
 import UserImage from './UserImage/UserImage.component';
 import PastryFilter from './PastryFilter/PastryFilter.section';
+import OrderFilter from './OrderFilter/OrderFilter.section';
 
 export {
     Header, 
@@ -102,4 +103,5 @@ export {
     OrderDetails,
     UserImage,
     PastryFilter,
+    OrderFilter,
 };

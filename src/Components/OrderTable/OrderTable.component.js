@@ -10,7 +10,7 @@ import { ActivityTwo, Notification } from '..';
 import { Thousand } from '../../utils/utilities';
 
 const OrderTable = (props) => {
-    const { user, token, refresh } = props;
+    const { user, token, refresh, filter } = props;
 
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState({});
@@ -127,7 +127,7 @@ const OrderTable = (props) => {
              {loading ? <div> <ActivityTwo /> </div> : <>
                 {Object.values(orders).map((order, index) => (<div className={styles.orderSeparator}>
                     <h1 className={styles.orderListBaker}>Company: {Object.keys(orders)[index]}</h1>
-                    {order.filter(order => order.status !== ('Delivered' && 'Confirmed')).map((order, index) =>
+                    {order.filter(order => filter === 'All' ? order.status : order.status === filter).map((order, index) =>
                         <table className={styles.orderTable}>
                             <thead className={styles.orderTableHeader}>
                                 <td className={[styles.orderTableHeaderData, styles.product].join(' ')}>Product</td>

@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './OrderList.module.css'
-import { OrderTable, Spacer } from '../../../Components';
+import { OrderFilter, OrderTable, Spacer } from '../../../Components';
 
 const OrderList = (props) => {
-     const {isDetail, setIsDetail} = props;
+    const { isDetail, setIsDetail } = props;
+    const [filter, setFilter] = useState('All');
     return (
         <div className={isDetail ? styles.orderListDetail : styles.orderList}>
-            <OrderTable isDetail={isDetail} setIsDetail={setIsDetail} />
+            <OrderFilter setFilter={setFilter} />
+            <OrderTable isDetail={isDetail} setIsDetail={setIsDetail} filter={filter} />
         </div>
     )
 }

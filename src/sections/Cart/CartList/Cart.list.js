@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {CartTable} from '../../../Components';
+import { CartTable } from '../../../Components';
 import styles from './CartList.module.css';
 
 const CartList = (props) => {
