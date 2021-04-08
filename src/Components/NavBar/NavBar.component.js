@@ -16,14 +16,14 @@ const NavBar = () => {
                     <NavLink to="/" exact title="Home"  activeClassName={styles.naviActive} className={styles.naviLink}><IoHome /></NavLink>
                 </span>
                 <span className={[styles.naviItem, styles.naviItem2].join(' ')}>
-                    <NavLink to="/login" title="About" activeClassName={styles.naviActive} className={styles.naviLink}><IoLogIn /></NavLink>
+                    <NavLink to="/login" title="Login" activeClassName={styles.naviActive} className={styles.naviLink}><IoLogIn /></NavLink>
                 </span>
                 <span className={[styles.naviItem, styles.naviItem3].join(' ')}>
-                    <NavLink to="/register" title="Gallery" activeClassName={styles.naviActive} className={styles.naviLink}><IoPersonAdd /></NavLink>
+                    <NavLink to="/register" title="Register" activeClassName={styles.naviActive} className={styles.naviLink}><IoPersonAdd /></NavLink>
                 </span>
-                <span className={[styles.naviItem, styles.naviItem4].join(' ')}>
+                {/* <span className={[styles.naviItem, styles.naviItem4].join(' ')}>
                     <NavLink to="/user/cart" title="Story" activeClassName={styles.naviActive} className={styles.naviLink}><IoCart /></NavLink>
-                </span>
+                </span> */}
             </div>
         </div>
     )

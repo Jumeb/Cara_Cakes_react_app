@@ -1,40 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { IoBrush } from 'react-icons/io5';
 import makeAnimated from 'react-select/animated';
-import Select from 'react-select';
 
-import { AdminImage, Button, Notification, SquareArea, SquareInput } from '../../Components';
+import { AImage, Button, Notification, SquareInput } from '../../Components';
 import { cups1 } from '../../res/img';
 import styles from './Profile.module.css';
 import { connect } from 'react-redux';
 import { BASE_URL } from '../../utils/globalVariable';
 import { bindActionCreators } from 'redux';
 import { setUser } from '../../redux/Actions/Auth.actions';
-import { SetLocation, SetCategories, Thousand, HNumber } from '../../utils/utilities';
-
-const animatedComponents = makeAnimated();
+import { HNumber } from '../../utils/utilities';
+import { EditPassword } from '..';
 
 const Profile = (props) => {
     const { user, token } = props;
-    const [locations] = useState([
-        { value: "North-West", label: "North-West" },
-        { value: "South-West", label: "South-West" },
-        { value: "West", label: "West" },
-        { value: "Center", label: "Center" },
-        { value: "Litoral", label: "Litoral" },
-        { value: "North", label: "North" },
-        { value: "East", label: "East" },
-        { value: "North-West", label: "North-West" },
-    ]);
-    const [_categories] = useState([
-        { value: 'birthday-cake', label: 'Birthday Cakes' },
-        { value: 'wedding-cake', label: 'Wedding Cakes' },
-        { value: 'cookies', label: 'Cookies' },
-        { value: 'doughnuts', label: 'Doughnuts' },
-        { value: 'pancakes', label: 'Pancakes' },
-        { value: 'cup-cakes', label: 'Cup Cake' },
-        { value: 'gift-baskets', label: 'Gift Baskets' },
-    ]);
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -45,6 +24,7 @@ const Profile = (props) => {
     const [contactError, setContactError] = useState(false);
     const [typeError, setTypeError] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [isEditPass, setIsEditPass] = useState(false);
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState({});
 
@@ -131,7 +111,7 @@ const Profile = (props) => {
             <div className={styles.profileContainer}>
                 <div className={styles.profileInfo}>
                     <div className={styles.profileBoard}>
-                        <img src={user.ceoImage ? `${BASE_URL}/${user.image}`  : cups1} alt={'Username'} className={styles.profileImg} />
+                        <img src={user.image ? `${BASE_URL}/${user.image}`  : cups1} alt={'Username'} className={styles.profileImg} />
                         <button className={styles.profileEdit} onClick={() => setIsOpen(true)}><IoBrush className={styles.profileIcon} /></button>
                     </div>
                     <div className={styles.profileCredentials}>
@@ -169,13 +149,14 @@ const Profile = (props) => {
                         />
                         <div className={styles.profileActions}>
                             <Button title="Save Changes" onClick={() => Authenticate(user._id)} />
-                            <Button title="Edit Password" />
+                            <Button title="Edit Password" onClick={() => setIsEditPass(true)} />
                         </div>
                     </div>
                 </div>
             </div>
-            <AdminImage isOpen={isOpen} setIsOpen={setIsOpen} user={user} />
+            <AImage isOpen={isOpen} setIsOpen={setIsOpen} user={user} />
             <Notification setShow={setShow} show={show} message={message} />
+            <EditPassword isOpen={isEditPass} setIsOpen={setIsEditPass} type={'admin'} />
         </div>
     )
 }

@@ -28,6 +28,7 @@ import SOrders from './OrdersSuper/Order.section';
 import UserProfile from './UserProfile/UserProfile.section';
 import EditPastry from './EditPastry/EditPastry.section';
 import Profile from './Profile/Profile.section';
+import EditPassword from './EditPassword/EditPassword.section';
 
 export {
     HeaderSection,
@@ -61,4 +62,5 @@ export {
     UserProfile,
     EditPastry,
     Profile,
+    EditPassword,
 };

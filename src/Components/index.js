@@ -50,6 +50,7 @@ import OrderDetails from './OrderDetails/OrderDetails.component';
 import UserImage from './UserImage/UserImage.component';
 import PastryFilter from './PastryFilter/PastryFilter.section';
 import OrderFilter from './OrderFilter/OrderFilter.section';
+import AImage from './AImage/AImage.component';
 
 export {
     Header, 
@@ -104,4 +105,5 @@ export {
     UserImage,
     PastryFilter,
     OrderFilter,
+    AImage,
 };
