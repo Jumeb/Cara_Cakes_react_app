@@ -12,6 +12,7 @@ import { bindActionCreators } from 'redux';
 import { setUser } from '../../redux/Actions/Auth.actions';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 import { HNumber, SetLocation, Thousand } from '../../utils/utilities';
+import { EditPassword } from '..';
 
 const animatedComponents = makeAnimated();
 
@@ -37,6 +38,7 @@ const UserProfile = (props) => {
     const [contactError, setContactError] = useState(false);
     const [locationError, setLocationError] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [isEditPass, setIsEditPass] = useState(false);
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState({});
 
@@ -140,14 +142,6 @@ const UserProfile = (props) => {
                             <h2 className={styles.profileTitle}>{user.orders.ordered.length}</h2>
                             <b className={styles.profileSub}>Orders</b>
                         </div>
-                        {/* <div className={styles.profileNumber}>
-                            <h2 className={styles.profileTitle}>{user.followers.users.length}</h2>
-                            <b className={styles.profileSub}>Followers</b>
-                        </div> */}
-                        {/* <div className={styles.profileNumber}>
-                            <h2 className={styles.profileTitle}>{user.categories.length}</h2>
-                            <b className={styles.profileSub}>Categories</b>
-                        </div> */}
                         <div className={styles.profileNumber}>
                             <h2 className={styles.profileTitle}>{Thousand(user.total)}</h2>
                             <b className={styles.profileSub}>Spendings</b>
@@ -161,12 +155,6 @@ const UserProfile = (props) => {
                             <b className={styles.profileSub}>Dislikes</b>
                         </div>
                     </div>
-                    {/* <div className={styles.profileAbout}>
-                        <h2 className={styles.profileName}>About</h2>
-                        <b className={styles.profileHistory}>
-                            {about}
-                        </b>
-                    </div> */}
                 </div>
                 <div className={styles.profileFormContainer}>
                     <div className={styles.profileForm}>
@@ -207,13 +195,14 @@ const UserProfile = (props) => {
                         />
                         <div className={styles.profileActions}>
                             <Button title="Save Changes" onClick={() => Authenticate(user._id)} />
-                            <Button title="Edit Password" />
+                            <Button title="Edit Password" onClick={() => setIsEditPass(true)} />
                         </div>
                     </div>
                 </div>
             </div>
             <UserImage isOpen={isOpen} setIsOpen={setIsOpen} user={user} />
             <Notification setShow={setShow} show={show} message={message} />
+            <EditPassword isOpen={isEditPass} setIsOpen={setIsEditPass} type={'user'} />
         </div>
     )
 }

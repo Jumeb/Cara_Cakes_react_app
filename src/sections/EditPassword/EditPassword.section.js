@@ -150,7 +150,7 @@ const EditPassword = (props) => {
                     <h2 className={styles.formTitle}>Edit Password</h2>
                     <SquareInput
                         placeholder="Old Password"
-                        type="text"
+                        type="password"
                         label="Old Password"
                         value={oldPass}
                         setValue={(event) => setOldPass(event.target.value)}
@@ -159,7 +159,7 @@ const EditPassword = (props) => {
                     />
                     <SquareInput 
                         placeholder="New Password"
-                        type="text"
+                        type="password"
                         label="New Password"
                         value={newPass}
                         setValue={(event) => setNewPass(event.target.value)}
@@ -168,7 +168,7 @@ const EditPassword = (props) => {
                     />
                     <SquareInput
                         placeholder="Confirm new password"
-                        type="text"
+                        type="password"
                         label="Confirm New Password"
                         value={conNewPass}
                         setValue={(event) => setConNewPass(event.target.value)}

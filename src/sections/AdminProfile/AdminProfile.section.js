@@ -11,6 +11,7 @@ import { BASE_URL } from '../../utils/globalVariable';
 import { bindActionCreators } from 'redux';
 import { setUser } from '../../redux/Actions/Auth.actions';
 import { SetLocation, SetCategories, Thousand } from '../../utils/utilities';
+import { EditPassword } from '..';
 
 const animatedComponents = makeAnimated();
 
@@ -54,6 +55,7 @@ const AdminProfile = (props) => {
     const [locationError, setLocationError] = useState(false);
     const [aboutError, setAboutError] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [isEditPass, setIsEditPass] = useState(false);
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState({});
     let Categories = [];
@@ -319,13 +321,15 @@ const AdminProfile = (props) => {
                         />
                         <div className={styles.profileActions}>
                             <Button title="Save Changes" onClick={() => Authenticate(user._id)} />
-                            <Button title="Edit Password" />
+                            <Button title="Edit Password" onClick={() => setIsEditPass(true)} />
                         </div>
                     </div>
                 </div>
             </div>
             <AdminImage isOpen={isOpen} setIsOpen={setIsOpen} user={user} />
             <Notification setShow={setShow} show={show} message={message} />
+            <EditPassword isOpen={isEditPass} setIsOpen={setIsEditPass} type={'baker'} />
+
         </div>
     )
 }

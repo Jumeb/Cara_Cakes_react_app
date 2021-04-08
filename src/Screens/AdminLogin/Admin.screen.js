@@ -11,7 +11,6 @@ import {setUser, setToken} from '../../redux/Actions/Auth.actions'
 import styles from './Admin.module.css'
 
 const Admin = (props) => {
-    const { error } = props;
 
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -48,7 +47,6 @@ const Admin = (props) => {
 
 
         let statusCode, responseJson;
-        console.log(email)
 
         const body = {
             email,
@@ -74,8 +72,6 @@ const Admin = (props) => {
 
                 
                 if (statusCode === 200) {
-                    console.log(responseJson);
-                    console.log(responseJson.user);
                     props.setUser(responseJson.user);
                     props.setToken(responseJson.token);
                     props.history.push({ pathname: '/admin/dashboard' });
@@ -109,7 +105,6 @@ const Admin = (props) => {
                 }
 
                 if (statusCode === 500) {
-                    console.log(responseJson, '500');
                     setShow(true);
                     setMessage({
                         type: 'error',
@@ -119,7 +114,6 @@ const Admin = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
                 setLoading(false);
                 setShow(true);
                 setMessage({
