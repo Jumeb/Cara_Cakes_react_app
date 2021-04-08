@@ -7,7 +7,8 @@ import {
     IoGift, 
     IoGrid, 
     IoLogOut, 
-    IoPeople 
+    IoPeople, 
+    IoPerson
 } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import {NavLink} from 'react-router-dom';
@@ -49,6 +50,11 @@ const AdminNav = (props) => {
                             <NavLink to="/admin/dashboard/orders-super" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
                                 <span className={styles.panelSideNavIcon}><IoArchive /></span><span>All Orders</span>
                             </NavLink>
+                    </li>
+                    <li className={styles.panelSideNavItem}>
+                            <NavLink to="/admin/dashboard/adminprofile" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                                <span className={styles.panelSideNavIcon}><IoPerson /></span><span>Profile</span>
+                            </NavLink>
                         </li>
                     </>}
                 {user.type === 'Baker' && <>
@@ -64,7 +70,7 @@ const AdminNav = (props) => {
                     </li>
                     <li className={styles.panelSideNavItem}>
                         <NavLink to="/admin/dashboard/profile" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                            <span className={styles.panelSideNavIcon}><IoBrush /></span><span>Profile</span>
+                            <span className={styles.panelSideNavIcon}><IoPerson /></span><span>Profile</span>
                         </NavLink>
                     </li>
                 </>

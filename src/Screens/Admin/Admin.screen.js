@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router';
 
 import { WorkArea } from '../../Components';
-import { ABakers, AUsers, AdminNav, Dashboard, AOrders, APastry, APastryS, AProfile, SOrders } from '../../sections';
+import { ABakers, AUsers, AdminNav, Dashboard, AOrders, APastry, APastryS, AProfile, SOrders, Profile } from '../../sections';
 import styles from './Admin.module.css';
 
 const Admin = () => {
@@ -18,6 +18,7 @@ const Admin = () => {
                 <Route path="/admin/dashboard/pastry" component={APastry} />
                 <Route path="/admin/dashboard/pastry-super" component={APastryS} />
                 <Route path="/admin/dashboard/profile" component={AProfile} />
+                <Route path="/admin/dashboard/adminprofile" component={Profile} />
             </WorkArea>
         </div>
     )
