@@ -15,8 +15,6 @@ const PastryFilter = (props) => {
     }
 
     const Bakers = () => {
-        console.log('happy');
-        console.log(props);
         props.history.goBack();
     };
 

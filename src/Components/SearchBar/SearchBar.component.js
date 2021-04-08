@@ -8,22 +8,12 @@ import {setPastries, setBakers} from '../../redux/Actions/Data.actions';
 import search from '../../utils/search';
 
 const SearchBar = (props) => {
-    const {pastries} = props;
-
-    const [text, setText] = useState('');
-
-    const filterData = (event) => {
-        setText(event.target.value);
-    }
-
-    useEffect(() => {
-        search(text, pastries, props.setPastries,'name');
-    }, [text]);
+    const {setText} = props;
 
     return (
         <div className={styles.searchContainer}>
             <span className={styles.searchIcon}><IoSearch /></span>
-            <input type="text" className={styles.searchContainerInput} placeholder="Search" onChange={(event) => filterData(event)} />
+            <input type="text" className={styles.searchContainerInput} placeholder="Search" onChange={(e) => setText(e.target.value)} />
         </div>
     )
 }

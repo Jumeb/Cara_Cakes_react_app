@@ -21,13 +21,13 @@ import AUsers from './Users/User.section';
 import AOrders from './Orders/Order.section';
 import APastry from './Pastry/Pastry.section';
 import APastryS from './PastrySuper/Pastry.section';
-import AProfile from './AdminProfile/AdminProfile.section';
+import AProfile from './BakerProfile/BakerProfile.section';
 import AddPastry from './AddPastry/AddPastry.section';
 import Details from './Details/Details.section';
 import SOrders from './OrdersSuper/Order.section';
 import UserProfile from './UserProfile/UserProfile.section';
 import EditPastry from './EditPastry/EditPastry.section';
-import Profile from './Profile/Profile.section';
+import Profile from './AdminProfile/AdminProfile.section';
 import EditPassword from './EditPassword/EditPassword.section';
 
 export {

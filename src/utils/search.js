@@ -1,5 +1,4 @@
 const search = (text, data, setData, type) => {
-    console.log(text)
     let filteredData = data.filter((p) => {
         if(p[type] === undefined) {
             return null;

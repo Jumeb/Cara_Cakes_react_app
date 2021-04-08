@@ -6,14 +6,16 @@ import { ActivityTwo, BakerCard, Language, Notification, Profile, SearchBar } fr
 import styles from './BakerList.module.css'
 import {BASE_URL} from '../../../../utils/globalVariable';
 import {setBakers} from '../../../../redux/Actions/Data.actions';
+import search from '../../../../utils/search';
 
 const BakerList = (props) => {
-    const { isDetail, setIsDetail, token, setBaker, refresh } = props;
+    const { isDetail, setIsDetail, token, setBaker, refresh, _bakers } = props;
 
     const [bakers, setBakers] = useState([]);
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [text, setText] = useState('');
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
@@ -80,6 +82,10 @@ const BakerList = (props) => {
 
     }, [refresh]);
 
+    useEffect(() => {
+        search(text, _bakers, setBakers, 'companyName');
+    }, [text])
+
 
     return (
         <div className={styles.bakersList}>
@@ -89,7 +95,7 @@ const BakerList = (props) => {
             <Notification message={message} show={show} setShow={setShow} />
             <div className={styles.panelEventHeader}>
                 <div className={styles.panelPosition}>
-                    <SearchBar />
+                    <SearchBar setText={setText} />
                     <Language />
                     <Profile />
                 </div>
@@ -98,11 +104,12 @@ const BakerList = (props) => {
     )
 }
 
-const mapStateToProps = ({auth, refresh}) => {
+const mapStateToProps = ({auth, refresh, data}) => {
     return {
         token: auth.token,
         user: auth.user,
-        refresh: refresh.refresh
+        refresh: refresh.refresh,
+        _bakers: data.bakers,
     }
 }
 

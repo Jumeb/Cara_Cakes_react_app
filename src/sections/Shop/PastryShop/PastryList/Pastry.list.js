@@ -6,6 +6,7 @@ import { ActivityTwo, Language, Notification, PastryCard, PastryDetail, PastryFi
 import { BASE_URL } from '../../../../utils/globalVariable';
 import styles from './PastryList.module.css'
 import {setPastries} from '../../../../redux/Actions/Data.actions';
+import search from '../../../../utils/search';
 
 const PastryList = (props) => {
     const {
@@ -23,6 +24,7 @@ const PastryList = (props) => {
     const [loading, setLoading] = useState(false);
     const [filter, setFilter] = useState('all');
     const [pastries, setPastries] = useState([]);
+    const [text, setText] = useState('');
 
     useEffect(() => {
         setLoading(true);
@@ -96,6 +98,11 @@ const PastryList = (props) => {
 
     }, [filter]);
 
+
+    useEffect(() => {
+        search(text, _pastries, setPastries, 'name');
+    }, [text])
+
     return (
         <div className={styles.pastriesList}>
             <PastryFilter setFilter={setFilter} {...props} />
@@ -106,7 +113,7 @@ const PastryList = (props) => {
             </div>}
             <div className={styles.panelEventHeader}>
                 <div className={styles.panelPosition}>
-                    <SearchBar />
+                    <SearchBar setText={setText} />
                     <Language />
                     <Profile />
                 </div>
