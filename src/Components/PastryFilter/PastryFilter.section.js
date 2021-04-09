@@ -35,7 +35,7 @@ const PastryFilter = (props) => {
                     <ul className={styles.listCategories}>
                         <li className={[styles.listFilter, active === -1 && styles.listFilterActive].join(' ')} onClick={() => Filter('all', -1)}>All</li>
                         <>
-                            {categories.map((category, index) => <li className={[styles.listFilter, active === index && styles.listFilterActive].join(' ')} onClick={() => Filter(category, index)}>{category}</li>)}
+                            {categories.map((category, index) => <li className={[styles.listFilter, active === index && styles.listFilterActive].join(' ')} onClick={() => Filter(category, index)} key={index}>{category}</li>)}
                         </>
                     </ul>
                 </div>

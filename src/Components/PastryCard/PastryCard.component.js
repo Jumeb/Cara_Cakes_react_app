@@ -32,6 +32,14 @@ const PastryCard = (props) => {
 
     const disLikePastry = (id) => {
         setLoading(true);
+        if (!user.hasOwnProperty('name')) {
+            setShow(true);
+            setMessage({
+                type: 'success',
+                message: `Please create your account to dislike ${pastry.name}`,
+                title: 'Unsuccessful'
+            });
+        }
         fetch(`${BASE_URL}/pastry/dislike/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -61,6 +69,14 @@ const PastryCard = (props) => {
 
     const likePastry = (id) => {
         setLoading(true);
+        if (!user.hasOwnProperty('name')) {
+            setShow(true);
+            setMessage({
+                type: 'success',
+                message: `Please create your account to like ${pastry.name}`,
+                title: 'Unsuccessful'
+            });
+        }
         fetch(`${BASE_URL}/pastry/like/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -94,6 +110,14 @@ const PastryCard = (props) => {
 
     const AddToCart = (id) => {
         setLoading(true);
+        if (!user.hasOwnProperty('name')) {
+            setShow(true);
+            setMessage({
+                type: 'success',
+                message: 'Please create your account to add to cart',
+                title: 'Unsuccessful'
+            });
+        }
         fetch(`${BASE_URL}/user/addToCart/${id}?user=${user._id}`, {
             method: 'POST',
             headers: {

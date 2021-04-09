@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 import styles from './User.module.css';
 import {
@@ -22,16 +22,18 @@ const User = () => {
             <section className={styles.Panel}>
                 <SideNav isDetail={isDetail} />
                 <WorkArea isDetail={isDetail}>
-                    <Route path="/user" exact component={UserProfile} />
-                    <Route path="/user/event"  render={(props) => (<Events  {...props} isDetail={isDetail} setIsDetail={setIsDetail} /> )} />
-                    <Route path="/user/shop" exact render={(props) => (<Bakers {...props}  />)} />
-                    <Route path="/user/shop/pastries" render={(props) => (<Pastries {...props} />)} />
-                    <Route path="/user/cart" render={(props) => (<Cart {...props} />)} />
-                    <Route path="/user/orders" render={(props) => (<Orders {...props} isDetail={isDetail} setIsDetail={setIsDetail} />)} />
+                    <Switch>
+                        <Route path="/user" exact component={UserProfile} />
+                        <Route path="/user/event" component={Events} />
+                        <Route path="/user/shop" exact component={Bakers} />
+                        <Route path="/user/shop/pastries" component={Pastries} />
+                        <Route path="/user/cart" component={Cart} />
+                        <Route path="/user/orders" component={Orders} />
+                    </Switch>
                 </WorkArea>
             </section>
         </div>
     )
-}
+};
 
 export default User;

@@ -52,15 +52,14 @@ const OrderTable = (props) => {
                 if (statusCode === 500) {
                     setShow(true);
                     setMessage({
-                        type: 'error',
-                        title: 'Unexpected Error',
-                        message: response.message,
+                        type: token && user ? 'error' : 'success',
+                        title: token && user ? 'Unexpected Error' : 'Unsuccessful',
+                        message: token && user ? response.message : 'Please sign up and get an account for free.',
                     })
                 }
                 
             })
             .catch(err => {
-                console.log(err);
                 setLoading(false);
                 setShow(true);
                 setMessage({

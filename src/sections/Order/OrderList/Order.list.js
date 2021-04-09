@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import styles from './OrderList.module.css'
-import { Language, OrderFilter, OrderTable, Profile, SearchBar, Spacer } from '../../../Components';
+import { Language, OrderFilter, OrderTable, Profile, SearchBar } from '../../../Components';
 import search from '../../../utils/search';
 
 const OrderList = (props) => {

@@ -28,6 +28,16 @@ const CartTable = (props) => {
     }, [isDetail])
 
     useEffect(() => {
+        setLoading(true);
+        if (!user.hasOwnProperty('name')) {
+            setLoading(false);
+            setShow(true);
+            setMessage({
+                type: 'success',
+                message: 'Please sign up and get an account for free.',
+                title: 'Unsuccessful'
+            });
+        }
         fetch(`${BASE_URL}/user/getcart/${user._id}`, {
             method: 'GET'
         })
@@ -66,6 +76,7 @@ const CartTable = (props) => {
         })
         .catch(err => {
             console.log(err);
+            setLoading(false);
             setShow(true);
             setMessage({
                 type: 'error',

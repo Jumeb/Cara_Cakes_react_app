@@ -18,7 +18,7 @@ const BakersCard = (props) => {
                     <div className={styles.bakerInfoPicRound}>
                         <img src={baker.ceoImage ? `${BASE_URL}/${baker.ceoImage}` : pans1} alt="Founder" className={styles.bakerInfoImg} />
                     </div>
-                    <NavLink to="/hlloe"
+                    <NavLink to="/user/shop"
                         className={styles.bakerInfoName}>{baker.name}</NavLink>
                 </div>
             </div>

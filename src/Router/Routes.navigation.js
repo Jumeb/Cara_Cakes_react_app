@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 
 import {
@@ -23,4 +24,11 @@ const Navigation = () => {
     )
 };
 
-export default Navigation;
+const mapStateToProps = ({ auth }) => {
+    return {
+        token: auth.token,
+        user: auth.user,
+    }
+}
+
+export default connect(mapStateToProps)(Navigation);

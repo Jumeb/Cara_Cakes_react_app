@@ -19,9 +19,7 @@ const BakerList = (props) => {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
-        // setBaker([1,2]);
         setLoading(true);
-        // setIsDetail(false);
         fetch(`${BASE_URL}/bakers`, {
             method: 'GET',
             headers: {
@@ -89,7 +87,7 @@ const BakerList = (props) => {
 
     return (
         <div className={styles.bakersList}>
-            {loading ? <div>
+            {loading ? <div className={styles.bakersContainer}>
                 <ActivityTwo />
             </div> : <div className={styles.bakersContainer}> {bakers.map((baker, index) => <BakerCard isDetail={isDetail} _setBaker={setBaker} setIsDetail={setIsDetail} baker={baker} key={index} {...props} />)}</div>}
             <Notification message={message} show={show} setShow={setShow} />
