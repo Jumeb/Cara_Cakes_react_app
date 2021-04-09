@@ -8,7 +8,8 @@ import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Dashboard.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
-const Dashboard = ({ token, user }) => {
+const Dashboard = (props) => {
+    const { token, user } = props;
     const [lbakers, setLbakers] = useState(false);
     const [lusers, setLusers] = useState(false);
     const [users, setUsers] = useState([]);
@@ -97,44 +98,40 @@ const Dashboard = ({ token, user }) => {
 
 
     return (
-        <>
-            {(!token || !user.hasOwnProperty('name')) ? <Redirect to='/login' /> :
-                <div className={styles.dashboardContainer}>
-                    <div className={styles.dashboard}>
-                        <h2 className={styles.dashTitle}>General Info</h2>
-                        <div className={styles.dashScroll}>
-                            <div className={styles.dashContainer}>
-                                {lbakers ? <ActivityTwo /> :
-                                    <>
-                                        <InfoCard num={totalOrders} com="All orders" />
-                                        {obakers.map((obaker, index) => <InfoCard num={obaker.orders.ordered.length} com={obaker.companyName} key={index} />)}
-                                    </>
-                                }
-                            </div>
-                        </div>
-                        <h2 className={styles.dashTitle}>Top 10 Bakers</h2>
-                        <div className={styles.dashScroll}>
-                            <div className={styles.dashContainer}>
-                                {lbakers ? <ActivityTwo /> : bakers.map((baker, index) => <BakerInfo baker={baker} setRbakers={setRbakers} key={index} />)}
-                            </div>
-                        </div>
-                        <h2 className={styles.dashTitle}>Top 10 Users</h2>
-                        <div className={styles.dashScroll}>
-                            <div className={styles.dashContainer}>
-                                {lusers ? <ActivityTwo /> : users.map((user, index) => <UserInfo user={user} setRusers={setRusers} key={index} />)}
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.panelEventHeader}>
-                        <div className={styles.panelPosition}>
-                            <SearchBar setText={setText} />
-                            <Language />
-                            <Profile />
-                        </div>
+        <div className={styles.dashboardContainer}>
+            <div className={styles.dashboard}>
+                <h2 className={styles.dashTitle}>General Info</h2>
+                <div className={styles.dashScroll}>
+                    <div className={styles.dashContainer}>
+                        {lbakers ? <ActivityTwo /> :
+                            <>
+                                <InfoCard num={totalOrders} com="All orders" />
+                                {obakers.map((obaker, index) => <InfoCard num={obaker.orders.ordered.length} com={obaker.companyName} key={index} />)}
+                            </>
+                        }
                     </div>
                 </div>
-            }
-        </>
+                <h2 className={styles.dashTitle}>Top 10 Bakers</h2>
+                <div className={styles.dashScroll}>
+                    <div className={styles.dashContainer}>
+                        {lbakers ? <ActivityTwo /> : bakers.map((baker, index) => <BakerInfo baker={baker} setRbakers={setRbakers} key={index} />)}
+                    </div>
+                </div>
+                <h2 className={styles.dashTitle}>Top 10 Users</h2>
+                <div className={styles.dashScroll}>
+                    <div className={styles.dashContainer}>
+                        {lusers ? <ActivityTwo /> : users.map((user, index) => <UserInfo user={user} setRusers={setRusers} key={index} />)}
+                    </div>
+                </div>
+            </div>
+            <div className={styles.panelEventHeader}>
+                <div className={styles.panelPosition}>
+                    <SearchBar setText={setText} />
+                    <Language />
+                    <Profile />
+                </div>
+            </div>
+        </div>
     )
 };
 
