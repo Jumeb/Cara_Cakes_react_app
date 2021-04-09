@@ -137,7 +137,7 @@ const OrderTable = (props) => {
                 {Object.keys(orders)[0] ? Object.values(orders).map((order, index) => (<div className={styles.orderSeparator}>
                     <h1 className={styles.orderListBaker}>Company: {Object.keys(orders)[index]}</h1>
                     {order.filter(order => filter === 'All' ? order.status : order.status === filter).map((order, index) =>
-                        <table className={styles.orderTable}>
+                        <table className={styles.orderTable} key={index}>
                             <thead className={styles.orderTableHeader}>
                                 <td className={[styles.orderTableHeaderData, styles.product].join(' ')}>Product</td>
                                 <td className={styles.orderTableHeaderData}>Price</td>

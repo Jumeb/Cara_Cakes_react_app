@@ -72,8 +72,6 @@ const LoginSection = (props) => {
 
                 
                 if(statusCode === 200) {
-                    console.log(responseJson);
-                    console.log(responseJson.user);
                     props.setUser(responseJson.user);
                     props.setToken(responseJson.token);
                     props.history.push({pathname: '/admin/dashboard'});
@@ -117,7 +115,6 @@ const LoginSection = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
                 setLoading(false);
                 setShow(true);
                 setMessage({

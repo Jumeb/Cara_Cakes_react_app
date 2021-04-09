@@ -11,7 +11,7 @@ import {
     AdminS
 } from '../Screens';
 
-const Navigation = () => {
+const Navigation = ({user, token}) => {
     return (
         <Switch>
             <Route path='/' exact component={Home} />
@@ -19,7 +19,7 @@ const Navigation = () => {
             <Route path='/register' component={Register} />
             <Route path='/admin' exact component={Admin} />
             <Route path='/user' component={User} />
-            <Route path='/admin/dashboard' component={AdminS} />
+            {(token && user.hasOwnProperty('name')) && <Route path='/admin/dashboard' component={AdminS} />}
         </Switch>
     )
 };

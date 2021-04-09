@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router';
 
 import { ActivityTwo, BakerInfo, InfoCard, Language, Profile, SearchBar, UserInfo } from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Dashboard.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
-const Dashboard = ({ token }) => {
+const Dashboard = ({ token, user }) => {
     const [lbakers, setLbakers] = useState(false);
     const [lusers, setLusers] = useState(false);
     const [users, setUsers] = useState([]);
@@ -96,48 +97,53 @@ const Dashboard = ({ token }) => {
 
 
     return (
-        <div className={styles.dashboardContainer}>
-            <div className={styles.dashboard}>
-                <h2 className={styles.dashTitle}>General Info</h2>
-                <div className={styles.dashScroll}>
-                    <div className={styles.dashContainer}>
-                        {lbakers ? <ActivityTwo /> :
-                            <>
-                                <InfoCard num={totalOrders} com="All orders" />
-                                {obakers.map((obaker, index) => <InfoCard num={obaker.orders.ordered.length} com={obaker.companyName} key={index} />)}
-                            </>
-                        }
+        <>
+            {(!token || !user.hasOwnProperty('name')) ? <Redirect to='/login' /> :
+                <div className={styles.dashboardContainer}>
+                    <div className={styles.dashboard}>
+                        <h2 className={styles.dashTitle}>General Info</h2>
+                        <div className={styles.dashScroll}>
+                            <div className={styles.dashContainer}>
+                                {lbakers ? <ActivityTwo /> :
+                                    <>
+                                        <InfoCard num={totalOrders} com="All orders" />
+                                        {obakers.map((obaker, index) => <InfoCard num={obaker.orders.ordered.length} com={obaker.companyName} key={index} />)}
+                                    </>
+                                }
+                            </div>
+                        </div>
+                        <h2 className={styles.dashTitle}>Top 10 Bakers</h2>
+                        <div className={styles.dashScroll}>
+                            <div className={styles.dashContainer}>
+                                {lbakers ? <ActivityTwo /> : bakers.map((baker, index) => <BakerInfo baker={baker} setRbakers={setRbakers} key={index} />)}
+                            </div>
+                        </div>
+                        <h2 className={styles.dashTitle}>Top 10 Users</h2>
+                        <div className={styles.dashScroll}>
+                            <div className={styles.dashContainer}>
+                                {lusers ? <ActivityTwo /> : users.map((user, index) => <UserInfo user={user} setRusers={setRusers} key={index} />)}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.panelEventHeader}>
+                        <div className={styles.panelPosition}>
+                            <SearchBar setText={setText} />
+                            <Language />
+                            <Profile />
+                        </div>
                     </div>
                 </div>
-                <h2 className={styles.dashTitle}>Top 10 Bakers</h2>
-                <div className={styles.dashScroll}>
-                    <div className={styles.dashContainer}>
-                        {lbakers ? <ActivityTwo /> : bakers.map((baker, index) => <BakerInfo baker={baker} setRbakers={setRbakers} key={index} />)}
-                    </div>
-                </div>
-                <h2 className={styles.dashTitle}>Top 10 Users</h2>
-                <div className={styles.dashScroll}>
-                    <div className={styles.dashContainer}>
-                        {lusers ? <ActivityTwo /> : users.map((user, index) => <UserInfo user={user} setRusers={setRusers} key={index} />)}
-                    </div>
-                </div>
-            </div>
-            <div className={styles.panelEventHeader}>
-                <div className={styles.panelPosition}>
-                    <SearchBar setText={setText} />
-                    <Language />
-                    <Profile />
-                </div>
-            </div>
-        </div>
+            }
+        </>
     )
-}
+};
 
 
 const mapStateToProps = ({ auth, refresh }) => {
     return {
         token: auth.token,
         refresh: refresh.refresh,
+        user: auth.user,
     }
 }
 

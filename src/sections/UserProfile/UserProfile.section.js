@@ -126,7 +126,7 @@ const UserProfile = (props) => {
     }
 
     return (
-        <> {(!user || !token) ? <Redirect to="/user/shop" /> :
+        <> {(!user.hasOwnProperty('name') || !token) ? <Redirect to="/user/shop" /> :
             <div className={styles.aprofile}>
                 <div className={styles.profileContainer}>
                     <div className={styles.profileInfo}>
