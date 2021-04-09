@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { pans2 } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './OrderTable.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
@@ -19,6 +18,16 @@ const OrderTable = (props) => {
 
     useEffect(() => {
         setLoading(true);
+        if (!user.hasOwnProperty('name')) {
+            setLoading(false);
+            setShow(true);
+            setMessage({
+                type: 'success',
+                message: 'Please sign up and get an account for free.',
+                title: 'Unsuccessful'
+            });
+            return false;
+        }
         props.setRefresh(false);
         fetch(`${BASE_URL}/user/getorders/${user._id}`, {
             method: 'GET',
@@ -125,7 +134,7 @@ const OrderTable = (props) => {
     return (
         <>
              {loading ? <div> <ActivityTwo /> </div> : <>
-                {Object.values(orders).map((order, index) => (<div className={styles.orderSeparator}>
+                {Object.keys(orders)[0] ? Object.values(orders).map((order, index) => (<div className={styles.orderSeparator}>
                     <h1 className={styles.orderListBaker}>Company: {Object.keys(orders)[index]}</h1>
                     {order.filter(order => filter === 'All' ? order.status : order.status === filter).map((order, index) =>
                         <table className={styles.orderTable}>
@@ -138,7 +147,7 @@ const OrderTable = (props) => {
                                 <td className={styles.orderTableHeaderData}>Total</td>
                             </thead>
                             {order.pastries.map((pastry, index) =>
-                                <tr className={styles.orderTableRow}>
+                                <tr className={styles.orderTableRow} key={index}>
                                     <td className={[styles.orderTableData , styles.orderTableImageContainer].join(' ')}>
                                         <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt="Pastry Name" className={styles.orderTableDataImage} />
                                         <b>{pastry.pastryId.name.substr(0, 20)}{pastry.pastryId.name.length > 20 && '...'}</b>
@@ -162,7 +171,9 @@ const OrderTable = (props) => {
                         </table>
                     )}
                 </div >
-                ))}
+                )) : <div className={styles.orderSeparator}>
+                        <h2 className={styles.title}>No orders placed yet.</h2>
+                </div>}
                 <Notification setShow={setShow} show={show} message={message} />
             </>}
         </>

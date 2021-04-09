@@ -52,6 +52,7 @@ const PastryDetail = (props) => {
                 message: `Please create your account to add to cart`,
                 title: 'Unsuccessful'
             });
+            return false;
         }
         fetch(`${BASE_URL}/user/addToCart/${id}?user=${user._id}`, {
             method: 'POST',
@@ -192,6 +193,7 @@ const PastryDetail = (props) => {
                 message: `Please create your account to dislike ${pastry.name}`,
                 title: 'Unsuccessful'
             });
+            return false;
         }
         fetch(`${BASE_URL}/pastry/dislike/${id}?user=${user._id}`, {
             method: 'POST',
@@ -230,6 +232,7 @@ const PastryDetail = (props) => {
                 message: `Please create your account to like ${pastry.name}`,
                 title: 'Unsuccessful'
             });
+            return false;
         }
         fetch(`${BASE_URL}/pastry/like/${id}?user=${user._id}`, {
             method: 'POST',

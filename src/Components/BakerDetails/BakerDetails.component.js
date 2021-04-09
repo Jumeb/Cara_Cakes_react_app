@@ -3,7 +3,7 @@ import { IoClose, IoPeople, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Button } from '..';
+import { Button, Notification } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import { setBaker } from '../../redux/Actions/Auth.actions';
@@ -17,6 +17,8 @@ const BakerDetails = (props) => {
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
     const [followers, setFollowers] = useState(0);
+    const [message, setMessage] = useState({});
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
         if (baker.length !== 0) {
@@ -49,6 +51,15 @@ const BakerDetails = (props) => {
 
 
     const disLikeBaker = (id) => {
+        if (!user.hasOwnProperty('name')) {
+            setShow(true);
+            setMessage({
+                type: 'success',
+                message: `Please create your account to dislike ${baker.companyName}`,
+                title: 'Unsuccessful'
+            });
+            return false;
+        }
         fetch(`${BASE_URL}/baker/dislike/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -77,6 +88,15 @@ const BakerDetails = (props) => {
     }
 
     const likeBaker = (id) => {
+        if (!user.hasOwnProperty('name')) {
+            setShow(true);
+            setMessage({
+                type: 'success',
+                message: `Please create your account to like ${baker.companyName}`,
+                title: 'Unsuccessful'
+            });
+            return false;
+        }
         fetch(`${BASE_URL}/baker/like/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -108,6 +128,15 @@ const BakerDetails = (props) => {
     }
 
     const followBaker = (id) => {
+        if (!user.hasOwnProperty('name')) {
+            setShow(true);
+            setMessage({
+                type: 'success',
+                message: `Please create your account to follow ${baker.companyName}`,
+                title: 'Unsuccessful'
+            });
+            return false;
+        }
         fetch(`${BASE_URL}/baker/follow/${id}?user=${user._id}`, {
             method: 'POST',
         })
@@ -188,6 +217,7 @@ const BakerDetails = (props) => {
                     </div>
                 </>}
             </div>
+            <Notification message={message} show={show} setShow={setShow} />
         </div>
     )
 }

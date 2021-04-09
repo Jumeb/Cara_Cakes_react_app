@@ -131,3 +131,8 @@
 .product {
     width: 27rem;
 }
+
+.title {
+    font-size: var(--font-size-medium);
+    color: var(--color-primary-light);
+}

@@ -5,7 +5,7 @@
     padding: 1rem;
     border-radius: var(--border-radius-small);
     border: 0.3rem solid var(--color-primary-light);
-    z-index: 12;
+    z-index: 25;
 
     transition: all ease-in-out 0.5s;
 }

@@ -37,6 +37,7 @@ const CartTable = (props) => {
                 message: 'Please sign up and get an account for free.',
                 title: 'Unsuccessful'
             });
+            return false;
         }
         fetch(`${BASE_URL}/user/getcart/${user._id}`, {
             method: 'GET'
@@ -188,7 +189,7 @@ const CartTable = (props) => {
             {loading ? <div>
                 <ActivityTwo />
             </div> : <>
-                {Object.values(cart).map((pastries, index) => (
+                {Object.keys(cart)[0] ? Object.values(cart).map((pastries, index) => (
                     <div className={styles.cartSeparator} key={ index }>
                         <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[index]} {_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[index]}`).pastryId.creator.suspend && <span className={styles.suspended}>Suspended, order at your own discretion.</span>}</h1>
                         <table className={styles.cartTable}>
@@ -224,7 +225,9 @@ const CartTable = (props) => {
                             </tr>
                         </table>
                     </div>
-                ))}
+                )) : <div className={styles.cartSeparator}>
+                            <h2 className={styles.title}>No Pastries in Cart</h2>
+                    </div>}
                 <Notification setShow={setShow} show={show} message={message} />
             </>}
         </>
