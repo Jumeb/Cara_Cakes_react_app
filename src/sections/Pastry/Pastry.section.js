@@ -7,6 +7,7 @@ import { Language, Notification, PastryDetail, PastryTable, Profile, SearchBar }
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Pastry.module.css';
 import {setPastries} from '../../redux/Actions/Data.actions';
+import search from '../../utils/search';
 
 const Pastry = (props) => {
     const { token, user, _pastries, refresh } = props;
@@ -20,6 +21,7 @@ const Pastry = (props) => {
     const [loading, setLoading] = useState(false);
     const [detail, setDetail] = useState(false);
     const [pastry, setPastry] = useState([]);
+    const [text, setText] = useState('');
 
     useEffect(() => {
         setLoading(true);
@@ -74,7 +76,14 @@ const Pastry = (props) => {
         if (type === 'all') {
             setPastries(_pastries);
         }
-    }
+    };
+
+    useEffect(() => {
+        if (text.length > 0) {
+            setActive(-1);
+        }
+        search(text, _pastries, setPastries, 'name');
+    }, [text]);
 
     return (
         <div className={styles.bakerContainer}>
@@ -97,7 +106,7 @@ const Pastry = (props) => {
             </div>
             <div className={styles.panelEventHeader}>
                 <div className={styles.panelPosition}>
-                    <SearchBar />
+                    <SearchBar setText={setText} />
                     <Language />
                     <Profile />
                 </div>

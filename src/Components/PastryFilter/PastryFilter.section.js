@@ -22,10 +22,10 @@ const PastryFilter = (props) => {
         <>
             <div className={styles.bakerPosition}>
                 <div className={styles.fixedBaker} onClick={() => Bakers()}>
-                    <IoChevronBack className={styles.icons} />Bakers 
+                    Bakers <IoChevronBack className={styles.icon} />
                 </div>
             </div>
-            <div className={styles.filterPosition}>
+            <div className={showFilter ? styles.filterPosition : styles.filterPositionHide}>
                 <div className={styles.fixedPosition} onClick={() => setShowFilter(!showFilter)}>
                     {showFilter ? 'Hide' : 'Show'} Filter{showFilter ? <IoChevronBack className={styles.icon} /> : <IoChevronForward className={styles.icon} />}
                 </div>

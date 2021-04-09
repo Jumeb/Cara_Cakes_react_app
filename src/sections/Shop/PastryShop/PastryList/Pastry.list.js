@@ -101,7 +101,7 @@ const PastryList = (props) => {
 
     useEffect(() => {
         search(text, _pastries, setPastries, 'name');
-    }, [text])
+    }, [text]);
 
     return (
         <div className={styles.pastriesList}>

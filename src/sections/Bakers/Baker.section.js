@@ -7,6 +7,7 @@ import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Baker.module.css';
 import { setBakers } from '../../redux/Actions/Data.actions';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
+import search from '../../utils/search';
 
 const Bakers = (props) => {
     const { user, token, refresh, _bakers } = props;
@@ -19,6 +20,7 @@ const Bakers = (props) => {
     const [baker, setBaker] = useState([]);
     const [detail, setDetail] = useState(false);
     const [active, setActive] = useState(0);
+    const [text, setText] = useState('');
 
     useEffect(() => {
         props.setRefresh(false);
@@ -110,7 +112,14 @@ const Bakers = (props) => {
         if (type === 'all') {
             setBakers(_bakers);
         }
-    }
+    };
+
+    useEffect(() => {
+        if (text.length > 0) {
+            setActive(0);
+        }
+        search(text, _bakers, setBakers, 'name');
+    }, [text]);
 
     return (
         <div className={styles.bakerContainer}>
@@ -136,7 +145,7 @@ const Bakers = (props) => {
             </div>
             <div className={styles.panelEventHeader}>
                 <div className={styles.panelPosition}>
-                    <SearchBar />
+                    <SearchBar setText={setText} />
                     <Language />
                     <Profile />
                 </div>

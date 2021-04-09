@@ -120,7 +120,7 @@ const OrderDetails = (props) => {
                                 <div className={styles.pastryLikes}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(pastry.pastryId.likes.users.length)}</div>
                                 <div className={styles.pastryDislikes}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(pastry.pastryId.dislikes.users.length)}</div>
                                 <div className={styles.pastryQty}><IoStatsChart className={styles.icon} /> Quantity: {pastry.quantity}</div>
-                                <div className={styles.pastryMessage2}><IoBrush className={styles.icon} /> Message: {pastry.message || "'empty'"}</div>
+                                <div className={styles.pastryMessage2}><IoBrush className={styles.icon} /> Msg: {pastry.message || "'empty'"}</div>
                             </div>
                         </>)}
                 </div>

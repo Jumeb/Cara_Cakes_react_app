@@ -8,6 +8,7 @@ import { setRefresh } from '../../redux/Actions/Refresh.actions';
 import { setOrders } from '../../redux/Actions/Data.actions';
 import { BASE_URL } from '../../utils/globalVariable';
 import { data } from 'jquery';
+import search from '../../utils/search';
 
 const Orders = (props) => {
     const { user, token, refresh, _orders } = props;
@@ -19,6 +20,7 @@ const Orders = (props) => {
     const [order, setOrder] = useState([]);
     const [detail, setDetail] = useState(false);
     const [active, setActive] = useState(0);
+    const [text, setText] = useState('');
 
     useEffect(() => {
         fetch(`${BASE_URL}/baker/getallorders`, {
@@ -88,7 +90,14 @@ const Orders = (props) => {
         if (type === 'all') {
             setOrders(_orders);
         }
-    }
+    };
+
+    useEffect(() => {
+        if (text.length > 0) {
+            setActive(0);
+        }
+        search(text, _orders, setOrders, 'status');
+    }, [text]);
 
     return (
         <div className={styles.bakerContainer}>
@@ -114,7 +123,7 @@ const Orders = (props) => {
             </div>
             <div className={styles.panelEventHeader}>
                 <div className={styles.panelPosition}>
-                    <SearchBar />
+                    <SearchBar setText={setText} />
                     <Language />
                     <Profile />
                 </div>

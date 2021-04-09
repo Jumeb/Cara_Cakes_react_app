@@ -16,6 +16,7 @@ const Dashboard = ({ token }) => {
     const [totalOrders, setTotalOrders] = useState(0);
     const [rbakers, setRbakers] = useState(false);
     const [rusers, setRusers] = useState(false);
+    const [text, setText] = useState('');
 
     useEffect(() => {
         setLbakers(true);
@@ -123,7 +124,7 @@ const Dashboard = ({ token }) => {
             </div>
             <div className={styles.panelEventHeader}>
                 <div className={styles.panelPosition}>
-                    <SearchBar />
+                    <SearchBar setText={setText} />
                     <Language />
                     <Profile />
                 </div>

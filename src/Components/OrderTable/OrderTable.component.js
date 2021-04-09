@@ -122,6 +122,7 @@ const OrderTable = (props) => {
         }
     };
     
+    
     return (
         <>
              {loading ? <div> <ActivityTwo /> </div> : <>

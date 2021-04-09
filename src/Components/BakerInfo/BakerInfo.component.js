@@ -47,7 +47,7 @@ const BakerInfo = (props) => {
     return (
         <div className={styles.bakerCard}> 
             <div className={styles.bakerInfo}>
-                <img src={cups2} alt="Baker name" className={styles.bakerImg} />
+                <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : cups2} alt="Baker name" className={styles.bakerImg} />
                 <div className={styles.bakerId}>
                     <h2 className={styles.bakerTitle}>{baker.name}</h2>
                     <b className={styles.bakerSubTitle}>{baker.companyName}</b>

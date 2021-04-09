@@ -47,7 +47,7 @@ const UserInfo = (props) => {
     return (
         <div className={styles.bakerCard}> 
             <div className={styles.bakerInfo}>
-                <img src={cups2} alt="Baker name" className={styles.bakerImg} />
+                <img src={user.image ? `${BASE_URL}/${user.image}` : cups2} alt="Baker name" className={styles.bakerImg} />
                 <div className={styles.bakerId}>
                     <h2 className={styles.bakerTitle}>{user.name.substr(0, 12)}</h2>
                     <b className={styles.bakerSubTitle}>{HNumber(user.telNumber)}</b>

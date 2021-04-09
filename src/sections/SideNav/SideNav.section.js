@@ -8,9 +8,12 @@ import {
     IoPerson, 
     IoStatsChart 
 } from 'react-icons/io5';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import styles from './SideNav.module.css'
-import {favicon} from '../../res/img';
+import { favicon } from '../../res/img';
+import { resetUser } from '../../redux/Actions/Auth.actions';
 
 const SideNav = (props) => {
     const {isDetail} = props;
@@ -29,11 +32,11 @@ const SideNav = (props) => {
                         <span className={styles.panelSideNavIcon}><IoCart /> </span> <span className={isDetail ? styles.isDetailText : ''}>My Cart</span>
                     </NavLink>
                 </li>
-                <li className={styles.panelSideNavItem}>
+                {/* <li className={styles.panelSideNavItem}>
                     <NavLink to="/user/event" className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
                         <span className={styles.panelSideNavIcon}><IoCalendar /></span> <span className={isDetail ? styles.isDetailText : ''}>Events</span>
                     </NavLink>
-                </li>
+                </li> */}
                 <li className={styles.panelSideNavItem}>
                     <NavLink to="/user/orders" className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
                         <span className={styles.panelSideNavIcon}><IoStatsChart /></span><span className={isDetail ? styles.isDetailText : ''}> Orders</span>
@@ -44,7 +47,7 @@ const SideNav = (props) => {
                         <span className={styles.panelSideNavIcon}><IoPerson /></span><span className={isDetail ? styles.isDetailText : ''}> Profile</span>
                     </NavLink>
                 </li>
-                <li className={styles.panelSideNavItem}>
+                <li className={styles.panelSideNavItem} onClick={() => props.resetUser()}>
                     <NavLink to="/" exact className={styles.panelSideNavLink}  activeClassName={styles.panelSideNavActive}>
                         <span className={styles.panelSideNavIcon}><IoLogOut /></span><span className={isDetail ? styles.isDetailText : ''}>Logout</span>
                     </NavLink>
@@ -57,4 +60,8 @@ const SideNav = (props) => {
     )
 }
 
-export default SideNav;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ resetUser }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SideNav);

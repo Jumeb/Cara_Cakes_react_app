@@ -139,8 +139,6 @@ const PastryCard = (props) => {
 
     useEffect(() => {
         return () => {
-            setLikes(0);
-            setDislikes(0);
             setLoading(false);
             setShow(false);
             setDetails(false);

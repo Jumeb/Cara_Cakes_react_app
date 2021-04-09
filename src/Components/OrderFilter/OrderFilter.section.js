@@ -16,7 +16,7 @@ const OrderFilter = (props) => {
 
     return (
         <>
-            <div className={styles.filterPosition}>
+            <div className={showFilter ? styles.filterPosition : styles.filterPositionHide}>
                 <div className={styles.fixedPosition} onClick={() => setShowFilter(!showFilter)}>
                     {showFilter ? 'Hide' : 'Show'} Filter{showFilter ? <IoChevronBack className={styles.icon} /> : <IoChevronForward className={styles.icon} />}
                 </div>

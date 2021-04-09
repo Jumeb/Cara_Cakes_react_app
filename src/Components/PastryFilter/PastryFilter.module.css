@@ -1,8 +1,17 @@
 .bakerPosition {
     position: absolute;
     top: 10.6rem;
+    left: -6.5rem;
+    z-index: 6;
+    transition: all ease-in-out 0.35s;
+}
+
+.bakerPosition:hover {
+    position: absolute;
+    top: 10.6rem;
     left: -1rem;
     z-index: 6;
+    transition: all ease-in-out 0.35s;
 }
 
 .fixedBaker {
@@ -26,6 +35,15 @@
     top: 14.6rem;
     left: -1rem;
     z-index: 6;
+    transition: all ease-in-out 0.35s;
+}
+
+.filterPositionHide {
+    position: absolute;
+    top: 14.6rem;
+    left: -9rem;
+    z-index: 6;
+    transition: all ease-in-out 0.35s;
 }
 
 .fixedPosition {

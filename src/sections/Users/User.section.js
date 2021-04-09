@@ -6,6 +6,7 @@ import { Language, Notification, Profile, SearchBar, UserDetails, UserTable } fr
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './User.module.css';
 import {setUsers} from '../../redux/Actions/Data.actions';
+import search from '../../utils/search';
 
 const Users = (props) => {
     const { user, token, refresh, _users } = props;
@@ -18,6 +19,7 @@ const Users = (props) => {
     const [_user, setUser] = useState([]);
     const [detail, setDetail] = useState(false);
     const [active, setActive] = useState(0);
+    const [text, setText] = useState('');
 
     useEffect(() => {
         setLoading(true);
@@ -88,6 +90,13 @@ const Users = (props) => {
         }
     }
 
+    useEffect(() => {
+        if (text.length > 0) {
+            setActive(0);
+        }
+        search(text, _users, setUsers, 'name');
+    }, [text]);
+
     return (
         <div className={styles.bakerContainer}>
             <div className={styles.bakerSection}>
@@ -108,7 +117,7 @@ const Users = (props) => {
             </div>
             <div className={styles.panelEventHeader}>
                 <div className={styles.panelPosition}>
-                    <SearchBar />
+                    <SearchBar setText={setText} />
                     <Language />
                     <Profile />
                 </div>

@@ -1,8 +1,17 @@
 .filterPosition {
     position: absolute;
-    top: 10.6rem;
+    top: 12.6rem;
     left: -1rem;
     z-index: 6;
+    transition: all ease-in-out 0.35s;
+}
+
+.filterPositionHide {
+    position: absolute;
+    top: 12.6rem;
+    left: -9rem;
+    z-index: 6;
+    transition: all ease-in-out 0.35s;
 }
 
 .fixedPosition {
@@ -33,7 +42,7 @@
 
 .filterCategories {
     position: absolute;
-    top: 14.6rem;
+    top: 16.6rem;
     left: -1rem;
     z-index: 6;
     transition: all ease-in-out 0.5s;
@@ -41,7 +50,7 @@
 
 .filterCategoriesHide {
     position: absolute;
-    top: 14.6rem;
+    top: 16.6rem;
     left: -14rem;
     z-index: 6;
     transition: all ease-in-out 0.5s;
