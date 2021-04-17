@@ -8,7 +8,7 @@ const Header = () => {
         <header className={styles.header} id="home">
             <div className={styles.headerContainer}>
                 <h1 className={styles.title}>
-                    <span className={styles.mainTitle}>House of Flavours</span>
+                    <span className={styles.mainTitle}>Home of Flavours</span>
                     <span className={styles.subTitle}>Resting place for flavours</span>
                 </h1>
                 <div className={styles.actionContainer}>
