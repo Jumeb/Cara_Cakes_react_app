@@ -12,7 +12,7 @@ const BakersCard = (props) => {
             <div className={styles.bakerInfo}>
                 <h3 className={styles.lilTitle}>{baker.companyName}</h3>
                 <p>
-                    {baker.about ? baker.about.substr(0, 300) : "'empty'"}{baker.about.length > 300 &&'...'}
+                    {baker.about ? baker.about.substr(0, 300) : "'empty'"}{baker.about && (baker.about.length > 300 && '...')}
                 </p>
                 <div className={styles.bakerInfoPic}>
                     <div className={styles.bakerInfoPicRound}>
