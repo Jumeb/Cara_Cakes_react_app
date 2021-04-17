@@ -142,7 +142,7 @@ const UserTable = (props) => {
                         <tr className={styles.cartTableRow}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                                 <img src={user.image ? `${BASE_URL}/${user.image}` : pans2} alt={user.name} className={styles.cartTableDataImage} />
-                                <b>{user.name.substr(0, 15)}</b>
+                                <b>{user.name.substr(0, 20)}</b>
                             </td>
                             <td className={styles.cartTableData}>{HNumber(user.telNumber)}</td>
                             <td className={styles.cartTableData}>{user.orders.ordered.length || 0}</td>

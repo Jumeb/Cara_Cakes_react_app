@@ -55,10 +55,10 @@
 .dashScroll {
     height: auto;
     display: flex;
+    justify-content: center;
     overflow: auto;
     padding-bottom: 0.5rem;
     height: 46rem;
-    /* border: 0.2rem solid red; */
 }
 
 .dashScroll:not(:last-child) {

@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { BASE_URL } from '../../utils/globalVariable';
 import { bindActionCreators } from 'redux';
 import { setUser } from '../../redux/Actions/Auth.actions';
-import { SetLocation, SetCategories, Thousand } from '../../utils/utilities';
+import { SetLocation, SetCategories, Thousand, HNumber } from '../../utils/utilities';
 import { EditPassword } from '..';
 
 const animatedComponents = makeAnimated();
@@ -33,8 +33,11 @@ const BakerProfile = (props) => {
         { value: 'cookies', label: 'Cookies' },
         { value: 'doughnuts', label: 'Doughnuts' },
         { value: 'pancakes', label: 'Pancakes' },
-        { value: 'cup-cakes', label: 'Cup Cake' },
+        { value: 'cup-cakes', label: 'Cup Cakes' },
+        { value: 'pizzas', label: 'Pizzas' },
+        { value: 'pies', label: 'Pies' },
         { value: 'gift-baskets', label: 'Gift Baskets' },
+        { value: 'valentines', label: 'Valentines' },
     ]);
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState('');
@@ -200,8 +203,8 @@ const BakerProfile = (props) => {
                     </div>
                     <div className={styles.profileCredentials}>
                         <h2 className={styles.profileName}>{name.substr(0, 15)} | {company.substr(0, 15) || 'House of Flavours'}</h2>
-                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{contact || "'empty'"}</span> | <span className={styles.profileSubInfo} >{user.idCardNumber}</span> | <span className={styles.profileSubInfo} >{momoName.substr(0, 12) || "'empty'"}</span> </h3>
-                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{momo || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{user.location || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{email.substr(0, 12)}...</span> </h3>
+                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{HNumber(contact) || "'empty'"}</span> | <span className={styles.profileSubInfo} >{user.idCardNumber}</span> | <span className={styles.profileSubInfo} >{momoName.substr(0, 12) || "'empty'"}</span> </h3>
+                        <h3 className={styles.profileSubTitle}><span className={styles.profileSubInfo} >{HNumber(momo) || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{user.location || "'empty'"}</span>  | <span className={styles.profileSubInfo} >{email.substr(0, 12)}...</span> </h3>
                     </div>
                     <div className={styles.profileStats}>
                         <div className={styles.profileNumber}>

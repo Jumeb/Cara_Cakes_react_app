@@ -29,7 +29,7 @@ const Baker = (props) => {
 
             if (statusCode === 200) {
                 props.setBakers(response.bakers);
-                setBakers(response.bakers.sort((x, y) => y.followers.users.length - x.followers.users.length));
+                setBakers(response.bakers.sort((x, y) => y.total - x.total));
             }
         })
         .catch(err => {
@@ -48,7 +48,7 @@ const Baker = (props) => {
             </h2>
             <div className={styles.dashScroll}>
                 <div className={styles.dashContainer}>
-                    {bakers.map((baker, index) => ((index <= 9) && <BakersCard baker={baker} key={index} />))}
+                    {bakers.map((baker, index) => ((index <= 3) && <BakersCard baker={baker} key={index} />))}
                 </div>
             </div>
         </section>

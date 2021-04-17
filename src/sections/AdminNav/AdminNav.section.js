@@ -59,13 +59,13 @@ const AdminNav = (props) => {
                     </>}
                 {user.type === 'Baker' && <>
                     <li className={styles.panelSideNavItem}>
-                        <NavLink to="/admin/dashboard/orders" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                            <span className={styles.panelSideNavIcon}><IoArchive /></span><span>Orders</span>
+                        <NavLink to="/admin/dashboard/pastry" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                            <span className={styles.panelSideNavIcon}><IoGift /></span><span>Pastries</span>
                         </NavLink>
                     </li>
                     <li className={styles.panelSideNavItem}>
-                        <NavLink to="/admin/dashboard/pastry" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                            <span className={styles.panelSideNavIcon}><IoGift /></span><span>Pastries</span>
+                        <NavLink to="/admin/dashboard/orders" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
+                            <span className={styles.panelSideNavIcon}><IoArchive /></span><span>Orders</span>
                         </NavLink>
                     </li>
                     <li className={styles.panelSideNavItem}>

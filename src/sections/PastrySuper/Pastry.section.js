@@ -87,11 +87,14 @@ const Pastry = (props) => {
                         <button className={[styles.bakerChoice, active === -1 && styles.bakerActive].join(' ')} onClick={() => setFilter(-1, 'all')}>All Pastries</button>
                         <button className={[styles.bakerChoice, active === 0 && styles.bakerActive].join(' ')} onClick={() => setFilter(0, 'Birthday Cakes')}>Birthday Cakes</button>
                         <button className={[styles.bakerChoice, active === 1 && styles.bakerActive].join(' ')} onClick={() => setFilter(1, 'Wedding Cakes')}>Wedding Cakes</button>
-                        <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')} onClick={() => setFilter(2, 'Doughnuts')}>Dougnuts</button>
-                        <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'Cookies')}>Cookies</button>
+                        <button className={[styles.bakerChoice, active === 2 && styles.bakerActive].join(' ')} onClick={() => setFilter(2, 'Cookies')}>Cookies</button>
+                        <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'Doughnuts')}>Dougnuts</button>
                         <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')} onClick={() => setFilter(4, 'Pancakes')}>Pancakes</button>
-                        <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')} onClick={() => setFilter(5, 'Gift Baskets')}>Gift Baskets</button>
-                        <button className={[styles.bakerChoice, active === 6 && styles.bakerActive].join(' ')} onClick={() => setFilter(6, 'Cup Cakes')}>Cup Cakes</button>
+                        <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')} onClick={() => setFilter(5, 'Cup Cakes')}>Cup Cakes</button>
+                        <button className={[styles.bakerChoice, active === 6 && styles.bakerActive].join(' ')} onClick={() => setFilter(6, 'Pizzas')}>Pizzas</button>
+                        <button className={[styles.bakerChoice, active === 7 && styles.bakerActive].join(' ')} onClick={() => setFilter(7, 'Pies')}>Pies</button>
+                        <button className={[styles.bakerChoice, active === 8 && styles.bakerActive].join(' ')} onClick={() => setFilter(8, 'Gift Baskets')}>Gift Baskets</button>
+                        <button className={[styles.bakerChoice, active === 9 && styles.bakerActive].join(' ')} onClick={() => setFilter(9, 'Valentines')}>Valentines</button>
                     </div>
                 </div>
                 {loading ? <div className={styles.activity}>

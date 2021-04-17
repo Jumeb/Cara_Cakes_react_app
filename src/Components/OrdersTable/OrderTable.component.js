@@ -91,7 +91,7 @@ const OrderTable = (props) => {
                         <tr className={styles.cartTableRow}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                                 <img src={order.userId.image ? `${BASE_URL}/${order.userId.image}` : pans2} alt={order.userId.name} className={styles.cartTableDataImage} />
-                                <b>{order.userId.name.substr(0, 15)}</b>
+                                <b>{order.userId.name.substr(0, 20)}</b>
                             </td>
                             <td className={styles.cartTableData}>{order.userId.suspend ? "True" : "False"}</td>
                             <td className={styles.cartTableData}>{order.status}</td>

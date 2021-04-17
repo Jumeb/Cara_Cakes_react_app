@@ -167,7 +167,11 @@ const BakerDetails = (props) => {
         { value: 'cookies', label: 'Cookies' },
         { value: 'doughnuts', label: 'Doughnuts' },
         { value: 'pancakes', label: 'Pancakes' },
-        { value: 'cup-cakes', label: 'Cup Cake' },
+        { value: 'cup-cakes', label: 'Cup Cakes' },
+        { value: 'pizzas', label: 'Pizzas' },
+        { value: 'pies', label: 'Pies' },
+        { value: 'gift-baskets', label: 'Gift Baskets' },
+        { value: 'valentines', label: 'Valentines' },
     ]);
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState({});
@@ -245,7 +249,7 @@ const colourStyles = {
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     return {
       ...styles,
-      backgroundColor: isFocused ? "#ff1493" : null,
+      backgroundColor: isFocused ? "#215379" : null,
       color: isFocused ? "white" : '#999',
     };
   },
@@ -256,7 +260,7 @@ const colourStyles = {
     boxShadow: 'none',
     borderBottom: '2px',
     borderBottomStyle: 'solid',
-    borderBottomColor: isFocused ? "#ff1493" : 'transparent',
+    borderBottomColor: isFocused ? "#14334a" : 'transparent',
     borderRadius: '2px',
     // overflow: 'hidden',
     // clipPath: ,
@@ -266,7 +270,7 @@ const colourStyles = {
         boxShadow: 'none',
         borderBottom: '2px',
         borderBottomStyle: 'solid',
-        borderBottomColor: isFocused ? "#ff1493" : 'transparent',
+        borderBottomColor: isFocused ? "#14334a" : 'transparent',
     }
   })
 };

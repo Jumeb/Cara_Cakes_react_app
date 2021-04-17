@@ -33,6 +33,9 @@ const OrderDetails = (props) => {
 
     const disLikeUser = (id) => {
         setLoading(true);
+        if (user.type === 'Admin') {
+            return false;
+        }
         fetch(`${BASE_URL}/user/dislike/${id}?baker=${user._id}`, {
             method: 'POST',
         })
@@ -62,6 +65,9 @@ const OrderDetails = (props) => {
 
     const likeUser = (id) => {
         setLoading(true);
+        if (user.type === 'Admin') {
+            return false;
+        }
         fetch(`${BASE_URL}/user/like/${id}?baker=${user._id}`, {
             method: 'POST',
         })

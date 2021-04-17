@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 import styles from './User.module.css';
@@ -15,13 +15,11 @@ import {
 import { WorkArea } from '../../Components';
 
 const User = () => {
-    const [isDetail, setIsDetail] = useState(false);
-
     return (
         <div>
             <section className={styles.Panel}>
-                <SideNav isDetail={isDetail} />
-                <WorkArea isDetail={isDetail}>
+                <SideNav />
+                <WorkArea>
                     <Switch>
                         <Route path="/user" exact component={UserProfile} />
                         <Route path="/user/event" component={Events} />
