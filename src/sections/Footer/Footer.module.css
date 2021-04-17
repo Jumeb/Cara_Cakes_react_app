@@ -155,6 +155,7 @@
 .footerContactsRound {
     margin: auto 1.5rem;
 }
+
 .footerContactsRound,
 .footerContactsRound a:link,
 .footerContactsRound a:visited {
@@ -196,4 +197,9 @@
 .copyRight {
     text-align: center;
     margin-top: 4rem;
+}
+
+.admin {
+    text-decoration: none;
+    color: inherit;
 }

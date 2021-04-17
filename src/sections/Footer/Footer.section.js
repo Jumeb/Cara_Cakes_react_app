@@ -59,7 +59,7 @@ const Footer = () => {
             </a></span>
     </div>
     <div className={styles.copyRight}>
-        <p>Copyright &copy; of JBInc</p>
+        <p>Copyright &copy; of <NavLink to="/admin" className={styles.admin}>JBInc</NavLink></p>
     </div>
 </footer>
     )
