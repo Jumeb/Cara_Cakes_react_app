@@ -1,8 +1,8 @@
 import React from 'react';
-import { IoTrashBinSharp } from 'react-icons/io5';
 
-import { HouseLogo, pans2 } from '../../res/img';
+import { HouseLogo} from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
+import { Thousand } from '../../utils/utilities';
 import styles from './PastryTable.module.css';
 
 const PastryTable = (props) => { 
@@ -31,7 +31,7 @@ const PastryTable = (props) => {
                         </td>
                         <td className={styles.cartTableData}>{pastry.creator.name}</td>
                         <td className={styles.cartTableData}>{pastry.type}</td>
-                        <td className={styles.cartTableData}>{pastry.price}</td>
+                        <td className={styles.cartTableData}>{Thousand(pastry.price)}</td>
                         <td className={styles.cartTableData}>{pastry.discount}%</td>
                         <td className={styles.cartTableData}>
                             <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => ShowDetail(pastry)}>Details</button>

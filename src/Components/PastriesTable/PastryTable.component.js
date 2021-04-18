@@ -3,10 +3,11 @@ import { IoTrashBinSharp } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { HouseLogo, pans2 } from '../../res/img';
+import { HouseLogo } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './PastryTable.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
+import { Thousand } from '../../utils/utilities';
 import { Notification, Verification } from '..';
 
 const PastryTable = (props) => { 
@@ -103,7 +104,7 @@ const PastryTable = (props) => {
                             <b>{pastry.name}</b>
                         </td>
                         <td className={styles.cartTableData}>{pastry.type}</td>
-                        <td className={styles.cartTableData}>{pastry.price}</td>
+                        <td className={styles.cartTableData}>{Thousand(pastry.price)}</td>
                         <td className={styles.cartTableData}>{pastry.discount}%</td>
                         <td className={styles.cartTableData}>
                             <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => ShowDetail(pastry)}>Details</button>
