@@ -4,7 +4,7 @@ import makeAnimated from 'react-select/animated';
 import Select from 'react-select';
 
 import { AdminImage, Button, Notification, SquareArea, SquareInput } from '../../Components';
-import { cups1 } from '../../res/img';
+import { cups1, HLogo, HouseLogo } from '../../res/img';
 import styles from './BakerProfile.module.css';
 import { connect } from 'react-redux';
 import { BASE_URL } from '../../utils/globalVariable';
@@ -197,8 +197,8 @@ const BakerProfile = (props) => {
             <div className={styles.profileContainer}>
                 <div className={styles.profileInfo}>
                     <div className={styles.profileBoard}>
-                        <img src={user.ceoImage ? `${BASE_URL}/${user.ceoImage}`  : cups1} alt={'Username'} className={styles.profileImg} />
-                        <img src={user.companyImage ? `${BASE_URL}/${user.companyImage}`  : cups1} alt={'Username'} className={styles.profileLogo} />
+                        <img src={user.ceoImage ? `${BASE_URL}/${user.ceoImage}`  : HouseLogo} alt={'Username'} className={styles.profileImg} />
+                        <img src={user.companyImage ? `${BASE_URL}/${user.companyImage}`  : HLogo} alt={'Username'} className={styles.profileLogo} />
                         <button className={styles.profileEdit} onClick={() => setIsOpen(true)}><IoBrush className={styles.profileIcon} /></button>
                     </div>
                     <div className={styles.profileCredentials}>
