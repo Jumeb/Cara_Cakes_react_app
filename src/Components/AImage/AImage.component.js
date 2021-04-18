@@ -7,7 +7,7 @@ import { Button, Notification, SquareImage } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './AImage.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
-import { cups1 } from '../../res/img';
+import { cups1, HouseLogo } from '../../res/img';
 import { setUser } from '../../redux/Actions/Auth.actions';
 
 const AImage = (props) => {
@@ -60,7 +60,6 @@ const AImage = (props) => {
 
             if (statusCode === 200) {
                 setShow(true);
-                console.log(response);
                 props.setUser(response.admin);
                 setMessage({
                     type: 'success',
@@ -73,12 +72,16 @@ const AImage = (props) => {
             }
 
             if (statusCode === 500) {
-                console.log(response, 'error');
                 setIsOpen(false);
             }
         })
         .catch(err => {
-            console.log(err);
+            setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
         })
     }
 
@@ -88,7 +91,7 @@ const AImage = (props) => {
                 <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                 <div className={styles.profileInfo}>
                     <div className={styles.profileBoard}>
-                        <img src={image ? URL.createObjectURL(image[0]) : user.image ? `${BASE_URL}/${user.image}` : cups1} alt={'Username'} className={styles.profileImg} />
+                        <img src={image ? URL.createObjectURL(image[0]) : user.image ? `${BASE_URL}/${user.image}` : HouseLogo} alt={'Username'} className={styles.profileImg} />
                     </div>
                 </div>
                 <div className={styles.sqrButtons}>

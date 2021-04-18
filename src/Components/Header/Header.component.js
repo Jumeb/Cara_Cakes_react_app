@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import styles from './Header.module.css';
 import {Links} from '../../Components';
-import logo from "../../res/img/caracakes2.png";
+import { HouseLogo } from '../../res/img';
 
 const Header = (props) => {
     const [active, setActive] = useState(1)
     return (
         <div className={styles.container}>
-            <img src={logo} alt="CaraCakes" className={styles.containerLogo} />
+            <img src={HouseLogo} alt="CaraCakes" className={styles.containerLogo} />
         </div>
     )
 };

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Notification, Verification } from '..';
-import { pans2 } from '../../res/img';
+import { HLogo } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './BakerTable.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
@@ -163,7 +163,7 @@ const BakerTable = (props) => {
                     {bakers.map((baker, index) => 
                         <tr className={styles.cartTableRow}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                                <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : pans2} alt="Pastry Name" className={styles.cartTableDataImage} />
+                                <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : HLogo} alt="Pastry Name" className={styles.cartTableDataImage} />
                                 <b>{baker.name}</b>
                             </td>
                             <td className={styles.cartTableData}>{baker.companyName}</td>

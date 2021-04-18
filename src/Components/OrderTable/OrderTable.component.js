@@ -118,7 +118,6 @@ const OrderTable = (props) => {
 
             })
             .catch(err => {
-                console.log(err);
                 setLoading(false);
                 setShow(true);
                 setMessage({

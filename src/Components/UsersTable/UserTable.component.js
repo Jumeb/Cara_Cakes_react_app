@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import { Notification, Verification } from '..';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
-import { pans2 } from '../../res/img';
+import { HLogo, pans2 } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
 import { HNumber } from '../../utils/utilities';
 import styles from './UserTable.module.css';
@@ -141,7 +141,7 @@ const UserTable = (props) => {
                     {users.map((user, index) =>
                         <tr className={styles.cartTableRow}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                                <img src={user.image ? `${BASE_URL}/${user.image}` : pans2} alt={user.name} className={styles.cartTableDataImage} />
+                                <img src={user.image ? `${BASE_URL}/${user.image}` : HLogo} alt={user.name} className={styles.cartTableDataImage} />
                                 <b>{user.name.substr(0, 20)}</b>
                             </td>
                             <td className={styles.cartTableData}>{HNumber(user.telNumber)}</td>

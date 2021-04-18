@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { IoPeople, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 
 import { Button, Notification } from '..';
-import { logo5, vals3 } from '../../res/img';
+import { HLogo, HouseLogo, vals3 } from '../../res/img';
 import styles from './BakerCard.module.css';
 import {setBaker} from '../../redux/Actions/Auth.actions';
 import { BASE_URL } from '../../utils/globalVariable';
@@ -66,7 +66,12 @@ const BakerCard = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     }
 
@@ -107,7 +112,12 @@ const BakerCard = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err, 'ksjdkfljlsjf');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     }
 
@@ -147,7 +157,12 @@ const BakerCard = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err, 'ksjdkfljlsjf');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     }
 
@@ -157,11 +172,11 @@ const BakerCard = (props) => {
                 <h2>{baker.companyName}</h2>
             </div>
             <div className={styles.bakerDiscount} onClick={() => followBaker(baker._id || '')}><IoPeople className={styles.icon} /> Followers: {Thousand(followers)}</div>
-            <img src={baker.ceoImage ? `${BASE_URL}/${baker.ceoImage}` : vals3} alt={baker.name} className={styles.bakerListImg} />
+            <img src={baker.ceoImage ? `${BASE_URL}/${baker.ceoImage}` : HouseLogo} alt={baker.name} className={styles.bakerListImg} />
             <div className={styles.bakerLikes} onClick={() => likeBaker(baker._id || '')}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
             <div className={styles.bakerDislikes} onClick={() => disLikeBaker(baker._id || '')}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
             <div className={styles.bakerListImgLogoContainer}>
-                <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : logo5} alt="Product" className={styles.bakerListImgLogo} />
+                <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : HLogo} alt="Product" className={styles.bakerListImgLogo} />
             </div>
             <div className={styles.bakersButtonContainer}>
                 <Button onClick={() => showDetail(baker)} title="Details" />

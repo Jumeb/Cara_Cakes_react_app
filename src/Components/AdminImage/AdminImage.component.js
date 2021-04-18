@@ -7,7 +7,7 @@ import { Button, Notification, SquareImage } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './AdminImage.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
-import { cups1, vals3 } from '../../res/img';
+import { cups1, HLogo, HouseLogo } from '../../res/img';
 import { setUser } from '../../redux/Actions/Auth.actions';
 
 const AdminImage = (props) => {
@@ -72,7 +72,12 @@ const AdminImage = (props) => {
             }
         })
         .catch(err => {
-            console.log(err);
+            setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
         })
     }
 
@@ -82,8 +87,8 @@ const AdminImage = (props) => {
                 <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                 <div className={styles.profileInfo}>
                     <div className={styles.profileBoard}>
-                        <img src={image ? URL.createObjectURL(image[0]) : user.ceoImage ? `${BASE_URL}/${user.ceoImage}` : cups1} alt={'Username'} className={styles.profileImg} />
-                        <img src={logo ? URL.createObjectURL(logo[0]) : user.companyImage ? `${BASE_URL}/${user.companyImage}` :vals3} alt={'Username'} className={styles.profileLogo} />
+                        <img src={image ? URL.createObjectURL(image[0]) : user.ceoImage ? `${BASE_URL}/${user.ceoImage}` : HouseLogo} alt={'Username'} className={styles.profileImg} />
+                        <img src={logo ? URL.createObjectURL(logo[0]) : user.companyImage ? `${BASE_URL}/${user.companyImage}` : HLogo} alt={'Username'} className={styles.profileLogo} />
                     </div>
                 </div>
                 <div className={styles.sqrButtons}>

@@ -38,16 +38,11 @@ import bds2 from './bds-2.jpg';
 import bds3 from './bds-3.jpg';
 import bds4 from './bds-4.jpg';
 import bds5 from './bds-5.jpg';
-import logo1 from './caracakes.png';
-import logo2 from './caracakes2.png';
-import logo3 from './caracakes3.png';
-import logo4 from './caracakes4.png';
-import logo5 from './caracakes5.png';
-import logo6 from './caracakes6.png';
-import logo7 from './caracakes7.png';
-import logo8 from './caracakes8.png';
+import HouseLogo from './House-Coloured.png';
+import HouseLogo1 from './House-white.png';
 import jbInc from './jbInc.png';
-import favicon from './favicon.png';
+import favicon from './HOF-white.png';
+import HLogo from './HOF-coloured.png';
 
 export {
     cups1,
@@ -90,14 +85,9 @@ export {
     bds3,
     bds4,
     bds5,
-    logo1,
-    logo2,
-    logo3,
-    logo4,
-    logo5,
-    logo6,
-    logo7,
-    logo8,
+    HouseLogo,
+    HouseLogo1,
+    HLogo,
     jbInc,
     favicon
 }

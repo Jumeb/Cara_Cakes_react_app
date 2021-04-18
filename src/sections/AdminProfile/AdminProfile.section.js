@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IoBrush } from 'react-icons/io5';
 
 import { AImage, Button, Notification, SquareInput } from '../../Components';
-import { cups1 } from '../../res/img';
+import { cups1, HLogo } from '../../res/img';
 import styles from './AdminProfile.module.css';
 import { connect } from 'react-redux';
 import { BASE_URL } from '../../utils/globalVariable';
@@ -110,7 +110,7 @@ const AdminProfile = (props) => {
             <div className={styles.profileContainer}>
                 <div className={styles.profileInfo}>
                     <div className={styles.profileBoard}>
-                        <img src={user.image ? `${BASE_URL}/${user.image}`  : cups1} alt={'Username'} className={styles.profileImg} />
+                        <img src={user.image ? `${BASE_URL}/${user.image}`  : HLogo} alt={'Username'} className={styles.profileImg} />
                         <button className={styles.profileEdit} onClick={() => setIsOpen(true)}><IoBrush className={styles.profileIcon} /></button>
                     </div>
                     <div className={styles.profileCredentials}>

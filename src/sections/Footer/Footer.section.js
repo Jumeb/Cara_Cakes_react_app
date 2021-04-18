@@ -3,13 +3,13 @@ import { IoLogoFacebook, IoLogoInstagram, IoLogoWhatsapp, IoMail, IoPhonePortrai
 import { NavLink } from 'react-router-dom';
 
 import styles from './Footer.module.css';
-import {jbInc, logo8} from '../../res/img';
+import {jbInc, HouseLogo1} from '../../res/img';
 
 const Footer = () => {
     return (
         <footer className={styles.secFooter}>
             <div className={styles.footerLogoBox}>
-                <img src={logo8} alt="CaraCakes" className={styles.footerLogo} />
+                <img src={HouseLogo1} alt="CaraCakes" className={styles.footerLogo} />
             </div>
     <div className={styles.secContainer}>
         <div className={[styles.secSide, styles.footerLinks].join(' ')}>

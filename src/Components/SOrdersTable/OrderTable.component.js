@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoTrashBinSharp } from 'react-icons/io5';
 
-import { pans2 } from '../../res/img';
+import { HouseLogo, pans2 } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
 import { DateString, Thousand } from '../../utils/utilities';
 import styles from './OrderTable.module.css';
@@ -28,7 +28,7 @@ const OrderTable = (props) => {
                     {orders.map((order, index) => 
                         <tr className={styles.cartTableRow}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                                <img src={order.userId.image ? `${BASE_URL}/${order.userId.image}` : pans2} alt={order.userId.name} className={styles.cartTableDataImage} />
+                                <img src={order.userId.image ? `${BASE_URL}/${order.userId.image}` : HouseLogo} alt={order.userId.name} className={styles.cartTableDataImage} />
                                 <b>{order.userId.name.substr(0, 20)}</b>
                             </td>
                             <td className={styles.cartTableData}>{order.bakerId.companyName}</td>

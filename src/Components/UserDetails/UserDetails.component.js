@@ -7,8 +7,9 @@ import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand, HNumber } from '../../utils/utilities';
 import { setBaker } from '../../redux/Actions/Auth.actions';
 import styles from './UserDetails.module.css';
-import { vals3 } from '../../res/img';
+import { HouseLogo, vals3 } from '../../res/img';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
+import { Notification } from '..';
 
 const UserDetails = (props) => {
     const { detail, setDetail, _user, user } = props;
@@ -16,6 +17,8 @@ const UserDetails = (props) => {
     const [loading, setLoading] = useState(false);
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState({});
 
     useEffect(() => {
         if (_user.length !== 0) {
@@ -40,61 +43,71 @@ const UserDetails = (props) => {
         fetch(`${BASE_URL}/baker/dislike/${id}?user=${user._id}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].baker;
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1].baker;
+                setLoading(false);
 
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
+                if (statusCode === 200) {
+                    setLikes(response.likes.users.length);
+                    setDislikes(response.dislikes.users.length);
+                }
 
-            if (statusCode === 500) {
-                console.log('error');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
+                if (statusCode === 500) {
+                    console.log('error');
+                }
+            })
+            .catch(err => {
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
+            })
+    };
 
     const likeBaker = (id) => {
         setLoading(true);
         fetch(`${BASE_URL}/baker/like/${id}?user=${user._id}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].baker;
-            setLoading(false);
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1].baker;
+                setLoading(false);
+                if (statusCode === 200) {
+                    setLikes(response.likes.users.length);
+                    setDislikes(response.dislikes.users.length);
+                }
 
-            if (statusCode === 404) {
-                console.log(response)
-            }
+                if (statusCode === 404) {
+                    console.log(response)
+                }
 
-            if (statusCode === 500) {
-                console.log('error 500');
-            }
-        })
-        .catch(err => {
-            console.log(err, 'ksjdkfljlsjf');
-        })
-    }
+                if (statusCode === 500) {
+                    console.log('error 500');
+                }
+            })
+            .catch(err => {
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
+            })
+    };
 
     const stopClose = (e) => {
         e.stopPropagation();
@@ -110,7 +123,7 @@ const UserDetails = (props) => {
                         <div className={styles.pastryContainer}>
                             <div className={styles.pastryDiscount}> {HNumber(_user.telNumber)}</div>
                             <div className={styles.pastryName}>{_user.name || ''}</div>
-                            <img src={_user.image ? `${BASE_URL}/${_user.image}` : vals3} alt={_user.price} className={styles.pastryImage} />
+                            <img src={_user.image ? `${BASE_URL}/${_user.image}` : HouseLogo} alt={_user.price} className={styles.pastryImage} />
                             <div className={styles.pastryLikes} onClick={() => likeBaker(_user._id || '')}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
                             <div className={styles.pastryDislikes} onClick={() => disLikeBaker(_user._id || '')}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
                         </div>
@@ -139,6 +152,7 @@ const UserDetails = (props) => {
                     </div>
                 </>}
             </div>
+            <Notification show={show} setShow={setShow} message={message} />
         </div>
     )
 }

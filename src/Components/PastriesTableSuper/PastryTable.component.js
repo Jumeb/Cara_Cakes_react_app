@@ -1,7 +1,8 @@
 import React from 'react';
 import { IoTrashBinSharp } from 'react-icons/io5';
 
-import { pans2 } from '../../res/img';
+import { HouseLogo, pans2 } from '../../res/img';
+import { BASE_URL } from '../../utils/globalVariable';
 import styles from './PastryTable.module.css';
 
 const PastryTable = (props) => { 
@@ -25,7 +26,7 @@ const PastryTable = (props) => {
                     </thead>
                     {pastries.map((pastry, index) => (<tr className={styles.cartTableRow}>
                         <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                            <img src={pastry.image ? `http://localhost:8081/${pastry.image}` : pans2} alt={pastry.name} className={styles.cartTableDataImage} />
+                            <img src={pastry.image ? `${BASE_URL}/${pastry.image}` : HouseLogo} alt={pastry.name} className={styles.cartTableDataImage} />
                             <b>{pastry.name}</b>
                         </td>
                         <td className={styles.cartTableData}>{pastry.creator.name}</td>

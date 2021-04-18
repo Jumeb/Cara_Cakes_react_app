@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { IoThumbsDownSharp, IoThumbsUpSharp } from 'react-icons/io5';
 import { connect } from 'react-redux';
 
-import { cups2 } from '../../res/img';
+import { cups2, HLogo } from '../../res/img';
 import { Thousand } from '../../utils/utilities';
 import styles from './BakerInfo.module.css';
 import { BASE_URL } from '../../utils/globalVariable';
-import { BakerDetails } from '../';
+import { BakerDetails, Notification } from '../';
 
 const BakerInfo = (props) => {
     const { token, baker, setRbakers, user } = props;
     const [detail, setDetail] = useState(false);
     const [_baker, setBaker] = useState([]);
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState({});
 
     const ShowDetails = (baker) => {
         setDetail(true);
@@ -40,14 +42,19 @@ const BakerInfo = (props) => {
 
         })
             .catch(err => {
-                console.log(err);
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
         })
     }
 
     return (
         <div className={styles.bakerCard}> 
             <div className={styles.bakerInfo}>
-                <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : cups2} alt="Baker name" className={styles.bakerImg} />
+                <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : HLogo} alt="Baker name" className={styles.bakerImg} />
                 <div className={styles.bakerId}>
                     <h2 className={styles.bakerTitle}>{baker.name}</h2>
                     <b className={styles.bakerSubTitle}>{baker.companyName}</b>
@@ -81,6 +88,7 @@ const BakerInfo = (props) => {
                 {user.type === 'Admin' && <button className={styles.bakerBtn} onClick={() => Suspend(baker._id)}>{baker.suspend ? 'Unsuspend' : 'Suspend'}</button>}
             </div>
             <BakerDetails detail={detail} setDetail={setDetail} baker={_baker} />
+            <Notification message={message} show={show} setShow={setShow} />
         </div>
     )
 }

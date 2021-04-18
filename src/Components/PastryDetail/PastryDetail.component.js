@@ -180,7 +180,12 @@ const PastryDetail = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     };
 
@@ -219,7 +224,12 @@ const PastryDetail = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     };
 
@@ -262,7 +272,12 @@ const PastryDetail = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err, 'ksjdkfljlsjf');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     };
 

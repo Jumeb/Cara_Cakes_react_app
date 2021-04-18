@@ -41,7 +41,6 @@ const PastryCart = (props) => {
 
                 if (statusCode === 200) {
                     setCount(count + 1);
-                    console.log(response);
                     props.setRefresh(true);
                 }
 
@@ -160,7 +159,12 @@ const PastryCart = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     };
 
@@ -190,7 +194,12 @@ const PastryCart = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
+               setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     };
 
@@ -224,7 +233,12 @@ const PastryCart = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err, 'ksjdkfljlsjf');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     };
 

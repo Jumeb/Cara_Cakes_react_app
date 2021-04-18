@@ -76,7 +76,6 @@ const CartTable = (props) => {
             }
         })
         .catch(err => {
-            console.log(err);
             setLoading(false);
             setShow(true);
             setMessage({
@@ -132,7 +131,6 @@ const CartTable = (props) => {
 
         })
         .catch(err => {
-            console.log(err);
             setLoading(false);
             setShow(true);
             setMessage({
@@ -162,7 +160,6 @@ const CartTable = (props) => {
                 setLoading(false);
 
                 if (statusCode === 200) {
-                    console.log('here', 'response');
                     setShow(true);
                     setMessage({
                         title: 'Success',
@@ -175,7 +172,6 @@ const CartTable = (props) => {
             })
             .catch(err => {
                 setLoading(false);
-                console.log(err);
                 setShow(true);
                 setMessage({
                     title: 'Unexpected Error',

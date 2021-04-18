@@ -3,13 +3,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import styles from './Baker.module.css';
-import {BakersCard} from '../../Components';
+import {BakersCard, Notification} from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import { setBakers } from '../../redux/Actions/Data.actions';
 
 const Baker = (props) => {
 
     const [bakers, setBakers] = useState([]);
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState({});
 
     useEffect(() => {
         fetch(`${BASE_URL}/bakers`, {
@@ -33,7 +35,12 @@ const Baker = (props) => {
             }
         })
         .catch(err => {
-            console.log(err);
+            setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
         })
 
         return () => {
@@ -51,6 +58,7 @@ const Baker = (props) => {
                     {bakers.map((baker, index) => ((index <= 3) && <BakersCard baker={baker} key={index} />))}
                 </div>
             </div>
+            <Notification show={show} setShow={setShow} message={message} />
         </section>
     )
 }

@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { pans2 } from '../../res/img';
+import { HouseLogo, pans2 } from '../../res/img';
 import { DateString, Thousand } from '../../utils/utilities';
 import styles from './OrderTable.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 import { BASE_URL } from '../../utils/globalVariable';
-import { Notification, OrderDetails } from '..';
-import { IoTrashBinSharp } from 'react-icons/io5';
+import { Notification } from '..';
 
 const OrderTable = (props) => { 
     const { orders, token, refresh, setDetail, setOrder } = props;
@@ -58,7 +57,6 @@ const OrderTable = (props) => {
     
                 })
                 .catch(err => {
-                    console.log(err);
                     setLoading(false);
                     setShow(true);
                     setMessage({
@@ -90,7 +88,7 @@ const OrderTable = (props) => {
                     {orders.map((order, index) => 
                         <tr className={styles.cartTableRow}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                                <img src={order.userId.image ? `${BASE_URL}/${order.userId.image}` : pans2} alt={order.userId.name} className={styles.cartTableDataImage} />
+                                <img src={order.userId.image ? `${BASE_URL}/${order.userId.image}` : HouseLogo} alt={order.userId.name} className={styles.cartTableDataImage} />
                                 <b>{order.userId.name.substr(0, 20)}</b>
                             </td>
                             <td className={styles.cartTableData}>{order.userId.suspend ? "True" : "False"}</td>

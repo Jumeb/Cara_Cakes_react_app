@@ -39,29 +39,34 @@ const OrderDetails = (props) => {
         fetch(`${BASE_URL}/user/dislike/${id}?baker=${user._id}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].response;
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1].response;
+                setLoading(false);
 
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
+                if (statusCode === 200) {
+                    setLikes(response.likes.users.length);
+                    setDislikes(response.dislikes.users.length);
+                }
 
-            if (statusCode === 500) {
-                console.log('error');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
+                if (statusCode === 500) {
+                    console.log('error');
+                }
+            })
+            .catch(err => {
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
+            })
+    };
 
     const likeUser = (id) => {
         setLoading(true);
@@ -71,33 +76,38 @@ const OrderDetails = (props) => {
         fetch(`${BASE_URL}/user/like/${id}?baker=${user._id}`, {
             method: 'POST',
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1].response;
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1].response;
+                setLoading(false);
 
-            if (statusCode === 200) {
-                setLikes(response.likes.users.length);
-                setDislikes(response.dislikes.users.length);
-            }
+                if (statusCode === 200) {
+                    setLikes(response.likes.users.length);
+                    setDislikes(response.dislikes.users.length);
+                }
 
-            if (statusCode === 404) {
-                console.log(response)
-            }
+                if (statusCode === 404) {
+                    console.log(response)
+                }
 
-            if (statusCode === 500) {
-                console.log('error 500');
-            }
-        })
-        .catch(err => {
-            console.log(err, 'ksjdkfljlsjf');
-        })
-    }
+                if (statusCode === 500) {
+                    console.log('error 500');
+                }
+            })
+            .catch(err => {
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
+            })
+    };
 
     const stopClose = (e) => {
         e.stopPropagation();

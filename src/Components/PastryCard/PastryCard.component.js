@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { IoStatsChart, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 
 import styles from './PastryCard.module.css';
-import { logo5, vals3 } from '../../res/img';
+import { HouseLogo, logo5, vals3 } from '../../res/img';
 import { Button, Notification, PastryDetail } from '..';
 import {BASE_URL} from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
@@ -64,9 +64,14 @@ const PastryCard = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
-    }
+    };
 
     const likePastry = (id) => {
         setLoading(true);
@@ -106,7 +111,12 @@ const PastryCard = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err, 'ksjdkfljlsjf');
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
             })
     }
 
@@ -179,7 +189,7 @@ const PastryCard = (props) => {
                 <h2 className={styles.pastryTitle}>{pastry.name}</h2>
                 <div className={styles.pastryImgContainer}>
                     {pastry.discount > 0 && <div className={styles.pastryDiscount}><IoStatsChart /> Discount: {pastry.discount}%</div>}
-                    <img src={pastry.image ? `${BASE_URL}/${pastry.image}` : vals3} alt="Product" className={styles.pastryListImg} />
+                    <img src={pastry.image ? `${BASE_URL}/${pastry.image}` : HouseLogo} alt="Product" className={styles.pastryListImg} />
                     <div className={styles.pastryStats}>
                         <div className={styles.pastryLikes}>
                             <div className={styles.likeData} onClick={() => likePastry(pastry._id)}><IoThumbsUp /> {likes} </div>

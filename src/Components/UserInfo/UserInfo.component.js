@@ -3,7 +3,7 @@ import { IoThumbsDownSharp, IoThumbsUpSharp } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { UserDetails } from '..';
 
-import { cups2 } from '../../res/img';
+import { cups2, HLogo } from '../../res/img';
 import { BASE_URL } from '../../utils/globalVariable';
 import { HNumber, Thousand } from '../../utils/utilities';
 import styles from './UserInfo.module.css';
@@ -47,7 +47,7 @@ const UserInfo = (props) => {
     return (
         <div className={styles.bakerCard}> 
             <div className={styles.bakerInfo}>
-                <img src={user.image ? `${BASE_URL}/${user.image}` : cups2} alt="Baker name" className={styles.bakerImg} />
+                <img src={user.image ? `${BASE_URL}/${user.image}` : HLogo} alt="Baker name" className={styles.bakerImg} />
                 <div className={styles.bakerId}>
                     <h2 className={styles.bakerTitle}>{user.name.substr(0, 12)}</h2>
                     <b className={styles.bakerSubTitle}>{HNumber(user.telNumber)}</b>

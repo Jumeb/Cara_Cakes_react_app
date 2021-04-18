@@ -7,7 +7,7 @@ import { Button, Notification, SquareImage } from '..';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './UserImage.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
-import { cups1 } from '../../res/img';
+import { cups1, HouseLogo } from '../../res/img';
 import { setUser } from '../../redux/Actions/Auth.actions';
 
 const UserImage = (props) => {
@@ -48,39 +48,44 @@ const UserImage = (props) => {
             },
             body: formData,
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1];
-            setLoading(false);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                setLoading(false);
 
-            if (statusCode === 200) {
-                setShow(true);
-                console.log(response);
-                props.setUser(response.user);
-                setMessage({
-                    type: 'success',
-                    message: `Mr/Miss ${user.name}, your profile has been updated.`,
-                    title: 'Success'
-                });
-                setTimeout(() => {
+                if (statusCode === 200) {
+                    setShow(true);
+                    console.log(response);
+                    props.setUser(response.user);
+                    setMessage({
+                        type: 'success',
+                        message: `Mr/Miss ${user.name}, your profile has been updated.`,
+                        title: 'Success'
+                    });
+                    setTimeout(() => {
+                        setIsOpen(false);
+                    }, 2000);
+                }
+
+                if (statusCode === 500) {
+                    console.log(response, 'error');
                     setIsOpen(false);
-                 }, 2000);
-            }
-
-            if (statusCode === 500) {
-                console.log(response, 'error');
-                setIsOpen(false);
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
+                }
+            })
+            .catch(err => {
+                setShow(true);
+                setMessage({
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.'
+                })
+            })
+    };
 
     return (
         <div className={isOpen ? styles.notifyBackdrop : styles.notifyNoBackdrop} onClick={() => Close()}>
@@ -88,7 +93,7 @@ const UserImage = (props) => {
                 <button className={styles.closeButton} onClick={() => Close()}><IoClose /></button>
                 <div className={styles.profileInfo}>
                     <div className={styles.profileBoard}>
-                        <img src={image ? URL.createObjectURL(image[0]) : user.image ? `${BASE_URL}/${user.image}` : cups1} alt={'Username'} className={styles.profileImg} />
+                        <img src={image ? URL.createObjectURL(image[0]) : user.image ? `${BASE_URL}/${user.image}` : HouseLogo} alt={'Username'} className={styles.profileImg} />
                     </div>
                 </div>
                 <div className={styles.sqrButtons}>
