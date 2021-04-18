@@ -22,7 +22,7 @@ const NavBar = () => {
                     <NavLink to="/register" title="Register" activeClassName={styles.naviActive} className={styles.naviLink}><IoPersonAdd /></NavLink>
                 </span>
                 <span className={[styles.naviItem, styles.naviItem4].join(' ')}>
-                    <NavLink to="/user/shop" title="Shop" activeClassName={styles.naviActive} className={styles.naviLink}><IoCart /></NavLink>
+                    <NavLink to="/user/shop" title="Shop    " activeClassName={styles.naviActive} className={styles.naviLink}><IoCart /></NavLink>
                 </span>
             </div>
         </div>
