@@ -48,7 +48,7 @@ const Footer = () => {
     </div>
     <div className={styles.footerContacts}>
         <span className={styles.footerContactsRound}><a href='https://www.facebook.com/jume.njah' target="_blank" rel="noreferrer"><IoLogoFacebook className={styles.footerIcons}/></a></span>
-        <span className={styles.footerContactsRound}><a href='tel:237679574561'><IoPhonePortrait className={styles.footerIcons}/></a></span>
+        <span className={styles.footerContactsRound}><a href='tel:237681726633'><IoPhonePortrait className={styles.footerIcons}/></a></span>
         <span className={styles.footerContactsRound}><a href='mailto:bricejume@gmail.com'><IoMail className={styles.footerIcons}/></a></span>
         <span className={styles.footerContactsRound}>
             <a 
