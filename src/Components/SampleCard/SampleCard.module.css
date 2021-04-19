@@ -327,3 +327,24 @@ only screen and (hover: none) {
     margin-bottom: 8rem;
     text-align: center;
 }
+
+@media only screen and (max-width: 27em) {
+    .card {
+        width: 90%;
+        /* height: 54rem; */
+        /* border: 0.2rem solid red; */
+    }
+}
+
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */

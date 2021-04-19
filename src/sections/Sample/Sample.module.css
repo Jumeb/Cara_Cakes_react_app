@@ -4,20 +4,6 @@
     margin-top: -21.5vh;
 }
 
-@media only screen and (max-width: 37.5em) {
-    .secSample {
-        margin-top: -10rem;
-        padding: 20rem 0 12rem 0;
-    }
-}
-
-@media only screen and (max-width: 25.75em) {
-    .secSample {
-        margin-top: -8rem;
-        padding: 20rem 0 12rem 0;
-    }
-}
-
 .secTitle {
     font-size: var(--font-size-big);
     text-transform: uppercase;
@@ -40,3 +26,69 @@
 .secSide {
     flex: 0 0 calc((100% - (2 * 4rem)) / 3);
 }
+
+@media only screen and (max-width: 67.5em) {
+    .secSample {
+        padding-bottom: 18rem;
+    }
+
+    .secSide {
+        flex: 0 0 33.33%;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    .secSample {
+        padding-bottom: 11rem;
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .secSample {
+        margin-top: -15rem;
+    }
+
+    .secTitle {
+        font-size: 3.2rem;
+    }
+
+}
+
+@media only screen and (max-width: 37.5em) {
+    .secSample {
+        margin-top: -10rem;
+        padding-bottom: 15rem;
+    }
+}
+
+@media only screen and (max-width: 27em) {
+    .secSample {
+        margin-top: -16rem;
+        padding-bottom: 15rem;
+    }
+
+    .secTitle {
+        font-size: 2.6rem;
+    }
+
+    .sampleRow {
+        flex-direction: column;
+    }
+
+    .secSide {
+        width: 90%;
+    }
+}
+
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */

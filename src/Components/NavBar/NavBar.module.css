@@ -6,12 +6,6 @@
     z-index: 5000;
 }
 
-@media only screen and (max-width: 25.75em) {
-    .navi {
-        right: 4rem;
-    }
-}
-
 .naviButton {
     height: 7rem;
     width: 7rem;
@@ -32,14 +26,12 @@
     text-align: center;
     left: 0;
     margin-top: 0.2rem;
-    /* border: 1px solid red; */
 }
 
 .naviItem {
     position: absolute;
     text-align: center;
     right: -0.91rem;
-    /* left: 1rem; */
     opacity: 0;
     visibility: hidden;
 }
@@ -85,24 +77,8 @@
     transform: scale(1);
 }
 
-.naviButton:hover .naviIcon::after {
-    top: -.8rem;
-}
-
-@media only screen and (max-width: 25.75em) {
-    .naviButton:hover .naviIcon::after {
-        top: -.7rem;
-    }
-}
-
 .naviButton:hover .naviIcon::before {
     top: 1.1rem;
-}
-
-@media only screen and (max-width: 75em) {
-    .naviButton:hover .naviIcon::before {
-        top: 1.1rem;
-    }
 }
 
 .naviCheckbox {
@@ -113,8 +89,8 @@
 .naviIcon::after,
 .naviIcon::before {
     background-color: var(--color-primary);
-    width: 3rem;
-    height: 0.3rem;
+    width: 30px;
+    height: 3px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -128,29 +104,11 @@
 }
 
 .naviIcon::after {
-    top: -.6rem;
-}
-
-@media only screen and (max-width: 25.75em) {
-    .naviIcon::after {
-        top: -.5rem;
-    }
+    top: -6px;
 }
 
 .naviIcon::before {
-    top: .9rem;
-}
-
-@media only screen and (max-width: 75em) {
-    .naviIcon::before {
-        top: .9rem;
-    }
-}
-
-@media (max-width: 56.25em) {
-    .naviIcon::before {
-        top: 1rem;
-    }
+    top: 9px;
 }
 
 .naviCheckbox:checked+.naviButton .naviIcon::after {
@@ -199,13 +157,65 @@
     z-index: 30;
 }
 
-@media only screen and (max-width: 75em) {
-    .naviHidden {
-        right: 3rem;
-    }
-}
-
 .naviActive {
     background-color: var(--color-primary);
     color: var(--color-white) !important;
 }
+
+@media only screen and (max-width: 75em) {
+
+    .naviIcon::before {
+        top: 9px;
+    }
+
+    .naviHidden {
+        right: 30px;
+    }
+}
+
+@media only screen and (max-width: 48em) {
+
+    .naviButton {
+        width: 7.3rem;
+        height: 7.3rem;
+    }
+
+    .naviIcon,
+    .naviIcon::after,
+    .naviIcon::before {
+        width: 25px !important;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+
+    .naviIcon,
+    .naviIcon::after,
+    .naviIcon::before {
+        width: 24px !important;
+    }
+}
+
+@media only screen and (max-width: 27em) {
+    .navi {
+        right: 4rem;
+    }
+
+    .naviButton {
+        width: 7.6rem;
+        height: 7.6rem;
+    }
+}
+
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */
