@@ -58,7 +58,7 @@
     justify-content: center;
     overflow: auto;
     padding-bottom: 0.5rem;
-    height: 46rem;
+    height: 45rem;
 }
 
 .dashScroll:not(:last-child) {
@@ -86,3 +86,76 @@
     display: flex;
     flex-wrap: nowrap;
 }
+
+
+
+@media only screen and (max-width: 75em) {
+    .secDescription {
+        margin-top: -12rem;
+        padding-bottom: 6rem;
+    }
+}
+
+@media only screen and (max-width: 67.5em) {
+    .secDescription {
+        padding-bottom: 4rem;
+    }
+
+
+    .dashScroll {
+        height: 45rem;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    .dashScroll {
+        height: 42rem;
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .secDescription {
+        margin-top: -5rem;
+        padding-top: 14rem;
+    }
+
+    .title {
+        font-size: 3.2rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .secDescription {
+        margin-top: -5rem;
+        padding-bottom: 15rem;
+    }
+}
+
+@media only screen and (max-width: 27em) {
+    .secDescription {
+        margin-top: -5rem;
+        padding-bottom: 1rem;
+    }
+
+    .title {
+        font-size: 2.6rem;
+    }
+
+    .dashScroll {
+        height: 50rem;
+        justify-content: flex-start;
+    }
+}
+
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */

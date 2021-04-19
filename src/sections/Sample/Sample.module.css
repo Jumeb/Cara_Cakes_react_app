@@ -46,6 +46,7 @@
 @media only screen and (max-width: 48em) {
     .secSample {
         margin-top: -15rem;
+        /* padding-bottom: 20rem; */
     }
 
     .secTitle {

@@ -4,12 +4,6 @@
     font-size: var(--font-size-normal);
 }
 
-@media only screen and (max-width: 25.75em) {
-    .secFooter {
-        padding: 20rem 8rem 4rem 6rem;
-    }
-}
-
 .footerLogo {
     width: 26rem;
     height: auto;
@@ -47,11 +41,6 @@
     padding: 1.7rem;
 }
 
-@media (max-width: 56.25em) {
-    .footerList {
-        padding: 1.6rem;
-    }
-}
 
 .footerItem {
     margin: .2rem 0;
@@ -91,13 +80,6 @@
     margin: auto;
 }
 
-@media only screen and (max-width: 37.5em) {
-    .footerCreator {
-        width: 30%;
-        height: 30%;
-        margin: -7rem auto 2rem auto;
-    }
-}
 
 .footerImage {
     width: 100%;
@@ -125,31 +107,11 @@
 }
 
 .footerContacts {
-    width: 40%;
-    margin: 0 50rem;
+    margin: 0 auto;
     font-size: var(--font-size-extra-large);
     display: flex;
     flex-direction: row;
-}
-
-@media (max-width: 56.25em) {
-    .footerContacts {
-        width: 70%;
-    }
-}
-
-@media only screen and (max-width: 37.5em) {
-    .footerContacts {
-        font-size: 1.8rem;
-    }
-}
-
-@media only screen and (max-width: 25.75em) {
-    .footerContacts {
-        margin: auto 0;
-        width: 90%;
-        font-size: 1.8rem;
-    }
+    justify-content: center;
 }
 
 .footerContactsRound {
@@ -203,3 +165,104 @@
     text-decoration: none;
     color: inherit;
 }
+
+@media only screen and (max-width: 75em) {
+    .secFooter {
+        padding-bottom: 6rem;
+    }
+}
+
+@media only screen and (max-width: 67.5em) {
+    .secFooter {
+        margin-top: 5rem;
+        padding-bottom: 4rem;
+    }
+
+    .footerLogo {
+        width: 23rem;
+    }
+
+    .footerLogoBox {
+        margin-bottom: 10rem;
+        margin-top: -13rem;
+    }
+
+}
+
+@media only screen and (max-width: 56.25em) {
+    .footerList {
+        padding: 1.6rem;
+    }
+
+    .footerLogo {
+        width: 20rem;
+    }
+
+    .footerLogoBox {
+        margin-bottom: 10rem;
+        margin-top: -10rem;
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .secFooter {
+        margin-top: -5rem;
+        padding-top: 14rem;
+    }
+
+    .title {
+        font-size: 3.2rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .secFooter {
+        margin-top: -5rem;
+        padding-bottom: 15rem;
+    }
+
+    .footerCreator {
+        width: 30%;
+        height: 30%;
+        margin: -7rem auto 2rem auto;
+    }
+
+    .footerContacts {
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (max-width: 27em) {
+    .secFooter {
+        margin-top: -5rem;
+        padding-bottom: 1rem;
+    }
+
+    .title {
+        font-size: 2.6rem;
+    }
+
+    .footerContacts {
+        margin: auto 0;
+        font-size: 2.5rem;
+    }
+
+    .footerCreator {
+        width: 130%;
+        /* height: 20rem; */
+        margin: 2rem auto;
+    }
+}
+
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */

@@ -4,18 +4,6 @@
     margin-top: -21.5vh;
 }
 
-@media only screen and (max-width: 37.5em) {
-    .secContact {
-        padding: 20rem 6rem 12rem 6rem;
-    }
-}
-
-@media only screen and (max-width: 25.75em) {
-    .secContact {
-        margin-top: -13rem;
-    }
-}
-
 .secContainer {
     display: flex;
     flex-direction: row;
@@ -32,7 +20,7 @@
     font-size: var(--font-size-normal);
     text-transform: uppercase;
     text-align: left;
-    color:var(--color-white);
+    color: var(--color-white);
 }
 
 .contact {
@@ -62,19 +50,6 @@
     float: left;
 }
 
-@media (max-width: 56.25em) {
-    .contactIcon {
-        font-size: 5rem;
-    }
-}
-
-@media only screen and (max-width: 25.75em) {
-    .contactIcon {
-        font-size: 4rem;
-        margin: 0 2rem;
-    }
-}
-
 .contactList1 {
     transform: skewX(-15deg);
 }
@@ -89,27 +64,6 @@
     display: block;
     width: 50%;
     margin-left: 15rem;
-}
-
-@media only screen and (max-width: 75em) {
-    .contactNumber {
-        font-size: var(--font-size-medium);
-        letter-spacing: .4rem;
-    }
-}
-
-@media only screen and (max-width: 37.5em) {
-    .contactNumber {
-        letter-spacing: .7rem;
-    }
-}
-
-@media only screen and (max-width: 25.75em) {
-    .contactNumber {
-        font-size: 1.5rem;
-        letter-spacing: .2rem;
-        margin-left: 8rem;
-    }
 }
 
 .contactNumber1 {
@@ -139,4 +93,101 @@
     font-weight: var(--font-weight-medium);
     margin: 4rem 0;
     text-align: center;
+}
+
+@media only screen and (max-width: 75em) {
+    .secContact {
+        margin-top: -12rem;
+        padding-bottom: 6rem;
+    }
+
+    .contactNumber {
+        font-size: var(--font-size-medium);
+        letter-spacing: .4rem;
+    }
+}
+
+@media only screen and (max-width: 67.5em) {
+    .secContact {
+        padding-bottom: 4rem;
+    }
+
+
+    .dashScroll {
+        height: 45rem;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    .contactIcon {
+        font-size: 5rem;
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .secContact {
+        margin-top: -5rem;
+        padding-top: 14rem;
+    }
+
+    .title {
+        font-size: 3.2rem;
+    }
+
+    .contact {
+        margin-left: 7rem;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .secContact {
+        margin-top: -5rem;
+        padding-bottom: 15rem;
+    }
+
+    .secContainer {
+        flex-direction: column;
+    }
+
+    .contactNumber {
+        letter-spacing: .7rem;
+    }
+
+    .contact {
+        margin: 2rem auto;
+    }
+
+    .contact:first-child {
+        margin-top: 4rem;
+    }
+}
+
+@media only screen and (max-width: 27em) {
+    .secContact {
+        margin-top: -5rem;
+        padding-bottom: 1rem;
+    }
+
+    .title {
+        font-size: 2.6rem;
+    }
+
+    .contactIcon {
+        font-size: 5.5rem;
+        margin: 0 2rem;
+    }
+
+    .contactNumber {
+        font-size: 2.3rem;
+        letter-spacing: .5rem;
+        margin-left: 8rem;
+        width: 65%;
+    }
+
+    .contactList {
+        text-align: center;
+        padding-left: 4.5rem;
+    }
+
 }

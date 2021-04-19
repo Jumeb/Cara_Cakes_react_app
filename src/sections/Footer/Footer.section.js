@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoLogoFacebook, IoLogoInstagram, IoLogoWhatsapp, IoMail, IoPhonePortrait } from 'react-icons/io5';
+import { IoLogoFacebook, IoLogoWhatsapp, IoMail, IoPhonePortrait } from 'react-icons/io5';
 import { NavLink } from 'react-router-dom';
 
 import styles from './Footer.module.css';

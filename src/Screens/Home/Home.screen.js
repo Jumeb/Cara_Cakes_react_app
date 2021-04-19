@@ -14,7 +14,7 @@ const Home = () => {
                 <Sample />
                 <Baker />
                 <Contact />
-                {/* <Footer /> */}
+                <Footer />
             </main>
             <NavBar />
         </div>

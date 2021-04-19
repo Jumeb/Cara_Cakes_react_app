@@ -34,7 +34,7 @@
 @media only screen and (max-width: 67.5em) {
     .bakerInfo {
         padding: .8rem .7rem;
-        height: 47rem;
+        height: 38rem;
     }
 }
 
@@ -44,11 +44,6 @@
     }
 }
 
-@media only screen and (max-width: 37.5em) {
-    .bakerInfo {
-        width: 75%;
-    }
-}
 
 @media only screen and (max-width: 37.5em) {
     .bakerInfo {
@@ -110,21 +105,9 @@ only screen and (hover: none) {
     }
 }
 
-@media only screen and (max-width: 37.5em) {
-    .bakerInfoName {
-        font-size: 1.8rem;
-    }
-}
-
 .bakerInfo:hover .bakerInfoName {
     transform: translateX(15%);
     opacity: 1;
-}
-
-@media only screen and (max-width: 75em) {
-    .bakerInfo:hover .bakerInfoName {
-        transform: translate(80%, -190%);
-    }
 }
 
 .lilTitle {
@@ -139,3 +122,41 @@ only screen and (hover: none) {
     padding-bottom: 0rem;
     text-align: center;
 }
+
+
+@media only screen and (max-width: 75em) {
+    .bakerInfo:hover .bakerInfoName {
+        transform: translate(80%, -190%);
+    }
+}
+
+@media only screen and (max-width: 67.5em) {
+    .bakerContainer {
+        height: 30rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .bakerInfoName {
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (max-width: 27em) {
+    .bakerContainer {
+        width: 34rem;
+    }
+}
+
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */
