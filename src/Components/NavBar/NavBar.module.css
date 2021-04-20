@@ -78,8 +78,13 @@
 }
 
 .naviButton:hover .naviIcon::before {
-    top: 1.1rem;
+    top: 10px;
 }
+
+.naviButton:hover .naviIcon::after {
+    top: -7px;
+}
+
 
 .naviCheckbox {
     display: none;

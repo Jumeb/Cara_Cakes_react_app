@@ -76,3 +76,26 @@
 .formLength3 {
     width: 80%;
 }
+
+
+@media only screen and (max-width: 37.5em) {
+    .formLength4 {
+        width: 100%;
+    }
+
+    .formLength5 {
+        width: 100%;
+    }
+
+    .formLength1 {
+        width: 100%;
+    }
+
+    .formLength2 {
+        width: 100%;
+    }
+
+    .formLength3 {
+        width: 100%;
+    }
+}

@@ -28,15 +28,19 @@ const Contact = () => {
             <div className={[styles.contact, styles.contact1].join(' ')}>
                 <div className={[styles.contactList, styles.contactList1].join(' ')}>
                     <span className={styles.contactIcon}><IoPhonePortrait /></span>
-                    <span className={[styles.contactNumber, styles.contactNumber1].join(' ')}>681-726-633</span>
-                    <span className={styles.contactNumber}>681-726-633</span>
+                    <div className={styles.contactTel}>
+                        <span className={[styles.contactNumber, styles.contactNumber1].join(' ')}>681-726-633</span>
+                        <span className={styles.contactNumber}>681-726-633</span>
+                    </div>
                 </div>
             </div>
             <div className={[styles.contact, styles.contact2].join(' ')}>
                 <div className={[styles.contactList, styles.contactList2].join(' ')}>
                     <span className={styles.contactIcon}><IoPhonePortrait /></span>
-                    <span className={[styles.contactNumber, styles.contactNumber2].join(' ')}>681-726-633</span>
-                    <span className={styles.contactNumber}>681-726-633</span>
+                    <div className={styles.contactTel}>
+                        <span className={[styles.contactNumber, styles.contactNumber2].join(' ')}>681-726-633</span>
+                        <span className={styles.contactNumber}>681-726-633</span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 .bakerPosition {
     position: absolute;
     top: 10.6rem;
-    left: -6.5rem;
+    left: -5rem;
     z-index: 6;
     transition: all ease-in-out 0.35s;
 }
@@ -9,7 +9,7 @@
 .bakerPosition:hover {
     position: absolute;
     top: 10.6rem;
-    left: -1rem;
+    left: 0;
     z-index: 6;
     transition: all ease-in-out 0.35s;
 }
@@ -33,7 +33,7 @@
 .filterPosition {
     position: absolute;
     top: 14.6rem;
-    left: -1rem;
+    left: 0;
     z-index: 6;
     transition: all ease-in-out 0.35s;
 }
@@ -41,7 +41,7 @@
 .filterPositionHide {
     position: absolute;
     top: 14.6rem;
-    left: -9rem;
+    left: -7.5rem;
     z-index: 6;
     transition: all ease-in-out 0.35s;
 }
@@ -75,7 +75,7 @@
 .filterCategories {
     position: absolute;
     top: 18.6rem;
-    left: -1rem;
+    left: 0;
     z-index: 6;
     transition: all ease-in-out 0.5s;
 }
@@ -126,3 +126,32 @@
     background-color: var(--color-primary-light);
     color: var(--color-white);
 }
+
+@media only screen and (max-width: 67.5em) {
+    .bakerPosition {
+        left: 0;
+    }
+
+    .filterPosition {
+        left: 0;
+    }
+
+    .filterCategories {
+        left: 0;
+    }
+}
+
+
+
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */

@@ -24,22 +24,10 @@
     clear: both;
 }
 
-@media only screen and (max-width: 37.5em) {
-    .login {
-        background-image: linear-gradient(60deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), url(../../res/img/bds-4.jpg);
-    }
-}
-
 .loginForm {
     width: 54%;
     padding: 8rem 5rem;
     float: left;
-}
-
-@media only screen and (max-width: 37.5em) {
-    .loginForm {
-        width: 100%;
-    }
 }
 
 .formGroup {
@@ -58,12 +46,6 @@
     vertical-align: middle;
 }
 
-@media only screen and (max-width: 37.5em) {
-    .loginContainer {
-        width: 0%;
-        display: none;
-    }
-}
 
 .title {
     font-size: var(--font-size-big);
@@ -72,3 +54,51 @@
     font-weight: var(--font-weight-medium);
     text-align: center;
 }
+
+@media only screen and (max-width: 67.5em) {
+    .login {
+        margin: 0 10rem;
+    }
+}
+
+
+@media only screen and (max-width: 48em) {
+    .login {
+        margin: 0 6rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+
+    .login {
+        margin: 0 4rem;
+        background-image: linear-gradient(60deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+    }
+
+    .loginForm {
+        width: 100%;
+    }
+
+    .loginContainer {
+        width: 0%;
+        display: none;
+    }
+
+    .formGroup {
+        justify-content: center;
+    }
+}
+
+
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */

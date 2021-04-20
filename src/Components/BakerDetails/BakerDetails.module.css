@@ -401,3 +401,24 @@
     word-spacing: .2rem;
     color: var(--color-grey-dark-1);
 }
+
+@media only screen and (max-width: 27em) {
+    .notifyContainer {
+        width: 90%;
+        height: auto;
+    }
+
+    .bakerContainer {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .pastryDiscount {
+        width: 10rem;
+        left: 1rem;
+    }
+
+    .pastryImage {
+        width: 100%;
+    }
+}

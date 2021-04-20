@@ -1,6 +1,5 @@
 .panelEvent {
     flex: 1;
-    padding: 0 1rem;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -17,24 +16,6 @@
     overflow-y: hidden;
     flex-direction: column;
     position: relative;
-}
-
-@media (max-width: 50em) {
-    .panelEvent {
-        padding: 3rem 8rem;
-    }
-}
-
-@media only screen and (max-width: 37.5em) {
-    .panelEvent {
-        padding: 3rem 6rem;
-    }
-}
-
-@media only screen and (max-width: 37.5em) {
-    .panelEvent {
-        padding: 3rem 4rem;
-    }
 }
 
 .panelEventHeader {

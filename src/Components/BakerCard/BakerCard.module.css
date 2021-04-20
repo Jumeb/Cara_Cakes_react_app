@@ -102,3 +102,48 @@
 .icon {
     margin-right: 0.5rem;
 }
+
+@media only screen and (max-width: 67.5em) {
+    .bakerListImgContainer {
+        width: 28rem;
+    }
+
+    .bakerListImg {
+        width: 28rem;
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .bakerListImgContainer {
+        width: 32rem;
+    }
+
+    .bakerListImg {
+        width: 32rem;
+    }
+}
+
+@media only screen and (max-width: 27em) {
+    .bakerListImgContainer {
+        width: 38rem;
+        margin: 1.4rem;
+        height: 55rem;
+    }
+
+    .bakerListImg {
+        width: 38rem;
+        height: 45rem;
+    }
+}
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */

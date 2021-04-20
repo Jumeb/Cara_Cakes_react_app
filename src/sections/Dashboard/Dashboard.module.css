@@ -84,11 +84,13 @@
 .panelPosition {
     display: flex;
     justify-content: space-between;
-    padding: 0.2rem 0rem;
     align-items: center;
     position: fixed;
     min-height: 8rem;
     flex-direction: row;
     width: 100%;
     background-color: var(--color-white);
+    padding: 0 1.5rem;
+    box-shadow: var(--box-shadow-medium);
+
 }

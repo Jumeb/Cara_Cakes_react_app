@@ -47,3 +47,9 @@
     font-weight: var(--font-weight-normal);
     color: var(--color-primary);
 }
+
+@media only screen and (max-width: 37.5em) {
+    .hideContainer {
+        top: -75%;
+    }
+}

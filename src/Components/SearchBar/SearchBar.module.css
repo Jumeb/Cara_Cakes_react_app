@@ -1,5 +1,3 @@
-
-
 .searchContainer {
     display: flex;
     flex-direction: row;
@@ -25,7 +23,7 @@
     border-radius: 0.4rem;
     margin-left: 0.8rem;
     background: none;
-    /* border: 1px solid red; */
+    /* border: 1px solid blue; */
     transform: all ease-in 0.2s;
 }
 
@@ -38,4 +36,21 @@
     line-height: 0.5rem;
     color: var(--color-primary);
     /* border: 1px solid red; */
+}
+
+.mobileLogo {
+    display: none;
+}
+
+@media only screen and (max-width: 27em) {
+    .searchContainer {
+        width: 23rem;
+    }
+
+    .mobileLogo {
+        display: inline-block;
+        height: 6rem;
+        width: 6rem;
+        margin-right: 1rem;
+    }
 }

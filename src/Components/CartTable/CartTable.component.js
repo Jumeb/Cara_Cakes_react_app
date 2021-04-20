@@ -201,7 +201,7 @@ const CartTable = (props) => {
                             <tr className={styles.cartTableRow} onClick={() => showDetail(pastry)} key={index}>
                                 <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                                     <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt={pastry.pastryId.name} className={styles.cartTableDataImage} />
-                                    <b>{pastry.pastryId.name}</b>
+                                    <b className={styles.pastryName}>{pastry.pastryId.name}</b>
                                 </td>
                                 <td className={styles.cartTableData}>{Thousand(pastry.pastryId.price)}</td>
                                 <td className={styles.cartTableData}>{pastry.pastryId.discount}%</td>

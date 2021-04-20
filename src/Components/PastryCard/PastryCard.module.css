@@ -104,3 +104,9 @@
     justify-content: space-evenly;
     margin: 0.8rem 0;
 }
+
+@media only screen and (max-width: 27em) {
+    .pastryListImgContainer {
+        width: 40rem;
+    }
+}

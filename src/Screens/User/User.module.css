@@ -4,13 +4,7 @@
     overflow: hidden;
 }
 
-@media (max-width: 56.25em) {
-    .Panel {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 50em) {
+@media (max-width: 27em) {
     .Panel {
         flex-direction: column;
     }

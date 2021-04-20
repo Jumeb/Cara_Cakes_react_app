@@ -25,12 +25,6 @@
     clear: both;
 }
 
-@media only screen and (max-width: 37.5em) {
-    .signup {
-        background-image: linear-gradient(60deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), url(../../res/img/bds-4.jpg);
-    }
-}
-
 .signupForm {
     width: 56%;
     padding: 5rem 5rem;
@@ -38,11 +32,6 @@
     padding-bottom: 2rem;
 }
 
-@media only screen and (max-width: 37.5em) {
-    .signupForm {
-        width: 100%;
-    }
-}
 
 .formGroup {
     margin-bottom: 3.5rem;
@@ -58,12 +47,6 @@
     vertical-align: middle;
 }
 
-@media only screen and (max-width: 37.5em) {
-    .signupContainer {
-        width: 0%;
-        display: none;
-    }
-}
 
 .formSelect {
     font-size: var(--font-size-normal);
@@ -78,4 +61,39 @@
     color: var(--color-white);
     font-weight: var(--font-weight-medium);
     text-align: center;
+}
+
+
+@media only screen and (max-width: 67.5em) {
+    .signup {
+        margin: 0 10rem;
+    }
+}
+
+
+@media only screen and (max-width: 48em) {
+    .signup {
+        margin: 0 6rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+
+    .signup {
+        margin: 0 4rem;
+        background-image: linear-gradient(60deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+    }
+
+    .signupForm {
+        width: 100%;
+    }
+
+    .signupContainer {
+        width: 0%;
+        display: none;
+    }
+
+    .formGroup {
+        justify-content: center;
+    }
 }

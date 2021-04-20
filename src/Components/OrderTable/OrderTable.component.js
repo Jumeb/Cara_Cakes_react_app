@@ -149,7 +149,7 @@ const OrderTable = (props) => {
                                 <tr className={styles.orderTableRow} key={index}>
                                     <td className={[styles.orderTableData , styles.orderTableImageContainer].join(' ')}>
                                         <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt="Pastry Name" className={styles.orderTableDataImage} />
-                                        <b>{pastry.pastryId.name.substr(0, 20)}{pastry.pastryId.name.length > 20 && '...'}</b>
+                                        <b className={styles.pastryName}>{pastry.pastryId.name.substr(0, 20)}{pastry.pastryId.name.length > 20 && '...'}</b>
                                     </td>
                                     <td className={styles.orderTableData}>{Thousand(pastry.pastryId.price)}</td>
                                     <td className={styles.orderTableData}>{pastry.pastryId.discount}%</td>
@@ -159,13 +159,13 @@ const OrderTable = (props) => {
                                 </tr>
                             )}
                             <tr className={styles.orderTableRow}>
-                                <td colSpan="3" className={[styles.orderTableData, styles.orderCoupon].join(' ')}>
-                                    <h3>Order Status: {order.status}</h3>
+                                <td colSpan="2" className={[styles.orderTableData, styles.orderCoupon].join(' ')}>
+                                    <h3>Status: {order.status}</h3>
                                 </td>
                                 <td colSpan="2" className={[styles.orderTableData, styles.orderCoupon].join(' ')}>
                                     <button className={styles.orderButton} onClick={() => Delivered(order, order.pastries.reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))} >Delivered!</button>
                                 </td>
-                                <td colSpan="1" className={styles.orderTableData}>Totals: {Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}</td>
+                                <td colSpan="2" className={styles.orderTableData}>Totals: {Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}</td>
                             </tr>
                         </table>
                     )}
