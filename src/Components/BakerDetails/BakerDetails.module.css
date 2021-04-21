@@ -1,5 +1,5 @@
 .notifyBackdrop {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: var(--transparent-1);
     backdrop-filter: blur(1rem);
@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     z-index: 10;
-    overflow: auto;
+    overflow-y: auto;
     -webkit-transition: all 0.8s;
     transition: all 0.8s;
 }
@@ -52,6 +52,8 @@
     border-radius: var(--border-radius-small);
     border: 0.3rem solid var(--color-primary-light);
     z-index: 20;
+    height: 170rem;
+    margin: 5rem 0;
 
     transition: all ease-in-out 0.8s;
 }
@@ -105,7 +107,6 @@
     width: 40rem;
     outline: none;
     border: none;
-    /* border-radius: var(--border-radius-round); */
     vertical-align: top;
 }
 
@@ -209,9 +210,6 @@
 .notifyButton {
     outline: none;
     border: none;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     border-radius: var(--border-radius-small);
     margin: 0.5rem 1rem;
     font-size: var(--font-size-normal);
@@ -299,6 +297,7 @@
     width: 70rem;
     display: flex;
     flex-direction: row;
+    height: 190rem;
 }
 
 .bakerDetails {
@@ -408,6 +407,12 @@
         height: auto;
     }
 
+    .showContainer {
+        position: relative;
+        top: 0;
+        transform: translate(-50%, -0%);
+    }
+
     .bakerContainer {
         width: 100%;
         flex-direction: column;
@@ -420,5 +425,9 @@
 
     .pastryImage {
         width: 100%;
+    }
+
+    .bakerDetailsScroll {
+        height: auto;
     }
 }

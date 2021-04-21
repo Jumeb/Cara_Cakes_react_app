@@ -1,7 +1,7 @@
 .filterPosition {
     position: absolute;
     top: 12.6rem;
-    left: -1rem;
+    left: 0;
     z-index: 6;
     transition: all ease-in-out 0.35s;
 }
@@ -9,7 +9,7 @@
 .filterPositionHide {
     position: absolute;
     top: 12.6rem;
-    left: -9rem;
+    left: -7.5rem;
     z-index: 6;
     transition: all ease-in-out 0.35s;
 }
