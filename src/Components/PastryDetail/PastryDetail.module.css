@@ -328,8 +328,14 @@
 
 @media only screen and (max-width: 27em) {
     .notifyContainer {
-        width: 100%;
-        height: 100%;
+        width: 900%;
+        height: auto;
+    }
+
+    .showContainer {
+        position: relative;
+        top: 0;
+        transform: translate(-50%, -0%);
     }
 
     .bakerContainer {
