@@ -409,11 +409,12 @@
     .showContainer {
         position: relative;
         top: 0;
-        transform: translate(-50%, -0%);
+        transform: translate(-50%, 0);
     }
 
     .bakerContainer {
         width: 100%;
+        height: auto;
         flex-direction: column;
     }
 
@@ -428,5 +429,10 @@
 
     .bakerDetailsScroll {
         height: 100%;
+    }
+
+    .closeButton {
+        top: 1rem;
+        right: 1rem;
     }
 }
