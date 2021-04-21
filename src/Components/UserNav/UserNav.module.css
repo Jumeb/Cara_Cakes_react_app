@@ -203,6 +203,14 @@
     .naviIcon::before {
         top: 7px;
     }
+
+    .naviButton:hover .naviIcon::before {
+        top: 8px;
+    }
+
+    .naviButton:hover .naviIcon::after {
+        top: -5px;
+    }
 }
 
 

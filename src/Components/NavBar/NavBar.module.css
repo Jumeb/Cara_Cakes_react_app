@@ -204,13 +204,37 @@
 @media only screen and (max-width: 27em) {
     .navi {
         right: 4rem;
+        display: block;
     }
 
     .naviButton {
-        width: 7.6rem;
-        height: 7.6rem;
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .naviIcon,
+    .naviIcon::after,
+    .naviIcon::before {
+        width: 20px;
+    }
+
+    .naviIcon::after {
+        top: -4px;
+    }
+
+    .naviIcon::before {
+        top: 7px;
+    }
+
+    .naviButton:hover .naviIcon::before {
+        top: 8px;
+    }
+
+    .naviButton:hover .naviIcon::after {
+        top: -5px;
     }
 }
+
 
 
 /* @media only screen and (max-width: 75em) {}
