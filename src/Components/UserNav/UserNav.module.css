@@ -1,0 +1,221 @@
+.navi {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 1rem;
+    transition: all .5s ease;
+    z-index: 5000;
+    display: none;
+}
+
+.naviButton {
+    height: 7rem;
+    width: 7rem;
+    border-radius: var(--border-radius-round);
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow-medium);
+    z-index: 100;
+    position: fixed;
+    cursor: pointer;
+}
+
+.naviList {
+    position: relative;
+    z-index: 90;
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: var(--border-radius-round);
+    text-align: center;
+    left: 0;
+    margin-top: 0.2rem;
+}
+
+.naviItem {
+    position: absolute;
+    text-align: center;
+    right: -0.91rem;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.naviItem1 {
+    transition: all .35s ease-in-out;
+}
+
+.naviItem2 {
+    transition: all .45s ease-in-out;
+}
+
+.naviItem3 {
+    transition: all .55s ease-in-out;
+}
+
+.naviItem4 {
+    transition: all .65s ease-in-out;
+}
+
+.naviItem5 {
+    transition: all .75s ease-in-out;
+}
+
+.naviLink {
+    text-decoration: none;
+    font-size: var(--font-size-extra-large);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-round);
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--box-shadow-medium);
+    transform: scale(0.8);
+    transition: all .3s;
+}
+
+.naviLink:link,
+.naviLink:visited {
+    color: var(--color-primary);
+}
+
+.naviLink:hover,
+.naviLink:active {
+    transform: scale(1);
+}
+
+.naviButton:hover .naviIcon::before {
+    top: 8px;
+}
+
+.naviButton:hover .naviIcon::after {
+    top: -5px;
+}
+
+
+.naviCheckbox {
+    display: none;
+}
+
+.naviIcon,
+.naviIcon::after,
+.naviIcon::before {
+    background-color: var(--color-primary);
+    width: 30px;
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.naviIcon::after,
+.naviIcon::before {
+    content: "";
+    transition: all .3s ease-in-out;
+}
+
+/* 
+.naviIcon::after {
+    top: -6px;
+}
+
+.naviIcon::before {
+    top: 9px;
+} */
+
+.naviCheckbox:checked+.naviButton .naviIcon::after {
+    top: 0;
+    transform: translate(-50%, -50%) rotate(-225deg);
+}
+
+.naviCheckbox:checked+.naviButton .naviIcon::before {
+    top: 0;
+    transform: translate(-50%, -50%) rotate(225deg);
+}
+
+.naviCheckbox:checked+.naviButton .naviIcon {
+    background-color: transparent;
+}
+
+.naviCheckbox:checked~.naviList .naviItem1 {
+    margin-top: -9rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.naviCheckbox:checked~.naviList .naviItem2 {
+    margin-top: -18rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.naviCheckbox:checked~.naviList .naviItem3 {
+    margin-top: -27rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.naviCheckbox:checked~.naviList .naviItem4 {
+    margin-top: -36rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.naviCheckbox:checked~.naviList .naviItem5 {
+    margin-right: 9rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.naviHidden {
+    position: fixed;
+    top: 4.5rem;
+    right: -10rem;
+    transition: all .5s ease;
+    z-index: 30;
+}
+
+.naviActive {
+    background-color: var(--color-primary);
+    color: var(--color-white) !important;
+}
+
+@media only screen and (max-width: 27em) {
+    .navi {
+        right: 4rem;
+        display: block;
+    }
+
+    .naviButton {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .naviIcon,
+    .naviIcon::after,
+    .naviIcon::before {
+        width: 20px;
+    }
+
+    .naviIcon::after {
+        top: -4px;
+    }
+
+    .naviIcon::before {
+        top: 7px;
+    }
+}
+
+
+
+
+/* @media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {}
+
+@media only screen and (max-width: 56.25em) {}
+
+@media only screen and (max-width: 48em) {}
+
+@media only screen and (max-width: 37.5em) {}
+
+@media only screen and (max-width: 27em) {} */

@@ -297,7 +297,6 @@
     width: 70rem;
     display: flex;
     flex-direction: row;
-    height: 190rem;
 }
 
 .bakerDetails {
@@ -404,7 +403,7 @@
 @media only screen and (max-width: 27em) {
     .notifyContainer {
         width: 90%;
-        height: auto;
+        height: 100%;
     }
 
     .showContainer {
@@ -428,6 +427,6 @@
     }
 
     .bakerDetailsScroll {
-        height: auto;
+        height: 100%;
     }
 }

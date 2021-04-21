@@ -329,7 +329,7 @@
 @media only screen and (max-width: 27em) {
     .notifyContainer {
         width: 900%;
-        height: auto;
+        height: 100%;
     }
 
     .showContainer {

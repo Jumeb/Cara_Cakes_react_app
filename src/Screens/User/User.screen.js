@@ -12,13 +12,14 @@ import {
     UserProfile,
     
 } from '../../sections';
-import { WorkArea } from '../../Components';
+import { UserNav, WorkArea } from '../../Components';
 
 const User = () => {
     return (
         <div>
             <section className={styles.Panel}>
                 <SideNav />
+                <UserNav />
                 <WorkArea>
                     <Switch>
                         <Route path="/user" exact component={UserProfile} />

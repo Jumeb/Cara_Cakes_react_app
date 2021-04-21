@@ -11,7 +11,7 @@
     flex: 0 0 100%;
     display: flex;
     flex-direction: row;
-    height: 87vh;
+    height: 100%;
     padding: 0 1rem;
     flex-wrap: wrap;
     overflow: auto;
@@ -63,7 +63,7 @@
 @media only screen and (max-width: 27em) {
     .orderContainer {
         padding: 0;
-        height: 88vh;
+        height: 90vh;
     }
 
 }

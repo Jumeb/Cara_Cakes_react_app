@@ -49,11 +49,11 @@
     justify-content: space-around;
     margin-top: 5rem;
     margin-bottom: 6rem;
-    height: auto;
+    height: 100%;
 }
 
 .dashScroll {
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
     overflow: auto;
