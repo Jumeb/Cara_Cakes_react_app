@@ -6,10 +6,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 999;
     overflow-y: auto;
-    -webkit-transition: all 0.8s;
-    transition: all 0.8s;
+    overflow-x: hidden;
+    -webkit-transition: all ease-in-out 0.8s;
+    transition: all ease-in-out 0.8s;
 }
 
 .notifyBackdrop::-webkit-scrollbar {
@@ -38,8 +39,8 @@
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: all 0.8s;
-    transition: all 0.8s
+    -webkit-transition: all ease-in-out 0.8s;
+    transition: all ease-in-out 0.8s;
 }
 
 
@@ -403,7 +404,7 @@
 @media only screen and (max-width: 27em) {
     .notifyContainer {
         width: 90%;
-        height: 100%;
+        height: auto;
     }
 
     .showContainer {
@@ -414,7 +415,7 @@
 
     .bakerContainer {
         width: 100%;
-        height: auto;
+        height: 100%;
         flex-direction: column;
     }
 
@@ -428,7 +429,7 @@
     }
 
     .bakerDetailsScroll {
-        height: 100%;
+        height: auto;
     }
 
     .closeButton {

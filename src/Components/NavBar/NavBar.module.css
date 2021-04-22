@@ -1,7 +1,7 @@
 .navi {
     position: fixed;
     top: 2.3rem;
-    right: 5.5rem;
+    right: 4.5rem;
     transition: all .5s ease;
     z-index: 5000;
 }
@@ -31,7 +31,7 @@
 .naviItem {
     position: absolute;
     text-align: center;
-    right: -0.91rem;
+    right: -0.9rem;
     opacity: 0;
     visibility: hidden;
 }
@@ -203,7 +203,7 @@
 
 @media only screen and (max-width: 27em) {
     .navi {
-        right: 4rem;
+        right: 2.5rem;
         display: block;
     }
 

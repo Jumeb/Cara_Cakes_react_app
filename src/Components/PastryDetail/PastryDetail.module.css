@@ -8,8 +8,8 @@
     left: 0;
     z-index: 9999;
     overflow-y: scroll;
-    -webkit-transition: all 0.8s;
-    transition: all 0.8s;
+    -webkit-transition: all ease-in-out 0.8s;
+    transition: all ease-in-out 0.8s;
 }
 
 .notifyBackdrop::-webkit-scrollbar {
@@ -38,8 +38,8 @@
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: all 0.8s;
-    transition: all 0.8s
+    -webkit-transition: all ease-in-out 0.8s;
+    transition: all ease-in-out 0.8s;
 }
 
 
@@ -51,7 +51,7 @@
     box-shadow: var(--box-shadow-heavier);
     border-radius: var(--border-radius-small);
     border: 0.3rem solid var(--color-primary-light);
-    z-index: 10;
+    z-index: 20;
     margin: 5rem 0;
 
     transition: all ease-in-out 0.8s;
@@ -98,11 +98,15 @@
 
 .pastryContainer {
     position: relative;
+    flex: 0 0 50%;
 }
 
 .pastryImage {
     height: 35rem;
     width: 60rem;
+    outline: none;
+    border: none;
+    vertical-align: top;
     /* border-radius: var(--border-radius-round); */
 }
 
@@ -240,9 +244,6 @@
 .notifyButton {
     outline: none;
     border: none;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     border-radius: var(--border-radius-small);
     margin: 0.5rem 1rem;
     font-size: var(--font-size-normal);
@@ -329,7 +330,7 @@
 @media only screen and (max-width: 27em) {
     .notifyContainer {
         width: 90%;
-        /* height: 100%; */
+        height: auto;
     }
 
     .showContainer {
@@ -340,7 +341,7 @@
 
     .pastryContainer {
         width: 100%;
-        /* height: 150rem; */
+        height: 100%;
         flex-direction: column;
     }
 
@@ -351,5 +352,10 @@
 
     .pastryImage {
         width: 100%;
+    }
+
+    .closeButton {
+        top: 1rem;
+        right: 1rem;
     }
 }
