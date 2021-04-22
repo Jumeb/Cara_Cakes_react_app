@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {IoCard, IoCart, IoHome, IoLogIn, IoLogOut, IoPerson, IoPersonAdd, IoStatsChart} from 'react-icons/io5';
+import {IoCard, IoCart, IoLogOut, IoPerson, IoStatsChart} from 'react-icons/io5';
 
 import styles from './UserNav.module.css';
 

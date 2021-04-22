@@ -52,7 +52,6 @@
     border-radius: var(--border-radius-small);
     border: 0.3rem solid var(--color-primary-light);
     z-index: 20;
-    margin: 5rem 0;
 
     transition: all ease-in-out 0.8s;
 }
@@ -330,6 +329,7 @@
 @media only screen and (max-width: 27em) {
     .notifyContainer {
         width: 90%;
+        margin: 5rem 0;
         height: auto;
     }
 
