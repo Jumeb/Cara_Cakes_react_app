@@ -206,3 +206,28 @@
 .selectWidth {
     max-width: 32rem;
 }
+
+
+@media only screen and (max-width: 27em) {
+    .aprofile {
+        margin-top: 0;
+    }
+
+    .profileContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profileImg {
+        height: 20rem;
+        width: 20rem;
+    }
+
+    .profileEdit {
+        height: 5rem;
+        width: 5rem;
+        right: 0;
+        bottom: 2rem;
+    }
+}

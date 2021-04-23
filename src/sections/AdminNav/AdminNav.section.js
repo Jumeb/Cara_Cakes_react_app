@@ -26,63 +26,63 @@ const AdminNav = (props) => {
                 <img src={favicon} alt="Logo" className={styles.panelLogo} />
                 <li className={styles.panelSideNavItem}>
                     <NavLink to="/admin/dashboard" exact className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                        <span className={styles.panelSideNavIcon}><IoGrid /></span><span>Dashboard</span>
+                        <span className={styles.panelSideNavIcon}><IoGrid /></span><span className={styles.isDetailText}>Dashboard</span>
                     </NavLink>
                 </li>
                 {user.type === 'Admin' &&
                     <>
                         <li className={styles.panelSideNavItem}>
                             <NavLink to="/admin/dashboard/bakers" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoCafe /></span><span>Bakers</span>
+                                <span className={styles.panelSideNavIcon}><IoCafe /></span><span className={styles.isDetailText}>Bakers</span>
                             </NavLink>
                         </li>
                         <li className={styles.panelSideNavItem}>
                             <NavLink to="/admin/dashboard/users" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoPeople /></span><span>Users</span>
+                                <span className={styles.panelSideNavIcon}><IoPeople /></span><span className={styles.isDetailText}>Users</span>
                             </NavLink>
                         </li>
                         <li className={styles.panelSideNavItem}>
                             <NavLink to="/admin/dashboard/pastry-super" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoGift /></span><span>All Pastries</span>
+                                <span className={styles.panelSideNavIcon}><IoGift /></span><span className={styles.isDetailText}>Pastries</span>
                             </NavLink>
                         </li>
                         <li className={styles.panelSideNavItem}>
                             <NavLink to="/admin/dashboard/orders-super" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoArchive /></span><span>All Orders</span>
+                                <span className={styles.panelSideNavIcon}><IoArchive /></span><span className={styles.isDetailText}>Orders</span>
                             </NavLink>
                     </li>
                     <li className={styles.panelSideNavItem}>
                             <NavLink to="/admin/dashboard/adminprofile" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                                <span className={styles.panelSideNavIcon}><IoPerson /></span><span>Profile</span>
+                                <span className={styles.panelSideNavIcon}><IoPerson /></span><span className={styles.isDetailText}>Profile</span>
                             </NavLink>
                         </li>
                     </>}
                 {user.type === 'Baker' && <>
                     <li className={styles.panelSideNavItem}>
                         <NavLink to="/admin/dashboard/pastry" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                            <span className={styles.panelSideNavIcon}><IoGift /></span><span>Pastries</span>
+                            <span className={styles.panelSideNavIcon}><IoGift /></span><span className={styles.isDetailText}>Pastries</span>
                         </NavLink>
                     </li>
                     <li className={styles.panelSideNavItem}>
                         <NavLink to="/admin/dashboard/orders" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                            <span className={styles.panelSideNavIcon}><IoArchive /></span><span>Orders</span>
+                            <span className={styles.panelSideNavIcon}><IoArchive /></span><span className={styles.isDetailText}>Orders</span>
                         </NavLink>
                     </li>
                     <li className={styles.panelSideNavItem}>
                         <NavLink to="/admin/dashboard/profile" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                            <span className={styles.panelSideNavIcon}><IoPerson /></span><span>Profile</span>
+                            <span className={styles.panelSideNavIcon}><IoPerson /></span><span className={styles.isDetailText}>Profile</span>
                         </NavLink>
                     </li>
                 </>
                 }
                 <li className={styles.panelSideNavItem} onClick={() => props.resetUser()}>
                     <NavLink to="/" className={styles.panelSideNavLink}>
-                        <span className={styles.panelSideNavIcon}><IoLogOut /></span><span>Logout</span>
+                        <span className={styles.panelSideNavIcon}><IoLogOut /></span><span className={styles.isDetailText}>Logout</span>
                     </NavLink>
                 </li>
                 {/*<li className={styles.panelSideNavItem}>
                         <NavLink to="/admin/dashboard/all-orders" className={styles.panelSideNavLink} activeClassName={styles.panelSideNavActive}>
-                            <span className={styles.panelSideNavIcon}><IoDocument /></span><span>All Orders</span>
+                            <span className={styles.panelSideNavIcon}><IoDocument /></span><span className={styles.isDetailText}>All Orders</span>
                         </NavLink>
                     </li>
                      <li className={styles.panelSideNavItem}>

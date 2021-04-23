@@ -8,13 +8,9 @@
     z-index: 7;
 }
 
-.panelUserDetail {
-    flex: 0 0 10%;
-    background-color: var(--color-primary);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
+.panelSideNav {
+    font-size: 1.35rem;
+    list-style: none;
 }
 
 .panelLogo {
@@ -23,10 +19,6 @@
     margin: 1.2rem 7rem;
 }
 
-.panelSideNav {
-    font-size: 1.35rem;
-    list-style: none;
-}
 
 .panelSideNavItem {
     position: relative;
@@ -103,13 +95,9 @@
     font-size: var(--font-size-small);
 }
 
-
-@media only screen and (max-width: 75em) {}
-
 @media only screen and (max-width: 67.5em) {
     .panelUser {
         flex-basis: 14%;
-        /* background-color: red; */
     }
 
     .panelLogo {
@@ -144,34 +132,6 @@
         font-size: 2.3rem;
         margin-left: 1rem;
     }
-
-    /* .panelSideNav {
-        display: flex;
-        flex: 1;
-        margin-top: 0;
-    } */
-
-    /* .panelSideNavItem {
-        flex: 1;
-    } */
-
-    /* .panelSideNavItem:not(:last-child) {
-        margin-bottom: 0;
-    } */
-
-    /* .panelSideNavIcon {
-        margin-top: 1rem;
-        margin-bottom: .5rem;
-    } */
-
-    /* .panelSideNavLink,
-    .panelSideNavLink:link,
-    .panelSideNavLink:visited {
-        font-size: 1.8rem;
-        text-align: center;
-        outline: none;
-        padding: 2rem;
-    } */
 
     .power {
         display: none;

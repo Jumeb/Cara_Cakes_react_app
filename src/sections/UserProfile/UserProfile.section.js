@@ -5,7 +5,7 @@ import makeAnimated from 'react-select/animated';
 import Select from 'react-select';
 
 import { Button, Notification, SquareInput, UserImage } from '../../Components';
-import { cups1, HLogo } from '../../res/img';
+import { HLogo } from '../../res/img';
 import styles from './UserProfile.module.css';
 import { connect } from 'react-redux';
 import { BASE_URL } from '../../utils/globalVariable';

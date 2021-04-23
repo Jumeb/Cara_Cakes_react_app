@@ -6,9 +6,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
-    overflow-y: auto;
-    overflow-x: hidden;
+    z-index: 9999;
+    overflow-y: scroll;
     -webkit-transition: all ease-in-out 0.8s;
     transition: all ease-in-out 0.8s;
 }
@@ -54,6 +53,8 @@
     border: 0.3rem solid var(--color-primary-light);
     z-index: 20;
 
+    padding: 1rem;
+
     transition: all ease-in-out 0.8s;
 }
 
@@ -91,7 +92,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.25);
-    position: absolute;
+    position: fixed;
 
     transition: all ease-in-out 0.8s;
 }
@@ -102,11 +103,12 @@
 }
 
 .pastryImage {
-    height: 50rem;
-    width: 40rem;
+    height: 35rem;
+    width: 100%;
     outline: none;
     border: none;
     vertical-align: top;
+    /* border-radius: var(--border-radius-round); */
 }
 
 .pastryDiscount {
@@ -114,55 +116,86 @@
     background-color: var(--color-white);
     top: 1rem;
     min-width: 10rem;
-    right: 1rem;
+    margin-left: 1rem;
     padding: 0.3rem 0.2rem;
     border-radius: var(--border-radius-small);
     z-index: 5;
     text-align: center;
     color: var(--color-primary);
-    box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
 
-    cursor: pointer;
+}
+
+.pastryNameContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    margin-bottom: 1rem;
 }
 
 .pastryName {
-    position: absolute;
-    background-color: var(--color-white);
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 10rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: var(--border-radius-small);
-    z-index: 5;
-    text-align: center;
     color: var(--color-primary);
-    font-size: var(--font-size-normal);
+    font-size: var(--font-size-medium);
     font-weight: var(--font-weight-bold);
 }
 
+.pastryClose {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+
+    cursor: pointer;
+
+}
+
 .pastryPrice {
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 1.7rem;
+}
+
+.pastryPrice2 {
     position: absolute;
     background-color: var(--color-white);
-    bottom: 1rem;
-    right: 0.7rem;
-    width: auto;
+    bottom: 1.3rem;
+    left: 18.6rem;
+    min-width: 10rem;
     padding: 0.4rem 0.5rem;
     border-radius: var(--border-radius-small);
     z-index: 5;
     text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--color-primary);
-    box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
+}
+
+
+
+.pastryEdit {
+    position: absolute;
+    background-color: var(--color-primary-light);
+    bottom: 1.3rem;
+    right: 0.7rem;
+    min-width: 7rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-size: var(--font-size-small);
+
+    cursor: pointer;
 }
 
 .pastryLikes {
     position: absolute;
     background-color: var(--color-white);
-    bottom: 1rem;
+    bottom: 1.3rem;
     left: 0.7rem;
     min-width: 7.3rem;
     padding: 0.4rem 0.5rem;
@@ -172,7 +205,6 @@
     display: flex;
     align-items: center;
     color: var(--color-primary);
-    box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
 
     cursor: pointer;
@@ -181,7 +213,7 @@
 .pastryDislikes {
     position: absolute;
     background-color: var(--color-white);
-    bottom: 1rem;
+    bottom: 1.3rem;
     left: 9rem;
     min-width: 8.5rem;
     padding: 0.4rem 0.5rem;
@@ -191,7 +223,6 @@
     display: flex;
     align-items: center;
     color: var(--color-primary);
-    box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
 
     cursor: pointer;
@@ -203,7 +234,7 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 0.7rem;
-    border-bottom: 0.2rem solid var(--color-primary-medium);
+    /* border-bottom: 0.2rem solid var(--color-primary-medium); */
 }
 
 .notifyButton {
@@ -225,7 +256,8 @@
 
 .pastryDetails {
     text-align: left;
-    padding: 0.5rem 1rem;
+    padding: 2.5rem 1rem;
+    /* margin-top: 1rem; */
 }
 
 .pastryTitle {
@@ -237,6 +269,14 @@
     color: var(--color-primary);
     font-weight: var(--font-weight-normal);
 
+}
+
+.dets {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    margin-bottom: 0.7rem;
 }
 
 .icon {
@@ -281,7 +321,7 @@
 .pastryMessage {
     outline: none;
     padding: 0.8rem;
-    margin: 0.5rem;
+    margin-top: 0.5rem;
     border: 0.2rem solid var(--color-primary-medium);
     font-size: var(--font-size-normal);
     border-radius: var(--border-radius-small);
@@ -292,129 +332,20 @@
     border: 0.2rem solid var(--color-primary-light);
 }
 
-.bakerContainer {
-    width: 70rem;
-    display: flex;
-    flex-direction: row;
-}
-
-.bakerDetails {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    height: 50rem;
-    padding: 0 1rem;
-}
-
-.bakerDetailsScroll {
-    overflow: auto;
-    height: 45rem;
-}
-
-.bakerDetailsScroll::-webkit-scrollbar {
-    width: .4rem;
-    background-color: transparent;
-    border-radius: var(--border-radius-large);
-}
-
-.bakerDetailsScroll::-webkit-scrollbar-thumb {
-    width: .4rem;
-    background-color: rgba(var(--color-secondary-medium), 0.8);
-    border-radius: var(--border-radius-large);
-}
-
-.bakerDetailsScroll::-webkit-scrollbar-track {
-    background-color: var(--color-grey-light-3);
-    margin: 18rem 0;
-}
-
-.bakerCompany {
-    padding: 0.5rem;
-    font-size: var(--font-size-medium);
-    color: var(--color-primary);
-}
-
-.bakerCEO {
-    text-align: left !important;
-    font-size: var(--font-size-medium);
-    margin-right: auto;
-    color: var(--color-primary-light);
-    /* display: block; */
-    padding: 0 0.5rem;
-}
-
-.info {
-    font-size: inherit;
-    font-weight: var(--font-weight-normal);
-    color: var(--color-grey-dark-1);
-}
-
-.subTitle {
-    text-align: left;
-    padding: 0 0.5rem;
-    margin-top: 1rem;
-    font-size: var(--font-size-medium);
-    color: var(--color-primary-light)
-}
-
-.smallDetails {
-    text-align: left;
-    padding: 0 0.5rem;
-    font-size: 1.6rem;
-    color: var(--color-primary-light)
-}
-
-.actions {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.bakerAbout {
-    font-size: var(--font-size-normal);
-    color: var(--color-grey-dark-1);
-    font-weight: var(--font-weight-normal);
-    padding: 0 0.8rem;
-    padding-bottom: 5rem;
-    line-height: 2.2rem;
-    display: block;
-    text-align: justify;
-}
-
-.bakerListImgLogo {
-    height: 3.5rem;
-    border-radius: var(--border-radius-small);
-}
-
-.bakerCategories {
-    margin-left: 4rem;
-    margin-bottom: 1rem;
-    text-align: left;
-    font-size: var(--font-size-normal);
-    word-spacing: .2rem;
-    color: var(--color-grey-dark-1);
-}
-
 @media only screen and (max-width: 27em) {
     .notifyContainer {
         width: 90%;
         margin: 5rem 0;
         height: auto;
-        -webkit-transition: all ease-in-out 0.8s;
-        transition: all ease-in-out 0.8s;
     }
 
     .showContainer {
         position: absolute;
         top: 0;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 0%);
     }
 
-    .bakerContainer {
+    .pastryContainer {
         width: 100%;
         height: 100%;
         flex-direction: column;
@@ -429,16 +360,8 @@
         width: 100%;
     }
 
-    .bakerDetailsScroll {
-        height: auto;
-    }
-
     .closeButton {
         top: 1rem;
         right: 1rem;
-    }
-
-    .bakerAbout {
-        padding-bottom: 5rem;
     }
 }

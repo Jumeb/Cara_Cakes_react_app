@@ -81,7 +81,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    position: fixed;
+    position: absolute;
 
     transition: all ease-in-out 0.8s;
 }
@@ -334,7 +334,7 @@
     }
 
     .showContainer {
-        position: relative;
+        position: absolute;
         top: 0;
         transform: translate(-50%, 0%);
     }

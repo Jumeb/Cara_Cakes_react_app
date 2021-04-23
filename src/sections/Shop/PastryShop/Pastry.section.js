@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { PastryDetail } from '../../../Components';
+import { PastryDetail, PastryDetailV2 } from '../../../Components';
 import styles from './Pastry.module.css'
 import PastryList from './PastryList/Pastry.list';
 
@@ -10,7 +10,7 @@ const PastrySection = (props) => {
     return (
         <div className={styles.pastries}>
             <PastryList isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} {...props} />
-            <PastryDetail detail={isDetail} setDetail={setIsDetail} pastry={pastry} />
+            <PastryDetailV2 detail={isDetail} setDetail={setIsDetail} pastry={pastry} />
         </div>
     )
 }

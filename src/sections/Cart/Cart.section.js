@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import CartList from './CartList/Cart.list';
 import styles from './Cart.module.css';
-import { PastryCart } from '../../Components';
+import { PastryCart, PastryCartV2 } from '../../Components';
 
 const UserSection = (props) => {
     const {} = props;
@@ -12,7 +12,7 @@ const UserSection = (props) => {
     return (
         <div className={styles.cart}>
             <CartList isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} />
-            <PastryCart pastry={pastry} detail={isDetail} setDetail={setIsDetail} />
+            <PastryCartV2 pastry={pastry} detail={isDetail} setDetail={setIsDetail} />
         </div>
     )
 }
