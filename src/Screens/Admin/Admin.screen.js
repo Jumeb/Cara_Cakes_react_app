@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
-import { WorkArea } from '../../Components';
+import { BakerNav, WorkArea, AdminNav2 } from '../../Components';
 import { ABakers, AUsers, AdminNav, Dashboard, AOrders, APastry, APastryS, AProfile, SOrders, Profile } from '../../sections';
 import styles from './Admin.module.css';
 
@@ -18,6 +18,9 @@ const Admin = (props) => {
     return (
         <div className={styles.admin}>
             <AdminNav />
+            {user.type === 'Baker' ? <BakerNav /> : <AdminNav2 />}
+            
+            
             <WorkArea>
                 <Switch>
                     {(!token || !user.hasOwnProperty('name')) ? <Redirect to="/login" /> :

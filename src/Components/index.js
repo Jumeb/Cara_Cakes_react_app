@@ -54,7 +54,9 @@ import AImage from './AImage/AImage.component';
 import UserNav from './UserNav/UserNav.component';
 import PastryCardV2 from './PastryCardV2/PastryCard.component';
 import PastryDetailV2 from './PastryDetailV2/PastryDetail.component';
-import PastryCartV2 from './PastryCartV2/PastryCart.component'
+import PastryCartV2 from './PastryCartV2/PastryCart.component';
+import AdminNav2 from './AdminNav/AdminNav.component';
+import BakerNav from './BakerNav/BakerNav.component';
 
 export {
     Header, 
@@ -114,4 +116,6 @@ export {
     PastryCardV2,
     PastryDetailV2,
     PastryCartV2,
+    AdminNav2,
+    BakerNav,
 };

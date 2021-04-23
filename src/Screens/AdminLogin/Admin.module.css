@@ -189,9 +189,31 @@
     font-weight: var(--font-weight-medium);
 }
 
-@media (max-width: 56.25em) {
+@media only screen and (max-width: 75em) {}
+
+@media only screen and (max-width: 67.5em) {
+    .adminSignIn {
+        width: 75%;
+    }
+
+    .adminContainer {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
     .adminTitle {
         font-size: 3.6rem;
+    }
+
+    .adminSignIn {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .adminSignIn {
+        width: 85%;
     }
 }
 
@@ -199,10 +221,18 @@
     .adminTitle {
         font-size: 3.3rem;
     }
+
+    .adminSignIn {
+        width: 95%;
+    }
 }
 
-@media only screen and (max-width: 25.75em) {
+@media only screen and (max-width: 27em) {
     .adminTitle {
         font-size: 3rem;
+    }
+
+    .adminSignIn {
+        width: 98%;
     }
 }
