@@ -8,23 +8,23 @@ import { BASE_URL } from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 import { setBaker } from '../../redux/Actions/Auth.actions';
 import styles from './BakerDetails.module.css';
-import { HLogo, HouseLogo, vals3 } from '../../res/img';
+import { HLogo, HouseLogo} from '../../res/img';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const BakerDetails = (props) => {
-    const { detail, setDetail, baker, user, refresh } = props;
+    const { detail, setDetail, baker, user, refresh, like, dislike, follow } = props;
 
-    const [likes, setLikes] = useState(0);
-    const [dislikes, setDislikes] = useState(0);
-    const [followers, setFollowers] = useState(0);
+    const [likes, setLikes] = useState(like);
+    const [dislikes, setDislikes] = useState(dislike);
+    const [followers, setFollowers] = useState(follow);
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
 
     useEffect(() => {
         if (baker.length !== 0) {
-            setLikes(baker.likes.users.length);
-            setDislikes(baker.dislikes.users.length);
-            setFollowers(baker.followers.users.length);
+            setLikes(like);
+            setDislikes(dislike);
+            setFollowers(follow);
         }
         return () => {
             setLikes(0);

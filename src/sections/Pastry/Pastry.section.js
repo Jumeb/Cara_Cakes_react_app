@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { AddPastry, EditPastry } from '..';
-import { Language, Notification, PastryDetail, PastryTable, Profile, SearchBar } from '../../Components';
+import { Language, Notification, PastryDetail, PastryDetailV2, PastryTable, Profile, SearchBar } from '../../Components';
 import { BASE_URL } from '../../utils/globalVariable';
 import styles from './Pastry.module.css';
 import {setPastries} from '../../redux/Actions/Data.actions';

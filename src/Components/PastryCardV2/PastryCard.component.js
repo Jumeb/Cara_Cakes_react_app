@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 import { IoStatsChart, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 
 import styles from './PastryCard.module.css';
-import { HouseLogo, logo5, vals3 } from '../../res/img';
-import { Button, Notification, PastryDetail } from '..';
+import { HouseLogo } from '../../res/img';
+import { Notification } from '..';
 import {BASE_URL} from '../../utils/globalVariable';
 import { Thousand } from '../../utils/utilities';
 
 const PastryCard = (props) => {
     const {
-        isDetail,
         setIsDetail,
+        setLike,
+        setDislike,
         pastry,
         setPastry,
         user,
-        filter,
     } = props;
 
     const [loading, setLoading] = useState(false);
@@ -25,9 +25,11 @@ const PastryCard = (props) => {
     const [dislikes, setDislikes] = useState(pastry.dislikes.users.length);
     const [detail, setDetails] = useState(false);
 
-    const showDetail = (pastry) => {
+    const showDetail = (pastry, likes, dislikes) => {
         setIsDetail(true);
         setPastry(pastry);
+        setLike(likes);
+        setDislike(dislikes);
     }
 
     const disLikePastry = (id) => {
@@ -188,7 +190,9 @@ const PastryCard = (props) => {
             <div className={styles.pastryListImgContainer}>
                 <div className={styles.pastryImgContainer}>
                     {pastry.discount > 0 && <div className={styles.pastryDiscount}><IoStatsChart /> Discount: {pastry.discount}%</div>}
-                    <img src={pastry.image ? `${BASE_URL}/${pastry.image}` : HouseLogo} alt="Product" className={styles.pastryListImg} onClick={() => showDetail(pastry)} />
+                    <img src={pastry.image ? `${BASE_URL}/${pastry.image}` : HouseLogo} alt="Product" className={styles.pastryListImg} onClick={() => showDetail(pastry, likes, dislikes)} />
+                    <div className={styles.pastryDislikes} onClick={() => disLikePastry(pastry._id)}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
+                    <div className={styles.pastryLikes} onClick={() => likePastry(pastry._id)}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
                 </div>
                 <div className={styles.pastriesButtonContainer}>
                     <h2 className={styles.pastryName}>{pastry.name.substr(0, 15)}{pastry.name.length > 15 && '...'}</h2>

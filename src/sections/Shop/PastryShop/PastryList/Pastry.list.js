@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { ActivityTwo, Language, Notification, PastryCard, PastryCardV2, PastryFilter, Profile, SearchBar } from '../../../../Components';
+import { ActivityTwo, Language, Notification, PastryCardV2, PastryFilter, Profile, SearchBar } from '../../../../Components';
 import { BASE_URL } from '../../../../utils/globalVariable';
 import styles from './PastryList.module.css'
 import {setPastries} from '../../../../redux/Actions/Data.actions';
@@ -13,6 +13,8 @@ const PastryList = (props) => {
         isDetail,
         setIsDetail,
         setPastry,
+        setLikes,
+        setDislikes,
         token,
         bakerId,
         refresh,
@@ -24,6 +26,7 @@ const PastryList = (props) => {
     const [loading, setLoading] = useState(false);
     const [filter, setFilter] = useState('all');
     const [pastries, setPastries] = useState([]);
+    
     const [text, setText] = useState('');
 
     useEffect(() => {
@@ -109,8 +112,7 @@ const PastryList = (props) => {
             {loading ? <div className={styles.pastriesContainer}>
                 <ActivityTwo />
             </div> : <div className={styles.pastriesContainer}>
-                {pastries.map((pastry, index) => <PastryCardV2 isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} pastry={pastry} key={index} />)}
-                {pastries.map((pastry, index) => <PastryCard isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} pastry={pastry} key={index} />)}
+                {pastries.map((pastry, index) => <PastryCardV2 isDetail={isDetail} setIsDetail={setIsDetail} setPastry={setPastry} setDislike={setDislikes} setLike={setLikes} pastry={pastry} key={index} />)}
             </div>}
             <div className={styles.panelEventHeader}>
                 <div className={styles.panelPosition}>

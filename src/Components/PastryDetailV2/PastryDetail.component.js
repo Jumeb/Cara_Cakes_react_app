@@ -10,11 +10,11 @@ import styles from './PastryDetail.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
 const PastryDetail = (props) => {
-    const {detail, setDetail, pastry, user, refresh, setIsEdit} = props;
+    const {detail, setDetail, pastry, user, refresh, setIsEdit, like, dislike} = props;
 
     const [loading, setLoading] = useState(false);
-    const [likes, setLikes] = useState(0);
-    const [dislikes, setDislikes] = useState(0);
+    const [likes, setLikes] = useState(like);
+    const [dislikes, setDislikes] = useState(dislike);
     const [count, setCount] = useState(0);
     const [show, setShow] = useState(false);
     const [pastryMessage, setPastryMessage] = useState('');
@@ -26,8 +26,8 @@ const PastryDetail = (props) => {
 
     useEffect(() => {
         if(pastry.length !== 0) {
-            setLikes(pastry.likes.users.length);
-            setDislikes(pastry.dislikes.users.length);
+            setLikes(like);
+            setDislikes(dislike);
         }
         setCount(0);
 

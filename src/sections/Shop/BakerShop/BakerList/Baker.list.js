@@ -9,7 +9,7 @@ import {setBakers} from '../../../../redux/Actions/Data.actions';
 import search from '../../../../utils/search';
 
 const BakerList = (props) => {
-    const { isDetail, setIsDetail, token, setBaker, refresh, _bakers } = props;
+    const { isDetail, setIsDetail, token, setBaker, refresh, _bakers, setLikes, setDislikes, setFollow } = props;
 
     const [bakers, setBakers] = useState([]);
     const [message, setMessage] = useState({});
@@ -89,7 +89,7 @@ const BakerList = (props) => {
         <div className={styles.bakersList}>
             {loading ? <div className={styles.bakersContainer}>
                 <ActivityTwo />
-            </div> : <div className={styles.bakersContainer}> {bakers.map((baker, index) => <BakerCard isDetail={isDetail} _setBaker={setBaker} setIsDetail={setIsDetail} baker={baker} key={index} {...props} />)}</div>}
+            </div> : <div className={styles.bakersContainer}> {bakers.map((baker, index) => <BakerCard isDetail={isDetail} _setBaker={setBaker} setIsDetail={setIsDetail} setDislike={setDislikes} setLike={setLikes} setFollow={setFollow} baker={baker} key={index} {...props} />)}</div>}
             <Notification message={message} show={show} setShow={setShow} />
             <div className={styles.panelEventHeader}>
                 <div className={styles.panelPosition}>

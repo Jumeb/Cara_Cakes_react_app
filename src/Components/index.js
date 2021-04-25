@@ -19,7 +19,6 @@ import CartTable from './CartTable/CartTable.component';
 import OrderTable from './OrderTable/OrderTable.component';
 import EventCard from './EventCard/EventCard.component';
 import BakerCard from './BakerCard/BakerCard.component';
-import PastryCard from './PastryCard/PastryCard.component';
 import Input from './Input/Input.component';
 import ButtonThree from './ButtonThree/ButtonThree.component';
 import TextArea from './Input/TextArea.component';
@@ -40,7 +39,6 @@ import ActivityTwo from './ActivityTwo/Activity.component';
 import Notification from './Notification/Notification.component';
 import Verification from './Verification/Verification.component';
 import PastryDetail from './PastryDetail/PastryDetail.component';
-import PastryCart from './PastryCart/PastryCart.component';
 import BakerDetails from './BakerDetails/BakerDetails.component'
 import AdminImage from './AdminImage/AdminImage.component';
 import SquareImage from './SquareInput/SquareImg.component';
@@ -78,7 +76,6 @@ export {
     OrderTable,
     EventCard,
     BakerCard,
-    PastryCard,
     Input,
     ButtonThree,
     Button,
@@ -101,7 +98,6 @@ export {
     Notification,
     Verification,
     PastryDetail,
-    PastryCart,
     BakerDetails,
     AdminImage,
     SquareImage,

@@ -136,10 +136,22 @@
         left: 0;
     }
 
+    .filterPositionHide {
+        left: -7.4rem;
+    }
+
     .filterCategories {
         left: 0;
     }
 }
+
+@media only screen and (max-width: 27em) {
+    .filterPositionHide {
+        left: -7rem;
+    }
+}
+
+
 
 
 

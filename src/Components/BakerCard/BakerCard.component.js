@@ -12,7 +12,7 @@ import { Thousand } from '../../utils/utilities';
 import { setCategories } from '../../redux/Actions/Data.actions';
 
 const BakerCard = (props) => {
-    const { isDetail, setIsDetail, baker, _setBaker, user } = props;
+    const { isDetail, setIsDetail, baker, _setBaker, user, setLike, setDislike, setFollow } = props;
     
     const [dislikes, setDislikes] = useState(baker.dislikes.users.length);
     const [likes, setLikes] = useState(baker.likes.users.length);
@@ -21,9 +21,12 @@ const BakerCard = (props) => {
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
 
-    const showDetail = (baker) => {
+    const showDetail = (baker, likes, dislikes, follow) => {
         _setBaker(baker);
         setIsDetail(true);
+        setLike(likes);
+        setDislike(dislikes);
+        setFollow(follow);
     }
 
     const bakerShop = (baker) => {
@@ -168,18 +171,19 @@ const BakerCard = (props) => {
 
     return (
         <div className={styles.bakerListImgContainer}>
-            <div className={styles.bakerListTitle}>
+            {/* <div className={styles.bakerListTitle}>
                 <h2>{baker.companyName}</h2>
-            </div>
+            </div> */}
             <div className={styles.bakerDiscount} onClick={() => followBaker(baker._id || '')}><IoPeople className={styles.icon} /> Followers: {Thousand(followers)}</div>
-            <img src={baker.ceoImage ? `${BASE_URL}/${baker.ceoImage}` : HouseLogo} alt={baker.name} className={styles.bakerListImg} />
+            <img src={baker.ceoImage ? `${BASE_URL}/${baker.ceoImage}` : HouseLogo} alt={baker.name} className={styles.bakerListImg} onClick={() => showDetail(baker, likes, dislikes, followers)} />
             <div className={styles.bakerLikes} onClick={() => likeBaker(baker._id || '')}><IoThumbsUp className={styles.icon} /> Likes: {Thousand(likes)}</div>
             <div className={styles.bakerDislikes} onClick={() => disLikeBaker(baker._id || '')}><IoThumbsDown className={styles.icon} /> Dislikes: {Thousand(dislikes)}</div>
             <div className={styles.bakerListImgLogoContainer}>
                 <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : HLogo} alt="Product" className={styles.bakerListImgLogo} />
             </div>
             <div className={styles.bakersButtonContainer}>
-                <Button onClick={() => showDetail(baker)} title="Details" />
+                {/* <Button onClick={() => showDetail(baker)} title="Details" /> */}
+                <h2 className={styles.bakerListTitle}>{baker.companyName}</h2>
                 <Button onClick={() => bakerShop(baker)} title="Shop" />
             </div>
             <Notification message={message} show={show} setShow={setShow} />

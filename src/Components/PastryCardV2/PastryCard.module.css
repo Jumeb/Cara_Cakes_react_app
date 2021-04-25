@@ -45,10 +45,43 @@
 }
 
 .pastryLikes {
-    width: 11rem;
+    position: absolute;
+    background-color: var(--color-white);
+    bottom: 1.3rem;
+    left: 0.7rem;
+    min-width: 7.3rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    box-shadow: var(--box-shadow-medium);
+    border: 0.2rem solid var(--color-primary-light);
+    align-items: center;
+    color: var(--color-primary);
+    font-size: var(--font-size-small);
+
+    cursor: pointer;
+}
+
+.pastryDislikes {
+    position: absolute;
+    background-color: var(--color-white);
+    bottom: 1.3rem;
+    left: 9rem;
+    min-width: 8.5rem;
+    padding: 0.4rem 0.5rem;
+    border: 0.2rem solid var(--color-primary-light);
+    border-radius: var(--border-radius-small);
+    z-index: 5;
+    box-shadow: var(--box-shadow-medium);
+    text-align: center;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    color: var(--color-primary);
+    font-size: var(--font-size-small);
+
+    cursor: pointer;
 }
 
 .likeData {
@@ -71,6 +104,7 @@
     height: 25rem;
     width: 100%;
     margin: 0;
+    border-radius: var(--border-radius-small);
 }
 
 .pastryListImgLogoContainer {
