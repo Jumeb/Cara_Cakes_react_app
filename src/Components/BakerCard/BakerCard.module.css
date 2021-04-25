@@ -58,6 +58,8 @@
     text-align: center;
     color: var(--color-primary);
     box-shadow: var(--box-shadow-light);
+    box-shadow: var(--box-shadow-medium);
+    border: 0.2rem solid var(--color-primary-light);
     font-size: var(--font-size-small);
 
     cursor: pointer;
@@ -78,6 +80,8 @@
     color: var(--color-primary);
     box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
+    box-shadow: var(--box-shadow-medium);
+    border: 0.2rem solid var(--color-primary-light);
 
     cursor: pointer;
 }
@@ -97,6 +101,8 @@
     color: var(--color-primary);
     box-shadow: var(--box-shadow-light);
     font-size: var(--font-size-small);
+    box-shadow: var(--box-shadow-medium);
+    border: 0.2rem solid var(--color-primary-light);
 
     cursor: pointer;
 }

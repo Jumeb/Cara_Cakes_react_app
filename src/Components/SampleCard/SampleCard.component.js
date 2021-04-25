@@ -4,7 +4,7 @@ import styles from './SampleCard.module.css';
 import {ButtonTwo} from '../../Components';
 import { Thousand } from '../../utils/utilities';
 import { BASE_URL } from '../../utils/globalVariable';
-import {  IoStorefront } from 'react-icons/io5';
+import {  IoPerson, IoStatsChart, IoStorefront, IoToday } from 'react-icons/io5';
 
 const SampleCard = ({ pastry, index }) => {
     return (
@@ -17,9 +17,9 @@ const SampleCard = ({ pastry, index }) => {
                     <h5 className={[styles.cardHeading, index === 1 ? styles.cardHeading1 : index === 2 ? styles.cardHeading2 : styles.cardHeading3].join(' ')}>{pastry && pastry.name.substr(0, 20)}{pastry && pastry.name.length >= 20 && '...'}</h5>
                     <ul className={[styles.cardList, index === 1 ? styles.cardList1 : index === 2 ? styles.cardList2 : styles.cardList3].join(' ')}>
                         <li><IoStorefront />Company: {pastry && pastry.creator.companyName}</li>
-                        <li>CEO: {pastry && pastry.creator.name}</li>
-                        <li>Type: {pastry && pastry.type}</li>
-                        <li>Discount: {pastry && pastry.discount}%</li>
+                        <li><IoPerson />CEO: {pastry && pastry.creator.name}</li>
+                        <li><IoToday /> Type: {pastry && pastry.type}</li>
+                        <li><IoStatsChart /> Discount: {pastry && pastry.discount}%</li>
                     </ul>
                 </div>
             </div>
