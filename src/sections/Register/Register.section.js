@@ -193,7 +193,7 @@ const RegisterSection = (props) => {
                             <Input
                             len={3}
                             type='number'
-                            placeholder={681726633}
+                            placeholder={"6X1234567"}
                             label="Telephone number"
                             value={tel}
                             setValue={(event) => setTel(event.target.value)}

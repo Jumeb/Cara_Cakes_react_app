@@ -73,6 +73,7 @@
     }
 
     .sampleRow {
+        margin: 0 1.7rem;
         flex-direction: column;
     }
 

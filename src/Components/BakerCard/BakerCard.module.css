@@ -3,6 +3,7 @@
     display: flex;
     height: 47rem;
     padding: 0.8rem;
+    padding-bottom: 0;
     border-radius: var(--border-radius-small);
     justify-content: center;
     flex-direction: column;
@@ -44,6 +45,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0.8rem 0;
+    margin-top: 1rem;
 }
 
 .bakerDiscount {
@@ -115,18 +117,10 @@
     .bakerListImgContainer {
         width: 28rem;
     }
-
-    .bakerListImg {
-        width: 28rem;
-    }
 }
 
 @media only screen and (max-width: 48em) {
     .bakerListImgContainer {
-        width: 32rem;
-    }
-
-    .bakerListImg {
         width: 32rem;
     }
 }
@@ -135,13 +129,29 @@
     .bakerListImgContainer {
         width: 38rem;
         margin: 1.4rem;
-        height: 55rem;
+        height: 53rem;
     }
 
     .bakerListImg {
-        width: 38rem;
         height: 45rem;
     }
+
+    .bakerLikes {
+        bottom: 7.3rem;
+    }
+
+    .bakerDislikes {
+        bottom: 7.3rem;
+    }
+
+    .bakerDiscount {
+        top: 2rem;
+    }
+
+    .bakerListImgLogoContainer {
+        bottom: 7.3rem;
+    }
+
 }
 
 /* @media only screen and (max-width: 75em) {}

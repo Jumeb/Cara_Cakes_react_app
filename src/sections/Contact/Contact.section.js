@@ -30,7 +30,7 @@ const Contact = () => {
                     <span className={styles.contactIcon}><IoPhonePortrait /></span>
                     <div className={styles.contactTel}>
                         <span className={[styles.contactNumber, styles.contactNumber1].join(' ')}>681-726-633</span>
-                        <span className={styles.contactNumber}>681-726-633</span>
+                        <span className={styles.contactNumber}>654-963-722</span>
                     </div>
                 </div>
             </div>
@@ -38,8 +38,8 @@ const Contact = () => {
                 <div className={[styles.contactList, styles.contactList2].join(' ')}>
                     <span className={styles.contactIcon}><IoPhonePortrait /></span>
                     <div className={styles.contactTel}>
-                        <span className={[styles.contactNumber, styles.contactNumber2].join(' ')}>681-726-633</span>
-                        <span className={styles.contactNumber}>681-726-633</span>
+                        <span className={[styles.contactNumber, styles.contactNumber2].join(' ')}>670-030-493</span>
+                        <span className={styles.contactNumber}>6XX-212-173</span>
                     </div>
                 </div>
             </div>

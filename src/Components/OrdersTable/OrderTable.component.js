@@ -96,7 +96,7 @@ const OrderTable = (props) => {
                             <td className={styles.cartTableData}>{Thousand(order.pastries.reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}</td>
                             <td className={styles.cartTableData}>{DateString(order.createdAt)}</td>
                             <td className={styles.cartTableData}>
-                                <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => IncStatus(order, order.pastries.reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}>Inc Status</button>
+                                <button className={[styles.cartButton, styles.verify].join(' ')} onClick={() => IncStatus(order, order.pastries.reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}>{order.status === 'New' ? 'Registeres' : order.status === 'Registered' ? 'Processing' : order.status === 'Processing' ? 'On the way' : order.status === 'On the way' ? 'Delivered' : 'Confirm' }</button>
                                 <button className={[styles.cartButton, styles.details].join(' ')} onClick={() => OrderDetails(order)}>Details</button>
                             </td>
                         </tr>

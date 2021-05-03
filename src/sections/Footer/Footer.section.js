@@ -19,9 +19,9 @@ const Footer = () => {
                         Locations
                     </h3>
                     <ul className={styles.footerList}>
-                        <li className={styles.footerItem}><NavLink to='/hello' className={styles.footerLink}>Buea</NavLink></li>
-                        <li className={styles.footerItem}><NavLink to='/hello' className={styles.footerLink}>Limbe</NavLink></li>
-                        <li className={styles.footerItem}><NavLink to='/hello' className={styles.footerLink}>Bamenda</NavLink></li>
+                        <li className={styles.footerItem}><NavLink to='#' className={styles.footerLink}>Buea</NavLink></li>
+                        <li className={styles.footerItem}><NavLink to='#' className={styles.footerLink}>Limbe</NavLink></li>
+                        <li className={styles.footerItem}><NavLink to='#' className={styles.footerLink}>Bamenda</NavLink></li>
                     </ul>
                 </div>
                 <div className={styles.footerRight}>
@@ -29,11 +29,11 @@ const Footer = () => {
                         Protocol
                     </h3>
                     <ul className={styles.footerList}>
-                        <li className={styles.footerItem}><NavLink to='/hello' className={styles.footerLink}>Terms and Condition</NavLink></li>
-                        <li className={styles.footerItem}><NavLink to='/hello' className={styles.footerLink}>Privacy Policy</NavLink></li>
-                        <li className={styles.footerItem}><NavLink to='/hello' className={styles.footerLink}>Careers</NavLink></li>
-                        <li className={styles.footerItem}><NavLink to='/hello' className={styles.footerDev}>JB Inc</NavLink></li>
-                        <li className={styles.footerItem}><NavLink to='/hello' className={styles.footerDev}>Jume Brice</NavLink></li>
+                        <li className={styles.footerItem}><NavLink to='#' className={styles.footerLink}>Terms and Condition</NavLink></li>
+                        <li className={styles.footerItem}><NavLink to='#' className={styles.footerLink}>Privacy Policy</NavLink></li>
+                        {/* <li className={styles.footerItem}><NavLink to='#' className={styles.footerLink}>Careers</NavLink></li> */}
+                        {/* <li className={styles.footerItem}><NavLink to='#' className={styles.footerDev}>JB Inc</NavLink></li>
+                        <li className={styles.footerItem}><NavLink to='#' className={styles.footerDev}>Jume Brice</NavLink></li> */}
                     </ul>
                 </div>
             </div>
