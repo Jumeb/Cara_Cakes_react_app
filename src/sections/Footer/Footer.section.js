@@ -52,7 +52,7 @@ const Footer = () => {
         <span className={styles.footerContactsRound}><a href='mailto:bricejume@gmail.com'><IoMail className={styles.footerIcons}/></a></span>
         <span className={styles.footerContactsRound}>
             <a 
-                href="https://wa.me/237681726633?text=Good%20day,%20Mr%20Jume%20Brice,%20I'm%20interested%20in%20creating%20a%20baker%20account%20for%20my%20pastry%20business"
+                href="https://wa.me/237681726633?text=Good%20day,%20Home%20of%20Flavours,%20I'm%20interested%20in%20creating%20a%20baker%20account%20for%20my%20pastry%20business"
                         target="_blank"
                         rel="noreferrer"
             >

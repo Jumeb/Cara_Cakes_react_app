@@ -43,7 +43,7 @@
 .filterCategories {
     position: absolute;
     top: 16.6rem;
-    left: -1rem;
+    left: 0;
     z-index: 6;
     transition: all ease-in-out 0.5s;
 }
