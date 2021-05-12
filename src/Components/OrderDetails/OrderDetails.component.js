@@ -119,10 +119,10 @@ const OrderDetails = (props) => {
             <div className={[styles.notifyContainer, detail ? styles.showContainer : styles.hideContainer].join(' ')} onClick={(e) => stopClose(e)}>
                 {order.length !== 0 && <div className={styles.clientDets}>
                     <h2 className={styles.clientName}>{order.userId.name}</h2>
-                    {(order.status !== 'New') && (order.status !== 'Registered') && (order.status !== 'Processing') && <div className={styles.likeActions}>
+                    {/* {(order.status !== 'New') && (order.status !== 'Registered') && (order.status !== 'Processing') && <div className={styles.likeActions}>
                         <span className={styles.likeButton} onClick={() => likeUser(order.userId._id)}><IoThumbsUp className={styles.icon} /> Likes: {likes} </span>
                         <span className={styles.likeButton} onClick={() => disLikeUser(order.userId._id)}><IoThumbsDown className={styles.icon} /> Dislikes: {dislikes}</span>
-                    </div>}
+                    </div>} */}
                 </div>}
                 <div className={styles.pastriesScroll}>
                     {order.length !== 0 &&
