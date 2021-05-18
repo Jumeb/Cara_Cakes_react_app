@@ -9,8 +9,8 @@ import { BASE_URL } from '../../utils/globalVariable';
 import styles from './BakerTable.module.css';
 import { setRefresh } from '../../redux/Actions/Refresh.actions';
 
-const BakerTable = (props) => { 
-    const {bakers, token, refresh, setDetail, setBaker} = props;
+const BakerTable = (props) => {
+    const { bakers, token, refresh, setDetail, setBaker } = props;
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
     const [verify, setVerify] = useState(false);
@@ -42,28 +42,28 @@ const BakerTable = (props) => {
                 'Authorization': `Basic ${token}`
             }
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1];
-            props.setRefresh(true);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                props.setRefresh(true);
 
-            if (statusCode === 200) {
-                setMessage({
-                    type: 'success',
-                    title: 'Success',
-                    message: response.message,
-                })
-                setTimeout(() => {
-                    setVerify(false);
-                }, 2000)
-            }
+                if (statusCode === 200) {
+                    setMessage({
+                        type: 'success',
+                        title: 'Success',
+                        message: response.message,
+                    })
+                    setTimeout(() => {
+                        setVerify(false);
+                    }, 2000)
+                }
 
-        })
+            })
             .catch(err => {
                 setShow(true);
                 setMessage({
@@ -71,7 +71,7 @@ const BakerTable = (props) => {
                     title: 'Unexpected Error',
                     message: 'Please check your internet connection.',
                 })
-        })
+            })
     }
 
     const Suspend = (id) => {
@@ -81,34 +81,34 @@ const BakerTable = (props) => {
                 'Authorization': `Basic ${token}`
             }
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1];
-            props.setRefresh(true);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                props.setRefresh(true);
 
-            if (statusCode === 200) {
+                if (statusCode === 200) {
+                    setShow(true);
+                    setMessage({
+                        type: 'success',
+                        title: 'Success',
+                        message: response.message,
+                    })
+                }
+
+            })
+            .catch(err => {
                 setShow(true);
                 setMessage({
-                    type: 'success',
-                    title: 'Success',
-                    message: response.message,
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.',
                 })
-            }
-
-        })
-            .catch(err => {
-            setShow(true);
-            setMessage({
-                type: 'error',
-                title: 'Unexpected Error',
-                message: 'Please check your internet connection.',
             })
-        })
     }
 
     const Verify = (id) => {
@@ -118,34 +118,34 @@ const BakerTable = (props) => {
                 'Authorization': `Basic ${token}`
             }
         })
-        .then(res => {
-            const statusCode = res.status;
-            const response = res.json();
-            return Promise.all([statusCode, response]);
-        })
-        .then(res => {
-            const statusCode = res[0];
-            const response = res[1];
-            props.setRefresh(true);
+            .then(res => {
+                const statusCode = res.status;
+                const response = res.json();
+                return Promise.all([statusCode, response]);
+            })
+            .then(res => {
+                const statusCode = res[0];
+                const response = res[1];
+                props.setRefresh(true);
 
-            if (statusCode === 200) {
+                if (statusCode === 200) {
+                    setShow(true);
+                    setMessage({
+                        type: 'success',
+                        title: 'Success',
+                        message: response.message,
+                    })
+                }
+
+            })
+            .catch(err => {
                 setShow(true);
                 setMessage({
-                    type: 'success',
-                    title: 'Success',
-                    message: response.message,
+                    type: 'error',
+                    title: 'Unexpected Error',
+                    message: 'Please check your internet connection.',
                 })
-            }
-
-        })
-            .catch(err => {
-            setShow(true);
-            setMessage({
-                type: 'error',
-                title: 'Unexpected Error',
-                message: 'Please check your internet connection.',
             })
-        })
     }
 
     return (
@@ -160,7 +160,7 @@ const BakerTable = (props) => {
                         <td className={styles.cartTableHeaderData}>Verified</td>
                         <td className={styles.cartTableHeaderData}>Actions</td>
                     </thead>
-                    {bakers.map((baker, index) => 
+                    {bakers.map((baker, index) =>
                         <tr className={styles.cartTableRow}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                                 <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : HLogo} alt="Pastry Name" className={styles.cartTableDataImage} />
@@ -184,7 +184,7 @@ const BakerTable = (props) => {
             <Verification verify={verify} setVerify={setVerify} message={message} onClick={(id) => DeleteAuth(id)} />
         </>
     )
-}
+};
 
 const mapStateToProps = ({auth, refresh}) => {
     return {

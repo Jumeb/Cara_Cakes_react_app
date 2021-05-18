@@ -198,3 +198,44 @@ p:not(:last-child) {
         padding: 0 1.8rem;
     }
 }
+
+@media only screen and (max-width: 48em) {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead {
+        position: absolute;
+        top: -300rem;
+        left: -300rem;
+    }
+
+    tr:not(:last-child) {
+        border-bottom: 0.1rem solid var(--color-grey-dark-2);
+    }
+
+    td {
+        border: none;
+        /* border-bottom: 0.1rem solid var(--color-grey-dark-1); */
+        position: relative;
+        padding-left: 50%;
+
+    }
+
+    td:before {
+        position: absolute;
+        top: 0.6rem;
+        left: 0.6rem;
+        width: 50%;
+        padding-right: 1rem;
+        white-space: nowrap;
+        color: var(--color-primary);
+        font-weight: var(--font-weight-medium);
+    }
+}

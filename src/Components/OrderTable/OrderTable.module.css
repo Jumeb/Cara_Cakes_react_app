@@ -152,3 +152,43 @@
         overflow: hidden;
     }
 }
+
+@media only screen and (max-width: 48em) {
+    .orderTableImageContainer {
+        justify-content: center;
+    }
+
+    .orderTableData {
+        border-bottom: 0 solid transparent;
+        font-size: 1.6rem;
+    }
+
+    .orderTableRow:not(:last-child) td {
+        padding-left: 35%;
+    }
+
+    .orderTableRow:not(:last-child) td:nth-of-type(1):before {
+        content: "Product";
+
+    }
+
+    .orderTableRow:not(:last-child) td:nth-of-type(2):before {
+        content: "Price";
+    }
+
+    .orderTableRow:not(:last-child) td:nth-of-type(3):before {
+        content: "Discount";
+    }
+
+    .orderTableRow:not(:last-child) td:nth-of-type(4):before {
+        content: "Message";
+    }
+
+    .orderTableRow:not(:last-child) td:nth-of-type(5):before {
+        content: "Quantity";
+    }
+
+    .orderTableRow:not(:last-child) td:nth-of-type(6):before {
+        content: "Total";
+    }
+}
