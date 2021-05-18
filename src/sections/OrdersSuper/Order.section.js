@@ -113,7 +113,7 @@ const Orders = (props) => {
                         <button className={[styles.bakerChoice, active === 3 && styles.bakerActive].join(' ')} onClick={() => setFilter(3, 'Processing')}>Processing</button>
                         <button className={[styles.bakerChoice, active === 4 && styles.bakerActive].join(' ')} onClick={() => setFilter(4, 'On the Way')}>On the Way</button>
                         <button className={[styles.bakerChoice, active === 5 && styles.bakerActive].join(' ')} onClick={() => setFilter(5, 'Delivered')}>Delivered</button>
-                        <button className={[styles.bakerChoice, active === 6 && styles.bakerActive].join(' ')} onClick={() => setFilter(6, 'Confirmed')}>Delivered</button>
+                        <button className={[styles.bakerChoice, active === 6 && styles.bakerActive].join(' ')} onClick={() => setFilter(6, 'Confirmed')}>Confirmed</button>
                     </div>
                 </div>
                 {loading ? <div className={styles.activity}>
