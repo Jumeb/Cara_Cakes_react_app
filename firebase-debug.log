@@ -1,0 +1,54 @@
+[debug] [2021-05-18T23:16:29.717Z] ----------------------------------------------------------------------
+[debug] [2021-05-18T23:16:29.720Z] Command:       /home/jb-inc/.nvm/versions/node/v14.10.1/bin/node /home/jb-inc/.nvm/versions/node/v14.10.1/bin/firebase init
+[debug] [2021-05-18T23:16:29.721Z] CLI Version:   9.3.0
+[debug] [2021-05-18T23:16:29.721Z] Platform:      linux
+[debug] [2021-05-18T23:16:29.721Z] Node Version:  v14.10.1
+[debug] [2021-05-18T23:16:29.722Z] Time:          Wed May 19 2021 00:16:29 GMT+0100 (West Africa Standard Time)
+[debug] [2021-05-18T23:16:29.722Z] ----------------------------------------------------------------------
+[debug] [2021-05-18T23:16:29.722Z] 
+[debug] [2021-05-18T23:16:29.726Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-05-18T23:16:29.777Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-18T23:16:29.777Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/jb-inc/Desktop/cara-cakes-react-app
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[debug] [2021-05-18T23:16:31.304Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-05-18T23:16:31.310Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using home-of-flavours. 
+[debug] [2021-05-18T23:16:39.895Z] > refreshing access token with scopes: []
+[debug] [2021-05-18T23:16:39.896Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-18T23:16:41.027Z] <<< HTTP RESPONSE 400 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Tue, 18 May 2021 23:16:40 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-18T23:16:41.031Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/home-of-flavours [none]
+[debug] [2021-05-18T23:16:42.259Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/home-of-flavours 401
+[debug] [2021-05-18T23:16:42.260Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/home-of-flavours {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2021-05-18T23:16:42.261Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2021-05-18T23:16:43.178Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (/home/jb-inc/.nvm/versions/node/v14.10.1/lib/node_modules/firebase-tools/lib/responseToError.js:38:12)
+    at Client.doRequest (/home/jb-inc/.nvm/versions/node/v14.10.1/lib/node_modules/firebase-tools/lib/apiv2.js:227:23)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Client.request (/home/jb-inc/.nvm/versions/node/v14.10.1/lib/node_modules/firebase-tools/lib/apiv2.js:93:20)
+    at async Object.getFirebaseProject (/home/jb-inc/.nvm/versions/node/v14.10.1/lib/node_modules/firebase-tools/lib/management/projects.js:289:21)
+    at async Object.doSetup [as project] (/home/jb-inc/.nvm/versions/node/v14.10.1/lib/node_modules/firebase-tools/lib/init/features/project.js:77:27)
+    at async init (/home/jb-inc/.nvm/versions/node/v14.10.1/lib/node_modules/firebase-tools/lib/init/index.js:19:9)
+[error] 
+[error] Error: Failed to get Firebase project home-of-flavours. Please make sure the project exists and your account has permission to access it.

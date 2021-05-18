@@ -1,6 +1,6 @@
 .bakerContainer {
     flex: 0 0 100%;
-    height: 100vh;
+    height: 87vh;
     padding: 0 1rem;
     flex-wrap: wrap;
     overflow: hidden;
@@ -9,7 +9,7 @@
 
 .bakerSection {
     margin-top: 9rem;
-    height: 100%;
+    height: 90%;
     overflow: auto;
 }
 
