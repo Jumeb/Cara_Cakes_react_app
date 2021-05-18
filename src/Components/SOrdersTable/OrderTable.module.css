@@ -139,7 +139,7 @@
         font-size: 1.6rem;
     }
 
-    .cartTableRow:not(:last-child) td {
+    .cartTableRow td {
         padding-left: 35%;
     }
 
