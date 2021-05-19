@@ -139,7 +139,18 @@
     .cartTableData {
         border-bottom: 0 solid transparent;
         font-size: 1.6rem;
+        /* background-color: red; */
+    }
 
+    .cartTableRow {
+        height: 5rem;
+        overflow-y: hidden;
+        transition: all ease-in-out 0.5s;
+    }
+
+    .cartTableRowShow {
+        height: auto;
+        transition: all ease-in-out 0.5s;
     }
 
     .cartTableRow td {

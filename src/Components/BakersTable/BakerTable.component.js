@@ -13,6 +13,7 @@ const BakerTable = (props) => {
     const { bakers, token, refresh, setDetail, setBaker } = props;
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
+    const [active, setActive] = useState(-1);
     const [verify, setVerify] = useState(false);
     const [message, setMessage] = useState({});
 
@@ -161,7 +162,7 @@ const BakerTable = (props) => {
                         <td className={styles.cartTableHeaderData}>Actions</td>
                     </thead>
                     {bakers.map((baker, index) =>
-                        <tr className={styles.cartTableRow}>
+                        <tr className={[styles.cartTableRow, active === index && styles.cartTableRowShow].join(' ')} onClick={() => setActive(index)}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                                 <img src={baker.companyImage ? `${BASE_URL}/${baker.companyImage}` : HLogo} alt="Pastry Name" className={styles.cartTableDataImage} />
                                 <b>{baker.name}</b>
