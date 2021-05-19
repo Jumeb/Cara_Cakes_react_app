@@ -13,6 +13,7 @@ import styles from './UserTable.module.css';
 const UserTable = (props) => {
     const { users, token, setDetail, setUser, refresh } = props;
     const [loading, setLoading] = useState(false);
+    const [active, setActive] = useState(-1);
     const [show, setShow] = useState(false);
     const [verify, setVerify] = useState(false);
     const [message, setMessage] = useState({});
@@ -139,7 +140,7 @@ const UserTable = (props) => {
                     </thead>
 
                     {users.map((user, index) =>
-                        <tr className={styles.cartTableRow}>
+                        <tr className={[styles.cartTableRow, active === index && styles.cartTableRowShow].join(' ')} onClick={() => setActive(index)}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                                 <img src={user.image ? `${BASE_URL}/${user.image}` : HLogo} alt={user.name} className={styles.cartTableDataImage} />
                                 <b>{user.name.substr(0, 20)}</b>

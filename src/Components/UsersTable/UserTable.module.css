@@ -135,6 +135,17 @@
         font-size: 1.6rem;
     }
 
+    .cartTableRow {
+        height: 5rem;
+        overflow-y: hidden;
+        transition: all ease-in-out 0.5s;
+    }
+
+    .cartTableRowShow {
+        height: auto;
+        transition: all ease-in-out 0.5s;
+    }
+
     .cartTableRow td {
         padding-left: 35%;
     }
