@@ -186,6 +186,10 @@
         justify-content: flex-start;
     }
 
+    .cartTableDataImage {
+        margin-left: 0;
+    }
+
     .cartTableData {
         border-bottom: 0 solid transparent;
         font-size: 1.6rem;

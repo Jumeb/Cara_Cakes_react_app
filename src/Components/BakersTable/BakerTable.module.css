@@ -136,6 +136,10 @@
         justify-content: center;
     }
 
+    .cartTableDataImage {
+        margin-left: 0;
+    }
+
     .cartTableData {
         border-bottom: 0 solid transparent;
         font-size: 1.6rem;

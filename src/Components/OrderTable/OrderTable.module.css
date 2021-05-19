@@ -158,6 +158,10 @@
         justify-content: flex-start;
     }
 
+    .orderTableDataImage {
+        margin-left: 0;
+    }
+
     .orderTableData {
         border-bottom: 0 solid transparent;
         font-size: 1.6rem;
