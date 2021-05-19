@@ -155,16 +155,36 @@
 
 @media only screen and (max-width: 48em) {
     .orderTableImageContainer {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .orderTableData {
         border-bottom: 0 solid transparent;
         font-size: 1.6rem;
+        text-align: left;
+    }
+
+    .orderTableRow:last-child .orderTableData {
+        text-align: center !important;
+    }
+
+    .orderTableRow {
+        height: 5rem;
+        overflow-y: hidden;
+        transition: all ease-in-out 0.5s;
+    }
+
+    .orderTableRow:last-child {
+        height: 100% !important;
+    }
+
+    .orderTableRowShow {
+        height: auto;
+        transition: all ease-in-out 0.5s;
     }
 
     .orderTableRow:not(:last-child) td {
-        padding-left: 35%;
+        padding-left: 50%;
     }
 
     .orderTableRow:not(:last-child) td:nth-of-type(1):before {

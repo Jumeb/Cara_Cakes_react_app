@@ -15,6 +15,7 @@ const PastryTable = (props) => {
     const { pastries, token, setDetail, refresh, setPastry, user } = props;
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
+    const [active, setActive] = useState(-1);
     const [verify, setVerify] = useState(false);
     const [message, setMessage] = useState({});
 
@@ -98,7 +99,7 @@ const PastryTable = (props) => {
                         <td className={styles.cartTableHeaderData}>Discount</td>
                         <td className={styles.cartTableHeaderData}>Actions</td>
                     </thead>
-                    {pastries.map((pastry, index) => (<tr className={styles.cartTableRow}>
+                    {pastries.map((pastry, index) => (<tr className={[styles.cartTableRow, active === index && styles.cartTableRowShow].join(' ')} onClick={() => setActive(index)}>
                         <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                             <img src={pastry.image ? `${BASE_URL}/${pastry.image}` : HouseLogo} alt={pastry.name} className={styles.cartTableDataImage} />
                             <b>{pastry.name}</b>

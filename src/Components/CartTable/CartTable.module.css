@@ -183,16 +183,36 @@
 
 @media only screen and (max-width: 48em) {
     .cartTableImageContainer {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .cartTableData {
         border-bottom: 0 solid transparent;
         font-size: 1.6rem;
+        text-align: left;
+    }
+
+    .cartTableRow:last-child .cartTableData {
+        text-align: center !important;
+    }
+
+    .cartTableRow {
+        height: 5rem;
+        overflow-y: hidden;
+        transition: all ease-in-out 0.5s;
+    }
+
+    .cartTableRow:last-child {
+        height: 100% !important;
+    }
+
+    .cartTableRowShow {
+        height: auto;
+        transition: all ease-in-out 0.5s;
     }
 
     .cartTableRow:not(:last-child) td {
-        padding-left: 35%;
+        padding-left: 50%;
     }
 
     .cartTableRow:not(:last-child) td:nth-of-type(1):before {

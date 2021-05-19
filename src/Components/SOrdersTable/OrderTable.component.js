@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoTrashBinSharp } from 'react-icons/io5';
 
 import { HouseLogo, pans2 } from '../../res/img';
@@ -8,6 +8,8 @@ import styles from './OrderTable.module.css';
 
 const OrderTable = (props) => { 
     const { orders, token, setOrder, setDetail } = props;
+
+    const [active, setActive] = useState(-1);
 
     const OrderDetails = (order) => {
         setOrder(order);
@@ -26,7 +28,7 @@ const OrderTable = (props) => {
                         <td className={styles.cartTableHeaderData}>Actions</td>
                     </thead>
                     {orders.map((order, index) => 
-                        <tr className={styles.cartTableRow}>
+                        <tr className={[styles.cartTableRow, active === index && styles.cartTableRowShow].join(' ')} onClick={() => setActive(index)}>
                             <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
                                 <img src={order.userId.image ? `${BASE_URL}/${order.userId.image}` : HouseLogo} alt={order.userId.name} className={styles.cartTableDataImage} />
                                 <b>{order.userId.name.substr(0, 20)}</b>

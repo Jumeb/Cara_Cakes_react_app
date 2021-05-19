@@ -14,6 +14,8 @@ const OrderTable = (props) => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState({});
     const [show, setShow] = useState(false);
+    const [active, setActive] = useState(-1);
+    const [bActive, setBActive] = useState(-1);
     const [orders, setOrders] = useState({});
 
     useEffect(() => {
@@ -128,13 +130,18 @@ const OrderTable = (props) => {
             })
         }
     };
+
+    const ShowActive = (bakerIndex, pastryIndex) => {
+        setActive(pastryIndex);
+        setBActive(bakerIndex);
+    }
     
     
     return (
         <>
              {loading ? <div> <ActivityTwo /> </div> : <>
-                {Object.keys(orders)[0] ? Object.values(orders).map((order, index) => (<div className={styles.orderSeparator}>
-                    <h1 className={styles.orderListBaker}>Company: {Object.keys(orders)[index]}</h1>
+                {Object.keys(orders)[0] ? Object.values(orders).map((order, i) => (<div className={styles.orderSeparator}>
+                    <h1 className={styles.orderListBaker}>Company: {Object.keys(orders)[i]}</h1>
                     {order.filter(order => filter === 'All' ? order.status : order.status === filter).map((order, index) =>
                         <table className={styles.orderTable} key={index}>
                             <thead className={styles.orderTableHeader}>
@@ -146,7 +153,7 @@ const OrderTable = (props) => {
                                 <td className={styles.orderTableHeaderData}>Total</td>
                             </thead>
                             {order.pastries.map((pastry, index) =>
-                                <tr className={styles.orderTableRow} key={index}>
+                                <tr className={[styles.orderTableRow, active === index && bActive === i && styles.orderTableRowShow].join(' ')} key={index} onClick={() => ShowActive(i, index)}>
                                     <td className={[styles.orderTableData , styles.orderTableImageContainer].join(' ')}>
                                         <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt="Pastry Name" className={styles.orderTableDataImage} />
                                         <b className={styles.pastryName}>{pastry.pastryId.name.substr(0, 20)}{pastry.pastryId.name.length > 20 && '...'}</b>

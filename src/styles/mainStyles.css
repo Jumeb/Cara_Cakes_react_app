@@ -237,5 +237,6 @@ p:not(:last-child) {
         white-space: nowrap;
         color: var(--color-primary);
         font-weight: var(--font-weight-medium);
+        text-align: center;
     }
 }

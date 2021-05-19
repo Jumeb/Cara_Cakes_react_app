@@ -20,6 +20,8 @@ const CartTable = (props) => {
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
     const [_user, setUser] = useState([]);
+    const [bActive, setBActive] = useState(-1);
+    const [active, setActive] = useState(-1);
     const [message, setMessage] = useState({});
     const [cart, setCart] = useState({});
 
@@ -180,14 +182,19 @@ const CartTable = (props) => {
         })
     }
 
+    const ShowActive = (bakerIndex, pastryIndex) => {
+        setActive(pastryIndex);
+        setBActive(bakerIndex);
+    }
+
     return (
         <>
             {loading ? <div>
                 <ActivityTwo />
             </div> : <>
-                {Object.keys(cart)[0] ? Object.values(cart).map((pastries, index) => (
-                    <div className={styles.cartSeparator} key={ index }>
-                        <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[index]} {_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[index]}`).pastryId.creator.suspend && <span className={styles.suspended}>Suspended, order at your own discretion.</span>}</h1>
+                {Object.keys(cart)[0] ? Object.values(cart).map((pastries, i) => (
+                    <div className={styles.cartSeparator} key={ i }>
+                        <h1 className={styles.cartListBaker}>Company: {Object.keys(cart)[i]} {_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[i]}`).pastryId.creator.suspend && <span className={styles.suspended}>Suspended, order at your own discretion.</span>}</h1>
                         <table className={styles.cartTable}>
                             <thead className={styles.cartTableHeader}>
                                 <td className={styles.cartTableHeadeData}>Product</td>
@@ -198,9 +205,9 @@ const CartTable = (props) => {
                             </thead>
 
                         {pastries.map((pastry, index) => 
-                            <tr className={styles.cartTableRow} onClick={() => showDetail(pastry)} key={index}>
+                            <tr className={[styles.cartTableRow, active === index && bActive === i && styles.cartTableRowShow].join(' ')} onClick={() => ShowActive(i, index)} key={index}>
                                 <td className={[styles.cartTableData, styles.cartTableImageContainer].join(' ')}>
-                                    <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt={pastry.pastryId.name} className={styles.cartTableDataImage} />
+                                    <img src={`${BASE_URL}/${pastry.pastryId.image}`} alt={pastry.pastryId.name} className={styles.cartTableDataImage} onClick={() => showDetail(pastry)} />
                                     <b className={styles.pastryName}>{pastry.pastryId.name}</b>
                                 </td>
                                 <td className={styles.cartTableData}>{Thousand(pastry.pastryId.price)}</td>
@@ -215,9 +222,9 @@ const CartTable = (props) => {
                                     <button className={styles.cartButton}>Apply</button>
                                 </td>
                                 <td colSpan="1" className={[styles.cartTableData, styles.cartCoupon].join(' ')}>
-                                    <button className={styles.cartButton} onClick={() => Order(_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[index]}`).pastryId.creator._id)}>Order</button>
+                                    <button className={styles.cartButton} onClick={() => Order(_user.find(data => data.pastryId.creator.companyName === `${Object.keys(cart)[i]}`).pastryId.creator._id)}>Order</button>
                                 </td>
-                                <td colSpan="1" className={styles.cartTableData}>Total: {Thousand(Object.values(cart)[index].reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}</td>
+                                <td colSpan="1" className={styles.cartTableData}>Total: {Thousand(Object.values(cart)[i].reduce((sum, pastry) => sum + (pastry.pastryId.discount ? (((100 - pastry.pastryId.discount)/100) * pastry.pastryId.price * pastry.quantity) : (pastry.pastryId.price * pastry.quantity)), 0))}</td>
                             </tr>
                         </table>
                     </div>
