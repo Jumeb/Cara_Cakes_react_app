@@ -178,6 +178,10 @@
         transition: all ease-in-out 0.5s;
     }
 
+    .orderTableRow:hover {
+        background-color: transparent;
+    }
+
     .orderTableRow:last-child {
         height: 100% !important;
     }

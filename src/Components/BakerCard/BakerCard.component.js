@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { IoPeople, IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 
 import { Button, Notification } from '..';
-import { HLogo, HouseLogo, vals3 } from '../../res/img';
+import { HLogo, HouseLogo } from '../../res/img';
 import styles from './BakerCard.module.css';
 import {setBaker} from '../../redux/Actions/Auth.actions';
 import { BASE_URL } from '../../utils/globalVariable';

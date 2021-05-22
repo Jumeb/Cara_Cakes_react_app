@@ -127,7 +127,7 @@
 
 @media only screen and (max-width: 48em) {
     .cartTableImageContainer {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .cartTableDataImage {
@@ -137,6 +137,7 @@
     .cartTableData {
         border-bottom: 0 solid transparent;
         font-size: 1.6rem;
+        text-align: left;
     }
 
     .cartTableRow {
@@ -145,13 +146,17 @@
         transition: all ease-in-out 0.5s;
     }
 
+    .cartTableRow:hover {
+        background-color: transparent;
+    }
+
     .cartTableRowShow {
         height: auto;
         transition: all ease-in-out 0.5s;
     }
 
     .cartTableRow td {
-        padding-left: 35%;
+        padding-left: 50%;
     }
 
     .cartTableRow td:nth-of-type(1):before {

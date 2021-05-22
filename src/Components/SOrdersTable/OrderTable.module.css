@@ -159,6 +159,10 @@
         padding-left: 50%;
     }
 
+    .cartTableRow:hover {
+        background-color: transparent;
+    }
+
     .cartTableRow td:nth-of-type(1):before {
         content: "Client Name";
 

@@ -152,6 +152,10 @@
         transition: all ease-in-out 0.5s;
     }
 
+    .cartTableRow:hover {
+        background-color: transparent;
+    }
+
     .cartTableRowShow {
         height: auto;
         transition: all ease-in-out 0.5s;

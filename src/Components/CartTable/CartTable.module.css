@@ -206,6 +206,10 @@
         transition: all ease-in-out 0.5s;
     }
 
+    .cartTableRow:hover {
+        background-color: transparent;
+    }
+
     .cartTableRow:last-child {
         height: 100% !important;
     }
