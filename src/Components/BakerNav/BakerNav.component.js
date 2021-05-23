@@ -1,8 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {IoArchive, IoCafe, IoCard, IoCart, IoGift, IoGrid, IoLogOut, IoPeople, IoPerson, IoStatsChart} from 'react-icons/io5';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import styles from './BakerNav.module.css';
+import { resetUser } from '../../redux/Actions/Auth.actions';
+
 
 const BakerNav = () => {
     return (
@@ -32,4 +36,8 @@ const BakerNav = () => {
     )
 }
 
-export default BakerNav;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ resetUser }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(BakerNav);

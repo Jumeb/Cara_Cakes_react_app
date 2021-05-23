@@ -1,8 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {IoCard, IoCart, IoLogOut, IoPerson, IoStatsChart} from 'react-icons/io5';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import styles from './UserNav.module.css';
+import { resetUser } from '../../redux/Actions/Auth.actions';
 
 const UserNav = () => {
     return (
@@ -32,4 +35,8 @@ const UserNav = () => {
     )
 }
 
-export default UserNav;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ resetUser }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(UserNav);
